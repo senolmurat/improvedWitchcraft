@@ -1,0 +1,5 @@
+has_any_lifestyle_trigger = {
+	global = HAS_ANY_LIFESTYLE_TRIGGER
+	first = I_HAVE_ANY_LIFESTYLE_TRIGGER
+	third = THEY_HAVE_ANY_LIFESTYLE_TRIGGER	
+}

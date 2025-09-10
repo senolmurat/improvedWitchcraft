@@ -1,0 +1,114 @@
+witch = {
+	category = fame
+
+	diplomacy = -1
+	intrigue = 1
+	learning = 1
+
+	same_opinion = 20
+
+	culture_modifier = {
+		parameter = witch_trait_more_valued
+		monthly_prestige = 0.25
+	}
+
+	track = {
+		50 = {
+			diplomacy = -1
+			learning = 1
+			intrigue = 1
+			culture_modifier = {
+				parameter = witch_trait_more_valued
+				monthly_prestige = 0.5
+			}
+		}
+		100 = {
+			diplomacy = -1
+			learning = 1
+			intrigue = 1
+			culture_modifier = {
+				parameter = witch_trait_more_valued
+				monthly_prestige = 0.75
+			}
+		}
+	}
+
+	ruler_designer_cost = 20
+
+	# Loc
+	name = {
+		first_valid = {
+			##Grand Wizard Witch
+			#triggered_desc = {
+			#	trigger = {
+			#		exists = this
+			#		has_trait_xp = {
+			#			trait = witch
+			#			value >= 100
+			#		}
+			#	}
+			#	desc = trait_witch_3
+			#}
+			##Experienced Witch
+			#triggered_desc = {
+			#	trigger = { 
+			#		exists = this
+			#		has_trait_xp = {
+			#			trait = witch
+			#			value >= 50
+			#		}
+			#	}
+			#	desc = trait_witch_2
+			#}
+			#Witch
+			desc = trait_witch
+		}
+	}
+
+	# Loc
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_witch_desc
+			}
+			#triggered_desc = {
+			#	trigger = { 
+			#		has_trait_xp = {
+			#			trait = witch
+			#			value >= 100
+			#		}
+			#	}
+			#	desc = trait_witch_3_character_desc
+			#}
+			#triggered_desc = {
+			#	trigger = { 
+			#		has_trait_xp = {
+			#			trait = witch
+			#			value >= 50
+			#		}
+			#	}
+			#	desc = trait_witch_2_character_desc
+			#}
+			desc = trait_witch_character_desc
+		}
+	}
+
+	ai_compassion = very_low_negative_ai_value
+	ai_boldness = very_low_positive_ai_value
+	ai_rationality = very_low_positive_ai_value
+	
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = witchcraft_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+}

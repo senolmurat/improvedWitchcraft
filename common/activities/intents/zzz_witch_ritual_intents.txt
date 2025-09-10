@@ -1,0 +1,179 @@
+﻿### Witch Ritual Intents - Improved Witchcraft Mod
+
+# New blessing intent for powerful boons and modifiers
+blessing_intent = {
+	icon = pious_intent
+	
+	on_invalidated = { trigger_event = activity_system.0090 }
+	
+	ai_will_do = {
+		value = 20
+		add = {
+			value = ai_rationality
+			multiply = 1.5
+			max = 100
+		}
+	}
+	
+	scripted_animation = {
+		animation = prayer
+	}
+}
+
+# Intent for cursing enemies and rivals
+curse_enemy_intent = {
+	icon = intent_gain_hook
+	
+	on_invalidated = { trigger_event = activity_system.0090 }
+
+	is_valid = {
+		OR = {
+			num_of_relation_rival > 0
+			any_scheme = {
+				scheme_type = murder
+			}
+		}
+	}
+	
+	ai_will_do = {
+		value = 10
+		add = {
+			value = ai_vengefulness
+			multiply = 1.5
+			max = 100
+		}
+		if = {
+			limit = { has_trait = vengeful }
+			add = 25
+		}
+		if = {
+			limit = { has_trait = sadistic }
+			add = 50
+		}
+	}
+	
+	scripted_animation = {
+		animation = spymaster
+	}
+}
+
+# Intent for seeking forbidden knowledge, perk for current lifestyle focus
+forbidden_knowledge_intent = {
+	icon = intent_knowledge
+
+	is_valid = {
+		has_any_lifestyle_trigger = yes
+	}
+	
+	on_invalidated = { trigger_event = activity_system.0090 }
+	
+	ai_will_do = {
+		value = 20
+		add = {
+			value = ai_rationality
+			multiply = 1
+			max = 50
+		}
+		add = {
+			value = ai_boldness
+			multiply = 1.5
+			max = 100
+		}
+	}
+	
+	scripted_animation = {
+		animation = reading
+	}
+}
+
+sacrifice_intent = {
+	icon = murder_intent
+	
+	is_shown = {
+		has_dlc_feature = advanced_activities
+		is_alive = yes
+		is_adult = yes
+		always = no # hidden for tests
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_targets = {
+		ai_recipients = scheme_targets
+		ai_recipients = scripted_relations
+	}
+
+	# Handle target character invalidation
+	is_target_valid = {
+		scope:target = {
+			is_ai = yes
+		}
+		OR = {
+			can_start_scheme = {
+				type = murder
+				target_character = scope:target
+			}
+			is_scheming_against = {
+				type = murder
+				target = scope:target
+			}
+		}
+	}
+
+	on_target_invalidated = {
+		trigger_event = activity_system.0092
+	}
+
+	ai_will_do = {
+		value = 0
+		add = {
+			value = root.ai_zeal
+			multiply = 1
+		}
+		if = {
+			limit = {
+				ai_compassion >= high_positive_ai_value
+			}
+			add = -100
+		}
+		if = {
+			limit = {
+				ai_honor >= high_positive_ai_value
+			}
+			add = -1000
+		}
+	}
+
+	ai_target_score = {
+		value = 0
+		# Bonus if unimportant target
+		if = {
+			limit = {
+				is_of_major_interest_trigger = { CHARACTER = root }
+				is_of_minor_interest_trigger = { CHARACTER = root }
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				has_relation_rival = scope:target
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				any_scheme = {
+					scheme_type = murder
+					scheme_target_character = scope:target
+				}
+			}
+			add = 150
+		}
+	}
+	
+	scripted_animation = {
+		animation = chaplain
+	}
+}

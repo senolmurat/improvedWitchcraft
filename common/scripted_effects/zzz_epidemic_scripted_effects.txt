@@ -1,0 +1,62 @@
+# Random Epidemic Outbreak Scripted Effects
+# Creates a random epidemic outbreak at a random location
+
+# Main effect to create a random epidemic outbreak
+create_random_epidemic_outbreak_effect = {
+	# Select a random epidemic type with weighted probabilities
+	random_list = {
+		# Common diseases (higher weight)
+		35 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = consumption
+				intensity = $INTENSITY$
+			} 
+		}
+		20 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = smallpox
+				intensity = $INTENSITY$
+			}
+		}
+		20 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = measles
+				intensity = $INTENSITY$
+			}
+		}
+		# Less common diseases (medium weight)
+		10 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = typhus
+				intensity = $INTENSITY$
+			}
+		}
+		5 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = bubonic_plague
+				intensity = $INTENSITY$
+			}
+		}
+		# Rare diseases (lower weight)
+		3 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = dysentery
+				intensity = $INTENSITY$
+			}
+		}
+		# Very rare but devastating (lowest weight)
+		2 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = ergotism
+				intensity = $INTENSITY$
+			}
+		}
+	}
+}

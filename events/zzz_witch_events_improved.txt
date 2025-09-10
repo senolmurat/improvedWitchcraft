@@ -1,0 +1,826 @@
+﻿namespace = witchimproved
+
+# Blessing intent event - attendees can get different boons
+witchimproved.1001 = {
+	type = activity_event
+	title = witchimproved.1001.t
+	desc = witchimproved.1001.desc
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = scope:left_portrait
+	right_portrait = scope:right_portrait
+
+	immediate = {
+		save_scope_as = host
+
+		#Tell everyone secret about everyone else
+		hidden_effect = {
+			scope:activity = {
+				every_attending_character = {
+					save_temporary_scope_as = learning_secret
+					scope:activity = {
+						every_attending_character = {
+							random_secret = {
+								limit = {
+									secret_type = secret_witch
+									NOT = { is_known_by = scope:learning_secret }
+								}
+								reveal_to = scope:learning_secret
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#Give outcome to host
+		if = {
+			limit = { this = scope:host }
+
+			if = {
+				limit = {
+					OR = {
+						scope:grand_rite_ceremony_outcome = flag:great_translation
+						scope:grand_rite_ceremony_outcome = flag:great_tricks
+						scope:grand_rite_ceremony_outcome = flag:great_improvisation
+						scope:grand_rite_ceremony_outcome = flag:offering
+					}
+				}
+				grand_rite_good_outcome = yes
+			}
+			else = {
+				grand_rite_poor_outcome = yes
+			}
+		}
+
+		scope:activity = {
+			#Talk to new guest
+			if = {
+				limit = { root = scope:host }
+				scope:activity = {
+					random_attending_character = {
+						limit = { has_character_flag = grand_rite_new_guest }
+						save_scope_as = new_guest
+					}
+				}
+			}
+
+			#Teacher (boon )
+			random_attending_character = {
+				limit = {
+					NOR = {
+						trigger_if = {
+							limit = { exists = scope:new_guest }
+							this = scope:new_guest
+						}
+						trigger_if = {
+							limit = { exists = scope:herbalist }
+							this = scope:herbalist
+						}
+						this = root
+					}
+					trigger_if = {
+						limit = { highest_skill = diplomacy }
+					}
+					trigger_else_if = {
+						limit = { highest_skill = martial }
+					}
+					trigger_else_if = {
+						limit = { highest_skill = stewardship }
+					}
+					trigger_else_if = {
+						limit = { highest_skill = intrigue }
+					}
+					trigger_else_if = {
+						limit = { highest_skill = learning }
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				weight = {
+					base = 0
+					modifier = {
+						add = {
+							if = {
+								limit = { highest_skill = diplomacy }
+								add = diplomacy
+							}
+							else_if = {
+								limit = { highest_skill = martial }
+								add = martial
+							}
+							else_if = {
+								limit = { highest_skill = stewardship }
+								add = stewardship
+							}
+							else_if = {
+								limit = { highest_skill = intrigue }
+								add = intrigue
+							}
+							else_if = {
+								limit = { highest_skill = learning }
+								add = learning
+							}
+						}
+					}
+				}
+				save_scope_as = teacher
+			}
+		}
+
+		#Set portraits
+		if = {
+			limit = {
+				exists = scope:teacher
+				exists = scope:new_guest
+			}
+			scope:teacher = { save_scope_as = left_portrait }
+			scope:new_guest = { save_scope_as = right_portrait }
+		}
+		else_if = {
+			limit = {
+				exists = scope:teacher
+			}
+			save_scope_as = left_portrait
+			scope:teacher = { save_scope_as = right_portrait }
+		}
+		else_if = {
+			limit = {
+				exists = scope:new_guest
+			}
+			save_scope_as = left_portrait
+			scope:new_guest = { save_scope_as = right_portrait }
+		}
+		else = {
+			save_scope_as = left_portrait
+		}
+	}
+
+	# Seek health boon
+	option = {
+		name = witchimproved.1001.a
+		
+		add_character_modifier = {
+			modifier = witch_blessing_health_boon
+			years = 2
+		}
+	}
+
+	#Teacher gives you lifestyle perk point
+	option = {
+		trigger = { exists = scope:teacher }
+		name = {
+			text = {
+				desc = witch.3014.b.start
+				first_valid = {
+					triggered_desc = {
+						trigger = { scope:teacher = { highest_skill = diplomacy } }
+						desc = witch.3014.b.diplomacy
+					}
+					triggered_desc = {
+						trigger = { scope:teacher = { highest_skill = martial } }
+						desc = witch.3014.b.martial
+					}
+					triggered_desc = {
+						trigger = { scope:teacher = { highest_skill = stewardship } }
+						desc = witch.3014.b.stewardship
+					}
+					triggered_desc = {
+						trigger = { scope:teacher = { highest_skill = intrigue } }
+						desc = witch.3014.b.intrigue
+					}
+					triggered_desc = {
+						trigger = { scope:teacher = { highest_skill = learning } }
+						desc = witch.3014.b.learning
+					}
+				}
+			}
+		}
+		highlight_portrait = scope:teacher
+
+		if = {
+			limit = { scope:teacher = { highest_skill = diplomacy } }
+			add_character_modifier = {
+				modifier = witch_blessing_diplomacy_boon
+				years = 2
+			}
+		}
+		else_if = {
+			limit = { scope:teacher = { highest_skill = martial } }
+			add_character_modifier = {
+				modifier = witch_blessing_martial_boon
+				years = 2
+			}
+		}
+		else_if = {
+			limit = { scope:teacher = { highest_skill = stewardship } }
+			add_character_modifier = {
+				modifier = witch_blessing_stewardship_boon
+				years = 2
+			}
+		}
+		else_if = {
+			limit = { scope:teacher = { highest_skill = intrigue } }
+			add_character_modifier = {
+				modifier = witch_blessing_intrigue_boon
+				years = 2
+			}
+		}
+		else_if = {
+			limit = { scope:teacher = { highest_skill = learning } }
+			add_character_modifier = {
+				modifier = witch_blessing_learning_boon
+				years = 2
+			}
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+	}
+
+	# Seek fertility boon (female only)
+	option = {
+		name = witchimproved.1001.b
+		trigger = {
+			is_female = yes
+			age >= 16
+			age <= 45
+		}
+		
+		add_character_modifier = {
+			modifier = witch_blessing_fertility_boon
+			years = 2
+		}
+	}
+
+	# allrounder
+	option = {
+		name = witchimproved.1001.c
+		
+		add_character_modifier = {
+			modifier = witch_blessing_allrounder_boon
+			years = 2
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+			ambitious = minor_stress_impact_gain
+		}
+	}
+}
+
+# Curse enemy intent event - attendees can curse their targets
+witchimproved.1002 = {
+	type = activity_event
+	title = witchimproved.1002.t
+	desc = witchimproved.1002.desc
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = scope:left_portrait
+	#right_portrait = scope:right_portrait
+	lower_center_portrait = scope:lower_center_portrait
+
+	immediate = {
+		save_scope_as = host
+
+		#Tell everyone secret about everyone else
+		hidden_effect = {
+			scope:activity = {
+				every_attending_character = {
+					save_temporary_scope_as = learning_secret
+					scope:activity = {
+						every_attending_character = {
+							random_secret = {
+								limit = {
+									secret_type = secret_witch
+									NOT = { is_known_by = scope:learning_secret }
+								}
+								reveal_to = scope:learning_secret
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#Give outcome to host
+		if = {
+			limit = { this = scope:host }
+
+			if = {
+				limit = {
+					OR = {
+						scope:grand_rite_ceremony_outcome = flag:great_translation
+						scope:grand_rite_ceremony_outcome = flag:great_tricks
+						scope:grand_rite_ceremony_outcome = flag:great_improvisation
+						scope:grand_rite_ceremony_outcome = flag:offering
+					}
+				}
+				grand_rite_good_outcome = yes
+			}
+			else = {
+				grand_rite_poor_outcome = yes
+			}
+		}
+
+		# get curse target
+		if = {
+			limit = { root = scope:host }
+			random_relation = {
+				type = rival
+				save_scope_as = target
+			}
+		}
+		if = {
+			limit = { 
+				root = scope:host
+				NOT = { exists = scope:target }
+			}
+			random_scheme = {
+				limit = { scheme_type = murder }
+				save_scope_as = scheme
+				scope:scheme.scheme_target_character = { save_scope_as = target }
+			}
+		}
+
+		#Set portraits
+		scope:target = { save_scope_as = lower_center_portrait }
+		save_scope_as = left_portrait
+	}
+
+	# Curse with stress
+	option = {
+		name = witchimproved.1002.a
+		trigger = {
+			exists = scope:target
+		}
+		
+		show_as_tooltip = {
+			scope:target = {
+				random_list = {
+					95 = {
+						show_chance = no
+						add_stress = massive_stress_gain
+					}
+					5 = {
+						show_chance = no
+						trigger = {
+							NOR = {
+								has_trait = paranoid
+								has_trait = trusting 
+							} 
+						}
+						add_trait = paranoid
+					}
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			honest = minor_stress_impact_gain
+		}
+		hidden_effect = {
+			add_character_flag = witch_curse_stress_choice
+			scope:target = { save_scope_as = curse_target }
+			trigger_event = { id = witchimproved.1003 days = { 21 28 } }
+		}
+
+		ai_chance = {
+			base = 40
+			ai_value_modifier = {
+				ai_rationality = 1
+				ai_vengefulness = 0.5
+			}
+		}
+	}
+
+	# Curse with weakness or illness
+	option = {
+		name = witchimproved.1002.b
+		trigger = {
+			exists = scope:target
+			piety >= minor_piety_value
+			#intrigue >= high_skill_rating
+			#learning >= high_skill_rating
+		}
+
+		show_as_unavailable = {
+			piety < minor_piety_value
+		}
+		
+		add_piety = minor_piety_loss
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			honest = minor_stress_impact_gain
+		}
+		show_as_tooltip = {
+			scope:target = {
+				random_list = {
+					70 = {
+						show_chance = no
+						add_character_modifier = {
+							modifier = witch_curse_weakness
+							days = 180
+						}
+					}
+					30 = {
+						show_chance = no
+						add_trait = ill
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			add_character_flag = witch_curse_weakness_choice
+			scope:target = { save_scope_as = curse_target }
+			trigger_event = { id = witchimproved.1003 days = { 21 28 } }
+		}
+
+		ai_chance = {
+			base = 40
+			ai_value_modifier = {
+				ai_rationality = 0.5
+				ai_vengefulness = 1
+			}
+		}
+	}
+
+	# curse with plague
+	option = {
+		name = witchimproved.1002.c
+		trigger = {
+			exists = scope:target
+			exists = scope:target.capital_province
+			scope:target = {
+				is_ruler = yes
+				is_landed = yes
+			}
+			has_trait_xp = {
+				trait = witch
+				value >= 100
+			}
+			piety >= massive_piety_value
+			OR = {
+				#has_trait = sadistic
+				#has_trait = vengeful
+				#has_trait = lifestyle_mystic		
+			}
+		}
+
+		show_as_unavailable = {
+			has_trait_xp = {
+				trait = witch
+				value < 100
+			}
+			piety < massive_piety_value
+		}
+		
+		
+		add_piety = massive_piety_loss
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			honest = minor_stress_impact_gain
+		}
+
+		show_as_tooltip = {
+			scope:target.capital_province = {
+				create_random_epidemic_outbreak_effect = {
+					INTENSITY = minor
+				}
+			}
+		}
+		
+		hidden_effect = {
+			add_character_flag = witch_curse_plague_choice
+			scope:target = { save_scope_as = curse_target }
+			trigger_event = { id = witchimproved.1003 days = { 30 60 } }
+		}
+
+		ai_chance = {
+			base = 20
+			ai_value_modifier = {
+				ai_vengefulness = 1.5
+			}
+		}
+	}
+}
+
+# Delayed curse effect event - executes the actual curse after several days
+witchimproved.1003 = {
+	hidden = yes
+	
+	immediate = {
+		# Execute stress curse
+		if = {
+			limit = { has_character_flag = witch_curse_stress_choice }
+			scope:target = {
+				random_list = {
+					95 = {
+						add_stress = major_stress_gain
+					}
+					5 = {
+						trigger = { 
+							NOR = { 
+								has_trait = paranoid
+								has_trait = trusting 
+							} 
+						}
+						add_trait = paranoid
+					}
+				}
+			}
+			remove_character_flag = witch_curse_stress_choice
+		}
+		# Execute weakness/illness curse
+		else_if = {
+			limit = { has_character_flag = witch_curse_weakness_choice }
+			scope:target = {
+				random_list = {
+					70 = {
+						show_chance = no
+						add_character_modifier = {
+							modifier = witch_curse_weakness
+							days = 180
+						}
+					}
+					30 = {
+						show_chance = no
+						add_trait = ill
+					}
+				}
+			}
+			remove_character_flag = witch_curse_weakness_choice
+		}
+		# Execute plague curse
+		else_if = {
+			limit = { has_character_flag = witch_curse_plague_choice }
+			scope:target.capital_province = {
+				create_random_epidemic_outbreak_effect = {
+					INTENSITY = minor
+				}
+			}
+			remove_character_flag = witch_curse_plague_choice
+		}
+	}
+}
+
+# Forbidden knowledge event - lifestyle perk for current focus - risky
+witchimproved.1004 = {
+	type = activity_event
+	title = witchimproved.1004.t
+	desc = witchimproved.1004.desc
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = scope:left_portrait
+	right_portrait = scope:right_portrait
+
+	immediate = {
+		save_scope_as = host
+		add_stress = minor_stress_gain
+	
+		#Tell everyone secret about everyone else
+		hidden_effect = {
+			scope:activity = {
+				every_attending_character = {
+					save_temporary_scope_as = learning_secret
+					scope:activity = {
+						every_attending_character = {
+							random_secret = {
+								limit = {
+									secret_type = secret_witch
+									NOT = { is_known_by = scope:learning_secret }
+								}
+								reveal_to = scope:learning_secret
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#Give outcome to host
+		if = {
+			limit = { this = scope:host }
+
+			if = {
+				limit = {
+					OR = {
+						scope:grand_rite_ceremony_outcome = flag:great_translation
+						scope:grand_rite_ceremony_outcome = flag:great_tricks
+						scope:grand_rite_ceremony_outcome = flag:great_improvisation
+						scope:grand_rite_ceremony_outcome = flag:offering
+					}
+				}
+				grand_rite_good_outcome = yes
+			}
+			else = {
+				grand_rite_poor_outcome = yes
+			}
+		}
+
+		scope:activity = {
+			#Talk to new guest
+			if = {
+				limit = { root = scope:host }
+				scope:activity = {
+					random_attending_character = {
+						limit = { has_character_flag = grand_rite_new_guest }
+						save_scope_as = new_guest
+					}
+				}
+			}
+		}
+
+		#Set portraits
+		if = {
+			limit = {
+				exists = scope:new_guest
+			}
+			save_scope_as = left_portrait
+			scope:new_guest = { save_scope_as = right_portrait }
+		}
+		else = {
+			save_scope_as = left_portrait
+		}
+	}
+
+	# get perk point for current lifestyle focus but risky
+	option = {
+		name = witchimproved.1004.a
+
+		stress_impact = {
+			base = minor_stress_impact_gain
+			craven = major_stress_impact_gain
+			paranoid = major_stress_impact_gain
+			lazy = minor_stress_impact_gain
+		}
+
+		duel = {
+			skill = learning
+			value = monumentally_high_skill_rating
+			75 = {
+				desc = witch.3010.a.great
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				min = 10
+				max = 90
+				
+				# good effect
+				if = {
+					limit = { has_lifestyle = diplomacy_lifestyle }
+					add_diplomacy_lifestyle_perk_points = 1
+				}
+				else_if = {
+					limit = { has_lifestyle = martial_lifestyle }
+					add_martial_lifestyle_perk_points = 1
+				}
+				else_if = {
+					limit = { has_lifestyle = stewardship_lifestyle }
+					add_stewardship_lifestyle_perk_points = 1
+				}
+				else_if = {
+					limit = { has_lifestyle = intrigue_lifestyle }
+					add_intrigue_lifestyle_perk_points = 1
+				}
+				else_if = {
+					limit = { has_lifestyle = learning_lifestyle }
+					add_learning_lifestyle_perk_points = 1
+				}
+				else_if = {
+					limit = { has_lifestyle = wanderer_lifestyle }
+					add_wanderer_lifestyle_perk_points = 2
+				}
+			}
+			25 = {	
+				desc = witch.3010.a.poor
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 10
+				max = 90
+				
+				save_scope_value_as = {
+					name = grand_rite_ceremony_outcome
+					value = flag:poor_translation
+				}
+				# bad effect
+				random_list = {
+					40 = { 
+						show_chance = no
+						send_interface_toast = {
+							title = witchimproved.1004.a.bad
+							add_character_modifier = {
+								modifier = witch_curse_weakness
+								years = 1
+							}
+						} 
+					}
+					30 = { 
+						show_chance = no
+						send_interface_toast = {
+							title = witchimproved.1004.a.bad
+							add_trait = ill
+						} 
+					}
+					10 = { 
+						show_chance = no
+						send_interface_toast = {
+							title = witchimproved.1004.a.bad
+							add_trait = paranoid 
+						}
+					}
+					10 = { 
+						show_chance = no
+						send_interface_toast = {
+							title = witchimproved.1004.a.bad
+							add_trait = lunatic_1 
+						}
+					}
+					10 = { 
+						show_chance = no
+						send_interface_toast = {
+							title = witchimproved.1004.a.bad
+							add_trait = possessed_1 
+						}
+					}
+					
+				}
+				
+			}
+		}
+
+		ai_chance = {
+			base = 40
+			ai_value_modifier = {
+				ai_greed = 0.5
+				ai_boldness = 0.5
+			}
+			modifier = { add = -100 has_trait = craven }
+			modifier = { add = -100 has_trait = paranoid }
+			modifier = { add = -100 has_trait = lazy }
+		}
+	}
+
+	# get exp for current lifestyle focus
+	option = {
+		name = witchimproved.1004.b
+
+		if = {
+			limit = { has_lifestyle = diplomacy_lifestyle }
+			add_diplomacy_lifestyle_xp = 500
+		}
+		else_if = {
+			limit = { has_lifestyle = martial_lifestyle }
+			add_martial_lifestyle_xp = 500
+		}
+		else_if = {
+			limit = { has_lifestyle = stewardship_lifestyle }
+			add_stewardship_lifestyle_xp = 500
+		}
+		else_if = {
+			limit = { has_lifestyle = intrigue_lifestyle }
+			add_intrigue_lifestyle_xp = 500
+		}
+		else_if = {
+			limit = { has_lifestyle = learning_lifestyle }
+			add_learning_lifestyle_xp = 500
+		}
+		else_if = {
+			limit = { has_lifestyle = wanderer_lifestyle }
+			add_wanderer_lifestyle_xp = 1000
+		}
+
+		ai_chance = {
+			base = 60
+			ai_value_modifier = {
+				ai_rationality = 1
+			}
+		}
+	}
+}
+
+scripted_effect witchimproved.1004_give_lifestyle_xp_effect = {
+	root = {
+		add_$LIFESTYLE$_lifestyle_xp = 300
+	}
+}
+
+scripted_effect witchimproved.1004_give_lifestyle_perk_effect = {
+	root = {
+		add_$LIFESTYLE$_lifestyle_perk_points = 1
+	}
+}

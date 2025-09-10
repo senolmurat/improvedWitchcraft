@@ -1,0 +1,10 @@
+has_any_lifestyle_trigger = {
+	OR = {
+		has_lifestyle = diplomacy_lifestyle
+		has_lifestyle = martial_lifestyle
+		has_lifestyle = stewardship_lifestyle
+		has_lifestyle = intrigue_lifestyle
+		has_lifestyle = learning_lifestyle
+		has_lifestyle = wanderer_lifestyle
+	}
+}

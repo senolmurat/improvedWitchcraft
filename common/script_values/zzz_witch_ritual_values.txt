@@ -1,0 +1,19 @@
+standard_witch_ritual_cooldown_time = {
+	value = 5
+	if = {
+		limit = {
+			root.faith = { has_doctrine = tenet_coven_worship }
+			root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
+		}
+		multiply = 0.6
+	}
+	else_if = {
+		limit = {
+			OR = {
+				root.faith = { has_doctrine = tenet_coven_worship }
+				root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
+			}
+		}
+		multiply = 0.8
+	}
+}

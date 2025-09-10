@@ -1,0 +1,97 @@
+
+#Grand rite choice
+grand_rite_good_outcome = {
+	scope:activity = {
+		every_attending_character = {
+			limit = { NOT = { this = root } }
+			custom = every_grand_rite_participant
+			add_opinion = {
+				target = root
+				modifier = impressed_opinion
+				opinion = 20
+			}
+		}
+	}
+}
+
+grand_rite_poor_outcome = {
+	scope:activity = {
+		every_attending_character = {
+			limit = { NOT = { this = root } }
+			custom = every_grand_rite_participant
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -15
+			}
+		}
+	}
+	add_stress = minor_stress_gain
+}
+
+hosted_successful_witch_coven_new_effect = {
+	# Piety gain from Tenets.
+	if = {
+		limit = {
+			faith = {
+				OR = {
+					has_doctrine_parameter = piety_from_witch_coven_active
+				}
+			}
+		}
+		add_piety = {
+			value = 0
+			min = medium_piety_value
+		}
+	}
+
+	# prestige gain from culture
+	if = {
+		limit = {
+			root.culture = { has_cultural_parameter = witch_trait_more_valued }
+		}
+		add_prestige = minor_prestige_gain
+	}
+}
+
+attended_successful_witch_coven_new_effect = {
+	# Piety gain from Tenets.
+	if = {
+		limit = {
+			faith = {
+				OR = {
+					has_doctrine_parameter = piety_from_witch_coven_active
+				}
+			}
+		}
+		add_piety = {
+			value = 0
+			min = minor_piety_value
+		}
+	}
+
+	# prestige gain from culture
+	if = {
+		limit = {
+			culture = { has_cultural_parameter = witch_trait_more_valued }
+		}
+		add_prestige = miniscule_prestige_gain
+	}
+}
+
+disburse_witch_ritual_host_rewards_effect = {
+	scope:activity = {
+		add_activity_log_entry = {
+			key = host_witch_ritual
+			tags = { completed }
+			# this line below adds the entry to the Effects section of the conclusion UI
+			show_in_conclusion = yes
+			character = scope:host
+			
+			scope:host = {
+				add_stress = major_stress_loss
+				hosted_successful_witch_coven_new_effect = yes
+			}
+		}
+	}
+}

@@ -4,13 +4,85 @@
 witchimproved.1001 = {
 	type = activity_event
 	title = witchimproved.1001.t
-	desc = witchimproved.1001.desc
+	desc ={
+		#host
+		first_valid = {
+			triggered_desc = {
+				trigger = { root = scope:host }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:great_translation }
+							desc = witch.3014.host.great_translation.desc
+						}
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:poor_translation }
+							desc = witch.3014.host.poor_translation.desc
+						}
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:great_tricks }
+							desc = witch.3014.host.great_tricks.desc
+						}
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:poor_tricks }
+							desc = witch.3014.host.poor_tricks.desc
+						}
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:great_improvisation }
+							desc = witch.3014.host.great_improvisation.desc
+						}
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:poor_improvisation }
+							desc = witch.3014.host.poor_improvisation.desc
+						}
+						triggered_desc = {
+							trigger = { scope:grand_rite_ceremony_outcome = flag:offering }
+							desc = witch.3014.host.offering.desc
+						}
+						desc = witch.3014.host.fallback.desc
+					}
+					desc = witch.3014.host.end.desc
+				}
+			}
+			#everyone else
+			desc = {
+				desc = witch.3014.guest.start.desc
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							OR = {
+								scope:grand_rite_ceremony_outcome = flag:great_translation
+								scope:grand_rite_ceremony_outcome = flag:great_tricks
+								scope:grand_rite_ceremony_outcome = flag:great_improvisation
+								scope:grand_rite_ceremony_outcome = flag:offering
+								NOT = { exists = scope:grand_rite_ceremony_outcome }
+							}
+						}
+						desc = witch.3014.guest.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							OR = {
+								scope:grand_rite_ceremony_outcome = flag:poor_translation
+								scope:grand_rite_ceremony_outcome = flag:poor_tricks
+								scope:grand_rite_ceremony_outcome = flag:poor_improvisation
+							}
+						}
+						desc = witch.3014.guest.bad.desc
+					}
+					desc = witch.3014.guest.fallback.desc
+				}
+				desc = witch.3014.guest.end.desc
+			}
+		}
+	}
 	theme = witchcraft
 	override_background = {
 		reference = bp1_bonfire
 	}
 	left_portrait = scope:left_portrait
 	right_portrait = scope:right_portrait
+	lower_center_portrait = scope:lower_center_portrait
 
 	immediate = {
 		save_scope_as = host
@@ -67,6 +139,45 @@ witchimproved.1001 = {
 				}
 			}
 
+			# sex partner - soulmate
+			if = {
+				limit = {
+					root = {
+						witch_3014_can_have_sex_trigger = yes
+					}
+				}
+				#If you have a soulmate here talk with them for fertility bonus (not available if they can't sleep with you for some reason)
+				if = {
+					limit = { any_attending_character = { has_relation_soulmate = root } }
+					random_attending_character = {
+						limit = {
+							witch_3014_loved_sex_partner_trigger = yes
+							has_relation_soulmate = root
+						}
+						save_scope_as = sex_partner
+					}
+				}
+			}
+
+			#Herbalism - wise man/woman - physician
+			random_attending_character = {
+				limit = {
+					OR = {
+						has_trait = lifestyle_herbalist
+						has_trait = lifestyle_mystic
+						has_trait = lifestyle_physician
+					}
+					NOR = {
+						trigger_if = {
+							limit = { exists = scope:new_guest }
+							this = scope:new_guest
+						}
+						this = root
+					}
+				}
+				save_scope_as = health_expert
+			}
+
 			#Teacher (boon )
 			random_attending_character = {
 				limit = {
@@ -76,8 +187,12 @@ witchimproved.1001 = {
 							this = scope:new_guest
 						}
 						trigger_if = {
-							limit = { exists = scope:herbalist }
-							this = scope:herbalist
+							limit = { exists = scope:health_expert }
+							this = scope:health_expert
+						}
+						trigger_if = {
+							limit = { exists = scope:sex_partner }
+							this = scope:sex_partner
 						}
 						this = root
 					}
@@ -135,10 +250,72 @@ witchimproved.1001 = {
 		if = {
 			limit = {
 				exists = scope:teacher
-				exists = scope:new_guest
+				exists = scope:sex_partner
+				exists = scope:health_expert
 			}
-			scope:teacher = { save_scope_as = left_portrait }
-			scope:new_guest = { save_scope_as = right_portrait }
+			random_list = {
+				1 = {
+					scope:teacher = { save_scope_as = left_portrait }
+					scope:sex_partner = { save_scope_as = right_portrait }
+					scope:health_expert = { save_scope_as = lower_center_portrait }
+				}
+				1 = {
+					scope:teacher = { save_scope_as = left_portrait }
+					scope:sex_partner = { save_scope_as = right_portrait }
+					scope:health_expert = { save_scope_as = lower_center_portrait }
+				}
+				1 = {
+					scope:teacher = { save_scope_as = lower_center_portrait }
+					scope:sex_partner = { save_scope_as = left_portrait }
+					scope:health_expert = { save_scope_as = right_portrait }
+				}
+				1 = {
+					scope:teacher = { save_scope_as = lower_center_portrait }
+					scope:sex_partner = { save_scope_as = right_portrait }
+					scope:health_expert = { save_scope_as = left_portrait }
+				}
+				1 = {
+					scope:teacher = { save_scope_as = left_portrait }
+					scope:sex_partner = { save_scope_as = lower_center_portrait }
+					scope:health_expert = { save_scope_as = right_portrait }
+				}
+				1 = {
+					scope:teacher = { save_scope_as = right_portrait }
+					scope:sex_partner = { save_scope_as = lower_center_portrait }
+					scope:health_expert = { save_scope_as = left_portrait }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = scope:teacher
+				exists = scope:sex_partner
+			}
+			scope:sex_partner = { save_scope_as = left_portrait }
+			scope:teacher = { save_scope_as = right_portrait }
+		}
+		else_if = {
+			limit = {
+				exists = scope:teacher
+				exists = scope:health_expert
+			}
+			scope:health_expert = { save_scope_as = left_portrait }
+			scope:teacher = { save_scope_as = right_portrait }
+		}
+		else_if = {
+			limit = {
+				exists = scope:sex_partner
+				exists = scope:health_expert
+			}
+			scope:health_expert = { save_scope_as = left_portrait }
+			scope:sex_partner = { save_scope_as = right_portrait }
+		}
+		else_if = {
+			limit = {
+				exists = scope:health_expert
+			}
+			save_scope_as = left_portrait
+			scope:health_expert = { save_scope_as = right_portrait }
 		}
 		else_if = {
 			limit = {
@@ -149,10 +326,10 @@ witchimproved.1001 = {
 		}
 		else_if = {
 			limit = {
-				exists = scope:new_guest
+				exists = scope:sex_partner
 			}
 			save_scope_as = left_portrait
-			scope:new_guest = { save_scope_as = right_portrait }
+			scope:sex_partner = { save_scope_as = right_portrait }
 		}
 		else = {
 			save_scope_as = left_portrait
@@ -162,14 +339,20 @@ witchimproved.1001 = {
 	# Seek health boon
 	option = {
 		name = witchimproved.1001.a
-		
+		trigger = { exists = scope:health_expert }
+		highlight_portrait = scope:health_expert
+
 		add_character_modifier = {
 			modifier = witch_blessing_health_boon
-			years = 2
+			years = 1
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
 		}
 	}
 
-	#Teacher gives you lifestyle perk point
+	#Teacher gives you beneficial modifier
 	option = {
 		trigger = { exists = scope:teacher }
 		name = {
@@ -236,20 +419,21 @@ witchimproved.1001 = {
 				years = 2
 			}
 		}
-
 		stress_impact = {
 			lazy = minor_stress_impact_gain
 		}
 	}
 
-	# Seek fertility boon (female only)
+	# Seek fertility boon
 	option = {
-		name = witchimproved.1001.b
+		#name = witchimproved.1001.b
+		name = witch.3014.e
+		
 		trigger = {
-			is_female = yes
-			age >= 16
-			age <= 45
+			exists = scope:sex_partner
+			has_relation_soulmate = scope:sex_partner
 		}
+		highlight_portrait = scope:sex_partner
 		
 		add_character_modifier = {
 			modifier = witch_blessing_fertility_boon
@@ -257,32 +441,42 @@ witchimproved.1001 = {
 		}
 	}
 
-	# allrounder
+	#Relax and indulge
 	option = {
-		name = witchimproved.1001.c
-		
+		name = witch.3014.f
+
 		add_character_modifier = {
 			modifier = witch_blessing_allrounder_boon
 			years = 2
 		}
 
 		stress_impact = {
-			lazy = minor_stress_impact_gain
-			ambitious = minor_stress_impact_gain
+			gregarious = minor_stress_impact_loss
+			drunkard = minor_stress_impact_loss
+			hashishiyah = minor_stress_impact_loss
+			comfort_eater = minor_stress_impact_loss
 		}
 	}
+
 }
 
 # Curse enemy intent event - attendees can curse their targets
 witchimproved.1002 = {
 	type = activity_event
 	title = witchimproved.1002.t
-	desc = witchimproved.1002.desc
+	desc = {
+		desc = witchimproved.1002.desc.start
+		desc = witchimproved.1002.desc.mid
+		desc = witchimproved.1002.desc.end
+	}
 	theme = witchcraft
 	override_background = {
 		reference = bp1_bonfire
 	}
-	left_portrait = scope:left_portrait
+	left_portrait = {
+		character = scope:left_portrait
+		animation = anger
+	}
 	#right_portrait = scope:right_portrait
 	lower_center_portrait = scope:lower_center_portrait
 
@@ -407,8 +601,6 @@ witchimproved.1002 = {
 		trigger = {
 			exists = scope:target
 			piety >= minor_piety_value
-			#intrigue >= high_skill_rating
-			#learning >= high_skill_rating
 		}
 
 		show_as_unavailable = {
@@ -428,7 +620,7 @@ witchimproved.1002 = {
 						show_chance = no
 						add_character_modifier = {
 							modifier = witch_curse_weakness
-							days = 180
+							years = 1
 						}
 					}
 					30 = {
@@ -468,19 +660,16 @@ witchimproved.1002 = {
 				value >= 100
 			}
 			piety >= massive_piety_value
-			OR = {
-				#has_trait = sadistic
-				#has_trait = vengeful
-				#has_trait = lifestyle_mystic		
-			}
 		}
 
 		show_as_unavailable = {
-			has_trait_xp = {
-				trait = witch
-				value < 100
+			OR = {
+				piety < massive_piety_value
+				has_trait_xp = {
+					trait = witch
+					value < 100
+				}
 			}
-			piety < massive_piety_value
 		}
 		
 		
@@ -582,8 +771,10 @@ witchimproved.1004 = {
 	override_background = {
 		reference = bp1_bonfire
 	}
-	left_portrait = scope:left_portrait
-	right_portrait = scope:right_portrait
+	right_portrait = {
+		character = root
+		animation = chancellor
+	}
 
 	immediate = {
 		save_scope_as = host
@@ -627,31 +818,6 @@ witchimproved.1004 = {
 			else = {
 				grand_rite_poor_outcome = yes
 			}
-		}
-
-		scope:activity = {
-			#Talk to new guest
-			if = {
-				limit = { root = scope:host }
-				scope:activity = {
-					random_attending_character = {
-						limit = { has_character_flag = grand_rite_new_guest }
-						save_scope_as = new_guest
-					}
-				}
-			}
-		}
-
-		#Set portraits
-		if = {
-			limit = {
-				exists = scope:new_guest
-			}
-			save_scope_as = left_portrait
-			scope:new_guest = { save_scope_as = right_portrait }
-		}
-		else = {
-			save_scope_as = left_portrait
 		}
 	}
 
@@ -781,27 +947,27 @@ witchimproved.1004 = {
 
 		if = {
 			limit = { has_lifestyle = diplomacy_lifestyle }
-			add_diplomacy_lifestyle_xp = 500
+			add_diplomacy_lifestyle_xp = 300
 		}
 		else_if = {
 			limit = { has_lifestyle = martial_lifestyle }
-			add_martial_lifestyle_xp = 500
+			add_martial_lifestyle_xp = 300
 		}
 		else_if = {
 			limit = { has_lifestyle = stewardship_lifestyle }
-			add_stewardship_lifestyle_xp = 500
+			add_stewardship_lifestyle_xp = 300
 		}
 		else_if = {
 			limit = { has_lifestyle = intrigue_lifestyle }
-			add_intrigue_lifestyle_xp = 500
+			add_intrigue_lifestyle_xp = 300
 		}
 		else_if = {
 			limit = { has_lifestyle = learning_lifestyle }
-			add_learning_lifestyle_xp = 500
+			add_learning_lifestyle_xp = 300
 		}
 		else_if = {
 			limit = { has_lifestyle = wanderer_lifestyle }
-			add_wanderer_lifestyle_xp = 1000
+			add_wanderer_lifestyle_xp = 600
 		}
 
 		ai_chance = {

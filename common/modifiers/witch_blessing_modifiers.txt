@@ -91,7 +91,6 @@ witch_curse_weakness = {
 	learning = -2
 	intrigue = -2
 	stewardship = -2
-	prowess = -2
+	prowess = -5
 	stress_gain_mult = 0.2
-	monthly_income_mult = -0.1
 }

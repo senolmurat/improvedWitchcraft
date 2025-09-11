@@ -2328,6 +2328,8 @@
 			desert_attrition_mult = -0.25
 			desert_mountains_attrition_mult = -0.25
 		}
+
+		piety_cost = faith_tenet_cost_mid
 	}
 
 	tenet_warmonger = {
@@ -2551,6 +2553,8 @@
 			desert_mountains_levy_size = 0.3
 			desert_mountains_advantage = 5
 		}
+
+		piety_cost = faith_tenet_cost_mid
 
 		traits = {
 			virtues = {
@@ -3509,12 +3513,13 @@
 
 		parameters = {
 			piety_from_witch_coven_active = yes
-			#mandatory_feast_attendance = yes
 			shorten_witch_coven_cooldown_active = yes
 		}
 
 		character_modifier = {
-			same_faith_opinion = 10
+			same_faith_opinion = 5
+			different_faith_opinion = -5
+			learning = 1
 		}
 	}
 }

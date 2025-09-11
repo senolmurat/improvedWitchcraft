@@ -7,12 +7,7 @@ blessing_intent = {
 	on_invalidated = { trigger_event = activity_system.0090 }
 	
 	ai_will_do = {
-		value = 20
-		add = {
-			value = ai_rationality
-			multiply = 1.5
-			max = 100
-		}
+		value = 1
 	}
 	
 	scripted_animation = {
@@ -27,28 +22,15 @@ curse_enemy_intent = {
 	on_invalidated = { trigger_event = activity_system.0090 }
 
 	is_valid = {
-		OR = {
-			num_of_relation_rival > 0
-			any_scheme = {
-				scheme_type = murder
-			}
-		}
+		has_any_rival_or_murder_target_trigger = yes
 	}
 	
 	ai_will_do = {
-		value = 10
+		value = 1
 		add = {
 			value = ai_vengefulness
 			multiply = 1.5
 			max = 100
-		}
-		if = {
-			limit = { has_trait = vengeful }
-			add = 25
-		}
-		if = {
-			limit = { has_trait = sadistic }
-			add = 50
 		}
 	}
 	
@@ -57,7 +39,7 @@ curse_enemy_intent = {
 	}
 }
 
-# Intent for seeking forbidden knowledge, perk for current lifestyle focus
+# Intent for seeking forbidden knowledge, perk for current lifestyle focus - risky
 forbidden_knowledge_intent = {
 	icon = intent_knowledge
 
@@ -68,12 +50,7 @@ forbidden_knowledge_intent = {
 	on_invalidated = { trigger_event = activity_system.0090 }
 	
 	ai_will_do = {
-		value = 20
-		add = {
-			value = ai_rationality
-			multiply = 1
-			max = 50
-		}
+		value = 1
 		add = {
 			value = ai_boldness
 			multiply = 1.5

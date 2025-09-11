@@ -77,6 +77,9 @@ attended_successful_witch_coven_new_effect = {
 		}
 		add_prestige = miniscule_prestige_gain
 	}
+
+	# witch trait xp gain
+	witch_improved_witchcraft_trait_xp_gain_effect = yes
 }
 
 disburse_witch_ritual_host_rewards_effect = {
@@ -91,6 +94,20 @@ disburse_witch_ritual_host_rewards_effect = {
 			scope:host = {
 				add_stress = major_stress_loss
 				hosted_successful_witch_coven_new_effect = yes
+				witch_improved_witchcraft_trait_xp_gain_effect = yes
+			}
+		}
+	}
+}
+
+witch_improved_witchcraft_trait_xp_gain_effect = {
+	add_trait_xp = {
+		trait = witch
+		value = {
+			# from age 16-66 potential of 10 grand rites with avrg of 7.5, you can also attend others grand rites as well
+			integer_range = {
+				min = 5
+				max = 10
 			}
 		}
 	}

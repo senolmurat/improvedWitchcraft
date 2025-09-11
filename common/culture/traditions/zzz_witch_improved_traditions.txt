@@ -7,6 +7,17 @@ tradition_occult_practices = {
 		3 = 6.dds
 		4 = crow.dds
 	}
+
+	can_pick = {
+		scope:character = {
+			faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+		}
+	}
 	
 	parameters = {
 		more_frequent_witch_rituals = yes

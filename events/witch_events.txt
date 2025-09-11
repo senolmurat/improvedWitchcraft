@@ -1498,16 +1498,6 @@ witch.3010 = { #by Mathilda Bjarnehed
 	}
 }
 
-#Everyone reacts to the grand rite (host and guests)
-scripted_trigger witch_3014_can_have_sex_trigger = {
-	is_adult = yes
-	NOR = {
-		has_sexuality = asexual
-		has_trait = celibate
-	}
-	might_cheat_on_every_partner_trigger = yes
-}
-
 scripted_trigger witch_3014_sex_partner_trigger = {
 	witch_3014_can_have_sex_trigger = yes
 	NOT = { this = root }
@@ -1515,15 +1505,6 @@ scripted_trigger witch_3014_sex_partner_trigger = {
 	save_temporary_scope_as = seduction_target
 	matching_gender_and_sexuality_trigger = { CHARACTER_1 = scope:seduction_target CHARACTER_2 = root }
 	might_cheat_on_every_partner_trigger = yes
-}
-
-scripted_trigger witch_3014_loved_sex_partner_trigger = {
-	witch_3014_sex_partner_trigger = yes
-	OR = {
-		has_relation_lover = root
-		is_consort_of = root
-		has_relation_soulmate = root
-	}
 }
 
 scripted_trigger witch_3014_regular_sex_partner_trigger = {
@@ -2301,6 +2282,16 @@ witch.3098 = { #by Mathilda Bjarnehed
 
 	immediate = {
 		capital_province = { save_scope_as = background_wilderness_scope }
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_activity_intent = worship_devil_intent
+					}
+				}
+				complete_activity_intent = yes
+			}
+		}
 	}
 	
 	option = {
@@ -2321,6 +2312,19 @@ witch.3099 = { #by Mathilda Bjarnehed
 		reference = bp1_bonfire
 	}
 	left_portrait = root
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_activity_intent = worship_devil_intent
+					}
+				}
+				complete_activity_intent = yes
+			}
+		}
+	}
 	
 	option = {
 		name = witch.3098.a

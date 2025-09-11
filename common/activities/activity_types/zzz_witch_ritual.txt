@@ -165,16 +165,6 @@
 					trigger_event = witch.3098
 				}
 				else = { trigger_event =  witch.3099 }
-				add_trait_xp = {
-					trait = witch
-					value = {
-						# from age 16-66 potential of 10 grand rites with avrg of 7.5, you can also attend others grand rites as well
-						integer_range = {
-							min = 100
-							max = 100
-						}
-					}
-				}
 			}
 		}
 	}
@@ -434,12 +424,12 @@
 	}
 
 	host_intents = {
-		intents = { worship_devil_intent blessing_intent curse_enemy_intent forbidden_knowledge_intent sacrifice_intent }
+		intents = { worship_devil_intent blessing_intent curse_enemy_intent forbidden_knowledge_intent }
 		default = worship_devil_intent
 	}
 
 	guest_intents = {
-		intents = { worship_devil_intent blessing_intent curse_enemy_intent forbidden_knowledge_intent }
+		intents = { worship_devil_intent blessing_intent curse_enemy_intent }
 		default = worship_devil_intent
 	}
 

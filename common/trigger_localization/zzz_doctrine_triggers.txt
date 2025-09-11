@@ -1,4 +1,0 @@
-doctrine_witchcraft_accepted_or_virtuous_trigger = {
-	first = DOCTRINE_WITCHCRAFT_ACCEPTED_OR_VIRTUOUS
-	third = DOCTRINE_WITCHCRAFT_ACCEPTED_OR_VIRTUOUS
-}

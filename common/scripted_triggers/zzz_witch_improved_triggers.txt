@@ -1,0 +1,46 @@
+has_any_lifestyle_trigger = {
+	OR = {
+		has_lifestyle = diplomacy_lifestyle
+		has_lifestyle = martial_lifestyle
+		has_lifestyle = stewardship_lifestyle
+		has_lifestyle = intrigue_lifestyle
+		has_lifestyle = learning_lifestyle
+		has_lifestyle = wanderer_lifestyle
+	}
+}
+
+has_any_rival_or_murder_target_trigger = {
+	OR = {
+		num_of_relation_rival > 0
+		any_scheme = {
+			scheme_type = murder
+		}
+	}
+}
+
+witch_3014_can_have_sex_trigger = {
+	is_adult = yes
+	NOR = {
+		has_sexuality = asexual
+		has_trait = celibate
+	}
+	might_cheat_on_every_partner_trigger = yes
+}
+
+witch_3014_sex_partner_trigger = {
+	witch_3014_can_have_sex_trigger = yes
+	NOT = { this = root }
+	is_ai = yes
+	save_temporary_scope_as = seduction_target
+	matching_gender_and_sexuality_trigger = { CHARACTER_1 = scope:seduction_target CHARACTER_2 = root }
+	might_cheat_on_every_partner_trigger = yes
+}
+
+witch_3014_loved_sex_partner_trigger = {
+	witch_3014_sex_partner_trigger = yes
+	OR = {
+		has_relation_lover = root
+		is_consort_of = root
+		has_relation_soulmate = root
+	}
+}

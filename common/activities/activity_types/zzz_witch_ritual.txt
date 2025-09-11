@@ -11,9 +11,19 @@
 		}
 		exists = house
 		house = { has_house_modifier = witch_coven }
+		#Every other activity must be blocked until an uncrowned AI crowns themselves
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}
+			NOT = {
+				has_realm_law = uncrowned
+			}
+		}																	   
 	}
 
 	can_start_showing_failures_only = {
+		NOT = { is_activity_type_on_cooldown = activity_witch_ritual }														
 		is_available_adult = yes
 		activity_witch_ritual_valid_trigger = yes
 		trigger_if = {
@@ -370,6 +380,10 @@
 			multiply = 5
 		}
 	}
+
+	###################
+	# WITCH IMPROVED OVERRIDE COOLDOWN 
+	###################
 	cooldown = {
 		years = standard_witch_ritual_cooldown_time
 	}
@@ -423,6 +437,10 @@
 		in_diplomatic_range = scope:host
 	}
 
+	###################
+	# WITCH IMPROVED OVERRIDE INTENT 
+	###################
+
 	host_intents = {
 		intents = { worship_devil_intent blessing_intent curse_enemy_intent forbidden_knowledge_intent }
 		default = worship_devil_intent
@@ -440,6 +458,10 @@
 		# Scripted Modifiers
 		activity_guest_shared_ai_accept_modifier = yes
 	}
+
+	###################
+	# WITCH IMPROVED OVERRIDE COMPLETION 
+	###################
 	
 	on_complete = {
 		if = {

@@ -824,6 +824,7 @@ witchimproved.1004 = {
 	# get perk point for current lifestyle focus but risky
 	option = {
 		name = witchimproved.1004.a
+		add_internal_flag = dangerous
 
 		stress_impact = {
 			base = minor_stress_impact_gain
@@ -883,47 +884,50 @@ witchimproved.1004 = {
 					name = grand_rite_ceremony_outcome
 					value = flag:poor_translation
 				}
-				# bad effect
-				random_list = {
-					40 = { 
-						show_chance = no
-						send_interface_toast = {
-							title = witchimproved.1004.a.bad
-							add_character_modifier = {
-								modifier = witch_curse_weakness
-								years = 1
+				show_as_tooltip = { custom_tooltip = forbidden_knowledge_risk_tooltip }
+				hidden_effect = {
+					# bad effect
+					random_list = {
+						40 = { 
+							show_chance = no
+							send_interface_toast = {
+								title = witchimproved.1004.a.bad
+								add_character_modifier = {
+									modifier = witch_curse_weakness
+									years = 1
+								}
+							} 
+						}
+						30 = { 
+							show_chance = no
+							send_interface_toast = {
+								title = witchimproved.1004.a.bad
+								add_trait = ill
+							} 
+						}
+						10 = { 
+							show_chance = no
+							send_interface_toast = {
+								title = witchimproved.1004.a.bad
+								add_trait = paranoid 
 							}
-						} 
-					}
-					30 = { 
-						show_chance = no
-						send_interface_toast = {
-							title = witchimproved.1004.a.bad
-							add_trait = ill
-						} 
-					}
-					10 = { 
-						show_chance = no
-						send_interface_toast = {
-							title = witchimproved.1004.a.bad
-							add_trait = paranoid 
 						}
-					}
-					10 = { 
-						show_chance = no
-						send_interface_toast = {
-							title = witchimproved.1004.a.bad
-							add_trait = lunatic_1 
+						10 = { 
+							show_chance = no
+							send_interface_toast = {
+								title = witchimproved.1004.a.bad
+								add_trait = lunatic_1 
+							}
 						}
-					}
-					10 = { 
-						show_chance = no
-						send_interface_toast = {
-							title = witchimproved.1004.a.bad
-							add_trait = possessed_1 
+						10 = { 
+							show_chance = no
+							send_interface_toast = {
+								title = witchimproved.1004.a.bad
+								add_trait = possessed_1 
+							}
 						}
+						
 					}
-					
 				}
 				
 			}

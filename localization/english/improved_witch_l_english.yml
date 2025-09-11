@@ -23,6 +23,7 @@
  witchimproved.1004.a:0 "I will grasp every secret, no matter the cost."
  witchimproved.1004.b:0 "I will take only what I can endure."
  witchimproved.1004.a.bad:0 "You have been cursed by the tome"
+ forbidden_knowledge_risk_tooltip:0 "Something bad happens..."
 
  witch_blessing_diplomacy_boon:0 "Diplomacy Boon"
  witch_blessing_diplomacy_boon_desc:0 "The rite has blessed you with enhanced diplomacy and negotiation skills, making you a master of influence and persuasion."

@@ -1498,15 +1498,6 @@ witch.3010 = { #by Mathilda Bjarnehed
 	}
 }
 
-scripted_trigger witch_3014_sex_partner_trigger = {
-	witch_3014_can_have_sex_trigger = yes
-	NOT = { this = root }
-	is_ai = yes
-	save_temporary_scope_as = seduction_target
-	matching_gender_and_sexuality_trigger = { CHARACTER_1 = scope:seduction_target CHARACTER_2 = root }
-	might_cheat_on_every_partner_trigger = yes
-}
-
 scripted_trigger witch_3014_regular_sex_partner_trigger = {
 	witch_3014_sex_partner_trigger = yes
 	NOR = {

@@ -17,3 +17,46 @@ standard_witch_ritual_cooldown_time = {
 		multiply = 0.8
 	}
 }
+
+grand_rite_good_outcome_opinion_value = {
+	value = 20
+
+	scope:activity = {
+		if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_normal }
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_good }
+			}
+			multiply = 2
+		}
+	}
+}
+
+grand_rite_bad_outcome_opinion_value = {
+	value = grand_rite_good_outcome_opinion_value
+	multiply = -1
+}
+
+grand_rite_host_stress_loss_value = {
+	value = -20
+
+	scope:activity = {
+		if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_normal }
+			}
+			add = -15
+		}
+		else_if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_good }
+			}
+			add = -40
+		}
+	}
+}

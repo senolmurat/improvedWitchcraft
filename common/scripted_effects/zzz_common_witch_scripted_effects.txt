@@ -8,7 +8,7 @@ grand_rite_good_outcome = {
 			add_opinion = {
 				target = root
 				modifier = impressed_opinion
-				opinion = 20
+				opinion = grand_rite_good_outcome_opinion_value
 			}
 		}
 	}
@@ -22,7 +22,7 @@ grand_rite_poor_outcome = {
 			add_opinion = {
 				target = root
 				modifier = disappointed_opinion
-				opinion = -15
+				opinion = grand_rite_bad_outcome_opinion_value
 			}
 		}
 	}
@@ -52,34 +52,29 @@ hosted_successful_witch_coven_new_effect = {
 		}
 		add_prestige = minor_prestige_gain
 	}
+
+	witch_improved_witchcraft_trait_xp_gain_effect = yes
 }
 
-attended_successful_witch_coven_new_effect = {
-	# Piety gain from Tenets.
-	if = {
-		limit = {
-			faith = {
-				OR = {
-					has_doctrine_parameter = piety_from_witch_coven_active
-				}
+attended_successful_witch_coven_new_effect = {# witch trait xp gain
+	witch_improved_witchcraft_trait_xp_gain_effect = yes
+}
+
+disburse_witch_ritual_participant_rewards_effect = {
+	save_temporary_scope_as = participant
+	scope:activity = {
+		add_activity_log_entry = {
+			key = host_witch_ritual
+			tags = { completed }
+			# this line below adds the entry to the Effects section of the conclusion UI
+			show_in_conclusion = yes
+			character = scope:participant
+
+			scope:participant = {
+				attended_successful_witch_coven_new_effect = yes
 			}
 		}
-		add_piety = {
-			value = 0
-			min = minor_piety_value
-		}
 	}
-
-	# prestige gain from culture
-	if = {
-		limit = {
-			culture = { has_cultural_parameter = witch_trait_more_valued }
-		}
-		add_prestige = miniscule_prestige_gain
-	}
-
-	# witch trait xp gain
-	witch_improved_witchcraft_trait_xp_gain_effect = yes
 }
 
 disburse_witch_ritual_host_rewards_effect = {
@@ -92,9 +87,8 @@ disburse_witch_ritual_host_rewards_effect = {
 			character = scope:host
 			
 			scope:host = {
-				add_stress = major_stress_loss
+				add_stress = grand_rite_host_stress_loss_value
 				hosted_successful_witch_coven_new_effect = yes
-				witch_improved_witchcraft_trait_xp_gain_effect = yes
 			}
 		}
 	}

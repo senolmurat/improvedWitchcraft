@@ -634,7 +634,7 @@
 					NOT = { this = scope:host }
 					is_imprisoned = no
 				}
-				attended_successful_witch_coven_new_effect = yes
+				disburse_witch_ritual_participant_rewards_effect = yes
 			}
 		}
 	}

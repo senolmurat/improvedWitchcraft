@@ -1313,7 +1313,6 @@ witch.3010 = { #by Mathilda Bjarnehed
 	left_portrait = root
 
 	immediate = {
-		save_scope_as = host
 		capital_province = { save_scope_as = background_wilderness_scope } 
 	}
 

@@ -60,6 +60,23 @@ attended_successful_witch_coven_new_effect = {# witch trait xp gain
 	witch_improved_witchcraft_trait_xp_gain_effect = yes
 }
 
+disburse_witch_ritual_participant_rewards_effect = {
+	save_temporary_scope_as = participant
+	scope:activity = {
+		add_activity_log_entry = {
+			key = host_witch_ritual
+			tags = { completed }
+			# this line below adds the entry to the Effects section of the conclusion UI
+			show_in_conclusion = yes
+			character = scope:participant
+
+			scope:participant = {
+				attended_successful_witch_coven_new_effect = yes
+			}
+		}
+	}
+}
+
 disburse_witch_ritual_host_rewards_effect = {
 	scope:activity = {
 		add_activity_log_entry = {

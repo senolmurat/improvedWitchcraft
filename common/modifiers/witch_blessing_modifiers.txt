@@ -1,4 +1,4 @@
-### Witch Blessing Modifiers - Improved Witchcraft Mod
+﻿### Witch Blessing Modifiers - Improved Witchcraft Mod
 
 # Health Boon - Medium health, disease resistance, plague resistance
 witch_blessing_health_boon = {

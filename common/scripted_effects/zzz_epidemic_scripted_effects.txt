@@ -1,4 +1,4 @@
-# Random Epidemic Outbreak Scripted Effects
+﻿# Random Epidemic Outbreak Scripted Effects
 # Creates a random epidemic outbreak at a random location
 
 # Main effect to create a random epidemic outbreak

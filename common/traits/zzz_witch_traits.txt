@@ -1,4 +1,4 @@
-witch = {
+﻿witch = {
 	category = fame
 
 	diplomacy = -1

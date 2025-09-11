@@ -1445,7 +1445,7 @@ witch.3010 = { #by Mathilda Bjarnehed
 			value = flag:offering
 		}
 
-		grand_rite_good_outcome = yes
+		show_as_tooltip = { grand_rite_good_outcome = yes }
 
 		stress_impact = {
 			greedy = minor_stress_impact_gain

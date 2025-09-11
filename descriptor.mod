@@ -1,4 +1,4 @@
-version="1.1.0"
+version="1.0.0"
 tags={
 	"Balance"
 	"Gameplay"
@@ -9,4 +9,5 @@ tags={
 	"Modifiers"
 }
 name="Improved Witchcraft"
-supported_version="1.16.2.3"
+picture="thumbnail.png"
+supported_version="1.17.0.1"

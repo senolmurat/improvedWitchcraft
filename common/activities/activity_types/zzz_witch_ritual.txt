@@ -23,7 +23,7 @@
 	}
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_witch_ritual }														
+		#NOT = { is_activity_type_on_cooldown = activity_witch_ritual }														
 		is_available_adult = yes
 		activity_witch_ritual_valid_trigger = yes
 		trigger_if = {
@@ -117,7 +117,163 @@
 	# OPTIONS
 	###################
 
+	###################
+	# WITCH IMPROVED OPTIONS
+	###################
+
 	options = {
+		# How much you want to spend?
+		rite_option_ceremony = {
+			rite_ceremony_bad = {
+				
+				default = yes
+				ai_will_do = {
+					value = 0
+					# Financial preference.
+					add = activity_option_likes_cheap_expense_value
+					# Quantity preference.
+					add = activity_option_food_prefers_small_volume_value
+				}
+			}
+			rite_ceremony_normal = {
+				is_shown = { has_dlc_feature = advanced_activities }
+	
+				cost = {
+					gold = {
+						add = {
+							value = 0
+							desc = funeral_ceremony_normal
+							add = {
+								value = 10
+								desc = funeral_ceremony_normal
+							}
+							add = {
+								value = 10
+								multiply = activity_cost_scale_by_tier
+								subtract = 10
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 10
+								multiply = activity_cost_scale_by_era
+								subtract = 10
+								desc = activity_cost_scale_by_era_desc
+							}
+							if = {
+								limit = {
+									dynasty ?= {
+										has_dynasty_perk = law_legacy_1
+									}
+								}
+								subtract = {
+									value = 10
+									add = {
+										value = 10
+										multiply = activity_cost_scale_by_tier
+										subtract = 10
+									}
+									add = {
+										value = 10
+										multiply = activity_cost_scale_by_era
+										subtract = 10
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+							if = {
+								limit = {
+									has_perk = journey_planner_perk
+								}
+								multiply = {
+									value = voyager_journey_planner_value
+									desc = journey_planner_perk_name
+								}
+							}
+						}
+					}
+				}
+
+				ai_will_do = {
+					value = 0
+					# Financial preference.
+					add = activity_option_likes_middling_expense_value
+					# Quantity preference.
+					## We just use slightly reduced quantity prefs here.
+					add = {
+						value = activity_option_prefers_large_volume_value
+						multiply = 0.5
+					}
+				}
+			}
+			rite_ceremony_good = {
+				is_shown = { has_dlc_feature = advanced_activities }
+
+				cost = {
+					gold = {
+						add = {
+							value = 0
+							desc = funeral_ceremony_good
+							add = {
+								value = 35
+								desc = funeral_ceremony_good
+							}
+							add = {
+								value = 35
+								multiply = activity_cost_scale_by_tier
+								subtract = 35
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 35
+								multiply = activity_cost_scale_by_era
+								subtract = 35
+								desc = activity_cost_scale_by_era_desc
+							}
+							if = {
+								limit = {
+									dynasty ?= {
+										has_dynasty_perk = law_legacy_1
+									}
+								}
+								subtract = {
+									value = 35
+									add = {
+										value = 35
+										multiply = activity_cost_scale_by_tier
+										subtract = 35
+									}
+									add = {
+										value = 35
+										multiply = activity_cost_scale_by_era
+										subtract = 35
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+							if = {
+								limit = {
+									has_perk = journey_planner_perk
+								}
+								multiply = {
+									value = voyager_journey_planner_value
+									desc = journey_planner_perk_name
+								}
+							}
+						}
+					}
+				}
+
+				ai_will_do = {
+					value = 0
+					# Financial preference.
+					add = activity_option_likes_heavy_expense_value
+					# Quantity preference.
+					add = activity_option_prefers_large_volume_value
+				}
+			}
+		}
 	}
 
 	###################

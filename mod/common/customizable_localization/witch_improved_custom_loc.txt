@@ -1,4 +1,4 @@
-WillGetMinorPrestigeCustomLoc = {
+﻿WillGetMinorPrestigeCustomLoc = {
 	type = character
 
 	text = {

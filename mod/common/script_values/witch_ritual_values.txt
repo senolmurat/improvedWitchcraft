@@ -4,7 +4,7 @@
 		limit = {
 			root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
 		}
-		multiply = 0.8
+		subtract = 1
 	}
 }
 

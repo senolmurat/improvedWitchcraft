@@ -1,4 +1,4 @@
-tradition_occult_practices = {
+﻿tradition_occult_practices = {
 	category = ritual
 
 	layers = {

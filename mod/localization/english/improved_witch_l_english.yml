@@ -52,12 +52,12 @@
  trait_track_witch_desc:0 "The practice of witchcraft and dark magic, growing stronger with experience and dedication to the craft."
 
 ### TRIGGERS
- HAS_ANY_LIFESTYLE_TRIGGER:0 "Has choosen a [lifestyle|E]"
- NOT_HAS_ANY_LIFESTYLE_TRIGGER:0 "Does #bold not#! have choosen a [lifestyle|E]"
- I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "You have a choosen [lifestyle|E]"
- NOT_I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "You do #bold not#! have a choosen [lifestyle|E]"
- THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] have a choosen [lifestyle|E]"
- NOT_THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] does #bold not#! have a choosen [lifestyle|E]"
+ HAS_ANY_LIFESTYLE_TRIGGER:0 "Has selected a [lifestyle|E]"
+ NOT_HAS_ANY_LIFESTYLE_TRIGGER:0 "Does #bold not#! have selected a [lifestyle|E]"
+ I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "You have selected a [lifestyle|E]"
+ NOT_I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "You have #bold not#! selected a [lifestyle|E]"
+ THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] have selected a [lifestyle|E]"
+ NOT_THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] has #bold not#! selected a [lifestyle|E]"
 
  HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "Has a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
  NOT_HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "Does #bold not#! have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
@@ -65,14 +65,6 @@
  NOT_I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "You do #bold not#! have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
  THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
  NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] does #bold not#! have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
-
-### DOCTRINE TENETS
- tenet_coven_worship_name:0 "Coven Worship"
- tenet_coven_worship_desc:0 "True power is not found in solitude, but in the shared will of the coven. We believe that our strength is magnified when we gather, and our most sacred rites bind us together as a spiritual family."
- doctrine_parameter_piety_from_witch_coven_active:1 "Hosting a [GetActivityType('activity_witch_ritual').GetName] earns [piety_i][piety|E]"
- doctrine_parameter_shorten_witch_coven_cooldown_active:1 "Delay between [GetActivityType('activity_witch_ritual').GetName] [activities|E] are #P reduced#! by #V 1#! year"
- DOCTRINE_WITCHCRAFT_ACCEPTED_OR_VIRTUOUS:0 "Incompatible with the [doctrine|E] Witchcraft Shunned or Criminal"
- NOT_DOCTRINE_WITCHCRAFT_ACCEPTED_OR_VIRTUOUS:0 "Requires [doctrine|E] Witchcraft Accepted or Virtuous"
 
 ### TRADITIONS
  tradition_occult_practices_name:0 "Occult Practices"
@@ -84,10 +76,13 @@
  COMPATRIOT_PARAMETER_DESC:0 "From [traditions|E] vs. same [culture|E]: $VALUE|+0=$"
 
 ### ACTIVITY OPTIONS
+ rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"
+ rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Increased [prestige_i][prestige|E] gain"
+ rite_ceremony_conditional_major_prestige_loc: "\n$EFFECT_LIST_BULLET$ Greatly increased [prestige_i][prestige|E] gain"
  rite_option_ceremony: "Ceremonials"
  rite_ceremony_bad: "Humble Ceremonials"
- rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Small [opinion|E] gain with guests\n$EFFECT_LIST_BULLET$ Minor [stress_loss_i|E][stress|E] loss\n\n#weak The rite is not a performance for the uninitiated. We shall gather in secret, our tools humble and our voices low, for true power lies not in spectacle, but in the quiet communion of the faithful.#!"
+ rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Small [opinion|E] gain with guests\n$EFFECT_LIST_BULLET$ Minor [stress_loss_i|E][stress|E] loss[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak The rite is not a performance for the uninitiated. We shall gather in secret, our tools humble and our voices low, for true power lies not in spectacle, but in the quiet communion of the faithful.#!"
  rite_ceremony_normal: "Dignified Ceremonials"
- rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Moderate [opinion|E] gain with guests\n$EFFECT_LIST_BULLET$ Moderate [stress_loss_i|E][stress|E] loss\n\n#weak The old powers deserve their due, and our traditions must be honored with reverence. We shall procure the proper reagents and prepare the sacred space, for a rite performed with respect is a rite of true power.#!"
+ rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Moderate [opinion|E] gain with guests\n$EFFECT_LIST_BULLET$ Moderate [stress_loss_i|E][stress|E] loss[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak The old powers deserve their due, and our traditions must be honored with reverence. We shall procure the proper reagents and prepare the sacred space, for a rite performed with respect is a rite of true power.#!"
  rite_ceremony_good: "Extravagant Ceremonials"  
- rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Great [opinion|E] gain with guests\n$EFFECT_LIST_BULLET$ Major [stress_loss_i|E][stress|E] loss\n\n#weak No expense shall be spared; the rarest artifacts shall be our focus, the most potent offerings our tribute. Let this Grand Rite be a testament to our ambition, a ceremony so grand that the very stars will bear witness to our power.#!"
+ rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Great [opinion|E] gain with guests\n$EFFECT_LIST_BULLET$ Major [stress_loss_i|E][stress|E] loss[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak No expense shall be spared; the rarest artifacts shall be our focus, the most potent offerings our tribute. Let this Grand Rite be a testament to our ambition, a ceremony so grand that the very stars will bear witness to our power.#!"

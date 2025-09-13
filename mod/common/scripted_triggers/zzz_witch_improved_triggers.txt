@@ -1,4 +1,4 @@
-has_any_lifestyle_trigger = {
+﻿has_any_lifestyle_trigger = {
 	OR = {
 		has_lifestyle = diplomacy_lifestyle
 		has_lifestyle = martial_lifestyle

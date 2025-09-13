@@ -1,0 +1,47 @@
+WillGetMinorPrestigeCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			culture = { has_cultural_parameter = witch_trait_more_valued }
+		 }
+		localization_key = rite_ceremony_conditional_minor_prestige_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}
+
+WillGetModeratePrestigeCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			culture = { has_cultural_parameter = witch_trait_more_valued }
+		 }
+		localization_key = rite_ceremony_conditional_moderate_prestige_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}
+
+WillGetMajorPrestigeCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			culture = { has_cultural_parameter = witch_trait_more_valued }
+		 }
+		localization_key = rite_ceremony_conditional_major_prestige_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}

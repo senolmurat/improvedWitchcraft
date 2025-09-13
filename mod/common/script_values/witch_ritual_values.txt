@@ -1,18 +1,8 @@
-standard_witch_ritual_cooldown_time = {
+﻿standard_witch_ritual_cooldown_time = {
 	value = 5
 	if = {
 		limit = {
-			root.faith = { has_doctrine = tenet_coven_worship }
 			root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
-		}
-		multiply = 0.6
-	}
-	else_if = {
-		limit = {
-			OR = {
-				root.faith = { has_doctrine = tenet_coven_worship }
-				root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
-			}
 		}
 		multiply = 0.8
 	}
@@ -57,6 +47,24 @@ grand_rite_host_stress_loss_value = {
 				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_good }
 			}
 			add = -40
+		}
+	}
+}
+
+grand_rite_prestige_reward_value = {
+	value = minor_prestige_value
+	scope:activity = {
+		if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_normal }
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_good }
+			}
+			multiply = 2
 		}
 	}
 }

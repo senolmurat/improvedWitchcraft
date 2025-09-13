@@ -1,4 +1,4 @@
-
+﻿
 #Grand rite choice
 grand_rite_good_outcome = {
 	scope:activity = {
@@ -30,27 +30,12 @@ grand_rite_poor_outcome = {
 }
 
 hosted_successful_witch_coven_new_effect = {
-	# Piety gain from Tenets.
-	if = {
-		limit = {
-			faith = {
-				OR = {
-					has_doctrine_parameter = piety_from_witch_coven_active
-				}
-			}
-		}
-		add_piety = {
-			value = 0
-			min = medium_piety_value
-		}
-	}
-
 	# prestige gain from culture
 	if = {
 		limit = {
 			root.culture = { has_cultural_parameter = witch_trait_more_valued }
 		}
-		add_prestige = minor_prestige_gain
+		add_prestige = grand_rite_prestige_reward_value
 	}
 
 	witch_improved_witchcraft_trait_xp_gain_effect = yes

@@ -69,11 +69,17 @@
 ### TRADITIONS
  tradition_occult_practices_name:0 "Occult Practices"
  tradition_occult_practices_desc:0 "Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."
- rulers_with_witch_desc:1 "The [culture|E] does not have #V 5#! [rulers|E] with [GetTrait('witch').GetName( GetNullCharacter )] [traits|E]"
+ rulers_with_witch_desc: "The [culture|E] does not have #V 5#! [rulers|E] with [GetTrait('witch').GetName( GetNullCharacter )] [traits|E]"
  culture_parameter_more_frequent_witch_rituals:0 "Delay between [GetActivityType('activity_witch_ritual').GetName] [activities|E] are #P reduced#! by #V 1#! year"
  culture_parameter_easier_to_convert_witch:0 "[characters|E] of this [culture|E] are easier to $convert_to_witchcraft_interaction$"
  culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E] is seen as [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Hosting a [GetActivityType('activity_witch_ritual').GetName] earns [prestige_i][prestige|E]"
  COMPATRIOT_PARAMETER_DESC:0 "From [traditions|E] vs. same [culture|E]: $VALUE|+0=$"
+
+ tradition_folk_healers_name:0 "Folk Healers"
+ tradition_folk_healers_desc:0 "Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."
+ no_witch_healer_in_realm: "You must have at least one [vassal|E], [courtier|E], or [councillor|E], with the [GetTrait('witch').GetName( GetNullCharacter )] and [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]s"
+ culture_parameter_herbalist_trait_witch_bonuses:0 "The [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] have additional bonuses"
+ culture_parameter_can_appoint_court_alchemist:0 "Can appoint #high [GetCourtPositionType( 'court_alchemist' ).GetName()]#! [court_position|E]"
 
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"

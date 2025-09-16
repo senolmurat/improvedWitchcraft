@@ -76,10 +76,10 @@
  COMPATRIOT_PARAMETER_DESC:0 "From [traditions|E] vs. same [culture|E]: $VALUE|+0=$"
 
  tradition_folk_healers_name:0 "Folk Healers"
- tradition_folk_healers_desc:0 "Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."
- no_witch_healer_in_realm: "You must have at least one [vassal|E], [courtier|E], or [councillor|E], with the [GetTrait('witch').GetName( GetNullCharacter )] and [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]s"
+ tradition_folk_healers_desc:0 "There are those who believe that true healing comes from the union of earth and spirit. Knowledge of herbs mends the flesh, but only the wisdom of the old ways can soothe a troubled soul or ward off unseen blights. Their most respected healers are therefore those who walk both paths, blending practical medicine with the deeper magic of the natural world."
+ no_witch_healer_in_realm: "You must have at least two [councillor|E] with the [GetTrait('witch').GetName( GetNullCharacter )] and [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]s"
  culture_parameter_herbalist_trait_witch_bonuses:0 "The [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] have additional bonuses"
- culture_parameter_can_appoint_court_alchemist:0 "Can appoint #high [GetCourtPositionType( 'court_alchemist' ).GetName()]#! [court_position|E]"
+ culture_parameter_can_appoint_court_alchemist:0 "Can appoint #high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! [court_position|E]"
 
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"

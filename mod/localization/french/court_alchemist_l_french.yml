@@ -1,0 +1,20 @@
+﻿l_french:
+ court_alchemist_court_position:0 "Alchimiste de la cour"
+ court_alchemist_court_position_desc:0 "L'alchimiste de la cour sert le monarque en transformant les métaux, en préparant des potions et en perçant les mystères de l'univers."
+ court_position_mystic_trait:0 "Traité mystique"
+ court_position_cynical_trait:0 "Traits cyniques"
+ court_alchemist_employer_custom_effect_description:0 "La capacité de l'alchimiste de la cour confère au souverain les effets suivants :"
+
+   # --- Tâches ---
+
+  # Tâche: Focus sur les potions
+  alchemist_task_focus_potions:0 "Focus sur les potions"
+  alchemist_task_focus_potions_desc:0 "L'alchimiste se concentre sur la préparation de potions curatives et protectrices afin de préserver la santé du monarque et de la cour."
+
+  # Tâche 2: Focus sur les études sur les poisons
+  alchemist_task_focus_poisons:0 "Focus on Poison Studies"
+  alchemist_task_focus_poisons_desc:0 "L'alchimiste explore le monde mystérieux des poisons et des antidotes afin d'obtenir des informations pouvant être utilisées dans des plans hostiles."
+
+  # Tâche 3: Expériences sur l'essence de la vie
+  alchemist_task_life_essence:0 "Expériences sur l'essence de la vie"
+  alchemist_task_life_essence_desc:0 "L'alchimiste élargit ses connaissances en explorant les éléments fondamentaux de l'existence et les secrets de la vie."

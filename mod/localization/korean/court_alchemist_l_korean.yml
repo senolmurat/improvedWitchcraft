@@ -1,0 +1,20 @@
+﻿l_korean:
+ court_alchemist_court_position:0 "법원 연금술사"
+ court_alchemist_court_position_desc:0 "법원 연금술사는 금속을 변환하고 약초를 제조하며 우주의 신비를 풀어내는 일을 통해 군주에게 봉사합니다."
+ court_position_mystic_trait:0 "신비로운 특성"
+ court_position_cynical_trait:0 "냉소적인 특성"
+ court_alchemist_employer_custom_effect_description:0 "법원 연금술사의 능력은 통치자에게 다음과 같은 효과를 부여합니다:"
+
+   # --- 작업 ---
+
+  # 작업: 약초에 집중하세요
+  alchemist_task_focus_potions:0 "약초에 집중하세요"
+  alchemist_task_focus_potions_desc:0 "연금술사는 왕과 궁정의 건강을 보호하기 위해 치유와 보호용 약초를 준비하는 데 집중합니다."
+
+  # 작업 2: 독성 연구에 집중
+  alchemist_task_focus_poisons:0 "독성 연구에 집중"
+  alchemist_task_focus_poisons_desc:0 "연금술사는 독과 해독제의 신비로운 세계에 깊이 빠져들어 적대적인 계획에 활용할 수 있는 정보를 얻기 위해 탐구합니다."
+
+  # 작업 3: 생명 본질 실험
+  alchemist_task_life_essence:0 "생명 본질 실험"
+  alchemist_task_life_essence_desc:0 "연금술사는 존재의 근본적인 구성 요소와 생명의 비밀을 탐구함으로써 지식을 넓혀갑니다."

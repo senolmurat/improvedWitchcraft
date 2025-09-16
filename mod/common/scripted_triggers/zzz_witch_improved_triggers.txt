@@ -1,4 +1,8 @@
-﻿has_any_lifestyle_trigger = {
+﻿is_Improved_Witchcraft_loaded = {
+	always = yes
+}
+
+has_any_lifestyle_trigger = {
 	OR = {
 		has_lifestyle = diplomacy_lifestyle
 		has_lifestyle = martial_lifestyle

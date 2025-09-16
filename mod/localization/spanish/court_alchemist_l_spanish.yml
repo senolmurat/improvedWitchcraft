@@ -1,0 +1,20 @@
+﻿l_spanish:
+ court_alchemist_court_position:0 "Alquimista de la corte"
+ court_alchemist_court_position_desc:0 "El Alquimista de la Corte sirve al monarca transformando metales, preparando pociones y desentrañando los misterios del universo."
+ court_position_mystic_trait:0 "Rasgo místico"
+ court_position_cynical_trait:0 "Rasgo cínico"
+ court_alchemist_employer_custom_effect_description:0 "La habilidad del Alquimista de la Corte otorga al gobernante los siguientes efectos:"
+
+   # --- Tareas ---
+
+  # Tarea: Enfoque en pociones
+  alchemist_task_focus_potions:0 "Enfoque en pociones"
+  alchemist_task_focus_potions_desc:0 "El alquimista se dedica a preparar pociones curativas y protectoras para salvaguardar la salud del monarca y la corte."
+
+  # Tarea 2: Enfoque en los estudios sobre venenos
+  alchemist_task_focus_poisons:0 "Enfoque en los estudios sobre venenos"
+  alchemist_task_focus_poisons_desc:0 "El alquimista se adentra en el misterioso mundo de los venenos y los antídotos para obtener información que pueda utilizarse en planes hostiles."
+
+  # Tarea 3: Experimentos sobre la esencia de la vida
+  alchemist_task_life_essence:0 "Experimentos sobre la esencia de la vida"
+  alchemist_task_life_essence_desc:0 "El alquimista amplía el conocimiento explorando los componentes fundamentales de la existencia y los secretos de la vida."

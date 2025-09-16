@@ -150,29 +150,14 @@ tradition_folk_healers = {
 			}
 			if = {
 				limit = {
-					trigger_if = {
-						limit = {
-							scope:character = {
-								is_ai = no
-							}
-						}
-						NOR = {
-							any_courtier = {
-								has_trait = witch
-								has_trait = lifestyle_herbalist
-							}
-							any_vassal = { 
-								has_trait = witch
-								has_trait = lifestyle_herbalist
-							}
-							any_councillor = { 
+					NOT = {
+						scope:character = {
+							any_councillor = {
+								count >= 2
 								has_trait = witch
 								has_trait = lifestyle_herbalist
 							}
 						}
-					}
-					trigger_else = {
-						always = no
 					}
 				}
 				add = {
@@ -180,7 +165,6 @@ tradition_folk_healers = {
 					desc = no_witch_healer_in_realm
 				}
 			}
-
 			if = {
 				limit = {
 					culture_tradition_reduction_trigger = { TRADITION = tradition_folk_healers }
@@ -193,6 +177,10 @@ tradition_folk_healers = {
 			
 			multiply = tradition_replacement_cost_if_relevant
 		}
+	}
+
+	character_modifier = {
+		negate_health_penalty_add = 0.1
 	}
 	
 	ai_will_do = {

@@ -1,0 +1,163 @@
+﻿# Court Alchemist Position
+# This file adds the Court Alchemist position to the game..
+# It focuses primarily on the Learning ability and provides various bonuses.
+
+court_alchemist_court_position = { 
+	sort_order = 250
+	max_available_positions = 1
+	skill = learning
+
+	court_position_asset = {
+		animation = physician
+		background = "gfx/interface/illustrations/event_scenes/study.dds"
+	}
+
+	opinion = {
+		value = regular_court_position_opinion
+	}
+
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	aptitude = {
+		value = 20
+		add = {
+			value = learning
+			multiply = 3.0
+			max = 60
+			desc = court_position_skill_learning
+		}
+		if = {
+			limit = { has_trait = scholar }
+			add = { value = 20 desc = court_position_scholar_trait }
+		}
+		if = {
+			limit = { has_trait = lifestyle_herbalist }
+			add = { value = 20 desc = court_position_herbalist_trait }
+		}
+		if = {
+			limit = { has_trait = lifestyle_mystic }
+			add = { value = 15 desc = court_position_mystic_trait }
+		}
+		if = {
+			limit = { has_trait = cynical }
+			add = { value = 10 desc = court_position_cynical_trait }
+		}
+		if = {
+			limit = { has_trait = patient }
+			add = { value = 15 desc = court_position_patient_trait }
+		}
+		if = {
+			limit = { has_trait = intellect_good_3 }
+			add = { value = 40 desc = court_position_intellect_good_3_trait }
+		}
+		else_if = {
+			limit = { has_trait = intellect_good_2 }
+			add = { value = 20 desc = court_position_intellect_good_2_trait }
+		}
+		else_if = {
+			limit = { has_trait = intellect_good_1 }
+			add = { value = 10 desc = court_position_intellect_good_1_trait }
+		}
+		if = {
+			limit = { has_trait = lazy }
+			add = { value = -20 desc = court_position_lazy_trait }
+		}
+		if = {
+			limit = { has_trait = impatient }
+			add = { value = -15 desc = court_position_impatient_trait }
+		}
+		# Seneschal
+		if = {
+			limit = {
+				liege.court_position:seneschal_court_position ?= {
+					has_variable = performing_improve_court
+				}
+			}
+			add = {
+				value = liege.court_position:seneschal_court_position.seneschal_improve_court_value
+				desc = seneschal_improve_court_aptitude_desc
+			}
+		}
+	}
+
+	is_shown = {
+		has_ep1_court_positions_dlc_trigger = yes
+		is_landed = yes
+		culture = { has_cultural_parameter = can_appoint_court_alchemist }
+		highest_held_title_tier >= 3
+	}
+
+	valid_position = {
+		highest_held_title_tier >= 3
+	}
+
+	valid_character = {
+		scope:employee = {
+			is_imprisoned = no
+			is_adult = yes
+			is_ruler = no
+		}
+	}
+
+	revoke_cost = {
+		prestige = {
+			value = major_court_position_prestige_revoke_cost
+		}
+	}
+
+	salary = {
+		gold = 0.8
+		prestige = 0.2
+	}
+
+	scaling_employer_modifiers = {
+		terrible = {
+			epidemic_resistance = 2
+			health = 0.01
+			monthly_learning_lifestyle_xp_gain_mult = 0.005
+		}
+		poor = {
+			epidemic_resistance = 5
+			health = 0.03
+			monthly_learning_lifestyle_xp_gain_mult = 0.015
+		}
+		average = {
+			epidemic_resistance = 7
+			health = 0.05
+			monthly_learning_lifestyle_xp_gain_mult = 0.030
+		}
+		good = {
+			epidemic_resistance = 10
+			health = 0.07
+			monthly_learning_lifestyle_xp_gain_mult = 0.050
+		}
+		excellent = {
+			epidemic_resistance = 15
+			health = 0.1
+			monthly_learning_lifestyle_xp_gain_mult = 0.075
+		}
+	}
+
+	custom_employer_modifier_description = court_alchemist_employer_custom_effect_description
+
+	modifier = {
+		learning = 2
+		monthly_prestige = 0.2
+	}
+
+	candidate_score = {
+		value = 50
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_candidate_aptitude_value
+		scope:liege = {
+			if = {
+				limit = {
+					has_trait = scholar
+				}
+				add = 30
+			}
+		}
+		add = court_position_debt_considerations_value
+	}
+}

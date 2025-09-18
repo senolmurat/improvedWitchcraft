@@ -1,9 +1,10 @@
 ﻿l_korean:
  court_alchemist_court_position:0 "법원 연금술사"
  court_alchemist_court_position_desc:0 "법원 연금술사는 금속을 변환하고 약초를 제조하며 우주의 신비를 풀어내는 일을 통해 군주에게 봉사합니다."
- court_position_mystic_trait:0 "신비로운 특성"
- court_position_cynical_trait:0 "냉소적인 특성"
- court_alchemist_employer_custom_effect_description:0 "법원 연금술사의 능력은 통치자에게 다음과 같은 효과를 부여합니다:"
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
 
    # --- 작업 ---
 

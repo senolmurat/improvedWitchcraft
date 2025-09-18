@@ -1,20 +1,20 @@
 ﻿l_english:
- court_alchemist_court_position:0 "Court Alchemist"
- court_alchemist_court_position_desc:0 "The Court Alchemist serves the monarch by transforming metals, preparing potions, and unraveling the mysteries of the universe."
- court_position_mystic_trait:0 "Mystic Trait"
- court_position_cynical_trait:0 "Cynical Trait"
- court_alchemist_employer_custom_effect_description:0 "The Court Alchemist's ability grants the ruler the following effects:"
+ court_alchemist_court_position: "Court Alchemist"
+ court_alchemist_court_position_desc: "The Court Alchemist serves the monarch by transforming metals, preparing potions, and unraveling the mysteries of the universe."
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
 
    # --- Tasks ---
-
   # Task: Focus on Potions
-  alchemist_task_focus_potions:0 "Focus on Potions"
-  alchemist_task_focus_potions_desc:0 "The alchemist focuses on preparing healing and protective potions to protect the health of the monarch and the court."
+  alchemist_task_focus_potions: "Focus on Potions"
+  alchemist_task_focus_potions_desc: "The alchemist focuses on preparing healing and protective potions to protect the health of the monarch and the court."
 
   # Task 2: Focus on Poison Studies
-  alchemist_task_focus_poisons:0 "Focus on Poison Studies"
-  alchemist_task_focus_poisons_desc:0 "The alchemist delves into the mysterious world of poisons and antidotes to gain information that can be used in hostile plans."
+  alchemist_task_focus_poisons: "Focus on Poison Studies"
+  alchemist_task_focus_poisons_desc: "The alchemist delves into the mysterious world of poisons and antidotes to gain information that can be used in hostile plans."
 
   # Task 3: Life Essence Experiments
-  alchemist_task_life_essence:0 "Life Essence Experiments"
-  alchemist_task_life_essence_desc:0 "The alchemist broadens the knowledge by exploring the fundamental building blocks of existence and the secrets of life."
+  alchemist_task_life_essence: "Life Essence Experiments"
+  alchemist_task_life_essence_desc: "The alchemist broadens the knowledge by exploring the fundamental building blocks of existence and the secrets of life."

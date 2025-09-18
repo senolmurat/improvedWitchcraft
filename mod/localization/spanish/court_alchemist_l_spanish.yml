@@ -1,9 +1,10 @@
 ﻿l_spanish:
  court_alchemist_court_position:0 "Alquimista de la corte"
  court_alchemist_court_position_desc:0 "El Alquimista de la Corte sirve al monarca transformando metales, preparando pociones y desentrañando los misterios del universo."
- court_position_mystic_trait:0 "Rasgo místico"
- court_position_cynical_trait:0 "Rasgo cínico"
- court_alchemist_employer_custom_effect_description:0 "La habilidad del Alquimista de la Corte otorga al gobernante los siguientes efectos:"
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
 
    # --- Tareas ---
 

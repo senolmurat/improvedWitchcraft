@@ -10,21 +10,38 @@ alchemist_task_focus_potions = {
 		gold = {
 			add = {
 				value = monthly_court_position_task_cost
+				multiply = 2
 				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
 				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
 			}
 		}
 	}
+
 	employee_modifier = {
 		monthly_prestige = minor_court_position_task_prestige_salary
 	}
 
 	scaling_employer_modifiers = {
-		terrible = { health = 0.01 }
-		poor = { health = 0.03 }
-		average = { health = 0.05 }
-		good = { health = 0.07 }
-		excellent = { health = 0.1 }
+		terrible = {
+			negate_prowess_penalty_add = 1
+			negate_fertility_penalty_add = 0.01
+		}
+		poor = {
+			negate_prowess_penalty_add = 2
+			negate_fertility_penalty_add = 0.03
+		}
+		average = {
+			negate_prowess_penalty_add = 3
+			negate_fertility_penalty_add = 0.05
+		}
+		good = {
+			negate_prowess_penalty_add = 4
+			negate_fertility_penalty_add = 0.07
+		}
+		excellent = {
+			negate_prowess_penalty_add = 5
+			negate_fertility_penalty_add = 0.1
+		}
 	}
 
 	ai_will_do = {
@@ -60,13 +77,24 @@ alchemist_task_focus_poisons = {
 	}
 
 	ai_will_do = {
-		value = 30
+		value = {
+			add = ai_honor
+			multiply = -1
+		}
+		if = {
+			limit = {
+				any_scheme = {
+					is_hostile = yes
+				}
+			}
+			add = 50
+		}
 	}
 }
 
 # GÖREV 3: Life Essence Experiments
 alchemist_task_life_essence = {
-	court_position_types = { 
+	court_position_types = {
 		court_alchemist_court_position
 	}
 	cost = {
@@ -74,6 +102,15 @@ alchemist_task_life_essence = {
 		gold = {
 			add = {
 				value = monthly_court_position_task_cost
+				multiply = 3
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				multiply = 1.5
 				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
 				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
 			}
@@ -84,11 +121,11 @@ alchemist_task_life_essence = {
 	}
 
 	scaling_employer_modifiers = {
-		terrible = { monthly_learning_lifestyle_xp_gain_mult = 0.05 }
-		poor = { monthly_learning_lifestyle_xp_gain_mult = 0.10 }
-		average = { monthly_learning_lifestyle_xp_gain_mult = 0.15 }
-		good = { monthly_learning_lifestyle_xp_gain_mult = 0.20 }
-		excellent = { monthly_learning_lifestyle_xp_gain_mult = 0.25 }
+		terrible = { monthly_learning_lifestyle_xp_gain_mult = 0.01 }
+		poor = { monthly_learning_lifestyle_xp_gain_mult = 0.03 }
+		average = { monthly_learning_lifestyle_xp_gain_mult = 0.05 }
+		good = { monthly_learning_lifestyle_xp_gain_mult = 0.07 }
+		excellent = { monthly_learning_lifestyle_xp_gain_mult = 0.1 }
 	}
 
 	ai_will_do = {

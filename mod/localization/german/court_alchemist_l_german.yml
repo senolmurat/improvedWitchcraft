@@ -1,9 +1,10 @@
 ﻿l_german:
  court_alchemist_court_position:0 "Hofalchemist"
  court_alchemist_court_position_desc:0 "Der Hofalchemist dient dem Monarchen, indem er Metalle umwandelt, Tränke zubereitet und die Geheimnisse des Universums entschlüsselt."
- court_position_mystic_trait:0 "Mystische Eigenschaft"
- court_position_cynical_trait:0 "Zynische Eigenschaft"
- court_alchemist_employer_custom_effect_description:0 "Die Fähigkeit des Hofalchemisten gewährt dem Herrscher die folgenden Effekte:"
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
 
    # --- Aufgaben ---
 

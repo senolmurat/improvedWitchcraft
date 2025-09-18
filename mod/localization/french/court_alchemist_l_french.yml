@@ -1,9 +1,10 @@
 ﻿l_french:
  court_alchemist_court_position:0 "Alchimiste de la cour"
  court_alchemist_court_position_desc:0 "L'alchimiste de la cour sert le monarque en transformant les métaux, en préparant des potions et en perçant les mystères de l'univers."
- court_position_mystic_trait:0 "Traité mystique"
- court_position_cynical_trait:0 "Traits cyniques"
- court_alchemist_employer_custom_effect_description:0 "La capacité de l'alchimiste de la cour confère au souverain les effets suivants :"
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
 
    # --- Tâches ---
 

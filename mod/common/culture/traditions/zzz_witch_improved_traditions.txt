@@ -154,11 +154,21 @@ tradition_folk_healers = {
 				limit = {
 					NOT = {
 						scope:character = {
-							any_councillor = {
-								count >= 2
-								has_trait = witch
-								has_trait = lifestyle_herbalist
+							OR = {
+								any_councillor = {
+									has_trait = witch
+									has_trait = lifestyle_herbalist
+								}
+								any_courtier = {
+									has_trait = witch
+									has_trait = lifestyle_herbalist
+								}
+								any_vassal = {
+									has_trait = witch
+									has_trait = lifestyle_herbalist
+								}
 							}
+							
 						}
 					}
 				}

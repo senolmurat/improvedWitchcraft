@@ -1,0 +1,100 @@
+﻿l_german:
+ ### INTENTS
+ blessing_intent:0 "Segen suchen"
+ blessing_intent_desc:0 "Dunkle Energien kanalisieren, um mächtige Gaben zu erhalten."
+ curse_enemy_intent:0 "Feind verfluchen"
+ curse_enemy_intent_desc:0 "Böse Energien kanalisieren, um eure Feinde und Rivalen mit Pech und Schwäche zu belegen.\n$EFFECT_LIST_BULLET$Kann [piety_i][piety|E] kosten"
+
+ forbidden_knowledge_intent:0 "Verbotenes Wissen suchen"
+ forbidden_knowledge_intent_desc:0 "Taucht in verbotene Folianten ein, um verbotenes Wissen und Weisheit zu erlangen. Es ist riskant und nichts für schwache Nerven.\n$EFFECT_LIST_BULLET$Ihr könnt einen Vorteils­punkt oder [lifestyle_experience|E] in eurem [lifestyle|E] erhalten.\n$EFFECT_LIST_BULLET$Ihr könnt negative [trait|E]s erhalten.\n$EFFECT_LIST_BULLET$Ihr #bold werdet#! [stress_gain_i|E] [stress|E] erhalten.\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )]- oder [GetTrait('paranoid').GetName( GetNullCharacter )]-Charaktere erhalten zusätzlich [stress|E]."
+
+ ### EVENTS
+ witchimproved.1001.t:0 "Segen suchen"
+ witchimproved.1001.desc:0 "Die dunklen Energien antworten eurem Ruf, und die Geister der Anderswelt bieten euch ihren Segen. Wählt, welche Art von Gabe ihr von den alten Mächten begehrt."
+ witchimproved.1001.a:0 "Lernt etwas Neues von [health_expert.GetFirstNameNoTooltip]."
+ witchimproved.1002.t:0 "Verflucht euren Feind"
+ witchimproved.1002.desc.start:0 "Der Raum ist dicht mit Weihrauch gefüllt, Rauch kringelt wie geisterhafte Schlangen, während die Gesänge eurer Versammelten zu einem frenetischen Chor anschwellen. Schatten tanzen an den Wänden, dehnen sich zu grotesken Formen, die fast lebendig wirken.\n\n"
+ witchimproved.1002.desc.mid:0 "In der Mitte brennt das Opfer: Blut, Kräuter und ein Bruchstück eures eigenen Willens, dargebracht den unsichtbaren Mächten, die euren Ruf hören. Der Schleier zwischen den Welten erzittert – und ihr spürt eine furchtbare Klarheit.\n\n"
+ witchimproved.1002.desc.end:0 "Heute Nacht verlangt das Ritual ein Opfer. Eine Seele, ein Schicksal, das durch eure Bosheit verdreht und zerstört wird."
+ witchimproved.1002.a:0 "Möge [target.GetHerHis] Geist unter dem Gewicht der Verzweiflung zusammenbrechen."
+ witchimproved.1002.b:0 "Möge Krankheit an [target.GetHerHis] Fleisch nagen, bis [target.GetSheHe] zusammenbricht."
+ witchimproved.1002.c:0 "Ein Fluch über [target.GetHerHis] Land, damit die Seuche [target.GetHerHis] Volk erstickt."
+
+ witchimproved.1004.t:0 "Verbotenes Wissen suchen"
+ witchimproved.1004.desc:0 "Der Foliant vor euch ist kein bloßes Sammelsurium von Worten – er ist ein Relikt, das flüstert. Die Schrift verändert sich, wenn ihr nicht hinseht, und am Rande eures Blicks erhascht ihr Wahrheiten, die nicht für sterbliche Augen bestimmt sind.\n\nJeder Instinkt sagt euch, ihn zu schließen, ihn dem Staub und der Dunkelheit zurückzugeben. Dennoch ist der Sog unwiderstehlich. Mit jeder umgeschlagenen Seite fühlt ihr Macht sich entfalten – eine Klarheit, die Herrschaft über euren Weg verspricht.\n\nDoch es gibt Gefahr. Zu tief zu tauchen heißt, Verderbnis einzuladen, etwas Fremdes in eure Seele zu lassen. Der Preis kann Verstand, Gesundheit oder Schlimmeres sein. Ihr könntet euch zügeln und nur Splitter aufnehmen – sicherer, aber weit weniger lohnend. Oder… ihr ergebt euch dem Abgrund und seht, welche Geheimnisse er birgt."
+ witchimproved.1004.a:0 "Ich werde jedes Geheimnis ergreifen, koste es, was es wolle."
+ witchimproved.1004.b:0 "Ich nehme nur, was ich ertragen kann."
+ witchimproved.1004.a.bad:0 "Ihr wurdet vom Folianten verflucht"
+ forbidden_knowledge_risk_tooltip:0 "Etwas Schlimmes geschieht…"
+
+ ### BOONS
+ witch_blessing_diplomacy_boon:0 "Gab der Diplomatie"
+ witch_blessing_diplomacy_boon_desc:0 "Das Ritual hat euch mit gesteigerter Diplomatie und Verhandlungskunst gesegnet und macht euch zu einem Meister des Einflusses."
+ witch_blessing_health_boon:0 "Gab der Gesundheit"
+ witch_blessing_health_boon_desc:0 "Das Ritual hat euch widerstandsfähiger gegen Krankheit und Plage gemacht."
+ witch_blessing_learning_boon:0 "Gab des Wissens"
+ witch_blessing_learning_boon_desc:0 "Alte Weisheit fließt durch euch und stärkt eure Lernfähigkeit und kulturelles Verständnis."
+ witch_blessing_martial_boon:0 "Gab der Kriegskunst"
+ witch_blessing_martial_boon_desc:0 "Das Ritual hat eure kriegerische Stärke erhöht und macht euch zu einem furchtbaren Anführer."
+ witch_blessing_intrigue_boon:0 "Gab der Intrige"
+ witch_blessing_intrigue_boon_desc:0 "Ihr habt die Kunst der Schatten gemeistert und seid ein Meister der Ränke und Geheimnisse geworden."
+ witch_blessing_stewardship_boon:0 "Gab der Verwaltung"
+ witch_blessing_stewardship_boon_desc:0 "Mystische Kräfte lenken Wohlstand zu euch und stärken eure wirtschaftlichen und administrativen Fähigkeiten."
+ witch_blessing_fertility_boon:0 "Gab der Fruchtbarkeit"
+ witch_blessing_fertility_boon_desc:0 "Das Ritual hat euch mit erhöhter Fruchtbarkeit und Vitalität gesegnet, sodass eure Linie gedeiht."
+ witch_blessing_allrounder_boon:0 "Gab der Erkenntnis"
+ witch_blessing_allrounder_boon_desc:0 "Der Wissensaustausch mit anderen Gästen hat euch eine umfassende, zeitlich begrenzte Verbesserung all eurer Fähigkeiten verliehen."
+ witch_curse_weakness:0 "Verfluchte Schwäche"
+ witch_curse_weakness_desc:0 "Ein verfluchtes Ritual hat eure Stärke geschwächt und euch verwundbar gemacht."
+
+ ### TRAITS
+ trait_track_witch:0 "Hexerei"
+ trait_track_witch_desc:0 "Die Praxis der Hexerei und schwarzen Magie, die mit Erfahrung und Hingabe stärker wird."
+
+ ### TRIGGERS
+ HAS_ANY_LIFESTYLE_TRIGGER:0 "Hat einen [lifestyle|E] gewählt"
+ NOT_HAS_ANY_LIFESTYLE_TRIGGER:0 "Hat #bold keinen#! [lifestyle|E] gewählt"
+ I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "Ihr habt einen [lifestyle|E] gewählt"
+ NOT_I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "Ihr habt #bold keinen#! [lifestyle|E] gewählt"
+ THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] hat einen [lifestyle|E] gewählt"
+ NOT_THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] hat #bold keinen#! [lifestyle|E] gewählt"
+
+ HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "Hat einen [rival|E] oder ein Ziel für das [GetScheme('murder').GetTypeName]-[scheme|E]"
+ NOT_HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "Hat #bold keinen#! [rival|E] und kein Ziel für das [GetScheme('murder').GetTypeName]-[scheme|E]"
+ I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "Ihr habt einen [rival|E] oder ein Ziel für das [GetScheme('murder').GetTypeName]-[scheme|E]"
+ NOT_I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "Ihr habt #bold keinen#! [rival|E] und kein Ziel für das [GetScheme('murder').GetTypeName]-[scheme|E]"
+ THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] hat einen [rival|E] oder ein Ziel für das [GetScheme('murder').GetTypeName]-[scheme|E]"
+ NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] hat #bold keinen#! [rival|E] und kein Ziel für das [GetScheme('murder').GetTypeName]-[scheme|E]"
+
+ ### TRADITIONS
+ tradition_occult_practices_name:0 "Okkulte Praktiken"
+ tradition_occult_practices_desc:0 "Magie als Disziplin, verwurzelt in esoterischem Wissen. Ihre Anhänger glauben, dass man durch sorgfältige Anwendung von Ritualen, Symbolen und Beschwörungen aus verbotenen Lehren die unsichtbaren Kräfte der Welt beherrschen kann. Macht wird nicht gegeben, sie wird durch Verständnis ergriffen."
+ rulers_with_witch_desc:0 "Die [culture|E] hat nicht #V 5#! [rulers|E] mit dem [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E]"
+ culture_parameter_more_frequent_witch_rituals:0 "Die Zeit zwischen [GetActivityType('activity_witch_ritual').GetName]-[activities|E] ist um #P 1#! Jahr #P verringert#!"
+ culture_parameter_easier_to_convert_witch:0 "[characters|E] dieser [culture|E] sind leichter für $convert_to_witchcraft_interaction$ zu bekehren"
+ culture_parameter_witch_trait_more_valued:3 "Das [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E] gilt als [prestige_i][prestigeträchtig|E]\n$EFFECT_LIST_BULLET$Das Ausrichten einer [GetActivityType('activity_witch_ritual').GetName] bringt [prestige_i][prestige|E]"
+ COMPATRIOT_PARAMETER_DESC:0 "Von [traditions|E] vs. gleiche [culture|E]: $VALUE|+0=$"
+
+ tradition_folk_healers_name:0 "Volksheiler"
+ tradition_folk_healers_desc:0 "Manche glauben, dass wahre Heilung aus der Vereinigung von Erde und Geist entsteht. Kräuterwissen heilt den Körper, doch nur die Weisheit der alten Wege beruhigt die Seele oder wehrt unsichtbare Übel ab. Die angesehensten Heiler beschreiten daher beide Pfade und vereinen praktische Medizin mit tiefer Naturmagie."
+ no_witch_healer_in_realm:0 "Ihr müsst mindestens einen [vassal|E], [courtier|E] oder [councillor|E] mit den [GetTrait('witch').GetName( GetNullCharacter )]- und [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]-[traits|E] besitzen"
+ culture_parameter_herbalist_trait_witch_bonuses:0 "Das [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]-[trait|E] erhält zusätzliche Boni"
+ culture_parameter_can_appoint_court_alchemist:0 "Kann die #high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! als [court_position|E] ernennen"
+ culture_parameter_easier_herbalist_trait_gain_from_rite:0 "Das [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]-[trait|E] ist leichter durch die [GetActivityType('activity_witch_ritual').GetName]-[activity|E] zu erlangen"
+ culture_parameter_negate_witch_trait_diplomacy_penalty:0 "Entfernt die [diplomacy|E]-Strafe des [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E]"
+
+ ### ACTIVITY OPTIONS
+ rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Geringer Gewinn an [prestige_i][prestige|E]"
+ rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Erhöhter Gewinn an [prestige_i][prestige|E]"
+ rite_ceremony_conditional_major_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Stark erhöhter Gewinn an [prestige_i][prestige|E]"
+ rite_option_ceremony:0 "Zeremonien"
+ rite_ceremony_bad:0 "Bescheidene Zeremonien"
+ rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ Geringer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Geringer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak Das Ritual ist keine Vorstellung für Uneingeweihte. Wir treffen uns im Geheimen, mit schlichten Werkzeugen und leisen Stimmen, denn wahre Macht liegt in der stillen Gemeinschaft der Gläubigen.#!"
+ rite_ceremony_normal:0 "Würdige Zeremonien"
+ rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ Mäßiger [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Mäßiger [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Die alten Mächte verdienen Ehrfurcht, und unsere Traditionen müssen mit Respekt geehrt werden. Wir beschaffen die richtigen Zutaten und bereiten den heiligen Ort vor – ein respektvoll vollzogenes Ritual ist ein Ritual wahrer Macht.#!"
+ rite_ceremony_good:0 "Prunkvolle Zeremonien"
+ rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Großer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Großer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Keine Kosten werden gescheut; die seltensten Artefakte sind unser Fokus, die mächtigsten Gaben unser Tribut. Möge dieser Große Ritus unser Ehrgeiz bezeugen – eine Zeremonie so grandios, dass selbst die Sterne Zeugen sind.#!"
+
+
+
+

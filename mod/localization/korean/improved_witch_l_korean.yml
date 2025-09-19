@@ -1,0 +1,100 @@
+﻿l_korean:
+ ### INTENTS
+ blessing_intent:0 "축복 추구"
+ blessing_intent_desc:0 "어둠의 힘을 끌어와 강력한 은총을 받습니다."
+ curse_enemy_intent:0 "적에게 저주"
+ curse_enemy_intent_desc:0 "사악한 힘을 끌어와 적과 경쟁자를 불운과 약화로 저주합니다.\n$EFFECT_LIST_BULLET$[piety_i][piety|E]가 필요할 수 있음"
+
+ forbidden_knowledge_intent:0 "금지된 지식 추구"
+ forbidden_knowledge_intent_desc:0 "금서에 파고들어 금단의 지식과 지혜를 얻습니다. 위험하며, 약한 자에게는 맞지 않습니다.\n$EFFECT_LIST_BULLET$[lifestyle|E]에서 특전 점수나 [lifestyle_experience|E]를 얻을 수 있습니다.\n$EFFECT_LIST_BULLET$부정적인 [trait|E]을 얻을 수 있습니다.\n$EFFECT_LIST_BULLET$#bold 반드시#! [stress_gain_i|E] [stress|E]를 얻습니다.\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )] 또는 [GetTrait('paranoid').GetName( GetNullCharacter )] 특성의 인물은 추가 [stress|E]를 얻습니다."
+
+ ### EVENTS
+ witchimproved.1001.t:0 "축복 추구"
+ witchimproved.1001.desc:0 "어둠의 기운이 당신의 부름에 응답하고, 이계의 영들이 당신에게 축복을 제안합니다. 고대의 힘에게서 어떤 은총을 바랄지 선택하십시오."
+ witchimproved.1001.a:0 "[health_expert.GetFirstNameNoTooltip]에게서 새로운 것을 배운다."
+ witchimproved.1002.t:0 "적을 저주하라"
+ witchimproved.1002.desc.start:0 "방 안은 향으로 가득 차 있으며, 연기가 유령 같은 뱀처럼 소용돌이칩니다. 모인 추종자들의 성가가 광란의 합창으로 치닫고, 벽 위의 그림자들은 거의 살아있는 듯 기괴한 형상으로 춤춥니다.\n\n"
+ witchimproved.1002.desc.mid:0 "중앙에 제물이 타오릅니다: 피, 약초, 그리고 당신의 의지 일부가 보이지 않는 존재들에게 바쳐집니다. 세계 사이의 장막이 떨리고 — 당신은 무시무시한 명료함을 느낍니다.\n\n"
+ witchimproved.1002.desc.end:0 "오늘 밤, 의식은 희생을 요구합니다. 한 영혼, 한 운명, 당신의 악의로 뒤틀리고 파멸로 이끌 운명입니다."
+ witchimproved.1002.a:0 "[target.GetHerHis] 정신이 절망의 무게 아래 무너지기를."
+ witchimproved.1002.b:0 "병이 [target.GetHerHis] 육신을 갉아먹어 [target.GetSheHe]가 쓰러지기를."
+ witchimproved.1002.c:0 "[target.GetHerHis]의 땅에 저주를 내려, 역병이 [target.GetHerHis] 백성을 질식시키게 하라."
+
+ witchimproved.1004.t:0 "금지된 지식 추구"
+ witchimproved.1004.desc:0 "당신 앞의 서적은 단순한 글의 모음이 아닙니다 — 속삭이는 성물입니다. 눈을 돌리면 글자가 변하며, 시야의 가장자리에서 인간이 알아서는 안 될 진실이 스치듯 보입니다.\n\n모든 본능이 책을 덮고 다시 어둠과 먼지로 돌려보내라 말합니다. 하지만 끌림은 거부하기 어렵습니다. 페이지를 넘길 때마다 힘이 펼쳐지고 — 길을 지배할 명료함이 약속됩니다.\n\n하지만 위험이 있습니다. 너무 깊이 파고들면 타락을 초대하고, 낯선 무언가가 당신의 영혼에 스며듭니다. 대가로는 정신, 건강, 혹은 더 나쁜 것을 치를 수 있습니다. 절제하여 파편만 얻을 수도 있습니다 — 더 안전하지만 보상은 적습니다. 아니면… 심연에 몸을 맡기고 그 비밀을 볼 수도 있습니다."
+ witchimproved.1004.a:0 "대가가 무엇이든 모든 비밀을 붙잡겠다."
+ witchimproved.1004.b:0 "감당할 수 있는 만큼만 취하겠다."
+ witchimproved.1004.a.bad:0 "서적의 저주를 받았습니다"
+ forbidden_knowledge_risk_tooltip:0 "나쁜 일이 일어납니다…"
+
+ ### BOONS
+ witch_blessing_diplomacy_boon:0 "외교의 은총"
+ witch_blessing_diplomacy_boon_desc:0 "의식은 당신의 외교와 협상 능력을 향상시켜, 영향력의 달인으로 만듭니다."
+ witch_blessing_health_boon:0 "건강의 은총"
+ witch_blessing_health_boon_desc:0 "의식은 당신의 건강과 질병 저항력을 높였습니다."
+ witch_blessing_learning_boon:0 "학문의 은총"
+ witch_blessing_learning_boon_desc:0 "고대의 지혜가 흐르며 학습 능력과 문화적 이해를 강화합니다."
+ witch_blessing_martial_boon:0 "무예의 은총"
+ witch_blessing_martial_boon_desc:0 "의식은 당신의 무력을 높여 뛰어난 지휘관으로 만듭니다."
+ witch_blessing_intrigue_boon:0 "계략의 은총"
+ witch_blessing_intrigue_boon_desc:0 "그림자의 예술을 익혀 음모와 비밀의 대가가 됩니다."
+ witch_blessing_stewardship_boon:0 "관리의 은총"
+ witch_blessing_stewardship_boon_desc:0 "신비한 힘이 부와 번영을 이끌어 경제·행정 능력을 높입니다."
+ witch_blessing_fertility_boon:0 "다산의 은총"
+ witch_blessing_fertility_boon_desc:0 "의식은 당신의 다산과 활력을 높여 가문의 번영을 돕습니다."
+ witch_blessing_allrounder_boon:0 "지식의 은총"
+ witch_blessing_allrounder_boon_desc:0 "손님들과의 지식 교류로 모든 능력이 일정 기간 폭넓게 향상되었습니다."
+ witch_curse_weakness:0 "저주의 약화"
+ witch_curse_weakness_desc:0 "저주받은 의식이 당신의 힘을 약화시키고 취약하게 만들었습니다."
+
+ ### TRAITS
+ trait_track_witch:0 "마술"
+ trait_track_witch_desc:0 "마술과 흑마법의 수련으로, 경험과 헌신에 따라 강해집니다."
+
+ ### TRIGGERS
+ HAS_ANY_LIFESTYLE_TRIGGER:0 "[lifestyle|E]을 선택함"
+ NOT_HAS_ANY_LIFESTYLE_TRIGGER:0 "[lifestyle|E]을 #bold 선택하지 않음#!"
+ I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "당신은 [lifestyle|E]을 선택했습니다"
+ NOT_I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "당신은 #bold [lifestyle|E]을 선택하지 않았습니다#!"
+ THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V]이(가) [lifestyle|E]을 선택함"
+ NOT_THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V]은(는) #bold [lifestyle|E]을 선택하지 않음#!"
+
+ HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[rival|E] 또는 [GetScheme('murder').GetTypeName] [scheme|E] 대상 보유"
+ NOT_HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[rival|E] 또는 [GetScheme('murder').GetTypeName] [scheme|E] 대상이 #bold 없음#!"
+ I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "당신은 [rival|E] 또는 [GetScheme('murder').GetTypeName] [scheme|E] 대상을 보유"
+ NOT_I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "당신은 #bold [rival|E] 또는 [GetScheme('murder').GetTypeName] [scheme|E] 대상을 보유하지 않음#!"
+ THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V]은(는) [rival|E] 또는 [GetScheme('murder').GetTypeName] [scheme|E] 대상을 보유"
+ NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V]은(는) #bold [rival|E] 또는 [GetScheme('murder').GetTypeName] [scheme|E] 대상을 보유하지 않음#!"
+
+ ### TRADITIONS
+ tradition_occult_practices_name:0 "오컬트 관행"
+ tradition_occult_practices_desc:0 "마법을 비의적 지식에 뿌리 둔 학문으로 보는 관점입니다. 신봉자들은 금지된 지식에서 얻은 의식, 상징, 주문을 신중히 적용해 보이지 않는 힘을 지배할 수 있다고 믿습니다. 권능은 주어지는 것이 아니라 깨달음으로 쟁취하는 것입니다."
+ rulers_with_witch_desc:0 "이 [culture|E]에는 [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]을 가진 [rulers|E]가 #V 5#!명 없습니다"
+ culture_parameter_more_frequent_witch_rituals:0 "[GetActivityType('activity_witch_ritual').GetName] [activities|E] 간 간격이 #P 1#!년 #P 감소#!"
+ culture_parameter_easier_to_convert_witch:0 "이 [culture|E]의 [characters|E]는 $convert_to_witchcraft_interaction$에 더 쉽게 개종됨"
+ culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]이(가) [prestige_i][명망|E]으로 여겨짐\n$EFFECT_LIST_BULLET$[GetActivityType('activity_witch_ritual').GetName] 주최 시 [prestige_i][prestige|E] 획득"
+ COMPATRIOT_PARAMETER_DESC:0 "[traditions|E] 대 동일 [culture|E]으로부터: $VALUE|+0=$"
+
+ tradition_folk_healers_name:0 "민간 치료사"
+ tradition_folk_healers_desc:0 "진정한 치유는 땅과 영의 결합에서 온다고 믿는 이들이 있습니다. 약초 지식은 육신을 고치고, 오직 옛 길의 지혜만이 혼란한 영혼을 달래거나 보이지 않는 재앙을 막을 수 있습니다. 가장 존경받는 치유사들은 실용 의술과 자연의 심오한 마법을 아우르는 이들입니다."
+ no_witch_healer_in_realm:0 "[GetTrait('witch').GetName( GetNullCharacter )] 및 [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]을 가진 [vassal|E], [courtier|E] 또는 [councillor|E]가 최소 한 명 있어야 합니다"
+ culture_parameter_herbalist_trait_witch_bonuses:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] 추가 보너스 제공"
+ culture_parameter_can_appoint_court_alchemist:0 "#high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! [court_position|E] 임명 가능"
+ culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]을 [GetActivityType('activity_witch_ritual').GetName] [activity|E]에서 더 쉽게 획득"
+ culture_parameter_negate_witch_trait_diplomacy_penalty:0 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]의 [diplomacy|E] 패널티 제거"
+
+ ### ACTIVITY OPTIONS
+ rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 소량의 [prestige_i][prestige|E] 획득"
+ rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 증가한 [prestige_i][prestige|E] 획득"
+ rite_ceremony_conditional_major_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 크게 증가한 [prestige_i][prestige|E] 획득"
+ rite_option_ceremony:0 "의식"
+ rite_ceremony_bad:0 "소박한 의식"
+ rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 소폭 증가\n$EFFECT_LIST_BULLET$ 소량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak 이 의식은 미입문자를 위한 공연이 아닙니다. 우리는 비밀리에 모여, 소박한 도구와 낮은 목소리로, 진정한 힘은 신도들의 고요한 교감에 있음을 보여줄 것입니다.#!"
+ rite_ceremony_normal:0 "품위 있는 의식"
+ rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 보통 증가\n$EFFECT_LIST_BULLET$ 보통 수준의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak 옛 힘은 합당한 예우를 받아야 하며, 우리의 전통은 경외로 기려져야 합니다. 우리는 적절한 재료를 준비하고 성지를 마련할 것입니다. 존중 속에 치러진 의식이야말로 진정한 힘의 의식입니다.#!"
+ rite_ceremony_good:0 "화려한 의식"
+ rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 대폭 증가\n$EFFECT_LIST_BULLET$ 대량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak 비용을 아끼지 않습니다. 가장 희귀한 유물이 우리의 초점이 되고, 가장 강력한 제물이 우리의 공물이 됩니다. 이 대의식이 우리의 야망을 증명하게 하소서 — 별들조차도 증언할 만큼.#!"
+
+
+
+

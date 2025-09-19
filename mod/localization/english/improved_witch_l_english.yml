@@ -67,13 +67,18 @@
  NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] does #bold not#! have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
 
 ### TRADITIONS
- tradition_occult_practices_name:0 "Occult Practices"
- tradition_occult_practices_desc:0 "Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."
- rulers_with_witch_desc:1 "The [culture|E] does not have #V 5#! [rulers|E] with [GetTrait('witch').GetName( GetNullCharacter )] [traits|E]"
- culture_parameter_more_frequent_witch_rituals:0 "Delay between [GetActivityType('activity_witch_ritual').GetName] [activities|E] are #P reduced#! by #V 1#! year"
- culture_parameter_easier_to_convert_witch:0 "[characters|E] of this [culture|E] are easier to $convert_to_witchcraft_interaction$"
- culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E] is seen as [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Hosting a [GetActivityType('activity_witch_ritual').GetName] earns [prestige_i][prestige|E]"
- COMPATRIOT_PARAMETER_DESC:0 "From [traditions|E] vs. same [culture|E]: $VALUE|+0=$"
+ tradition_occult_practices_name: "Occult Practices"
+ tradition_occult_practices_desc: "Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."
+ rulers_with_witch_desc: "The [culture|E] does not have #V 5#! [rulers|E] with [GetTrait('witch').GetName( GetNullCharacter )] [traits|E]"
+ culture_parameter_more_frequent_witch_rituals: "Delay between [GetActivityType('activity_witch_ritual').GetName] [activities|E] are #P reduced#! by #V 1#! year"
+ culture_parameter_easier_to_convert_witch: "[characters|E] of this [culture|E] are easier to $convert_to_witchcraft_interaction$"
+ culture_parameter_witch_trait_more_valued: "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E] is seen as [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Hosting a [GetActivityType('activity_witch_ritual').GetName] earns [prestige_i][prestige|E]"
+ COMPATRIOT_PARAMETER_DESC: "From [traditions|E] vs. same [culture|E]: $VALUE|+0=$"
+
+ tradition_ensorcelled_trinkets_name:0 "Ensorcelled Trinkets"
+ tradition_ensorcelled_trinkets_desc:0 "Through the crafting of charms, talismans, and potions, folks channel hidden forces into physical form. These small objects, infused with intent and ritual, are believed to shield, bless, or bend fortune itself."
+ no_witch_inspiration_in_realm: "You must have at least 2 [courtier|E] with the [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] that completed an [inspiration|E]"
+ culture_parameter_can_take_commision_witchy_artifact_decision: "Unlock the [GetDecisionWithKey('commission_witch_artifact_decision').GetName] [decision|E]"
 
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"

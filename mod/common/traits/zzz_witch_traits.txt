@@ -20,6 +20,10 @@ witch = {
 		parameter = witch_trait_more_valued
 		monthly_prestige = 0.25
 	}
+	culture_modifier = {
+		parameter = negate_witch_trait_diplomacy_penalty
+		diplomacy = 1
+	}
 
 	track = {
 		50 = {
@@ -30,6 +34,10 @@ witch = {
 				parameter = witch_trait_more_valued
 				monthly_prestige = 0.5
 			}
+			culture_modifier = {
+				parameter = negate_witch_trait_diplomacy_penalty
+				diplomacy = 1
+			}
 		}
 		100 = {
 			diplomacy = -1
@@ -38,6 +46,10 @@ witch = {
 			culture_modifier = {
 				parameter = witch_trait_more_valued
 				monthly_prestige = 0.75
+			}
+			culture_modifier = {
+				parameter = negate_witch_trait_diplomacy_penalty
+				diplomacy = 1
 			}
 		}
 	}

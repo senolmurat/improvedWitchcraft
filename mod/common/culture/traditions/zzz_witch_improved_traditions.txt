@@ -126,7 +126,9 @@ tradition_folk_healers = {
 	
 	parameters = {
 		can_appoint_court_alchemist = yes
+		negate_witch_trait_diplomacy_penalty = yes
 		herbalist_trait_witch_bonuses = yes
+		easier_herbalist_trait_gain_from_rite = yes
 	}
 	
 	cost = {
@@ -181,8 +183,7 @@ tradition_folk_healers = {
 
 	character_modifier = {
 		negate_health_penalty_add = 0.1
-		negate_prowess_penalty_add = 5
-		negate_diplomacy_penalty_add = 3
+		negate_prowess_penalty_add = 2
 	}
 	
 	ai_will_do = {

@@ -1892,6 +1892,15 @@ witch.3014 = { #by Mathilda Bjarnehed
 			limit = { NOT = { has_trait = lifestyle_herbalist } }
 			random_list = {
 				40 = {
+					modifier = {
+						limit = {
+							culture = {
+								has_culture_parameter = easier_herbalist_trait_gain_from_rite
+							}
+						}
+						add = 20
+					}
+
 					desc = witch.3014.a.knowledge
 					send_interface_toast = {
 						title = witch.3014.a.knowledge
@@ -1900,6 +1909,14 @@ witch.3014 = { #by Mathilda Bjarnehed
 					}
 				}
 				60 = {
+					modifier = {
+						limit = {
+							culture = {
+								has_culture_parameter = easier_herbalist_trait_gain_from_rite
+							}
+						}
+						add = -20
+					}
 					desc = witch.3014.a.inspiration
 					send_interface_toast = {
 						title = witch.3014.a.inspiration

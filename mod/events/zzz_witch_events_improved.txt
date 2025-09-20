@@ -171,6 +171,10 @@ witchimproved.1001 = {
 							limit = { exists = scope:new_guest }
 							this = scope:new_guest
 						}
+						trigger_if = {
+							limit = { exists = scope:sex_partner }
+							this = scope:sex_partner
+						}
 						this = root
 					}
 				}
@@ -341,9 +345,13 @@ witchimproved.1001 = {
 		trigger = { exists = scope:health_expert }
 		highlight_portrait = scope:health_expert
 
-		add_character_modifier = {
-			modifier = witch_blessing_health_boon
-			years = 1
+		send_interface_toast = {
+			title = witch.3014.g.inspiration
+			left_icon = scope:health_expert
+			add_character_modifier = {
+				modifier = witch_blessing_health_boon
+				years = 1
+			}	
 		}
 
 		stress_impact = {
@@ -385,37 +393,57 @@ witchimproved.1001 = {
 
 		if = {
 			limit = { scope:teacher = { highest_skill = diplomacy } }
-			add_character_modifier = {
-				modifier = witch_blessing_diplomacy_boon
-				years = 2
+			send_interface_toast = {
+				title = witch.3014.g.inspiration
+				left_icon = scope:teacher
+				add_character_modifier = {
+					modifier = witch_blessing_diplomacy_boon
+					years = 2
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:teacher = { highest_skill = martial } }
-			add_character_modifier = {
-				modifier = witch_blessing_martial_boon
-				years = 2
+			send_interface_toast = {
+				title = witch.3014.g.inspiration
+				left_icon = scope:teacher
+				add_character_modifier = {
+					modifier = witch_blessing_martial_boon
+					years = 2
+				}	
 			}
 		}
 		else_if = {
 			limit = { scope:teacher = { highest_skill = stewardship } }
-			add_character_modifier = {
-				modifier = witch_blessing_stewardship_boon
-				years = 2
+			send_interface_toast = {
+				title = witch.3014.g.inspiration
+				left_icon = scope:teacher
+				add_character_modifier = {
+					modifier = witch_blessing_stewardship_boon
+					years = 2
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:teacher = { highest_skill = intrigue } }
-			add_character_modifier = {
-				modifier = witch_blessing_intrigue_boon
-				years = 2
+			send_interface_toast = {
+				title = witch.3014.g.inspiration
+				left_icon = scope:teacher
+				add_character_modifier = {
+					modifier = witch_blessing_intrigue_boon
+					years = 2
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:teacher = { highest_skill = learning } }
-			add_character_modifier = {
-				modifier = witch_blessing_learning_boon
-				years = 2
+			send_interface_toast = {
+				title = witch.3014.g.inspiration
+				left_icon = scope:teacher
+				add_character_modifier = {
+					modifier = witch_blessing_learning_boon
+					years = 2
+				}
 			}
 		}
 		stress_impact = {
@@ -948,27 +976,27 @@ witchimproved.1004 = {
 
 		if = {
 			limit = { has_lifestyle = diplomacy_lifestyle }
-			add_diplomacy_lifestyle_xp = 300
+			add_diplomacy_lifestyle_xp = 500
 		}
 		else_if = {
 			limit = { has_lifestyle = martial_lifestyle }
-			add_martial_lifestyle_xp = 300
+			add_martial_lifestyle_xp = 500
 		}
 		else_if = {
 			limit = { has_lifestyle = stewardship_lifestyle }
-			add_stewardship_lifestyle_xp = 300
+			add_stewardship_lifestyle_xp = 500
 		}
 		else_if = {
 			limit = { has_lifestyle = intrigue_lifestyle }
-			add_intrigue_lifestyle_xp = 300
+			add_intrigue_lifestyle_xp = 500
 		}
 		else_if = {
 			limit = { has_lifestyle = learning_lifestyle }
-			add_learning_lifestyle_xp = 300
+			add_learning_lifestyle_xp = 500
 		}
 		else_if = {
 			limit = { has_lifestyle = wanderer_lifestyle }
-			add_wanderer_lifestyle_xp = 600
+			add_wanderer_lifestyle_xp = 1000
 		}
 
 		ai_chance = {

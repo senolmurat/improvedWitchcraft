@@ -193,6 +193,7 @@ court_alchemist_court_position = {
 			is_imprisoned = no
 			is_adult = yes
 			is_ruler = no
+			has_trait = lifestyle_mystic
 		}
 	}
 
@@ -235,7 +236,7 @@ court_alchemist_court_position = {
 			value = medium_court_position_salary # Update X_salary_tooltip if script_value is changed
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
-				limit = { court_position_inner_circle_salary_trigger = { POS = court_herbalist } }
+				limit = { court_position_inner_circle_salary_trigger = { POS = court_alchemist } }
 				multiply = {
 					value = 0
 					desc = inner_circle_salary_mod
@@ -246,7 +247,7 @@ court_alchemist_court_position = {
 			else_if = {
 				limit = {
 					court_position_obligation_hook_salary_trigger = {
-						POS = court_herbalist
+						POS = court_alchemist
 						LIEGE = scope:liege
 					}
 				}
@@ -259,7 +260,7 @@ court_alchemist_court_position = {
 			# Halved salary
 			if = {
 				limit = {
-					court_position_halved_salary_trigger = { POS = court_herbalist }
+					court_position_halved_salary_trigger = { POS = court_alchemist }
 				}
 				multiply = {
 					value = 0.5
@@ -270,7 +271,7 @@ court_alchemist_court_position = {
 			# Increased salary
 			if = {
 				limit = {
-					court_position_increased_salary_trigger = { POS = court_herbalist }
+					court_position_increased_salary_trigger = { POS = court_alchemist }
 				}
 				multiply = {
 					value = 1.5
@@ -294,7 +295,7 @@ court_alchemist_court_position = {
 			value = medium_court_position_prestige_salary # Update X_salary_tooltip if script_value is changed
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
-				limit = { court_position_inner_circle_salary_trigger = { POS = court_herbalist } }
+				limit = { court_position_inner_circle_salary_trigger = { POS = court_alchemist } }
 				multiply = {
 					value = 0
 					desc = inner_circle_salary_mod
@@ -305,7 +306,7 @@ court_alchemist_court_position = {
 			else_if = {
 				limit = {
 					court_position_obligation_hook_salary_trigger = {
-						POS = court_herbalist
+						POS = court_alchemist
 						LIEGE = scope:liege
 					}
 				}
@@ -318,7 +319,7 @@ court_alchemist_court_position = {
 			# Halved salary
 			if = {
 				limit = {
-					court_position_halved_salary_trigger = { POS = court_herbalist }
+					court_position_halved_salary_trigger = { POS = court_alchemist }
 				}
 				multiply = {
 					value = 0.5
@@ -329,7 +330,7 @@ court_alchemist_court_position = {
 			# Increased salary
 			if = {
 				limit = {
-					court_position_increased_salary_trigger = { POS = court_herbalist }
+					court_position_increased_salary_trigger = { POS = court_alchemist }
 				}
 				multiply = {
 					value = 1.5
@@ -428,7 +429,7 @@ court_alchemist_court_position = {
 		add = court_position_candidate_aptitude_value
 		if = { # To stop petitioned positions immediately being fired by the AI
 			limit = {
-				court_position_petition_ai_weight_trigger = { ROLE = court_herbalist }
+				court_position_petition_ai_weight_trigger = { ROLE = court_alchemist }
 			}
 			add = 1000
 		}

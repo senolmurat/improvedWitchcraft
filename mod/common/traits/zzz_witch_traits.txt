@@ -117,12 +117,6 @@ lifestyle_herbalist = {
 		monthly_learning_lifestyle_xp_gain_mult = 0.05
 		diplomacy = 1
 	}
-	culture_modifier = {
-		parameter = herbalist_trait_witch_bonuses
-		same_culture_opinion = 10
-		monthly_prestige = 0.5
-		learning_per_stress_level = 1
-	}
 
 	ruler_designer_cost = 50
 

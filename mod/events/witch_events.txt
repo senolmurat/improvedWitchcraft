@@ -1659,19 +1659,44 @@ witch.3014 = { #by Mathilda Bjarnehed
 				}
 			}
 
-			#Herbalism
-			random_attending_character = {
-				limit = {
-					has_trait = lifestyle_herbalist
-					NOR = {
-						trigger_if = {
-							limit = { exists = scope:new_guest }
-							this = scope:new_guest
+			random_list = {
+				60 = {
+					#Herbalism
+					random_attending_character = {
+						limit = {
+							has_trait = lifestyle_herbalist
+							NOR = {
+								trigger_if = {
+									limit = { exists = scope:new_guest }
+									this = scope:new_guest
+								}
+								this = root
+							}
 						}
-						this = root
+						save_scope_as = herbalist
 					}
 				}
-				save_scope_as = herbalist
+				40 = {
+					trigger = {
+						root = {
+							culture = { has_cultural_parameter = can_gain_mystic_trait_from_rite }
+						}
+					}
+					#Mystic
+					random_attending_character = {
+						limit = {
+							has_trait = lifestyle_mystic
+							NOR = {
+								trigger_if = {
+									limit = { exists = scope:new_guest }
+									this = scope:new_guest
+								}
+								this = root
+							}
+						}
+						save_scope_as = mystic
+					}
+				}
 			}
 
 			#Teacher (experience )
@@ -1685,6 +1710,10 @@ witch.3014 = { #by Mathilda Bjarnehed
 						trigger_if = {
 							limit = { exists = scope:herbalist }
 							this = scope:herbalist
+						}
+						trigger_if = {
+							limit = { exists = scope:mystic }
+							this = scope:mystic
 						}
 						this = root
 					}
@@ -1826,30 +1855,44 @@ witch.3014 = { #by Mathilda Bjarnehed
 			}
 
 			#Set portraits
+
 			if = {
 				limit = {
+					exists = scope:mystic
+				}
+				scope:mystic = { save_scope_as = trait_giver }
+			}
+			else_if = {
+				limit = {
 					exists = scope:herbalist
+				}
+				scope:herbalist = { save_scope_as = trait_giver }
+			}
+
+			if = {
+				limit = {
+					exists = scope:trait_giver
 					exists = scope:teacher
 					exists = scope:new_guest
 				}
-				scope:herbalist = { save_scope_as = lower_left_portrait }
+				scope:trait_giver = { save_scope_as = lower_left_portrait }
 				scope:teacher = { save_scope_as = lower_center_portrait }
 				scope:new_guest = { save_scope_as = lower_right_portrait }
 			}
 			else_if = {
 				limit = {
-					exists = scope:herbalist
+					exists = scope:trait_giver
 					exists = scope:teacher
 				}
-				scope:herbalist = { save_scope_as = left_portrait }
+				scope:trait_giver = { save_scope_as = left_portrait }
 				scope:teacher = { save_scope_as = right_portrait }
 			}
 			else_if = {
 				limit = {
-					exists = scope:herbalist
+					exists = scope:trait_giver
 					exists = scope:new_guest
 				}
-				scope:herbalist = { save_scope_as = left_portrait }
+				scope:trait_giver = { save_scope_as = left_portrait }
 				scope:new_guest = { save_scope_as = right_portrait }
 			}
 			else_if = {
@@ -1861,8 +1904,8 @@ witch.3014 = { #by Mathilda Bjarnehed
 				scope:new_guest = { save_scope_as = right_portrait }
 			}
 			else_if = {
-				limit = { exists = scope:herbalist }
-				scope:herbalist = { save_scope_as = left_portrait }
+				limit = { exists = scope:trait_giver }
+				scope:trait_giver = { save_scope_as = left_portrait }
 			}
 			else_if = {
 				limit = { exists = scope:teacher }
@@ -1938,6 +1981,73 @@ witch.3014 = { #by Mathilda Bjarnehed
 
 		stress_impact = {
 			lazy = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 1
+			modifier = {
+				NOT = {
+					has_trait = lifestyle_herbalist
+				}
+				has_lifestyle = learning_lifestyle
+				add = 100
+			}
+		}
+	}
+
+	#Mystic
+	option = {
+		trigger = {
+			exists = scope:mystic
+		}
+		name = witch.3014.g
+		highlight_portrait = scope:mystic
+		
+		if = {
+			limit = { NOT = { has_trait = lifestyle_mystic } }
+			random_list = {
+				40 = {
+					desc = witch.3014.g.knowledge
+					send_interface_toast = {
+						title = witch.3014.g.knowledge
+						left_icon = scope:mystic
+						add_trait = lifestyle_mystic
+					}
+				}
+				60 = {
+					
+					desc = witch.3014.g.inspiration
+					send_interface_toast = {
+						title = witch.3014.g.inspiration
+						left_icon = scope:mystic
+						add_character_modifier = {
+							modifier = seeker_of_knowledge
+							years = 5
+						}
+					}
+				}
+			}
+		}
+		else = {
+			add_character_modifier = {
+				modifier = seeker_of_knowledge
+				years = 5
+			}
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 1
+			modifier = {
+				NOT = {
+					has_trait = lifestyle_mystic
+				}
+				has_lifestyle = learning_lifestyle
+				add = 100
+			}
 		}
 	}
 

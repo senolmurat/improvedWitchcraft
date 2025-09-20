@@ -82,9 +82,11 @@
  tradition_folk_healers_name:0 "Folk Healers"
  tradition_folk_healers_desc:0 "There are those who believe that true healing comes from the union of earth and spirit. Knowledge of herbs mends the flesh, but only the wisdom of the old ways can soothe a troubled soul or ward off unseen blights. Their most respected healers are therefore those who walk both paths, blending practical medicine with the deeper magic of the natural world."
  no_witch_healer_in_realm: "You must have at least one [vassal|E], [courtier|E], or [councillor|E], with [GetTrait('witch').GetName( GetNullCharacter )] and [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]s"
- culture_parameter_can_appoint_court_alchemist:0 "Can appoint #high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! [court_position|E]"
+ culture_parameter_can_appoint_court_alchemist: "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]"
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "The [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] is easier to gain from [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  culture_parameter_can_gain_mystic_trait_from_rite:0 "Can gain [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] for attending [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Can appoint [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] [court_position|E]"
+ can_appoint_court_alchemist: "Can appoint [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E]"
 
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"

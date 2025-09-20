@@ -205,7 +205,7 @@ court_alchemist_court_position = {
 			if = {
 				limit = {
 					court_position_obligation_hook_salary_trigger = {
-						POS = court_gardener
+						POS = court_alchemist
 						LIEGE = root
 					}
 				}

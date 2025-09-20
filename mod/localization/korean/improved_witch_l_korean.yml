@@ -78,10 +78,11 @@
  tradition_folk_healers_name:0 "민간 치료사"
  tradition_folk_healers_desc:0 "진정한 치유는 땅과 영의 결합에서 온다고 믿는 이들이 있습니다. 약초 지식은 육신을 고치고, 오직 옛 길의 지혜만이 혼란한 영혼을 달래거나 보이지 않는 재앙을 막을 수 있습니다. 가장 존경받는 치유사들은 실용 의술과 자연의 심오한 마법을 아우르는 이들입니다."
  no_witch_healer_in_realm:0 "[GetTrait('witch').GetName( GetNullCharacter )] 및 [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]을 가진 [vassal|E], [courtier|E] 또는 [councillor|E]가 최소 한 명 있어야 합니다"
- culture_parameter_herbalist_trait_witch_bonuses:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] 추가 보너스 제공"
- culture_parameter_can_appoint_court_alchemist:0 "#high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! [court_position|E] 임명 가능"
+ culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]" 
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]을 [GetActivityType('activity_witch_ritual').GetName] [activity|E]에서 더 쉽게 획득"
- culture_parameter_negate_witch_trait_diplomacy_penalty:0 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]의 [diplomacy|E] 패널티 제거"
+ culture_parameter_can_gain_mystic_trait_from_rite:0 "[GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E]을 [GetActivityType('activity_witch_ritual').GetName] [activity|E]에서 더 쉽게 획득"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$[GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] [court_position|E] 임명 가능"
+ can_appoint_court_alchemist: "[GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E] 임명 가능"
 
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 소량의 [prestige_i][prestige|E] 획득"

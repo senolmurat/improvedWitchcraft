@@ -78,10 +78,11 @@
  tradition_folk_healers_name:0 "Ludowi Uzdrowiciele"
  tradition_folk_healers_desc:0 "Są tacy, którzy wierzą, że prawdziwe uzdrowienie pochodzi z jedności ziemi i ducha. Wiedza o ziołach leczy ciało, ale tylko mądrość dawnych ścieżek koi niespokojną duszę i odpiera niewidzialne zarazy. Najbardziej szanowani uzdrowiciele kroczą obiema drogami, łącząc praktyczną medycynę z głęboką magią natury."
  no_witch_healer_in_realm:0 "Musisz mieć przynajmniej jednego [vassal|E], [courtier|E] lub [councillor|E] z [GetTrait('witch').GetName( GetNullCharacter )] i [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]"
- culture_parameter_herbalist_trait_witch_bonuses:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] ma dodatkowe premie"
- culture_parameter_can_appoint_court_alchemist:0 "Można mianować #high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! jako [court_position|E]"
- culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] łatwiej uzyskać podczas [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
- culture_parameter_negate_witch_trait_diplomacy_penalty:0 "Usuwa karę do [diplomacy|E] z [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+ culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]"
+ culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] łatwiej uzyskać podczas [GetActivityType('activity_witch_ritual').GetName] [activity|E]"  
+ culture_parameter_can_gain_mystic_trait_from_rite:0 "Można uzyskać [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] podczas [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Można mianować [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] jako [court_position|E]"
+ can_appoint_court_alchemist: "Można mianować [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] jako [court_position|E]"
 
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Niewielki zysk [prestige_i][prestige|E]"

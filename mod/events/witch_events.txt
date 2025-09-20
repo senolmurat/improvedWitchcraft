@@ -1936,11 +1936,7 @@ witch.3014 = { #by Mathilda Bjarnehed
 			random_list = {
 				40 = {
 					modifier = {
-						limit = {
-							culture = {
-								has_culture_parameter = easier_herbalist_trait_gain_from_rite
-							}
-						}
+						culture = { has_cultural_parameter = easier_herbalist_trait_gain_from_rite }
 						add = 20
 					}
 
@@ -1953,11 +1949,7 @@ witch.3014 = { #by Mathilda Bjarnehed
 				}
 				60 = {
 					modifier = {
-						limit = {
-							culture = {
-								has_culture_parameter = easier_herbalist_trait_gain_from_rite
-							}
-						}
+						culture = { has_cultural_parameter = easier_herbalist_trait_gain_from_rite }
 						add = -20
 					}
 					desc = witch.3014.a.inspiration

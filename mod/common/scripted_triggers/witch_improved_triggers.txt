@@ -1,5 +1,5 @@
-﻿is_Improved_Witchcraft_loaded = {
-	always = yes
+﻿is_COURT_HERBALIST_loaded = {
+	exists = global_var:COURT_HERBALIST_is_loaded
 }
 
 has_any_lifestyle_trigger = {

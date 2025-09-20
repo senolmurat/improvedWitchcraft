@@ -78,10 +78,11 @@
  tradition_folk_healers_name:0 "Volksheiler"
  tradition_folk_healers_desc:0 "Manche glauben, dass wahre Heilung aus der Vereinigung von Erde und Geist entsteht. Kräuterwissen heilt den Körper, doch nur die Weisheit der alten Wege beruhigt die Seele oder wehrt unsichtbare Übel ab. Die angesehensten Heiler beschreiten daher beide Pfade und vereinen praktische Medizin mit tiefer Naturmagie."
  no_witch_healer_in_realm:0 "Ihr müsst mindestens einen [vassal|E], [courtier|E] oder [councillor|E] mit den [GetTrait('witch').GetName( GetNullCharacter )]- und [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]-[traits|E] besitzen"
- culture_parameter_herbalist_trait_witch_bonuses:0 "Das [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]-[trait|E] erhält zusätzliche Boni"
- culture_parameter_can_appoint_court_alchemist:0 "Kann die #high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#! als [court_position|E] ernennen"
+ culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]"
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "Das [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]-[trait|E] ist leichter durch die [GetActivityType('activity_witch_ritual').GetName]-[activity|E] zu erlangen"
- culture_parameter_negate_witch_trait_diplomacy_penalty:0 "Entfernt die [diplomacy|E]-Strafe des [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E]"
+ culture_parameter_can_gain_mystic_trait_from_rite:0 "Kann den [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )]-[trait|E] für das [GetActivityType('activity_witch_ritual').GetName] [activity|E] gewinnen"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Kann die [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] als [court_position|E] ernennen"
+ can_appoint_court_alchemist: "Kann die [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] als [court_position|E] ernennen"
 
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Geringer Gewinn an [prestige_i][prestige|E]"

@@ -78,10 +78,11 @@
  tradition_folk_healers_name:0 "Guérisseurs Populaires"
  tradition_folk_healers_desc:0 "Certains croient que la véritable guérison vient de l'union de la terre et de l'esprit. La connaissance des herbes répare la chair, mais seule la sagesse des anciennes voies peut apaiser une âme troublée ou conjurer les maux invisibles. Les guérisseurs les plus respectés sont donc ceux qui marchent sur les deux sentiers, mêlant médecine pratique et magie profonde de la nature."
  no_witch_healer_in_realm:0 "Vous devez avoir au moins un [vassal|E], [courtier|E] ou [councillor|E] possédant les [GetTrait('witch').GetName( GetNullCharacter )] et [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]"
- culture_parameter_herbalist_trait_witch_bonuses:0 "Le [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] bénéficie de bonus supplémentaires"
- culture_parameter_can_appoint_court_alchemist:0 "Peut nommer le [court_position|E] #high [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]#!"
+ culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]"
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "Le [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] est plus facile à gagner lors de l'[GetActivityType('activity_witch_ritual').GetName] [activity|E]"
- culture_parameter_negate_witch_trait_diplomacy_penalty:0 "Supprime la pénalité de [diplomacy|E] du [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+ culture_parameter_can_gain_mystic_trait_from_rite:0 "Peut gagner le [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] en participant à l'[GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Peut nommer le [court_position|E] [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()]"
+ can_appoint_court_alchemist: "Peut nommer le [court_position|E] [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]"
 
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Gain mineur de [prestige_i][prestige|E]"

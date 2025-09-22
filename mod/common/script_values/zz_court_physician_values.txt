@@ -1,0 +1,37 @@
+high_skill_court_physician_cost = {
+	value = medium_gold_value
+	if = {
+		limit = {
+			has_perk = anatomical_studies_perk
+		}
+		multiply = 0.5
+	}
+	if = {
+		limit = {
+			exists = culture
+			culture = {
+				has_cultural_parameter = slightly_cheaper_court_physician
+			}
+		}
+		multiply = 0.8
+	}
+}
+
+low_skill_court_physician_cost = {
+	value = minor_gold_value
+	if = {
+		limit = {
+			has_perk = anatomical_studies_perk
+		}
+		multiply = 0.5
+	}
+	if = {
+		limit = {
+			exists = culture
+			culture = {
+				has_cultural_parameter = slightly_cheaper_court_physician
+			}
+		}
+		multiply = 0.8
+	}
+}

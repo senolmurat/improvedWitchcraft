@@ -1,10 +1,14 @@
-﻿standard_witch_ritual_cooldown_time = {
+﻿standart_witch_ritual_base_cost = {
+	value = activity_minor_gold_value
+}
+
+standard_witch_ritual_cooldown_time = {
 	value = 5
 	if = {
 		limit = {
 			root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
 		}
-		multiply = 0.8
+		subtract = 1
 	}
 }
 

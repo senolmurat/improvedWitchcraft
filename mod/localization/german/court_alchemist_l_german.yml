@@ -1,0 +1,21 @@
+﻿l_german:
+ court_alchemist_court_position:0 "Hofalchemist"
+ court_alchemist_court_position_desc:0 "Der Hofalchemist dient dem Monarchen, indem er Metalle umwandelt, Tränke zubereitet und die Geheimnisse des Universums entschlüsselt."
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
+
+   # --- Aufgaben ---
+
+  # Aufgabe: Fokus auf Tränke
+  alchemist_task_focus_potions:0 "Fokus auf Tränke"
+  alchemist_task_focus_potions_desc:0 "Der Alchemist konzentriert sich auf die Zubereitung von Heil- und Schutzzutaten, um die Gesundheit des Monarchen und des Hofes zu schützen."
+
+  # Aufgabe 2: Fokus auf Giftstudien
+  alchemist_task_focus_poisons:0 "Fokus auf Giftstudien"
+  alchemist_task_focus_poisons_desc:0 "Der Alchemist taucht in die geheimnisvolle Welt der Gifte und Gegengifte ein, um Informationen zu sammeln, die für feindliche Pläne genutzt "
+
+  # Aufgabe 3: Lebensessenz-Experimente
+  alchemist_task_life_essence:0 "Lebensessenz-Experimente"
+  alchemist_task_life_essence_desc:0 "Der Alchemist erweitert das Wissen, indem er die grundlegenden Bausteine der Existenz und die Geheimnisse des Lebens erforscht."

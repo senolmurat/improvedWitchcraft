@@ -1,4 +1,4 @@
-WillGetMinorPrestigeCustomLoc = {
+﻿WillGetMinorPrestigeCustomLoc = {
 	type = character
 
 	text = {
@@ -38,6 +38,34 @@ WillGetMajorPrestigeCustomLoc = {
 			culture = { has_cultural_parameter = witch_trait_more_valued }
 		 }
 		localization_key = rite_ceremony_conditional_major_prestige_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}
+
+FolkHealersAlchemistCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			always = yes
+		}
+		fallback = yes
+		localization_key = can_appoint_court_alchemist
+	}
+}
+
+FolkHealersHerbalistCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			is_COURT_HERBALIST_loaded = yes
+		}
+		localization_key = can_appoint_court_herbalist
 	}
 	text = {
 		trigger = { always = no }

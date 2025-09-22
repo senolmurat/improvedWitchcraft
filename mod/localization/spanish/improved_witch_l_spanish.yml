@@ -87,6 +87,7 @@
  culture_parameter_can_gain_mystic_trait_from_rite:0 "Puede obtener [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] por asistir a [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Puede nombrar [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] [court_position|E]"
  can_appoint_court_alchemist: "Puede nombrar [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E]"
+ culture_parameter_slightly_cheaper_court_physician: "A [GetCourtPositionType('court_physician_court_position').GetName()] cuesta un poco menos contratar"
 
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Pequeña ganancia de [prestige_i][prestige|E]"

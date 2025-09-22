@@ -82,7 +82,8 @@
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]을 [GetActivityType('activity_witch_ritual').GetName] [activity|E]에서 더 쉽게 획득"
  culture_parameter_can_gain_mystic_trait_from_rite:0 "[GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E]을 [GetActivityType('activity_witch_ritual').GetName] [activity|E]에서 더 쉽게 획득"
  can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$[GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] [court_position|E] 임명 가능"
- can_appoint_court_alchemist: "[GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E] 임명 가능"
+ can_appoint_court_alchemist: "[GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E] 임명 가능" 
+ culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] 고용 비용이 약간 감소"
 
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 소량의 [prestige_i][prestige|E] 획득"

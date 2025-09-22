@@ -1,0 +1,21 @@
+﻿l_russian:
+ court_alchemist_court_position:0 "Придворный алхимик"
+ court_alchemist_court_position_desc:0 "Придворный алхимик служит правителю, преобразуя металлы, готовя зелья и раскрывая тайны вселенной."
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
+
+# --- Tasks ---
+
+# Task: Focus on Potions
+alchemist_task_focus_potions:0 "Сосредоточиться на зельях"
+alchemist_task_focus_potions_desc:0 "Алхимик сосредотачивается на приготовлении целебных и защитных зелий, чтобы обеспечить здоровье монарха и двора."
+
+# Task 2: Focus on Poison Studies
+alchemist_task_focus_poisons:0 "Сосредоточиться на изучении ядов"
+alchemist_task_focus_poisons_desc:0 "Алхимик погружается в загадочный мир ядов и противоядий, получая информацию, которую можно использовать в враждебных планах."
+
+# Task 3: Life Essence Experiments
+alchemist_task_life_essence:0 "Эксперименты с жизненной эссенцией"
+alchemist_task_life_essence_desc:0 "Алхимик расширяет знания, исследуя фундаментальные строительные блоки бытия и тайны жизни."

@@ -1,0 +1,21 @@
+﻿on_game_start = {
+    on_actions = {
+        on_game_start_witch_improved
+    }
+}
+
+on_game_start_witch_improved = {
+	effect = {
+		set_global_variable = {
+			name = IMPROVED_WITCHCRAFT_is_loaded
+			value = yes
+		}
+		
+		#to get rid of the error
+		if = {
+			limit = {
+				exists = global_var:IMPROVED_WITCHCRAFT_is_loaded
+			}
+		}
+    }
+}

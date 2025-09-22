@@ -1,0 +1,21 @@
+﻿l_polish:
+ court_alchemist_court_position:0 "Alchemik dworski"
+ court_alchemist_court_position_desc:0 "Alchemik dworski służy monarchowi, przetwarzając metale, przygotowując eliksiry i odkrywając tajemnice wszechświata."
+ court_position_mystic_trait: "[GetTrait('lifestyle_mystic').GetName( ROOT.Char )] Trait"
+ court_position_cynical_trait: "[GetTrait('cynical').GetName( ROOT.Char )] Trait"
+ court_position_hashishiyah_trait: "[GetTrait('hashishiyah').GetName( ROOT.Char )]"
+ court_position_witch_trait: "[GetTrait('witch').GetName( ROOT.Char )]"
+
+   # --- Zadania ---
+
+  # Zadanie: Skup się na eliksirach
+  alchemist_task_focus_potions:0 "Skup się na eliksirach"
+  alchemist_task_focus_potions_desc:0 "Alchemik skupia się na przygotowywaniu eliksirów leczniczych i ochronnych, aby chronić zdrowie monarchy i dworu."
+
+  # Zadanie 2: Skup się na badaniach nad truciznami
+  alchemist_task_focus_poisons:0 "Skup się na badaniach nad truciznami"
+  alchemist_task_focus_poisons_desc:0 "Alchemik zagłębia się w tajemniczy świat trucizn i antidotum, aby zdobyć informacje, które mogą zostać wykorzystane w nieprzyjaznych planach."
+
+  # Zadanie 3: Eksperymenty z esencją życia
+  alchemist_task_life_essence:0 "Eksperymenty z esencją życia"
+  alchemist_task_life_essence_desc:0 "Alchemik poszerza swoją wiedzę, badając podstawowe elementy składowe istnienia i tajemnice życia."

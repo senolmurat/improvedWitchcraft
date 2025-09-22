@@ -1,0 +1,102 @@
+﻿l_french:
+ ### INTENTS
+ blessing_intent:0 "Chercher une Bénédiction"
+ blessing_intent_desc:0 "Canalisez des énergies obscures pour recevoir de puissantes faveurs."
+ curse_enemy_intent:0 "Maudire un Ennemi"
+ curse_enemy_intent_desc:0 "Canalisez des énergies malveillantes pour maudire vos ennemis et rivaux de malchance et de faiblesse.\n$EFFECT_LIST_BULLET$Peut coûter [piety_i][piety|E]"
+
+ forbidden_knowledge_intent:0 "Chercher un Savoir Interdit"
+ forbidden_knowledge_intent_desc:0 "Plongez dans des grimoires interdits pour acquérir un savoir défendu et de la sagesse. C'est risqué et pas pour les âmes faibles.\n$EFFECT_LIST_BULLET$Vous pourriez gagner un point d'atout ou de l'[lifestyle_experience|E] dans votre [lifestyle|E].\n$EFFECT_LIST_BULLET$Vous pourriez gagner des [trait|E]s négatifs.\n$EFFECT_LIST_BULLET$Vous #bold gagnerez#! du [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Les personnages [GetTrait('craven').GetName( GetNullCharacter )] ou [GetTrait('paranoid').GetName( GetNullCharacter )] gagneront du [stress|E] supplémentaire."
+
+ ### EVENTS
+ witchimproved.1001.t:0 "Chercher une Bénédiction"
+ witchimproved.1001.desc:0 "Les énergies sombres répondent à votre appel, et les esprits de l'autre monde vous offrent leur bénédiction. Choisissez le type de faveur que vous cherchez auprès des anciens pouvoirs."
+ witchimproved.1001.a:0 "Apprenez quelque chose de nouveau de [health_expert.GetFirstNameNoTooltip]."
+ witchimproved.1002.t:0 "Maudire Votre Ennemi"
+ witchimproved.1002.desc.start:0 "La pièce est saturée d'encens, la fumée s'enroulant comme des serpents fantomatiques tandis que les chants de vos fidèles réunis montent en un chœur frénétique. Les ombres dansent sur les murs, s'étirant en formes grotesques qui semblent presque vivantes.\n\n"
+ witchimproved.1002.desc.mid:0 "Au centre, l'offrande brûle : du sang, des herbes et un fragment de votre propre volonté, sacrifiés aux puissances invisibles qui entendent votre appel. Le voile entre les mondes tremble — et vous ressentez une terrible clarté.\n\n"
+ witchimproved.1002.desc.end:0 "Ce soir, le rite exige une victime. Une âme, un destin, à tordre et à ruiner par votre malice."
+ witchimproved.1002.a:0 "Que l'esprit de [target.GetHerHis] s'effondre sous le poids du désespoir."
+ witchimproved.1002.b:0 "Que la maladie ronge la chair de [target.GetHerHis] jusqu'à ce qu'[target.GetSheHe] s'effondre."
+ witchimproved.1002.c:0 "Une malédiction sur la terre de [target.GetHerHis], que la peste étouffe son peuple."
+
+ witchimproved.1004.t:0 "Chercher un Savoir Interdit"
+ witchimproved.1004.desc:0 "Le grimoire devant vous n'est pas un simple recueil de mots — c’est une relique qui murmure. L'écriture change quand vous ne regardez pas, et au coin de votre regard vous entrevoyez des vérités que l'esprit mortel ne devrait pas connaître.\n\nChaque instinct vous ordonne de le fermer, de le rendre à la poussière et aux ténèbres. Pourtant, l'attrait est irrésistible. À chaque page tournée, vous sentez le pouvoir se déployer — une clarté qui promet la maîtrise de votre voie.\n\nMais il y a un danger. Plonger trop profond, c'est inviter la corruption, laisser quelque chose d'étranger s'enrouler dans votre âme. Le prix peut être la santé mentale, la santé, ou pire. Vous pourriez vous retenir, ne glaner que des fragments — plus sûr, mais bien moins gratifiant. Ou… vous pourriez vous abandonner à l'abîme, et voir quels secrets il révèle."
+ witchimproved.1004.a:0 "Je saisirai chaque secret, quel qu'en soit le prix."
+ witchimproved.1004.b:0 "Je ne prendrai que ce que je peux supporter."
+ witchimproved.1004.a.bad:0 "Vous avez été maudit par le grimoire"
+ forbidden_knowledge_risk_tooltip:0 "Quelque chose de mauvais arrive…"
+
+ ### BOONS
+ witch_blessing_diplomacy_boon:0 "Faveur de Diplomatie"
+ witch_blessing_diplomacy_boon_desc:0 "Le rite vous a béni d'une diplomatie et d'un talent de négociation accrus, faisant de vous un maître de l'influence."
+ witch_blessing_health_boon:0 "Faveur de Santé"
+ witch_blessing_health_boon_desc:0 "Le rite vous a conféré une meilleure santé et une résistance accrue aux maladies et aux fléaux."
+ witch_blessing_learning_boon:0 "Faveur d'Érudition"
+ witch_blessing_learning_boon_desc:0 "Une sagesse ancienne coule en vous, renforçant vos capacités d'apprentissage et votre compréhension culturelle."
+ witch_blessing_martial_boon:0 "Faveur Martiale"
+ witch_blessing_martial_boon_desc:0 "Le rite a accru votre prouesse martiale, faisant de vous un chef militaire redoutable."
+ witch_blessing_intrigue_boon:0 "Faveur d'Intrigue"
+ witch_blessing_intrigue_boon_desc:0 "Vous avez maîtrisé l'art des ombres et de l'intrigue, devenant un maître des complots et des secrets."
+ witch_blessing_stewardship_boon:0 "Faveur d'Intendance"
+ witch_blessing_stewardship_boon_desc:0 "Des forces mystiques guident la richesse vers vous, améliorant vos capacités économiques et administratives."
+ witch_blessing_fertility_boon:0 "Faveur de Fertilité"
+ witch_blessing_fertility_boon_desc:0 "Le rite vous a béni d'une fertilité et d'une vitalité accrues, assurant la prospérité de votre lignée."
+ witch_blessing_allrounder_boon:0 "Faveur de Connaissance"
+ witch_blessing_allrounder_boon_desc:0 "L'échange de savoir avec les autres invités vous a octroyé une amélioration globale de toutes vos aptitudes, faisant de vous un maître de tous les arts, pour un temps limité…"
+ witch_curse_weakness:0 "Faiblesse Maudite"
+ witch_curse_weakness_desc:0 "Un rite maudit a sapé vos forces, vous laissant affaibli et vulnérable."
+
+ ### TRAITS
+ trait_track_witch:0 "Sorcellerie"
+ trait_track_witch_desc:0 "La pratique de la sorcellerie et de la magie noire, qui se renforce avec l'expérience et le dévouement au culte."
+
+ ### TRIGGERS
+ HAS_ANY_LIFESTYLE_TRIGGER:0 "A sélectionné un [lifestyle|E]"
+ NOT_HAS_ANY_LIFESTYLE_TRIGGER:0 "N'a #bold pas#! sélectionné de [lifestyle|E]"
+ I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "Vous avez sélectionné un [lifestyle|E]"
+ NOT_I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "Vous n'avez #bold pas#! sélectionné de [lifestyle|E]"
+ THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] a sélectionné un [lifestyle|E]"
+ NOT_THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] n'a #bold pas#! sélectionné de [lifestyle|E]"
+
+ HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "A un [rival|E] ou une cible de [GetScheme('murder').GetTypeName] [scheme|E]"
+ NOT_HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "N'a #bold pas#! de [rival|E] ni de cible de [GetScheme('murder').GetTypeName] [scheme|E]"
+ I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "Vous avez un [rival|E] ou une cible de [GetScheme('murder').GetTypeName] [scheme|E]"
+ NOT_I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "Vous n'avez #bold pas#! de [rival|E] ni de cible de [GetScheme('murder').GetTypeName] [scheme|E]"
+ THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] a un [rival|E] ou une cible de [GetScheme('murder').GetTypeName] [scheme|E]"
+ NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] n'a #bold pas#! de [rival|E] ni de cible de [GetScheme('murder').GetTypeName] [scheme|E]"
+
+ ### TRADITIONS
+ tradition_occult_practices_name:0 "Pratiques Occultes"
+ tradition_occult_practices_desc:0 "Vision de la magie comme une discipline fondée sur un savoir ésotérique. Ses adeptes croient qu'à travers l'application rigoureuse de rituels, de symboles et d'incantations tirés de savoirs interdits, on peut commander aux forces invisibles du monde. Le pouvoir n'est pas donné, il est saisi par la compréhension."
+ rulers_with_witch_desc:0 "La [culture|E] n'a pas #V 5#! [rulers|E] avec le [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+ culture_parameter_more_frequent_witch_rituals:0 "Le délai entre les [GetActivityType('activity_witch_ritual').GetName] [activities|E] est #P réduit#! de #V 1#! an"
+ culture_parameter_easier_to_convert_witch:0 "Les [characters|E] de cette [culture|E] sont plus faciles à $convert_to_witchcraft_interaction$"
+ culture_parameter_witch_trait_more_valued:3 "Le [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] est considéré comme [prestige_i][prestigieux|E]\n$EFFECT_LIST_BULLET$Organiser un [GetActivityType('activity_witch_ritual').GetName] rapporte du [prestige_i][prestige|E]"
+ COMPATRIOT_PARAMETER_DESC:0 "Depuis les [traditions|E] vs. même [culture|E] : $VALUE|+0=$"
+
+ tradition_folk_healers_name:0 "Guérisseurs Populaires"
+ tradition_folk_healers_desc:0 "Certains croient que la véritable guérison vient de l'union de la terre et de l'esprit. La connaissance des herbes répare la chair, mais seule la sagesse des anciennes voies peut apaiser une âme troublée ou conjurer les maux invisibles. Les guérisseurs les plus respectés sont donc ceux qui marchent sur les deux sentiers, mêlant médecine pratique et magie profonde de la nature."
+ no_witch_healer_in_realm:0 "Vous devez avoir au moins un [vassal|E], [courtier|E] ou [councillor|E] possédant les [GetTrait('witch').GetName( GetNullCharacter )] et [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]"
+ culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]"
+ culture_parameter_easier_herbalist_trait_gain_from_rite:0 "Le [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] est plus facile à gagner lors de l'[GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ culture_parameter_can_gain_mystic_trait_from_rite:0 "Peut gagner le [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] en participant à l'[GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Peut nommer le [court_position|E] [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()]"
+ can_appoint_court_alchemist: "Peut nommer le [court_position|E] [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]"
+ culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] coûte légèrement moins cher à embaucher"
+
+ ### ACTIVITY OPTIONS
+ rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Gain mineur de [prestige_i][prestige|E]"
+ rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Gain accru de [prestige_i][prestige|E]"
+ rite_ceremony_conditional_major_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Gain grandement accru de [prestige_i][prestige|E]"
+ rite_option_ceremony:0 "Cérémonials"
+ rite_ceremony_bad:0 "Cérémonials Humble"
+ rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ Petit gain d'[opinion|E] avec les invités\n$EFFECT_LIST_BULLET$ Petite perte de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak Le rite n'est pas un spectacle pour les profanes. Nous nous réunirons en secret, nos outils humbles et nos voix basses, car le vrai pouvoir réside dans la communion silencieuse des fidèles.#!"
+ rite_ceremony_normal:0 "Cérémonials Dignes"
+ rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ Gain modéré d'[opinion|E] avec les invités\n$EFFECT_LIST_BULLET$ Perte modérée de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Les anciens pouvoirs méritent leur dû, et nos traditions doivent être honorées avec révérence. Nous nous procurerons les bons réactifs et préparerons l'espace sacré, car un rite fait avec respect est un rite de véritable pouvoir.#!"
+ rite_ceremony_good:0 "Cérémonials Extravagants"
+ rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Grand gain d'[opinion|E] avec les invités\n$EFFECT_LIST_BULLET$ Grande perte de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Aucune dépense ne sera épargnée ; les artefacts les plus rares seront notre focus, les offrandes les plus puissantes notre tribut. Que ce Grand Rite soit le témoignage de notre ambition, une cérémonie si grandiose que les étoiles elles-mêmes en seront témoins.#!"
+
+
+
+

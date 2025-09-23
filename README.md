@@ -34,7 +34,7 @@ The heart of this mod is the addition of new intents to the Grand Rite activity.
 
 ## Traditions
 
-**### Occult Practices**
+**Occult Practices**
 
 _"Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."_
 
@@ -43,9 +43,7 @@ _"Views on magic as a discipline rooted in esoteric knowledge. Its followers bel
 - It's easier to convert to witch the characters of this culture with this tradition.
 - The cooldown for the Grand Rite activity is reduced by 1 year.
 
-## Traditions
-
-**### Folk Healers**
+**Folk Healers**
 
 _"There are those who believe that true healing comes from the union of earth and spirit. Knowledge of herbs mends the flesh, but only the wisdom of the old ways can soothe a troubled soul or ward off unseen blights. Their most respected healers are therefore those who walk both paths, blending practical medicine with the deeper magic of the natural world."_
 

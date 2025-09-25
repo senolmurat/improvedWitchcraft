@@ -520,7 +520,7 @@
 	cost = {
 		gold = {
 			add = {
-				value = activity_minor_gold_value
+				value = standart_witch_ritual_base_cost
 				desc = hunt_base_cost
 			}
 		}
@@ -529,7 +529,7 @@
 	ui_predicted_cost = {
 		gold = {
 			# Base Cost
-			value = activity_minor_gold_value
+			value = standart_witch_ritual_base_cost
 			# Make it a multiple of 5 (rounded up)
 			divide = 5 
 			ceiling = yes 

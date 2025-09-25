@@ -1,14 +1,13 @@
-version="1.0.1"
+version="1.1.1"
 tags={
 	"Balance"
 	"Gameplay"
 	"Schemes"
-	"Religion"
 	"Events"
 	"Activities"
 	"Modifiers"
 }
 name="Improved Witchcraft"
 picture="thumbnail.png"
-supported_version="1.17.0.1"
+supported_version="1.17.*"
 remote_file_id="3566312539"

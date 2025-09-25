@@ -5,7 +5,7 @@
 		0 = learning
 		1 = indian/indian1.dds
 		3 = 6.dds
-		4 = crow.dds
+		4 = idol.dds
 	}
 
 	can_pick = {
@@ -35,14 +35,13 @@
 			if = {
 				limit = {
 					NOR = {
-						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
 						culture_pillar:ethos_communal = { is_in_list = traits }
-						culture_pillar:ethos_stoic = { is_in_list = traits }
 					}
 				}
 				add = {
 					value = tradition_incompatible_ethos_penalty
-					desc = not_courtly_communal_or_stoic_desc
+					desc = not_spiritual_or_communal_desc
 				}
 			}
 			if = {
@@ -84,6 +83,116 @@
 			
 			multiply = tradition_replacement_cost_if_relevant
 		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character ?= {
+						has_trait = witch
+					}
+				}
+			}
+			multiply = 0.5
+		}
+		else = {
+			multiply = 2
+		}
+	}
+}
+
+tradition_folk_healers = {
+	category = societal
+
+	layers = {
+		0 = learning
+		1 = western/western3.dds
+		3 = 1.dds
+		4 = baltic_pagan_1.dds
+	}
+
+	can_pick = {
+		scope:character = {
+			faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+		}
+	}
+	
+	parameters = {
+		can_appoint_court_alchemist = yes
+		can_gain_mystic_trait_from_rite = yes
+		easier_herbalist_trait_gain_from_rite = yes
+		slightly_cheaper_court_physician = yes
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_or_communal_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							OR = {
+								any_councillor = {
+									has_trait = witch
+									has_trait = lifestyle_herbalist
+								}
+								any_courtier = {
+									has_trait = witch
+									has_trait = lifestyle_herbalist
+								}
+								any_vassal = {
+									has_trait = witch
+									has_trait = lifestyle_herbalist
+								}
+							}
+							
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = no_witch_healer_in_realm
+				}
+			}
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_folk_healers }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	character_modifier = {
+		negate_prowess_penalty_add = 2
 	}
 	
 	ai_will_do = {
@@ -216,3 +325,5 @@ tradition_ensorcelled_trinkets = {
 	}
 }
 
+# can add another tradition about diplomacy and rich celebration, more expensive grand rites, some other negatives and bonuses
+# negate diplomacy penalty for witch trait

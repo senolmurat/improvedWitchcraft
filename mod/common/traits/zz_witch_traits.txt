@@ -1,4 +1,13 @@
-﻿witch = {
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+witch = {
 	category = fame
 
 	diplomacy = -1
@@ -38,29 +47,6 @@
 	# Loc
 	name = {
 		first_valid = {
-			##Grand Wizard Witch
-			#triggered_desc = {
-			#	trigger = {
-			#		exists = this
-			#		has_trait_xp = {
-			#			trait = witch
-			#			value >= 100
-			#		}
-			#	}
-			#	desc = trait_witch_3
-			#}
-			##Experienced Witch
-			#triggered_desc = {
-			#	trigger = { 
-			#		exists = this
-			#		has_trait_xp = {
-			#			trait = witch
-			#			value >= 50
-			#		}
-			#	}
-			#	desc = trait_witch_2
-			#}
-			#Witch
 			desc = trait_witch
 		}
 	}
@@ -75,24 +61,6 @@
 				}
 				desc = trait_witch_desc
 			}
-			#triggered_desc = {
-			#	trigger = { 
-			#		has_trait_xp = {
-			#			trait = witch
-			#			value >= 100
-			#		}
-			#	}
-			#	desc = trait_witch_3_character_desc
-			#}
-			#triggered_desc = {
-			#	trigger = { 
-			#		has_trait_xp = {
-			#			trait = witch
-			#			value >= 50
-			#		}
-			#	}
-			#	desc = trait_witch_2_character_desc
-			#}
 			desc = trait_witch_character_desc
 		}
 	}

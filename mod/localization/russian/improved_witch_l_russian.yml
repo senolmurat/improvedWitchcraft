@@ -1,0 +1,102 @@
+﻿l_russian:
+### INTENTS
+ blessing_intent:0 "Искать Благословение"
+ blessing_intent_desc:0 "Направьте тёмные энергии, чтобы получить мощные дары."
+ curse_enemy_intent:0 "Проклясть Врага"
+ curse_enemy_intent_desc:0 "Направьте злобные энергии, чтобы проклясть ваших врагов и соперников несчастьем и слабостью.\n$EFFECT_LIST_BULLET$Может стоить [piety_i][piety|E]"
+
+ forbidden_knowledge_intent:0 "Искать Запретные Знания"
+ forbidden_knowledge_intent_desc:0 "Погрузитесь в запретные фолианты, чтобы получить запретные знания и мудрость. Это рискованно и не для слабых духом.\n$EFFECT_LIST_BULLET$Вы можете получить очко перка или [lifestyle_experience|E] в вашем [lifestyle|E].\n$EFFECT_LIST_BULLET$Вы можете получить отрицательные [trait|E].\n$EFFECT_LIST_BULLET$Вы #bold обязательно#! получите [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Персонажи с [GetTrait('craven').GetName( GetNullCharacter )] или [GetTrait('paranoid').GetName( GetNullCharacter )] получат дополнительный [stress_gain_i|E] [stress|E]."
+
+### EVENTS
+ witchimproved.1001.t:0 "Искать Благословение"
+ witchimproved.1001.desc:0 "Тёмные энергии отвечают на ваш зов, и духи потустороннего мира предлагают вам своё благословение. Выберите, какую милость вы ищете у древних сил." 
+ witchimproved.1001.a:0 "Узнать что-то новое от [health_expert.GetFirstNameNoTooltip]."
+ witchimproved.1002.t:0 "Проклясть Вашего Врага"
+ witchimproved.1002.desc.start:0 "Палата наполнена благовониями, дым вьётся как призрачные змеи, пока песнопения ваших последователей нарастают в безумный хор. Тени танцуют на стенах, растягиваясь в гротескные формы, которые кажутся почти живыми.\n\n"
+ witchimproved.1002.desc.mid:0 "В центре горит жертвоприношение: кровь, травы и фрагмент вашей собственной воли, принесённые в жертву невидимым силам, которые внемлют вашему зову. Завеса между мирами содрогается — и вы чувствуете ужасную ясность.\n\n"
+ witchimproved.1002.desc.end:0 "Сегодня ночью обряд требует жертву. Одна душа, одна судьба, которую нужно исказить и разрушить вашей злобой."
+ witchimproved.1002.a:0 "Пусть разум [target.GetHerHis] рухнет под тяжестью отчаяния."
+ witchimproved.1002.b:0 "Пусть болезнь гложет плоть [target.GetHerHis], пока [target.GetHerHis] не рассыплется."
+ witchimproved.1002.c:0 "Проклятие на землю [target.GetHerHis], чтобы чума задушила народ [target.GetHerHis]."
+
+ witchimproved.1004.t:0 "Искать Запретные Знания"
+ witchimproved.1004.desc:0 "Фолиант перед вами — не просто собрание слов, это реликвия, которая шепчет. Письмена сдвигаются, когда вы не смотрите, и в углах вашего зрения вы улавливаете истины, не предназначенные для смертных умов.\n\nКаждый инстинкт говорит вам закрыть его, предать обратно пыли и тьме. И всё же притяжение неодолимо. С каждым перевёрнутым листом вы чувствуете, как разворачивается сила — ясность, обещающая мастерство над избранным путём.\n\nНо есть опасность. Погрузиться слишком глубоко — значит пригласить разложение, позволить чему-то чуждому обвиться вокруг вашей души. Цена может быть рассудок, здоровье или хуже. Вы могли бы сдержаться, собирая лишь фрагменты мудрости — безопасно, но гораздо менее награждающе. Или... вы могли бы предаться бездне и посмотреть, какие секреты она даёт."
+ witchimproved.1004.a:0 "Я схвачу каждый секрет, какой бы ценой это ни было."
+ witchimproved.1004.b:0 "Я возьму только то, что смогу вынести."
+ witchimproved.1004.a.bad:0 "Вы прокляты фолиантом"
+ forbidden_knowledge_risk_tooltip:0 "Что-то плохое происходит..."
+
+ witch.3014.g:0 "Экспериментировать с нетрадиционными методами вместе с [mystic.GetFirstNameNoTooltip]."
+ witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip] учит меня чему-то новому"
+ witch.3014.g.inspiration:0 "Разговор вдохновляет"
+
+### BOONS
+ witch_blessing_diplomacy_boon:0 "Дар Дипломатии"
+ witch_blessing_diplomacy_boon_desc:0 "Обряд благословил вас усиленными навыками дипломатии и переговоров, делая вас мастером влияния и убеждения."
+ witch_blessing_health_boon:0 "Дар Здоровья"
+ witch_blessing_health_boon_desc:0 "Обряд благословил вас усиленным здоровьем и сопротивлением к болезням и чуме."
+ witch_blessing_learning_boon:0 "Дар Обучения"
+ witch_blessing_learning_boon_desc:0 "Древняя мудрость течёт через вас, усиливая ваши способности к обучению и культурному пониманию."
+ witch_blessing_martial_boon:0 "Дар Воинского Искусства"
+ witch_blessing_martial_boon_desc:0 "Обряд усилил ваше воинское мастерство, делая вас грозным воином и военным лидером."
+ witch_blessing_intrigue_boon:0 "Дар Интриг"
+ witch_blessing_intrigue_boon_desc:0 "Вы овладели искусством теней и интриг, став мастером заговоров и секретов."
+ witch_blessing_stewardship_boon:0 "Дар Управления"
+ witch_blessing_stewardship_boon_desc:0 "Мистические силы направляют богатство и процветание к вам, усиливая ваши экономические и административные способности."
+ witch_blessing_fertility_boon:0 "Дар Плодовитости"
+ witch_blessing_fertility_boon_desc:0 "Обряд благословил вас усиленной плодовитостью и жизненной силой, обеспечивая процветание вашей родословной."
+ witch_blessing_allrounder_boon:0 "Дар Знаний"
+ witch_blessing_allrounder_boon_desc:0 "Обмен знаниями с другими гостями даровал вам всестороннее усиление всех ваших способностей и атрибутов, делая вас мастером на все руки, на ограниченное время..."
+ witch_curse_weakness:0 "Проклятая Слабость"
+ witch_curse_weakness_desc:0 "Проклятый обряд истощил вашу силу и способности, оставив вас ослабленным и уязвимым."
+
+### TRAITS
+ trait_track_witch:0 "Колдовство"
+ trait_track_witch_desc:0 "Практика колдовства и тёмной магии, становящаяся сильнее с опытом и преданностью ремеслу."
+
+### TRIGGERS
+ HAS_ANY_LIFESTYLE_TRIGGER:0 "Выбрал [lifestyle|E]"
+ NOT_HAS_ANY_LIFESTYLE_TRIGGER:0 "#bold Не#! выбрал [lifestyle|E]"
+ I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "Вы выбрали [lifestyle|E]"
+ NOT_I_HAVE_ANY_LIFESTYLE_TRIGGER:1 "Вы #bold не#! выбрали [lifestyle|E]"
+ THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] выбрал [lifestyle|E]"
+ NOT_THEY_HAVE_ANY_LIFESTYLE_TRIGGER:0 "[CHARACTER.GetShortUIName|V] #bold не#! выбрал [lifestyle|E]"
+
+ HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "Имеет [rival|E] или цель [GetScheme('murder').GetTypeName] [scheme|E]"
+ NOT_HAS_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "#bold Не#! имеет [rival|E] или цель [GetScheme('murder').GetTypeName] [scheme|E]"
+ I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "У вас есть [rival|E] или цель [GetScheme('murder').GetTypeName] [scheme|E]"
+ NOT_I_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:1 "У вас #bold нет#! [rival|E] или цели [GetScheme('murder').GetTypeName] [scheme|E]"
+ THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] имеет [rival|E] или цель [GetScheme('murder').GetTypeName] [scheme|E]"
+ NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] #bold не#! имеет [rival|E] или цель [GetScheme('murder').GetTypeName] [scheme|E]"
+
+### TRADITIONS
+ tradition_occult_practices_name:0 "Оккультные Практики"
+ tradition_occult_practices_desc:0 "Взгляды на магию как на дисциплину, основанную на эзотерических знаниях. Её последователи верят, что через тщательное применение ритуалов, символов и заклинаний, найденных в запретных знаниях, можно повелевать невидимыми силами мира. Сила не даётся, а захватывается через понимание."
+ rulers_with_witch_desc: "У [culture|E] нет #V 5#! [rulers|E] с [GetTrait('witch').GetName( GetNullCharacter )] [traits|E]"
+ culture_parameter_more_frequent_witch_rituals:0 "Задержка между [GetActivityType('activity_witch_ritual').GetName] [activities|E] #P сокращена#! на #V 1#! год"
+ culture_parameter_easier_to_convert_witch:0 "[characters|E] этой [culture|E] легче $convert_to_witchcraft_interaction$"
+ culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E] считается [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Проведение [GetActivityType('activity_witch_ritual').GetName] приносит [prestige_i][prestige|E]"
+ COMPATRIOT_PARAMETER_DESC:0 "От [traditions|E] против той же [culture|E]: $VALUE|+0=$"
+
+ tradition_folk_healers_name:0 "Народные Целители"
+ tradition_folk_healers_desc:0 "Есть те, кто верит, что истинное исцеление приходит от союза земли и духа. Знание трав лечит плоть, но только мудрость старых путей может успокоить встревоженную душу или отогнать невидимые напасти. Поэтому их самые уважаемые целители — те, кто идёт по обоим путям, смешивая практическую медицину с более глубокой магией природного мира."
+ no_witch_healer_in_realm: "У вас должен быть хотя бы один [vassal|E], [courtier|E] или [councillor|E] с [GetTrait('witch').GetName( GetNullCharacter )] и [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]"
+ culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]" 
+ culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] легче получить от [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ culture_parameter_can_gain_mystic_trait_from_rite:0 "Может получить [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] за посещение [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Может назначить [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] [court_position|E]"
+ can_appoint_court_alchemist: "Может назначить [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E]"
+ culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] стоит немного дешевле найма"
+
+### ACTIVITY OPTIONS
+ rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Небольшой прирост [prestige_i][prestige|E]"
+ rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Увеличенный прирост [prestige_i][prestige|E]"
+ rite_ceremony_conditional_major_prestige_loc: "\n$EFFECT_LIST_BULLET$ Значительно увеличенный прирост [prestige_i][prestige|E]"
+ rite_option_ceremony: "Церемонии"
+ rite_ceremony_bad: "Скромные Церемонии"
+ rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Небольшой прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Небольшая потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak Обряд — не представление для непосвящённых. Мы соберёмся втайне, наши инструменты скромны, а голоса тихи, ибо истинная сила лежит не в зрелище, а в тихом общении верных.#!"
+ rite_ceremony_normal: "Достойные Церемонии"
+ rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Умеренный прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Умеренная потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Старые силы заслуживают должного, и наши традиции должны быть почтены с благоговением. Мы добываем подходящие реагенты и подготавливаем священное пространство, ибо обряд, совершённый с уважением, есть обряд истинной силы.#!"
+ rite_ceremony_good: "Роскошные Церемонии"  
+ rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Большой прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Значительная потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Никаких расходов не будет пощажено; самые редкие артефакты будут нашим фокусом, самые мощные жертвоприношения — нашей данью. Пусть этот Великий Обряд станет свидетельством нашего честолюбия, церемонией столь великой, что сами звёзды станут свидетелями нашей силы.#!"

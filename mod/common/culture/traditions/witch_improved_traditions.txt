@@ -95,10 +95,19 @@
 					}
 				}
 			}
-			multiply = 0.5
+			multiply = 0.25
 		}
 		else = {
 			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_sorcerous_metallurgy = { is_in_list = traits }
+					culture_tradition:tradition_folk_healers = { is_in_list = traits }
+				}
+			}
+			add = 50
 		}
 	}
 }
@@ -196,7 +205,7 @@ tradition_folk_healers = {
 	}
 	
 	ai_will_do = {
-		value = 100
+		value = 50
 		if = {
 			limit = {
 				NOT = {
@@ -205,16 +214,22 @@ tradition_folk_healers = {
 					}
 				}
 			}
-			multiply = 0.5
+			multiply = 0.25
 		}
 		else = {
 			multiply = 2
 		}
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_sorcerous_metallurgy = { is_in_list = traits }
+					culture_tradition:tradition_occult_practices = { is_in_list = traits }
+				}
+			}
+			add = 50
+		}
 	}
 }
-
-# can add another tradition about diplomacy and rich celebration, more expensive grand rites, some other negatives and bonuses
-# negate diplomacy penalty for witch trait
 
 tradition_coven_kinship = {
 	category = societal
@@ -321,18 +336,6 @@ tradition_coven_kinship = {
 	
 	ai_will_do = {
 		value = 50
-		if = {
-			limit = {
-				NOR = {
-					has_cultural_pillar = heritage_west_african
-					has_cultural_pillar = heritage_central_african
-					has_cultural_pillar = heritage_chinese
-					has_cultural_pillar = heritage_indo_aryan
-				}
-			}
-			multiply = 0
-		}
-		value = 100
 		if = {
 			limit = {
 				NOT = {
@@ -445,38 +448,13 @@ tradition_blessed_protection = {
 	}
 	
 	ai_will_do = {
-		value = 5
+		value = 50
 		
 		if = {
 			limit = {
+				# dont bother for small armies
 				scope:character = {
-					OR = {
-						number_maa_soldiers_of_base_type = {
-							type = skirmishers
-							value >= 100
-						}	
-						number_maa_soldiers_of_base_type = {
-							type = pikemen
-							value >= 100
-						}	
-						number_maa_soldiers_of_base_type = {
-							type = heavy_cavalry
-							value >= 1
-						}	
-						number_maa_soldiers_of_base_type = {
-							type = elephant_cavalry
-							value >= 1
-						}
-					}
-				}
-			}
-			multiply = 0
-		}
-		if = {
-			limit = {
-				OR = {
-					culture_has_pikemen_maa = yes
-					culture_has_heavy_cavalry_maa = yes
+					current_military_strength < 2000
 				}
 			}
 			multiply = 0
@@ -489,10 +467,23 @@ tradition_blessed_protection = {
 					}
 				}
 			}
-			multiply = 0
+			multiply = 0.5
 		}
 		else = {
-			multiply = 8
+			add = 50
+		}
+		# bonus for fighting traditions
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_formation_fighting = { is_in_list = traits }
+					culture_tradition:tradition_stand_and_fight = { is_in_list = traits }
+					culture_tradition:tradition_swords_for_hire = { is_in_list = traits }
+					culture_tradition:tradition_warrior_culture = { is_in_list = traits }
+					culture_tradition:tradition_quarrelsome = { is_in_list = traits }
+				}
+			}
+			multiply = 2
 		}
 	}
 }
@@ -576,7 +567,7 @@ tradition_coven_meet = {
 	}
 
 	ai_will_do = {
-		value = 200
+		value = 100
 		if = {
 			limit = {
 				OR = {
@@ -595,7 +586,7 @@ tradition_coven_meet = {
 					}
 				}
 			}
-			multiply = 0.2
+			multiply = 0
 		}
 	}
 }

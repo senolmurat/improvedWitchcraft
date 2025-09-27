@@ -1,0 +1,15 @@
+﻿l_german:
+ coven_elective_succession_law: "Coven-Wahl"
+ coven_elective_succession_law_subname: "Versammlung"
+ coven_elective_succession_law_effects: "Der [ruler|E] und alle [de_jure|E] [vassals|E] [GetTrait('witch').GetName( GetNullCharacter )] (außer Barone) können einen [title_heir|E] unter der [extended_family|E] des Herrschers, allen verfügbaren [claimants|E] und allen [de_jure|E] [vassals|E] nominieren, die Erwachsene mit [piety_level|E] 4 oder höher sind. Kandidaten müssen keine [GetTrait('witch').GetName( GetNullCharacter )] sein\nDie [voting_power|E] in diesem [succession_law|E] wird durch das [learning|E], Alter, [piety_level|E] und [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]-Erfahrung des [elector|E] beeinflusst."
+
+ coven_elective_candidates: "Erweiterte Familie, Anwärter und\nVasallen mit Frömmigkeitsstufe 4 oder Höher"
+ coven_elective_candidates_tooltip: "Um ein gültiger Kandidat unter dem $coven_elective_succession_law$ zu sein, muss ein Charakter eine der folgenden Bedingungen erfüllen:\n$EFFECT_LIST_BULLET$Ein legitimes Mitglied der [extended_family|E] des Herrschers sein, der nicht in der Erbfolge für eine Theokratie oder Republik steht. Kinder eines Kandidaten können nicht nominiert werden\n$EFFECT_LIST_BULLET$Ein [claimant|E] auf den Titel sein, der nicht in der Erbfolge für eine Theokratie oder Republik steht\n$EFFECT_LIST_BULLET$Ein [de_jure|E] [vassal|E] mit [piety_level|E] 4 oder höher sein, der nicht in der Erbfolge für eine Theokratie oder Republik steht"
+ coven_elective_electors:0 "$feudal_elective_electors$"
+ coven_elective_electors_tooltip:0 "Um ein gültiger [elector|E] unter dem $coven_elective_succession_law$ zu sein, muss ein Vasall alle folgenden Bedingungen erfüllen:\n$EFFECT_LIST_BULLET$Ein direkter Vasall des Titels sein\n$EFFECT_LIST_BULLET$Eine [GetTrait('witch').GetName( GetNullCharacter )] sein\n$EFFECT_LIST_BULLET$KEIN Baron sein"
+
+ tooltip_coven_elective_learning: "[learning|E]: $VALUE|=+0$"
+ tooltip_coven_elective_age: "Alter: $VALUE|=+0$"
+ tooltip_coven_elective_level_of_devotion: "[piety_level|E]: $VALUE|=+0$"
+ tooltip_coven_elective_witch: "Erfahrene [GetTrait('witch').GetName( GetNullCharacter )]: $VALUE|=+0$"
+ tooltip_coven_elector_vote_witch: "[candidate.GetSheHe|U] ist eine erfahrene [GetTrait('witch').GetName( GetNullCharacter )]: $VALUE|=+0$"

@@ -108,6 +108,8 @@
  culture_parameter_coven_elective_enabled:0 "Can enact the [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
  culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Removes [diplomacy|E] skill penalty from [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
 
+ GENERIC_DONT_STACK:0 "#Weak  (Does not stack)#!"
+
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"
  rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Increased [prestige_i][prestige|E] gain"

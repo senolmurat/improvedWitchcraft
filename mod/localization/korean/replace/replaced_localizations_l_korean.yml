@@ -1,0 +1,2 @@
+﻿l_korean:
+ culture_parameter_close_family_better_court_positions: "[close_family|E] 구성원의 [court_position|E] [aptitude|E]: #P +20#![GetPlayer.Custom('CloseFamilyBetterCourtPositionsCustomLoc')]"

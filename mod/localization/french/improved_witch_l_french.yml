@@ -85,6 +85,25 @@
  can_appoint_court_alchemist: "Peut nommer le [court_position|E] [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()]"
  culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] coûte légèrement moins cher à embaucher"
 
+ not_spiritual_communal_or_bureaucratic_desc:0 "La [culture|E] n'a pas l'[ethos|E] $ethos_spiritual_name$, $ethos_communal_name$ ou $ethos_bureaucratic_name$"
+ lacks_higher_piety_level_desc:1 "Votre [piety_level|E] n'est pas [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] ou plus élevé"
+
+ tradition_coven_kinship_name:0 "Parenté de Coven"
+ tradition_coven_kinship_desc:0 "Les sorcières sont liées par les liens familiaux—pour le coven, le clan, la lignée est tout."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ sur les membres de [close_family|E] #P réussit presque toujours#!"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Augmente l'acceptation d'[activity_guests|E] pour rejoindre l'[GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "Protection Bénie"
+ tradition_blessed_protection_desc:0 "Les soldats marchent au combat ceints de charmes et de protections, se fiant aux pouvoirs invisibles pour les protéger de la lame et de la flèche. Pour eux, la victoire ne se gagne pas seulement par l'acier, mais par les bénédictions portées sur leur personne."
+
+ tradition_coven_meet_name:0 "Réunions de Coven"
+ tradition_coven_meet_desc:0 "Le pouvoir n'est pas lié à la lignée seule, mais au conseil secret des sorcières qui se rassemblent en cercles d'ombres. Par des marchés chuchotés et des serments rituels, les dirigeants sont choisis par le coven, leur autorité sanctifiée par consensus occulte plutôt que par simple héritage."
+ culture_parameter_coven_elective_enabled:0 "Peut promulguer la [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Supprime la pénalité de compétence [diplomacy|E] du [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Gain mineur de [prestige_i][prestige|E]"
  rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Gain accru de [prestige_i][prestige|E]"
@@ -97,6 +116,7 @@
  rite_ceremony_good:0 "Cérémonials Extravagants"
  rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Grand gain d'[opinion|E] avec les invités\n$EFFECT_LIST_BULLET$ Grande perte de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Aucune dépense ne sera épargnée ; les artefacts les plus rares seront notre focus, les offrandes les plus puissantes notre tribut. Que ce Grand Rite soit le témoignage de notre ambition, une cérémonie si grandiose que les étoiles elles-mêmes en seront témoins.#!"
 
+ GENERIC_DONT_STACK:0 "#Weak  (ne s'empile pas)#!"
 
 
 

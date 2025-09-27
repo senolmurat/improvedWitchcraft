@@ -85,6 +85,25 @@
  can_appoint_court_alchemist: "[GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E] 임명 가능" 
  culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] 고용 비용이 약간 감소"
 
+ not_spiritual_communal_or_bureaucratic_desc:0 "이 [culture|E]는 $ethos_spiritual_name$, $ethos_communal_name$ 또는 $ethos_bureaucratic_name$ [ethos|E]를 가지고 있지 않습니다"
+ lacks_higher_piety_level_desc:1 "당신의 [piety_level|E]이 [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] 이상이 아닙니다"
+
+ tradition_coven_kinship_name:0 "마녀 집회 혈연"
+ tradition_coven_kinship_desc:0 "마녀들은 가족의 유대로 묶여 있습니다—집회에게는 씨족, 혈통이 모든 것입니다."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "[close_family|E] 구성원에 대한 $convert_to_witchcraft_interaction$이 거의 항상 #P 성공#!합니다"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "[GetActivityType('activity_witch_ritual').GetName] [activity|E] 참여에 대한 [activity_guests|E] 수락률 증가"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "축복받은 보호"
+ tradition_blessed_protection_desc:0 "병사들은 부적과 보호막으로 무장하고 전장에 나아가며, 보이지 않는 힘이 칼과 화살로부터 자신들을 보호해줄 것이라 믿습니다. 그들에게 승리는 강철뿐만 아니라 몸에 지닌 축복으로 얻는 것입니다."
+
+ tradition_coven_meet_name:0 "마녀 집회 모임"
+ tradition_coven_meet_desc:0 "권력은 혈통에만 묶여 있지 않고, 그림자 원에서 모이는 마녀들의 비밀 회의에 묶여 있습니다. 속삭이는 거래와 의식적 맹세를 통해 통치자들이 집회에 의해 선택되며, 그들의 권위는 단순한 상속이 아닌 오컬트적 합의에 의해 신성화됩니다."
+ culture_parameter_coven_elective_enabled:0 "[GetLaw('coven_elective_succession_law').GetName] [succession_law|E] 제정 가능"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]의 [diplomacy|E] 기술 페널티 제거"
+
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 소량의 [prestige_i][prestige|E] 획득"
  rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 증가한 [prestige_i][prestige|E] 획득"
@@ -97,6 +116,7 @@
  rite_ceremony_good:0 "화려한 의식"
  rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 대폭 증가\n$EFFECT_LIST_BULLET$ 대량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak 비용을 아끼지 않습니다. 가장 희귀한 유물이 우리의 초점이 되고, 가장 강력한 제물이 우리의 공물이 됩니다. 이 대의식이 우리의 야망을 증명하게 하소서 — 별들조차도 증언할 만큼.#!"
 
+ GENERIC_DONT_STACK:0 "#Weak  (중첩되지 않음)#!"
 
 
 

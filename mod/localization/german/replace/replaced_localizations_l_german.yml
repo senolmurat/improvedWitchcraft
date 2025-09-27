@@ -1,0 +1,2 @@
+﻿l_german:
+ culture_parameter_close_family_better_court_positions: "[court_position|E]-[aptitude|E] für Mitglieder der [Concept('close_family', 'nahen Verwandtschaft')|E]: #P +20#![GetPlayer.Custom('CloseFamilyBetterCourtPositionsCustomLoc')]"

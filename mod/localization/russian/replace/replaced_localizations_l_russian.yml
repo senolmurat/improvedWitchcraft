@@ -1,0 +1,2 @@
+﻿l_russian:
+ culture_parameter_close_family_better_court_positions: "[aptitude|E] [Concept( 'close_family', 'близких родственников' )|E] к [Concept( 'court_position', 'работе при дворе' )|E]: #P +20#![GetPlayer.Custom('CloseFamilyBetterCourtPositionsCustomLoc')]"

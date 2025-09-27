@@ -85,6 +85,25 @@
  can_appoint_court_alchemist: "Można mianować [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] jako [court_position|E]"
  culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] kosztuje nieco mniej do zatrudnienia"
 
+ not_spiritual_communal_or_bureaucratic_desc:0 "Ta [culture|E] nie ma [ethos|E] $ethos_spiritual_name$, $ethos_communal_name$ lub $ethos_bureaucratic_name$"
+ lacks_higher_piety_level_desc:1 "Twój [piety_level|E] nie jest [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] lub wyższy"
+
+ tradition_coven_kinship_name:0 "Pokrewieństwo Zakonu"
+ tradition_coven_kinship_desc:0 "Czarownice są związane więzami rodzinnymi—dla zakonu, klan, linia krwi to wszystko."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ na członków [close_family|E] prawie zawsze #P się powiedzie#!"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Zwiększa akceptację [activity_guests|E] do dołączenia do [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "Błogosławiona Ochrona"
+ tradition_blessed_protection_desc:0 "Żołnierze maszerują do bitwy przepasani amuletami i ochronami, ufając niewidzialnym mocom, że ochronią ich przed ostrzem i strzałą. Dla nich zwycięstwo nie jest wygrane tylko stalą, ale błogosławieństwami noszonymi na sobie."
+
+ tradition_coven_meet_name:0 "Spotkania Zakonu"
+ tradition_coven_meet_desc:0 "Władza nie jest związana tylko z linią krwi, ale z tajną radą czarownic, które zbierają się w kręgach cieni. Przez szeptane układy i rytualne przysięgi władcy są wybierani przez zakon, ich autorytet uświęcony przez okultystyczny konsensus, a nie zwykłe dziedziczenie."
+ culture_parameter_coven_elective_enabled:0 "Może ustanowić [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Usuwa karę umiejętności [diplomacy|E] z [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Niewielki zysk [prestige_i][prestige|E]"
  rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Zwiększony zysk [prestige_i][prestige|E]"
@@ -97,6 +116,7 @@
  rite_ceremony_good:0 "Wystawne Ceremoniały"
  rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Duży wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Duży spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Nie pożałujemy kosztów; najrzadsze artefakty będą naszym ogniskiem, najsilniejsze ofiary — naszym trybutem. Niech ten Wielki Rytuał będzie świadectwem naszej ambicji, ceremoniałem tak wielkim, że gwiazdy będą świadkami.#!"
 
+ GENERIC_DONT_STACK:0 "#Weak  (nie kumuluje się)#!"
 
 
 

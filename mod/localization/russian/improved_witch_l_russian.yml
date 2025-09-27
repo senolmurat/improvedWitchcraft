@@ -89,6 +89,25 @@
  can_appoint_court_alchemist: "Может назначить [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E]"
  culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] стоит немного дешевле найма"
 
+ not_spiritual_communal_or_bureaucratic_desc:0 "У [culture|E] нет [ethos|E] $ethos_spiritual_name$, $ethos_communal_name$ или $ethos_bureaucratic_name$"
+ lacks_higher_piety_level_desc:1 "Ваш [piety_level|E] не [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] или выше"
+
+ tradition_coven_kinship_name:0 "Родство Ковена"
+ tradition_coven_kinship_desc:0 "Ведьмы связаны семейными узами—для ковена, клан, родословная — это всё."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ на членов [close_family|E] почти всегда #P успешно#!"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Увеличивает принятие [activity_guests|E] для присоединения к [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "Благословенная Защита"
+ tradition_blessed_protection_desc:0 "Солдаты идут в бой, опоясанные амулетами и защитными знаками, доверяя невидимым силам защитить их от клинка и стрелы. Для них победа одерживается не только сталью, но и благословениями, которые они носят на себе."
+
+ tradition_coven_meet_name:0 "Собрания Ковена"
+ tradition_coven_meet_desc:0 "Власть связана не только с родословной, но и с тайным советом ведьм, которые собираются в теневых кругах. Через шёпотные сделки и ритуальные клятвы правители выбираются ковеном, их авторитет освящён оккультным консенсусом, а не простым наследованием."
+ culture_parameter_coven_elective_enabled:0 "Может принять [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Убирает штраф навыка [diplomacy|E] от [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Небольшой прирост [prestige_i][prestige|E]"
  rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Увеличенный прирост [prestige_i][prestige|E]"
@@ -100,3 +119,5 @@
  rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Умеренный прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Умеренная потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Старые силы заслуживают должного, и наши традиции должны быть почтены с благоговением. Мы добываем подходящие реагенты и подготавливаем священное пространство, ибо обряд, совершённый с уважением, есть обряд истинной силы.#!"
  rite_ceremony_good: "Роскошные Церемонии"  
  rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Большой прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Значительная потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Никаких расходов не будет пощажено; самые редкие артефакты будут нашим фокусом, самые мощные жертвоприношения — нашей данью. Пусть этот Великий Обряд станет свидетельством нашего честолюбия, церемонией столь великой, что сами звёзды станут свидетелями нашей силы.#!"
+
+ GENERIC_DONT_STACK:0 "#Weak  (не суммируется)#!"

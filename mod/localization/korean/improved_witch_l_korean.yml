@@ -89,7 +89,7 @@
  lacks_higher_piety_level_desc:1 "당신의 [piety_level|E]이 [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] 이상이 아닙니다"
 
  tradition_coven_kinship_name:0 "마녀 집회 혈연"
- tradition_coven_kinship_desc:0 "마녀들은 가족의 유대로 묶여 있습니다—집회에게는 씨족, 혈통이 모든 것입니다."
+ tradition_coven_kinship_desc:0 "마녀들은 가족의 유대로 묶여 있습니다. 집회에게는 씨족, 혈통이 모든 것입니다."
  culture_parameter_convert_to_witch_close_family_super_bonus: "[close_family|E] 구성원에 대한 $convert_to_witchcraft_interaction$이 거의 항상 #P 성공#!합니다"
  convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"

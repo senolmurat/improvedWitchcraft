@@ -89,7 +89,7 @@
  lacks_higher_piety_level_desc:1 "Votre [piety_level|E] n'est pas [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] ou plus élevé"
 
  tradition_coven_kinship_name:0 "Parenté de Coven"
- tradition_coven_kinship_desc:0 "Les sorcières sont liées par les liens familiaux—pour le coven, le clan, la lignée est tout."
+ tradition_coven_kinship_desc:0 "Les sorcières sont liées par les liens familiaux. Pour le coven, le clan, la lignée est tout."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ sur les membres de [close_family|E] #P réussit presque toujours#!"
  convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"

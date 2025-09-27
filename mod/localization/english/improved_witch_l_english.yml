@@ -93,7 +93,7 @@
  culture_parameter_slightly_cheaper_court_physician: "A [GetCourtPositionType('court_physician_court_position').GetName()] costs slightly less to hire"
 
  tradition_coven_kinship_name:0 "Coven Kinship"
- tradition_coven_kinship_desc:0 "Witches are bound by family ties—for the coven, the clan, the bloodline is everything."
+ tradition_coven_kinship_desc:0 "Witches are bound by family ties. For the coven, the clan, the bloodline is everything."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ on [close_family|E] members almost always #P succeeds#!"
  convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"

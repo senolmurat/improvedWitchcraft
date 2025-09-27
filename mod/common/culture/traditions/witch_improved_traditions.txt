@@ -392,7 +392,7 @@ tradition_blessed_protection = {
 		maa_toughness_mult = 0.15
 		men_at_arms_recruitment_cost = 0.1
 		hard_casualty_modifier = -0.1
-		different_faith_opinion = -10
+		different_culture_opinion = -10
 	}
 	
 	cost = {

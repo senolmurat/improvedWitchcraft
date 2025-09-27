@@ -89,7 +89,7 @@
  lacks_higher_piety_level_desc:1 "Euer [piety_level|E] ist nicht [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] oder höher"
 
  tradition_coven_kinship_name:0 "Coven-Verwandtschaft"
- tradition_coven_kinship_desc:0 "Hexen sind durch Familienbande verbunden—für den Coven ist die Sippe, die Blutlinie alles."
+ tradition_coven_kinship_desc:0 "Hexen sind durch Familienbande verbunden. Für den Coven ist die Sippe, die Blutlinie alles."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ bei [close_family|E]-Mitgliedern fast immer #P gelingt#!"
  convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"

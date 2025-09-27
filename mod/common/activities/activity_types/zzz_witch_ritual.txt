@@ -613,6 +613,13 @@
 
 		# Scripted Modifiers
 		activity_guest_shared_ai_accept_modifier = yes
+
+		#Witch Improved modifiers
+		modifier = {
+			scope:host.culture = { has_cultural_parameter = more_grand_rite_guest_join_chance }
+			add = 25
+			desc = more_grand_rite_guest_join_chance_desc
+		}
 	}
 
 	###################

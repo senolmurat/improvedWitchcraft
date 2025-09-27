@@ -89,6 +89,18 @@
  can_appoint_court_alchemist: "Can appoint [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E]"
  culture_parameter_slightly_cheaper_court_physician: "A [GetCourtPositionType('court_physician_court_position').GetName()] costs slightly less to hire"
 
+ tradition_coven_kinship_name:0 "Coven Kinship"
+ tradition_coven_kinship_desc:0 "Witches are bound by family ties—for the coven, the clan, the bloodline is everything."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ on [close_family|E] members almost always #P succeeds#!"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Removes [diplomacy|E] skill penalty from [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Increases [activity_guests|E] join acceptance chance for [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "Blessed Protection"
+ tradition_blessed_protection_desc:0 "Soldiers march into battle girded with charms and wards, trusting in unseen powers to shield them from blade and arrow. To them, victory is not only won by steel, but by the blessings carried upon their person."
+
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"
  rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Increased [prestige_i][prestige|E] gain"

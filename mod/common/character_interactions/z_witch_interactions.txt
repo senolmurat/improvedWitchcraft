@@ -156,6 +156,7 @@ convert_to_witchcraft_interaction = {
 			house = scope:recipient.house
 			add = 10
 		}
+		### WITCH IMPROVED
 		modifier = {
 			scope:actor.culture = { has_cultural_parameter = easier_to_convert_witch }
 			add = 20

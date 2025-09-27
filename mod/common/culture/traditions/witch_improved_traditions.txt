@@ -217,7 +217,7 @@ tradition_folk_healers = {
 # negate diplomacy penalty for witch trait
 
 tradition_coven_kinship = {
-	category = realm
+	category = societal
 
 	layers = {
 		0 = learning
@@ -250,7 +250,6 @@ tradition_coven_kinship = {
 	parameters = {
 		convert_to_witch_close_family_super_bonus = yes
 		close_family_better_court_positions = yes
-		negate_diplomacy_penalty_for_witch_trait = yes
 		more_grand_rite_guest_join_chance = yes
 		penalty_for_revoking_titles_from_close_family = yes
 	}
@@ -387,12 +386,13 @@ tradition_blessed_protection = {
 	}
 
 	character_modifier = {
+		levy_toughness = 2
 		prowess_per_piety_level = 2
 		men_at_arms_maintenance = 0.15
 		maa_toughness_mult = 0.15
-		men_at_arms_recruitment_cost = 0.05
+		men_at_arms_recruitment_cost = 0.1
 		hard_casualty_modifier = -0.1
-		different_faith_opinion = -15
+		different_faith_opinion = -10
 	}
 	
 	cost = {
@@ -493,6 +493,109 @@ tradition_blessed_protection = {
 		}
 		else = {
 			multiply = 8
+		}
+	}
+}
+
+tradition_coven_meet = {
+	category = realm
+
+	layers = {
+		0 = diplo/diplo3.dds
+		1 = western
+		2 = custom/grey.dds
+		3 = 3.dds
+		4 = council.dds
+	}
+
+	can_pick = {
+		scope:character = {
+			faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+		}
+	}
+
+	parameters = {
+		coven_elective_enabled = yes
+		negate_diplomacy_penalty_for_witch_trait = yes
+	}
+	character_modifier = {
+		monthly_piety_gain_per_happy_powerful_vassal_mult = 0.04
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_communal_or_bureaucratic_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							piety_level >= 4
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = lacks_higher_piety_level_desc
+				}
+			}
+
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_coven_meet }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 200
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_the_witenagemot = { is_in_list = traits }
+					culture_tradition:tradition_fp3_jirga = { is_in_list = traits }
+					culture_tradition:tradition_things = { is_in_list = traits }
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						has_trait = witch
+					}
+				}
+			}
+			multiply = 0.2
 		}
 	}
 }

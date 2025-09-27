@@ -11,7 +11,7 @@
 		can_pass = {
 			can_change_title_law_trigger = yes
 			has_trait = witch
-			#culture = { has_cultural_parameter = coven_elective_enabled }
+			culture = { has_cultural_parameter = coven_elective_enabled }
 		}
 		can_title_have = {
 			can_title_have_law_general_trigger = yes

@@ -70,6 +70,9 @@
  THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
  NOT_THEY_HAVE_ANY_RIVAL_OR_MURDER_TARGET_TRIGGER:0 "[CHARACTER.GetShortUIName|V] does #bold not#! have a [rival|E] or [GetScheme('murder').GetTypeName] [scheme|E] target"
 
+ not_spiritual_communal_or_bureaucratic_desc:0 "The [culture|E] does not have the $ethos_spiritual_name$, $ethos_communal_name$ or $ethos_bureaucratic_name$ [ethos|E]"
+ lacks_higher_piety_level_desc:1 "Your [piety_level|E] is not [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] or higher"
+
 ### TRADITIONS
  tradition_occult_practices_name:0 "Occult Practices"
  tradition_occult_practices_desc:0 "Views on magic as a discipline rooted in esoteric knowledge. Its followers believe that through the careful application of rituals, symbols, and incantations found in forbidden lore, one can command the unseen forces of the world. Power is not given, but seized through understanding."
@@ -92,14 +95,18 @@
  tradition_coven_kinship_name:0 "Coven Kinship"
  tradition_coven_kinship_desc:0 "Witches are bound by family ties—for the coven, the clan, the bloodline is everything."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ on [close_family|E] members almost always #P succeeds#!"
- culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Removes [diplomacy|E] skill penalty from [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
  convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
- culture_parameter_more_grand_rite_guest_join_chance:0 "Increases [activity_guests|E] join acceptance chance for [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Increases [activity_guests|E] join acceptance for [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
 
  tradition_blessed_protection_name:0 "Blessed Protection"
  tradition_blessed_protection_desc:0 "Soldiers march into battle girded with charms and wards, trusting in unseen powers to shield them from blade and arrow. To them, victory is not only won by steel, but by the blessings carried upon their person."
+
+ tradition_coven_meet_name:0 "Coven Meetings"
+ tradition_coven_meet_desc:0 "Power is bound not to bloodline alone, but to the secret counsel of witches who gather in shadowed circles. Through whispered bargains and ritual oaths, rulers are chosen by the coven, their authority sanctified by occult consensus rather than mere inheritance."
+ culture_parameter_coven_elective_enabled:0 "Can enact the [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Removes [diplomacy|E] skill penalty from [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
 
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"

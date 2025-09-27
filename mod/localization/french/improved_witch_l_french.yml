@@ -72,7 +72,7 @@
  rulers_with_witch_desc:0 "La [culture|E] n'a pas #V 5#! [rulers|E] avec le [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
  culture_parameter_more_frequent_witch_rituals:0 "Le délai entre les [GetActivityType('activity_witch_ritual').GetName] [activities|E] est #P réduit#! de #V 1#! an"
  culture_parameter_easier_to_convert_witch:0 "Les [characters|E] de cette [culture|E] sont plus faciles à $convert_to_witchcraft_interaction$"
- culture_parameter_witch_trait_more_valued:3 "Le [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] est considéré comme [prestige_i][prestigieux|E]\n$EFFECT_LIST_BULLET$Organiser un [GetActivityType('activity_witch_ritual').GetName] rapporte du [prestige_i][prestige|E]"
+ culture_parameter_witch_trait_more_valued:3 "Le [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] est considéré comme [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Organiser un [GetActivityType('activity_witch_ritual').GetName] rapporte du [prestige_i][prestige|E]"
  COMPATRIOT_PARAMETER_DESC:0 "Depuis les [traditions|E] vs. même [culture|E] : $VALUE|+0=$"
 
  tradition_folk_healers_name:0 "Guérisseurs Populaires"

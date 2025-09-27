@@ -1,4 +1,4 @@
-high_skill_court_physician_cost = {
+﻿high_skill_court_physician_cost = {
 	value = medium_gold_value
 	if = {
 		limit = {

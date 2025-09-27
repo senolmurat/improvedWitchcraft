@@ -72,7 +72,7 @@
  rulers_with_witch_desc:0 "이 [culture|E]에는 [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]을 가진 [rulers|E]가 #V 5#!명 없습니다"
  culture_parameter_more_frequent_witch_rituals:0 "[GetActivityType('activity_witch_ritual').GetName] [activities|E] 간 간격이 #P 1#!년 #P 감소#!"
  culture_parameter_easier_to_convert_witch:0 "이 [culture|E]의 [characters|E]는 $convert_to_witchcraft_interaction$에 더 쉽게 개종됨"
- culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]이(가) [prestige_i][명망|E]으로 여겨짐\n$EFFECT_LIST_BULLET$[GetActivityType('activity_witch_ritual').GetName] 주최 시 [prestige_i][prestige|E] 획득"
+ culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]이(가) [prestige_i][prestigious|E]으로 여겨짐\n$EFFECT_LIST_BULLET$[GetActivityType('activity_witch_ritual').GetName] 주최 시 [prestige_i][prestige|E] 획득"
  COMPATRIOT_PARAMETER_DESC:0 "[traditions|E] 대 동일 [culture|E]으로부터: $VALUE|+0=$"
 
  tradition_folk_healers_name:0 "민간 치료사"

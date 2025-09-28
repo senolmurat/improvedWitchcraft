@@ -2,7 +2,16 @@
   <img src="mod/thumbnail.png">
 </p>
 
+<p align="center">
+  <img src="assets/trad_coven_meet.jpg">
+  <img src="assets/trad_blessed_protection.jpg">
+  <img src="assets/trad_folk_healers.jpg">
+  <img src="assets/trad_occult_practices.jpg">
+</p>
+
 ## Improved Witchcraft
+
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3566312539)
 
 ¹Also check [Improved Witchcraft - Tenet Submod](https://steamcommunity.com/sharedfiles/filedetails/?id=3566658247)
 

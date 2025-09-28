@@ -4,7 +4,7 @@
  coven_elective_succession_law_effects:2 "[ruler|E]와 모든 [de_jure|E] [vassals|E] [GetTrait('witch').GetName( GetNullCharacter )] (남작 제외)은 통치자의 [extended_family|E], 사용 가능한 모든 [claimants|E], 그리고 [piety_level|E] 4 이상인 성인 [de_jure|E] [vassals|E] 중에서 [title_heir|E]를 지명할 수 있습니다. 후보자는 [GetTrait('witch').GetName( GetNullCharacter )]일 필요가 없습니다\n이 [succession_law|E]의 [voting_power|E]는 [elector|E]의 [learning|E], 나이, [piety_level|E], [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] 경험에 의해 영향을 받습니다."
 
  coven_elective_candidates:0 "확장 가족, 왕위 주장자 및\n경건도 레벨 4 이상의 봉신"
- coven_elective_candidates_tooltip:1 "$coven_elective_succession_law$에서 유효한 후보가 되려면, 캐릭터는 다음 조건 중 하나를 충족해야 합니다:\n$EFFECT_LIST_BULLET$통치자의 [extended_family|E]의 합법적인 구성원이어야 하며, 신정이나 공화국을 상속받을 예정이 아니어야 합니다. 후보자의 자녀는 지명될 수 없습니다\n$EFFECT_LIST_BULLET$칭호에 대한 [claimant|E]이어야 하며, 신정이나 공화국을 상속받을 예정이 아니어야 합니다\n$EFFECT_LIST_BULLET$[piety_level|E] 4 이상의 [de_jure|E] [vassal|E]이어야 하며, 신정이나 공화국을 상속받을 예정이 아니어야 합니다"
+ coven_elective_candidates_tooltip:1 "$coven_elective_succession_law$에서 유효한 후보가 되려면, 캐릭터는 [GetTrait('witch').GetName( GetNullCharacter )]이어야 하며 다음 조건 중 하나를 충족해야 합니다:\n$EFFECT_LIST_BULLET$통치자의 [extended_family|E]의 합법적인 구성원이어야 하며, 신정이나 공화국을 상속받을 예정이 아니어야 합니다. 후보자의 자녀는 지명될 수 없습니다\n$EFFECT_LIST_BULLET$칭호에 대한 [claimant|E]이어야 하며, 신정이나 공화국을 상속받을 예정이 아니어야 합니다\n$EFFECT_LIST_BULLET$[piety_level|E] 4 이상의 [de_jure|E] [vassal|E]이어야 하며, 신정이나 공화국을 상속받을 예정이 아니어야 합니다"
  coven_elective_electors: "$feudal_elective_electors$"
  coven_elective_electors_tooltip: "$scandinavian_elective_electors_tooltip$"
 

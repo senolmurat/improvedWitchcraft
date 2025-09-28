@@ -1,0 +1,2 @@
+﻿l_polish:
+ culture_parameter_close_family_better_court_positions: "[aptitude|E] do zajmowania [Concept( 'court_position', 'urzędów dworskich' )|E] przez członków [Concept( 'close_family', 'bliskiej rodziny' )|E]: #P +20#![GetPlayer.Custom('CloseFamilyBetterCourtPositionsCustomLoc')]"

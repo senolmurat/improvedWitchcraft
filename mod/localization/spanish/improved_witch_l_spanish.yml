@@ -89,6 +89,25 @@
  can_appoint_court_alchemist: "Puede nombrar [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] [court_position|E]"
  culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] cuesta un poco menos contratar"
 
+ not_spiritual_communal_or_bureaucratic_desc:0 "La [culture|E] no tiene el [ethos|E] $ethos_spiritual_name$, $ethos_communal_name$ o $ethos_bureaucratic_name$"
+ lacks_higher_piety_level_desc:1 "Tu [piety_level|E] no es [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] o superior"
+
+ tradition_coven_kinship_name:0 "Parentesco de Aquelarre"
+ tradition_coven_kinship_desc:0 "Las brujas están unidas por lazos familiares—para el aquelarre, el clan, el linaje lo es todo."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ en miembros de [close_family|E] casi siempre #P tiene éxito#!"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Aumenta la aceptación de [activity_guests|E] para unirse a la [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "Protección Bendita"
+ tradition_blessed_protection_desc:0 "Los soldados marchan a la batalla ceñidos con amuletos y protecciones, confiando en poderes invisibles para protegerlos de la hoja y la flecha. Para ellos, la victoria no solo se gana con acero, sino con las bendiciones que llevan consigo."
+
+ tradition_coven_meet_name:0 "Reuniones de Aquelarre"
+ tradition_coven_meet_desc:0 "El poder no está ligado solo al linaje, sino al consejo secreto de brujas que se reúnen en círculos de sombras. A través de tratos susurrados y juramentos rituales, los gobernantes son elegidos por el aquelarre, su autoridad santificada por consenso oculto en lugar de mera herencia."
+ culture_parameter_coven_elective_enabled:0 "Puede promulgar la [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Elimina la penalización de habilidad [diplomacy|E] del [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
+
 ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Pequeña ganancia de [prestige_i][prestige|E]"
  rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Ganancia aumentada de [prestige_i][prestige|E]"
@@ -100,3 +119,5 @@
  rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Ganancia moderada de [opinion|E] con invitados\n$EFFECT_LIST_BULLET$ Pérdida moderada de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Los poderes antiguos merecen su debido, y nuestras tradiciones deben ser honradas con reverencia. Procuraremos los reactivos apropiados y prepararemos el espacio sagrado, porque un rito realizado con respeto es un rito de verdadero poder.#!"
  rite_ceremony_good: "Ceremonias Extravagantes"  
  rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Gran ganancia de [opinion|E] con invitados\n$EFFECT_LIST_BULLET$ Pérdida mayor de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak No se escatimarán gastos; los artefactos más raros serán nuestro foco, las ofrendas más potentes nuestro tributo. Que este Gran Rito sea un testimonio de nuestra ambición, una ceremonia tan grandiosa que las mismas estrellas serán testigos de nuestro poder.#!"
+
+ GENERIC_DONT_STACK:0 "#Weak  (no se acumula)#!"

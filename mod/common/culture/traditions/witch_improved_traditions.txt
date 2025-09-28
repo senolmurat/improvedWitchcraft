@@ -95,10 +95,19 @@
 					}
 				}
 			}
-			multiply = 0.5
+			multiply = 0.25
 		}
 		else = {
 			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_sorcerous_metallurgy = { is_in_list = traits }
+					culture_tradition:tradition_folk_healers = { is_in_list = traits }
+				}
+			}
+			add = 50
 		}
 	}
 }
@@ -196,7 +205,137 @@ tradition_folk_healers = {
 	}
 	
 	ai_will_do = {
-		value = 100
+		value = 50
+		if = {
+			limit = {
+				NOT = {
+					scope:character ?= {
+						has_trait = witch
+					}
+				}
+			}
+			multiply = 0.25
+		}
+		else = {
+			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_sorcerous_metallurgy = { is_in_list = traits }
+					culture_tradition:tradition_occult_practices = { is_in_list = traits }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_coven_kinship = {
+	category = societal
+
+	layers = {
+		0 = learning
+		1 = mena
+		2 = custom/grey.dds
+		3 = 4.dds
+		4 = conversation.dds
+	}
+	
+	can_pick = {
+		scope:character = {
+			faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+		}
+		custom_tooltip = {
+			text = not_numerous_close_family_desc
+			scope:character = {
+				any_close_family_member = {
+					count >= 10
+					is_alive = yes
+				}
+			}
+		}
+	}
+	
+	parameters = {
+		convert_to_witch_close_family_super_bonus = yes
+		close_family_better_court_positions = yes
+		more_grand_rite_guest_join_chance = yes
+		penalty_for_revoking_titles_from_close_family = yes
+	}
+	character_modifier = {
+		close_relative_opinion = 5
+		dynasty_house_opinion = 5
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_or_communal_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NOT = {
+							scope:character = {
+								any_close_family_member = {
+									percent > 0.5
+									save_temporary_opinion_value_as = { name = target_opinion target = scope:character }		
+									scope:target_opinion >= 80
+								}
+							}
+						}
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = not_strong_opinion_close_family_desc
+				}
+			}
+
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_coven_kinship }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 50
 		if = {
 			limit = {
 				NOT = {
@@ -210,8 +349,245 @@ tradition_folk_healers = {
 		else = {
 			multiply = 2
 		}
+		if = {
+			limit = {
+				scope:character = {
+					any_close_family_member = {
+						count < 15
+					}
+				}
+			}
+			multiply = 0.25
+		}
 	}
 }
 
-# can add another tradition about diplomacy and rich celebration, more expensive grand rites, some other negatives and bonuses
-# negate diplomacy penalty for witch trait
+tradition_blessed_protection = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = mediterranean
+		3 = 1.dds
+		4 = magister_1.dds
+	}
+
+	can_pick = {
+		scope:character = {
+			faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+		}
+	}
+
+	parameters = {
+		culture_clergy_can_fight = yes
+
+	}
+
+	character_modifier = {
+		levy_toughness = 2
+		prowess_per_piety_level = 2
+		men_at_arms_maintenance = 0.15
+		maa_toughness_mult = 0.15
+		men_at_arms_recruitment_cost = 0.1
+		hard_casualty_modifier = -0.1
+		different_culture_opinion = -10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_or_communal_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							number_maa_soldiers_of_base_type = {
+								type = heavy_infantry
+								value >= 400
+							}	
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = culture_head_heavy_infantry_desc
+				}
+			}
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_blessed_protection }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 50
+		
+		if = {
+			limit = {
+				# dont bother for small armies
+				scope:character = {
+					current_military_strength < 2000
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						has_trait = witch
+					}
+				}
+			}
+			multiply = 0.5
+		}
+		else = {
+			add = 50
+		}
+		# bonus for fighting cultures
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_formation_fighting = { is_in_list = traits }
+					culture_tradition:tradition_stand_and_fight = { is_in_list = traits }
+					culture_tradition:tradition_swords_for_hire = { is_in_list = traits }
+					culture_tradition:tradition_warrior_culture = { is_in_list = traits }
+					culture_tradition:tradition_quarrelsome = { is_in_list = traits }
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+			}
+			multiply = 2
+		}
+	}
+}
+
+tradition_coven_meet = {
+	category = realm
+
+	layers = {
+		0 = diplo/diplo3.dds
+		1 = western
+		2 = custom/grey.dds
+		3 = 3.dds
+		4 = council.dds
+	}
+
+	can_pick = {
+		scope:character = {
+			faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+		}
+	}
+
+	parameters = {
+		coven_elective_enabled = yes
+		negate_diplomacy_penalty_for_witch_trait = yes
+	}
+	character_modifier = {
+		monthly_piety_gain_per_happy_powerful_vassal_mult = 0.04
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_communal_or_bureaucratic_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							piety_level >= 4
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = lacks_higher_piety_level_desc
+				}
+			}
+
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_coven_meet }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				OR = {
+					culture_tradition:tradition_the_witenagemot = { is_in_list = traits }
+					culture_tradition:tradition_fp3_jirga = { is_in_list = traits }
+					culture_tradition:tradition_things = { is_in_list = traits }
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						has_trait = witch
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}

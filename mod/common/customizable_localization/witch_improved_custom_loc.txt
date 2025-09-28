@@ -73,3 +73,19 @@ FolkHealersHerbalistCustomLoc = {
 		localization_key = blank_line
 	}
 }
+
+CloseFamilyBetterCourtPositionsCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			always = yes
+		}
+		localization_key = GENERIC_DONT_STACK
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}

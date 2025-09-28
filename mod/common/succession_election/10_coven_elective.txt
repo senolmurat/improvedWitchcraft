@@ -1,0 +1,147 @@
+﻿# The entry should be named in the same way that the elective succession law is named to define it's voter's logic.
+# Root scope - Elector, the character voting in the election.
+# scope:candidate scope - Candidate, Character considered for the title.
+# scope:title scope - Title, The title the nomination is for.
+# scope:holder scope - Ruler, The ruler currently holding the title.
+# scope:holder_candidate scope - Favored Candidate, The title owner's candidate.
+# The voter will vote for the top score candidate calculated from this script.
+
+coven_elective = {
+	#Witch trait experience, learning, level of devotion and age are all factors in the vote strength.
+	elector_vote_strength = {
+		base = 0
+		# witch trait
+		modifier = {
+			desc = tooltip_coven_elective_witch
+			has_trait_xp = {
+				trait = witch
+				value >= 50
+			}
+			add = {
+				value = 10
+				if ={
+					limit = {
+						has_trait_xp = {
+							trait = witch
+							value >= 100
+						}
+					}
+					add = 10
+				}
+			}		
+		}
+		# Age
+		modifier = {
+			desc = tooltip_coven_elective_age
+			add = {
+				value = age
+				multiply = 0.2
+			}
+		}
+		# Level of Devotion for same faith
+		modifier = {
+			desc = tooltip_coven_elective_level_of_devotion
+			this.faith = root.faith
+			root.faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
+			add = {
+				value = piety_level
+				multiply = 5
+			}
+		}
+		# Learning
+		modifier = {
+			desc = tooltip_coven_elective_learning
+			add = {
+				value = learning
+			}
+		}
+		min = 1
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				target_is_liege_or_above = scope:holder #All de jure vassals, no matter the tier, sub-vassals included.
+				is_ruler = yes
+				is_landed_or_landless_administrative = yes
+				exists = capital_county
+				highest_held_title_tier > 1 #Barons excluded.
+				domain_size >= 1
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+		elector_voting_pattern_circumstances_scandinavian_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (misc)	##########################
+		elector_voting_pattern_circumstances_misc_elective_modifier = yes
+
+		##########################	WITCH IMPROVED ELECTIVE MODIFIERS	##########################
+		elector_voting_pattern_circumstances_witch_elective_modifiers = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_vassal_of = scope:holder #Only Powerful, direct, de jure vassals are potential candidates.
+				feudal_elective_potential_landed_candidate_trigger = yes
+				is_adult = yes
+				piety_level >= 4
+				faith = {
+					NOR = {
+						has_doctrine_parameter = witchcraft_illegal
+						has_doctrine_parameter = witchcraft_shunned
+					}
+				}
+				has_trait = witch
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				has_trait = witch
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				has_trait = witch
+			}
+		}
+	}
+}

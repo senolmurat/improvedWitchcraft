@@ -1,0 +1,15 @@
+﻿l_english:
+ coven_elective_succession_law: "Coven Elective"
+ coven_elective_succession_law_subname: "Gathering"
+ coven_elective_succession_law_effects: "The [ruler|E] and all [de_jure|E] [vassals|E] (except Barons) can nominate a [title_heir|E] amongst the ruler's [extended_family|E], any available [claimants|E] and all [de_jure|E] [vassals|E] that are adults with [piety_level|E] 4 or higher. Candidates have to be a [GetTrait('witch').GetName( GetNullCharacter )]\n[voting_power|E] in this [succession_law|E] is influenced by the [elector|E]'s [learning|E], Age, [piety_level|E] and [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] Experience."
+
+ coven_elective_candidates: "Extended Family, Claimants and\nVassals with Piety Level 4 or Higher"
+ coven_elective_candidates_tooltip: "In order to be a valid Candidate under the $coven_elective_succession_law$, a character must be a [GetTrait('witch').GetName( GetNullCharacter )] and fulfill one of the following conditions:\n$EFFECT_LIST_BULLET$Be a legitimate member of the ruler's [extended_family|E], who is not in line to inherit a Theocracy or Republic. Children of a candidate cannot be nominated\n$EFFECT_LIST_BULLET$Be a [claimant|E] to the title, who is not in line to inherit a Theocracy or Republic\n$EFFECT_LIST_BULLET$Be a [de_jure|E] [vassal|E] with [piety_level|E] 4 or higher who is not in line to inherit a Theocracy or Republic"
+ coven_elective_electors: "$feudal_elective_electors$"
+ coven_elective_electors_tooltip: "$scandinavian_elective_electors_tooltip$"
+
+ tooltip_coven_elective_learning: "[learning|E]: $VALUE|=+0$"
+ tooltip_coven_elective_age: "Age: $VALUE|=+0$"
+ tooltip_coven_elective_level_of_devotion: "[piety_level|E]: $VALUE|=+0$"
+ tooltip_coven_elective_witch: "Experienced [GetTrait('witch').GetName( GetNullCharacter )]: $VALUE|=+0$"
+ tooltip_coven_elector_vote_witch: "[candidate.GetSheHe|U] is an experienced [GetTrait('witch').GetName( GetNullCharacter )]: $VALUE|=+0$"

@@ -1,0 +1,26 @@
+﻿elector_voting_pattern_circumstances_witch_elective_modifiers = {
+	modifier = { # Witch prefers witches
+		desc = tooltip_coven_elector_vote_witch
+		NOT = { this = scope:candidate }
+		scope:candidate = {
+			has_trait_xp = {
+				trait = witch
+				value >= 50
+			}
+		}
+		add = {
+			value = 15
+			if = {
+				limit = {
+					scope:candidate = { 
+						has_trait_xp = {
+							trait = witch
+							value >= 100
+						}
+					}
+				}
+				add = 15
+			} 
+		}
+	}
+}

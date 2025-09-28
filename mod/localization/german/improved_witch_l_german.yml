@@ -72,7 +72,7 @@
  rulers_with_witch_desc:0 "Die [culture|E] hat nicht #V 5#! [rulers|E] mit dem [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E]"
  culture_parameter_more_frequent_witch_rituals:0 "Die Zeit zwischen [GetActivityType('activity_witch_ritual').GetName]-[activities|E] ist um #P 1#! Jahr #P verringert#!"
  culture_parameter_easier_to_convert_witch:0 "[characters|E] dieser [culture|E] sind leichter für $convert_to_witchcraft_interaction$ zu bekehren"
- culture_parameter_witch_trait_more_valued:3 "Das [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E] gilt als [prestige_i][prestigeträchtig|E]\n$EFFECT_LIST_BULLET$Das Ausrichten einer [GetActivityType('activity_witch_ritual').GetName] bringt [prestige_i][prestige|E]"
+ culture_parameter_witch_trait_more_valued:3 "Das [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E] gilt als [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Das Ausrichten einer [GetActivityType('activity_witch_ritual').GetName] bringt [prestige_i][prestige|E]"
  COMPATRIOT_PARAMETER_DESC:0 "Von [traditions|E] vs. gleiche [culture|E]: $VALUE|+0=$"
 
  tradition_folk_healers_name:0 "Volksheiler"
@@ -84,6 +84,25 @@
  can_appoint_court_herbalist: "\n$EFFECT_LIST_BULLET$Kann die [GetCourtPositionType( 'court_herbalist_court_position' ).GetName()] als [court_position|E] ernennen"
  can_appoint_court_alchemist: "Kann die [GetCourtPositionType( 'court_alchemist_court_position' ).GetName()] als [court_position|E] ernennen"
  culture_parameter_slightly_cheaper_court_physician: "[GetCourtPositionType('court_physician_court_position').GetName()] kostet etwas weniger zu beschäftigen"
+
+ not_spiritual_communal_or_bureaucratic_desc:0 "Die [culture|E] hat nicht das $ethos_spiritual_name$-, $ethos_communal_name$- oder $ethos_bureaucratic_name$-[ethos|E]"
+ lacks_higher_piety_level_desc:1 "Euer [piety_level|E] ist nicht [GetModifier( 'piety_level_4' ).GetNameWithTooltip|L] oder höher"
+
+ tradition_coven_kinship_name:0 "Coven-Verwandtschaft"
+ tradition_coven_kinship_desc:0 "Hexen sind durch Familienbande verbunden. Für den Coven ist die Sippe, die Blutlinie alles."
+ culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ bei [close_family|E]-Mitgliedern fast immer #P gelingt#!"
+ convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+ culture_parameter_more_grand_rite_guest_join_chance:0 "Erhöht die Annahme von [activity_guests|E] für die Teilnahme an der [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
+ more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
+
+ tradition_blessed_protection_name:0 "Gesegneter Schutz"
+ tradition_blessed_protection_desc:0 "Soldaten marschieren in die Schlacht, umgürtet mit Amuletten und Schutzzeichen, vertrauend auf unsichtbare Mächte, sie vor Klinge und Pfeil zu schützen. Für sie wird der Sieg nicht nur durch Stahl errungen, sondern durch die Segnungen, die sie bei sich tragen."
+
+ tradition_coven_meet_name:0 "Coven-Treffen"
+ tradition_coven_meet_desc:0 "Macht ist nicht nur an Blutlinien gebunden, sondern an den geheimen Rat der Hexen, die sich in Schattenkreisen versammeln. Durch geflüsterte Abmachungen und rituelle Eide werden Herrscher vom Coven gewählt, ihre Autorität durch okkulten Konsens geheiligt, nicht durch bloße Erbfolge."
+ culture_parameter_coven_elective_enabled:0 "Kann das [GetLaw('coven_elective_succession_law').GetName] [succession_law|E] erlassen"
+ culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Entfernt die [diplomacy|E]-Fähigkeitsstrafe vom [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E]"
 
  ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Geringer Gewinn an [prestige_i][prestige|E]"
@@ -97,6 +116,7 @@
  rite_ceremony_good:0 "Prunkvolle Zeremonien"
  rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Großer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Großer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Keine Kosten werden gescheut; die seltensten Artefakte sind unser Fokus, die mächtigsten Gaben unser Tribut. Möge dieser Große Ritus unser Ehrgeiz bezeugen – eine Zeremonie so grandios, dass selbst die Sterne Zeugen sind.#!"
 
+ GENERIC_DONT_STACK:0 "#Weak  (stapelt sich nicht)#!"
 
 
 

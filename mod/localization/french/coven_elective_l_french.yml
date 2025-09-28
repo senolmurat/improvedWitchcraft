@@ -1,0 +1,15 @@
+﻿l_french:
+ coven_elective_succession_law:1 "Élection de Coven"
+ coven_elective_succession_law_subname:0 "Rassemblement"
+ coven_elective_succession_law_effects:2 "Le [ruler|E] et tous les [vassals|E] [de_jure|E] [GetTrait('witch').GetName( GetNullCharacter )] (sauf les Barons) peuvent nommer un [title_heir|E] parmi la [extended_family|E] du dirigeant, tous les [claimants|E] disponibles et tous les [vassals|E] [de_jure|E] qui sont des adultes avec un [piety_level|E] de 4 ou plus. Les candidats n'ont pas besoin d'être une [GetTrait('witch').GetName( GetNullCharacter )]\nLe [voting_power|E] dans cette [succession_law|E] est influencé par l'[learning|E], l'Âge, le [piety_level|E] et l'Expérience du [trait|E] [GetTrait('witch').GetName( GetNullCharacter )] de l'[elector|E]."
+
+ coven_elective_candidates:0 "Famille Étendue, Prétendants et\nVassaux avec Niveau de Piété 4 ou Plus"
+ coven_elective_candidates_tooltip:1 "Pour être un candidat valide sous la $coven_elective_succession_law$, un personnage doit remplir l'une des conditions suivantes :\n$EFFECT_LIST_BULLET$Être un membre légitime de la [extended_family|E] du dirigeant, qui n'est pas en ligne pour hériter d'une Théocratie ou République. Les enfants d'un candidat ne peuvent pas être nommés\n$EFFECT_LIST_BULLET$Être un [claimant|E] au titre, qui n'est pas en ligne pour hériter d'une Théocratie ou République\n$EFFECT_LIST_BULLET$Être un [vassal|E] [de_jure|E] avec un [piety_level|E] de 4 ou plus qui n'est pas en ligne pour hériter d'une Théocratie ou République"
+ coven_elective_electors:0 "$feudal_elective_electors$"
+ coven_elective_electors_tooltip:0 "$scandinavian_elective_electors_tooltip$"
+
+ tooltip_coven_elective_learning: "[learning|E] : $VALUE|=+0$"
+ tooltip_coven_elective_age: "Âge : $VALUE|=+0$"
+ tooltip_coven_elective_level_of_devotion: "[piety_level|E] : $VALUE|=+0$"
+ tooltip_coven_elective_witch: "[GetTrait('witch').GetName( GetNullCharacter )] Expérimentée : $VALUE|=+0$"
+ tooltip_coven_elector_vote_witch: "[candidate.GetSheHe|U] est une [GetTrait('witch').GetName( GetNullCharacter )] expérimentée : $VALUE|=+0$"

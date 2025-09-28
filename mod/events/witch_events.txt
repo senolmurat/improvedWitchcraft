@@ -2158,6 +2158,10 @@ witch.3014 = { #by Mathilda Bjarnehed
 		random_list = {
 			35 = { #Becomes friend and joins court
 				desc = witch.3014.d.move_in
+				modifier = {
+					culture = { has_cultural_parameter = more_grand_rite_guest_join_chance }
+					add = 20
+				}
 				compatibility_modifier = {
 					who = root
 					compatibility_target = scope:new_guest
@@ -2174,6 +2178,10 @@ witch.3014 = { #by Mathilda Bjarnehed
 			}
 			50 = { #Becomes friend
 				desc = witch.3014.d.friend
+				modifier = {
+					culture = { has_cultural_parameter = more_grand_rite_guest_join_chance }
+					add = -10
+				}
 				compatibility_modifier = {
 					who = root
 					compatibility_target = scope:new_guest
@@ -2189,6 +2197,10 @@ witch.3014 = { #by Mathilda Bjarnehed
 			}
 			15 = {
 				desc = witch.3014.d.enemy
+				modifier = {
+					culture = { has_cultural_parameter = more_grand_rite_guest_join_chance }
+					add = -10
+				}
 				compatibility_modifier = {
 					who = root
 					compatibility_target = scope:new_guest

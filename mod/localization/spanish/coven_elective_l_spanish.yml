@@ -1,0 +1,15 @@
+﻿l_spanish:
+ coven_elective_succession_law:1 "Electivo de Aquelarre"
+ coven_elective_succession_law_subname:0 "Reunión"
+ coven_elective_succession_law_effects:2 "El [ruler|E] y todos los [vassals|E] [de_jure|E] [GetTrait('witch').GetName( GetNullCharacter )] (excepto Barones) pueden nominar un [title_heir|E] entre la [extended_family|E] del gobernante, todos los [claimants|E] disponibles y todos los [vassals|E] [de_jure|E] que son adultos con [piety_level|E] 4 o superior. Los candidatos no tienen que ser una [GetTrait('witch').GetName( GetNullCharacter )]\nEl [voting_power|E] en esta [succession_law|E] está influenciado por el [learning|E], Edad, [piety_level|E] y experiencia del [trait|E] [GetTrait('witch').GetName( GetNullCharacter )] del [elector|E]."
+
+ coven_elective_candidates:0 "Familia Extendida, Pretendientes y\nVasallos con Nivel de Piedad 4 o Superior"
+ coven_elective_candidates_tooltip:1 "Para ser un candidato válido bajo la $coven_elective_succession_law$, un personaje debe cumplir una de las siguientes condiciones:\n$EFFECT_LIST_BULLET$Ser un miembro legítimo de la [extended_family|E] del gobernante, que no esté en línea para heredar una Teocracia o República. Los hijos de un candidato no pueden ser nominados\n$EFFECT_LIST_BULLET$Ser un [claimant|E] al título, que no esté en línea para heredar una Teocracia o República\n$EFFECT_LIST_BULLET$Ser un [vassal|E] [de_jure|E] con [piety_level|E] 4 o superior que no esté en línea para heredar una Teocracia o República"
+ coven_elective_electors: "$feudal_elective_electors$"
+ coven_elective_electors_tooltip: "$scandinavian_elective_electors_tooltip$"
+
+ tooltip_coven_elective_learning: "[learning|E]: $VALUE|=+0$"
+ tooltip_coven_elective_age: "Edad: $VALUE|=+0$"
+ tooltip_coven_elective_level_of_devotion: "[piety_level|E]: $VALUE|=+0$"
+ tooltip_coven_elective_witch: "[GetTrait('witch').GetName( GetNullCharacter )] Experimentada: $VALUE|=+0$"
+ tooltip_coven_elector_vote_witch: "[candidate.GetSheHe|U] es una [GetTrait('witch').GetName( GetNullCharacter )] experimentada: $VALUE|=+0$"

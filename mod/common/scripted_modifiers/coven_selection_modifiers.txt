@@ -9,7 +9,7 @@
 			}
 		}
 		add = {
-			value = 10
+			value = 15
 			if = {
 				limit = {
 					scope:candidate = { 
@@ -19,7 +19,7 @@
 						}
 					}
 				}
-				add = 10
+				add = 15
 			} 
 		}
 	}

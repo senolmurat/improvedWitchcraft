@@ -5,8 +5,8 @@
 
  coven_elective_candidates:0 "Familia Extendida, Pretendientes y\nVasallos con Nivel de Piedad 4 o Superior"
  coven_elective_candidates_tooltip:1 "Para ser un candidato válido bajo la $coven_elective_succession_law$, un personaje debe cumplir una de las siguientes condiciones:\n$EFFECT_LIST_BULLET$Ser un miembro legítimo de la [extended_family|E] del gobernante, que no esté en línea para heredar una Teocracia o República. Los hijos de un candidato no pueden ser nominados\n$EFFECT_LIST_BULLET$Ser un [claimant|E] al título, que no esté en línea para heredar una Teocracia o República\n$EFFECT_LIST_BULLET$Ser un [vassal|E] [de_jure|E] con [piety_level|E] 4 o superior que no esté en línea para heredar una Teocracia o República"
- coven_elective_electors:0 "$feudal_elective_electors$"
- coven_elective_electors_tooltip:0 "Para ser un [elector|E] válido bajo la $coven_elective_succession_law$, un vasallo debe cumplir todas las siguientes condiciones:\n$EFFECT_LIST_BULLET$Ser un vasallo directo del título\n$EFFECT_LIST_BULLET$Ser una [GetTrait('witch').GetName( GetNullCharacter )]\n$EFFECT_LIST_BULLET$NO ser un Barón"
+ coven_elective_electors: "$feudal_elective_electors$"
+ coven_elective_electors_tooltip: "$scandinavian_elective_electors_tooltip$"
 
  tooltip_coven_elective_learning: "[learning|E]: $VALUE|=+0$"
  tooltip_coven_elective_age: "Edad: $VALUE|=+0$"

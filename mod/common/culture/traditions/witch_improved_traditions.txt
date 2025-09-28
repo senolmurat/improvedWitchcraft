@@ -472,7 +472,7 @@ tradition_blessed_protection = {
 		else = {
 			add = 50
 		}
-		# bonus for fighting traditions
+		# bonus for fighting cultures
 		if = {
 			limit = {
 				OR = {
@@ -481,6 +481,7 @@ tradition_blessed_protection = {
 					culture_tradition:tradition_swords_for_hire = { is_in_list = traits }
 					culture_tradition:tradition_warrior_culture = { is_in_list = traits }
 					culture_tradition:tradition_quarrelsome = { is_in_list = traits }
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
 				}
 			}
 			multiply = 2

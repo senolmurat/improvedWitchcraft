@@ -5,8 +5,8 @@
 
  coven_elective_candidates:0 "Rozszerzona Rodzina, Pretendenci i\nWasale z Poziomem Pobożności 4 lub Wyższym"
  coven_elective_candidates_tooltip:1 "Aby być ważnym kandydatem pod $coven_elective_succession_law$, postać musi spełnić jeden z następujących warunków:\n$EFFECT_LIST_BULLET$Być prawowitym członkiem [extended_family|E] władcy, który nie jest w linii dziedziczenia Teokracji lub Republiki. Dzieci kandydata nie mogą być nominowane\n$EFFECT_LIST_BULLET$Być [claimant|E] do tytułu, który nie jest w linii dziedziczenia Teokracji lub Republiki\n$EFFECT_LIST_BULLET$Być [de_jure|E] [vassal|E] z [piety_level|E] 4 lub wyższym, który nie jest w linii dziedziczenia Teokracji lub Republiki"
- coven_elective_electors:0 "$feudal_elective_electors$"
- coven_elective_electors_tooltip:0 "Aby być ważnym [elector|E] pod $coven_elective_succession_law$, wasal musi spełnić wszystkie następujące warunki:\n$EFFECT_LIST_BULLET$Być bezpośrednim wasalem tytułu\n$EFFECT_LIST_BULLET$Być [GetTrait('witch').GetName( GetNullCharacter )]\n$EFFECT_LIST_BULLET$NIE być Baronem"
+ coven_elective_electors: "$feudal_elective_electors$"
+ coven_elective_electors_tooltip: "$scandinavian_elective_electors_tooltip$"
 
  tooltip_coven_elective_learning: "[learning|E]: $VALUE|=+0$"
  tooltip_coven_elective_age: "Wiek: $VALUE|=+0$"

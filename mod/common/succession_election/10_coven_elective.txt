@@ -42,6 +42,12 @@ coven_elective = {
 		modifier = {
 			desc = tooltip_coven_elective_level_of_devotion
 			this.faith = root.faith
+			root.faith = {
+				NOR = {
+					has_doctrine_parameter = witchcraft_illegal
+					has_doctrine_parameter = witchcraft_shunned
+				}
+			}
 			add = {
 				value = piety_level
 				multiply = 5
@@ -64,7 +70,6 @@ coven_elective = {
 			limit = {
 				target_is_liege_or_above = scope:holder #All de jure vassals, no matter the tier, sub-vassals included.
 				is_ruler = yes
-				has_trait = witch
 				is_landed_or_landless_administrative = yes
 				exists = capital_county
 				highest_held_title_tier > 1 #Barons excluded.
@@ -115,18 +120,27 @@ coven_elective = {
 				feudal_elective_potential_landed_candidate_trigger = yes
 				is_adult = yes
 				piety_level >= 4
+				faith = {
+					NOR = {
+						has_doctrine_parameter = witchcraft_illegal
+						has_doctrine_parameter = witchcraft_shunned
+					}
+				}
+				has_trait = witch
 			}
 		}
 		add = {
 			type = title_claimants
 			limit = {
 				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				has_trait = witch
 			}
 		}
 		add = {
 			type = holder_close_or_extended_family
 			limit = {
 				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				has_trait = witch
 			}
 		}
 	}

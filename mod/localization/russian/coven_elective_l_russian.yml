@@ -5,8 +5,8 @@
 
  coven_elective_candidates:0 "Расширенная Семья, Претенденты и\nВассалы с Уровнем Благочестия 4 или Выше"
  coven_elective_candidates_tooltip:1 "Чтобы быть действительным кандидатом при $coven_elective_succession_law$, персонаж должен выполнить одно из следующих условий:\n$EFFECT_LIST_BULLET$Быть законным членом [extended_family|E] правителя, который не находится в очереди наследования Теократии или Республики. Дети кандидата не могут быть выдвинуты\n$EFFECT_LIST_BULLET$Быть [claimant|E] на титул, который не находится в очереди наследования Теократии или Республики\n$EFFECT_LIST_BULLET$Быть [de_jure|E] [vassal|E] с [piety_level|E] 4 или выше, который не находится в очереди наследования Теократии или Республики"
- coven_elective_electors:0 "$feudal_elective_electors$"
- coven_elective_electors_tooltip:0 "Чтобы быть действительным [elector|E] при $coven_elective_succession_law$, вассал должен выполнить все следующие условия:\n$EFFECT_LIST_BULLET$Быть прямым вассалом титула\n$EFFECT_LIST_BULLET$Быть [GetTrait('witch').GetName( GetNullCharacter )]\n$EFFECT_LIST_BULLET$НЕ быть бароном"
+ coven_elective_electors: "$feudal_elective_electors$"
+ coven_elective_electors_tooltip: "$scandinavian_elective_electors_tooltip$"
 
  tooltip_coven_elective_learning: "[learning|E]: $VALUE|=+0$"
  tooltip_coven_elective_age: "Возраст: $VALUE|=+0$"

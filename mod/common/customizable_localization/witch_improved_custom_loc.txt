@@ -46,6 +46,54 @@ WillGetMajorPrestigeCustomLoc = {
 	}
 }
 
+WillGetMinorPietyCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+		 }
+		localization_key = rite_ceremony_conditional_minor_piety_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}
+
+WillGetModeratePietyCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+		 }
+		localization_key = rite_ceremony_conditional_moderate_piety_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}
+
+WillGetMajorPietyCustomLoc = {
+	type = character
+
+	text = {
+		trigger = { 
+			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+		 }
+		localization_key = rite_ceremony_conditional_major_piety_loc
+	}
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = blank_line
+	}
+}
+
 FolkHealersAlchemistCustomLoc = {
 	type = character
 

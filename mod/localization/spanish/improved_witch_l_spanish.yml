@@ -108,16 +108,25 @@
  culture_parameter_coven_elective_enabled:0 "Puede promulgar la [GetLaw('coven_elective_succession_law').GetName] [succession_law|E]"
  culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Elimina la penalización de habilidad [diplomacy|E] del [GetTrait('witch').GetName( GetNullCharacter )] [trait|E]"
 
-### ACTIVITY OPTIONS
+ ### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Pequeña ganancia de [prestige_i][prestige|E]"
  rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Ganancia aumentada de [prestige_i][prestige|E]"
  rite_ceremony_conditional_major_prestige_loc: "\n$EFFECT_LIST_BULLET$ Ganancia grandemente aumentada de [prestige_i][prestige|E]"
  rite_option_ceremony: "Ceremonias"
  rite_ceremony_bad: "Ceremonias Humildes"
- rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Pequeña ganancia de [opinion|E] con invitados\n$EFFECT_LIST_BULLET$ Pequeña pérdida de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak El rito no es un espectáculo para los no iniciados. Nos reuniremos en secreto, nuestras herramientas humildes y nuestras voces bajas, porque el verdadero poder no yace en el espectáculo, sino en la comunión silenciosa de los fieles.#!"
+ rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Pequeña ganancia de [opinion|E] con los invitados\n$EFFECT_LIST_BULLET$ Pequeña reducción de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMinorPietyCustomLoc')]\n\n#weak El rito no es un espectáculo para los profanos. Nos reuniremos en secreto, con herramientas humildes y voces bajas, pues el verdadero poder reside en la comunión silenciosa de los fieles.#!"
  rite_ceremony_normal: "Ceremonias Dignas"
- rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Ganancia moderada de [opinion|E] con invitados\n$EFFECT_LIST_BULLET$ Pérdida moderada de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Los poderes antiguos merecen su debido, y nuestras tradiciones deben ser honradas con reverencia. Procuraremos los reactivos apropiados y prepararemos el espacio sagrado, porque un rito realizado con respeto es un rito de verdadero poder.#!"
+ rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Ganancia moderada de [opinion|E] con los invitados\n$EFFECT_LIST_BULLET$ Reducción moderada de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')][GetPlayer.Custom('WillGetModeratePietyCustomLoc')]\n\n#weak Los viejos poderes merecen su debido respeto, y nuestras tradiciones deben honrarse con reverencia. Obtendremos los reactivos apropiados y prepararemos el espacio sagrado; un rito realizado con respeto es un rito de verdadero poder.#!"
  rite_ceremony_good: "Ceremonias Extravagantes"  
- rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Gran ganancia de [opinion|E] con invitados\n$EFFECT_LIST_BULLET$ Pérdida mayor de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak No se escatimarán gastos; los artefactos más raros serán nuestro foco, las ofrendas más potentes nuestro tributo. Que este Gran Rito sea un testimonio de nuestra ambición, una ceremonia tan grandiosa que las mismas estrellas serán testigos de nuestro poder.#!"
+ rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Gran ganancia de [opinion|E] con los invitados\n$EFFECT_LIST_BULLET$ Gran reducción de [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMajorPietyCustomLoc')]\n\n#weak No se escatimarán gastos; los artefactos más raros serán nuestro foco y las ofrendas más potentes, nuestro tributo. Que este Gran Rito sea testimonio de nuestra ambición, una ceremonia tan grandiosa que hasta las estrellas den fe.#!"
 
  GENERIC_DONT_STACK:0 "#Weak  (no se acumula)#!"
+
+# DOCTRINES
+ doctrine_witchcraft_worshipped_name:0 "Venerada"
+ doctrine_witchcraft_worshipped_desc:0 "El verdadero poder no se encuentra en la soledad, sino en la voluntad compartida del aquelarre. Creemos que nuestra fuerza se multiplica cuando nos reunimos, y que nuestros ritos más sagrados nos unen como una familia espiritual."
+ doctrine_parameter_piety_from_witch_coven_active:1 "Organizar un [GetActivityType('activity_witch_ritual').GetName] otorga [piety_i][piety|E]"
+ doctrine_parameter_shorten_witch_coven_cooldown_active:1 "El intervalo entre [GetActivityType('activity_witch_ritual').GetName] [activities|E] se #P reduce#! en #V 1#! año"
+ rite_ceremony_conditional_minor_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Pequeña ganancia de [piety_i][piety|E]"
+ rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Mayor ganancia de [piety_i][piety|E]"
+ rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Gran ganancia de [piety_i][piety|E]"

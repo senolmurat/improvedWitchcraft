@@ -70,6 +70,23 @@
 	odds_prediction = {
 		add = base_odds_prediction_target_is_char_value
 		add = odds_skill_contribution_learning_value
+		add = {
+			scope:owner = {
+				exists = culture
+				culture = { has_cultural_parameter = easier_to_convert_witch }
+			}
+			add = 20
+			desc = COMPATRIOT_PARAMETER_DESC
+		}
+		add = {
+			scope:owner = {
+				exists = culture
+				culture = { has_cultural_parameter = convert_to_witch_close_family_super_bonus }
+				is_close_family_of = scope:target
+			}
+			add = 1000
+			desc = convert_to_witch_close_family_super_bonus_desc
+		}
 		add = odds_convert_to_witchcraft_misc_value
 		min = 0
 	}
@@ -83,7 +100,10 @@
 		# Cultural Tradition - Occult Practices
 		########################
 		modifier = {
-			scope:owner.culture = { has_cultural_parameter = easier_to_convert_witch }
+			scope:owner = {
+				exists = culture
+				culture = { has_cultural_parameter = easier_to_convert_witch }
+			}
 			add = 20
 			desc = COMPATRIOT_PARAMETER_DESC
 		}
@@ -93,8 +113,11 @@
 		# Cultural Tradition - Coven Kinship
 		########################
 		modifier = {
-			scope:owner.culture = { has_cultural_parameter = convert_to_witch_close_family_super_bonus }
-			is_close_family_of = scope:target
+			scope:owner = {
+				exists = culture
+				culture = { has_cultural_parameter = convert_to_witch_close_family_super_bonus }
+				is_close_family_of = scope:target
+			}
 			add = 1000
 			desc = convert_to_witch_close_family_super_bonus_desc
 		}

@@ -27,6 +27,11 @@
  witchimproved.1004.a.bad:0 "Zostałeś przeklęty przez księgę"
  forbidden_knowledge_risk_tooltip:0 "Wydarzy się coś złego…"
 
+ # Additional event lines
+ witch.3014.g:0 "Eksperymentuj z niekonwencjonalnymi metodami razem z [mystic.GetFirstNameNoTooltip]."
+ witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip] uczy mnie czegoś nowego"
+ witch.3014.g.inspiration:0 "Rozmowa jest inspirująca"
+
  ### BOONS
  witch_blessing_diplomacy_boon:0 "Dar Dyplomacji"
  witch_blessing_diplomacy_boon_desc:0 "Rytuał pobłogosławił cię większą dyplomacją i negocjacjami, czyniąc cię mistrzem wpływu."
@@ -110,13 +115,24 @@
  rite_ceremony_conditional_major_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Znacznie zwiększony zysk [prestige_i][prestige|E]"
  rite_option_ceremony:0 "Ceremoniały"
  rite_ceremony_bad:0 "Skromne Ceremoniały"
- rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ Niewielki wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Niewielny spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak Rytuał nie jest widowiskiem dla niewtajemniczonych. Zbierzemy się potajemnie, z prostymi narzędziami i cichymi głosami — prawdziwa moc tkwi w cichej wspólnocie wiernych.#!"
+ rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ Niewielki wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Niewielny spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMinorPietyCustomLoc')]\n\n#weak Rytuał nie jest widowiskiem dla niewtajemniczonych. Zbierzemy się potajemnie, z prostymi narzędziami i cichymi głosami — prawdziwa moc tkwi w cichej wspólnocie wiernych.#!"
  rite_ceremony_normal:0 "Dostojne Ceremoniały"
- rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ Umiarkowany wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Umiarkowany spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Dawne moce zasługują na szacunek, a nasze tradycje muszą być czczone z powagą. Przygotujemy właściwe ingrediencje i świętą przestrzeń — rytuał odprawiony z szacunkiem jest rytuałem prawdziwej mocy.#!"
+ rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ Umiarkowany wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Umiarkowany spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')][GetPlayer.Custom('WillGetModeratePietyCustomLoc')]\n\n#weak Dawne moce zasługują na szacunek, a nasze tradycje muszą być czczone z powagą. Przygotujemy właściwe ingrediencje i świętą przestrzeń — rytuał odprawiony z szacunkiem jest rytuałem prawdziwej mocy.#!"
  rite_ceremony_good:0 "Wystawne Ceremoniały"
- rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Duży wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Duży spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Nie pożałujemy kosztów; najrzadsze artefakty będą naszym ogniskiem, najsilniejsze ofiary — naszym trybutem. Niech ten Wielki Rytuał będzie świadectwem naszej ambicji, ceremoniałem tak wielkim, że gwiazdy będą świadkami.#!"
+ rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Duży wzrost [opinion|E] wśród gości\n$EFFECT_LIST_BULLET$ Duży spadek [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMajorPietyCustomLoc')]\n\n#weak Nie pożałujemy kosztów; najrzadsze artefakty będą naszym ogniskiem, najsilniejsze ofiary — naszym trybutem. Niech ten Wielki Rytuał będzie świadectwem naszej ambicji, ceremoniałem tak wielkim, że gwiazdy będą świadkami.#!"
 
  GENERIC_DONT_STACK:0 "#Weak  (nie kumuluje się)#!"
+
+ # DOCTRINES
+ doctrine_witchcraft_worshipped_name:0 "Czczona"
+ doctrine_witchcraft_worshipped_desc:0 "Prawdziwa moc nie tkwi w samotności, lecz we wspólnej woli sabatu. Wierzymy, że nasza siła mnoży się, gdy się gromadzimy, a nasze najświętsze obrzędy wiążą nas jak duchową rodzinę."
+
+ # From submod tenet
+ doctrine_parameter_piety_from_witch_coven_active:1 "Organizacja [GetActivityType('activity_witch_ritual').GetName] daje [piety_i][piety|E]"
+ doctrine_parameter_shorten_witch_coven_cooldown_active:1 "Przerwa między [GetActivityType('activity_witch_ritual').GetName] [activities|E] jest #P skrócona#! o #V 1#! rok"
+ rite_ceremony_conditional_minor_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Niewielki zysk [piety_i][piety|E]"
+ rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Większy zysk [piety_i][piety|E]"
+ rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Znacznie większy zysk [piety_i][piety|E]"
 
 
 

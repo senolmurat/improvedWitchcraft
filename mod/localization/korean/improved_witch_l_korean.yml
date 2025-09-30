@@ -27,6 +27,11 @@
  witchimproved.1004.a.bad:0 "서적의 저주를 받았습니다"
  forbidden_knowledge_risk_tooltip:0 "나쁜 일이 일어납니다…"
 
+# Additional event lines
+ witch.3014.g:0 "[mystic.GetFirstNameNoTooltip]와 함께 비전통적 방법을 실험한다."
+ witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip]가 새로운 것을 가르쳐 준다"
+ witch.3014.g.inspiration:0 "대화가 영감을 준다"
+
  ### BOONS
  witch_blessing_diplomacy_boon:0 "외교의 은총"
  witch_blessing_diplomacy_boon_desc:0 "의식은 당신의 외교와 협상 능력을 향상시켜, 영향력의 달인으로 만듭니다."
@@ -104,19 +109,29 @@
  culture_parameter_coven_elective_enabled:0 "[GetLaw('coven_elective_succession_law').GetName] [succession_law|E] 제정 가능"
  culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]의 [diplomacy|E] 기술 페널티 제거"
 
- ### ACTIVITY OPTIONS
+### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 소량의 [prestige_i][prestige|E] 획득"
  rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 증가한 [prestige_i][prestige|E] 획득"
  rite_ceremony_conditional_major_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ 크게 증가한 [prestige_i][prestige|E] 획득"
  rite_option_ceremony:0 "의식"
  rite_ceremony_bad:0 "소박한 의식"
- rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 소폭 증가\n$EFFECT_LIST_BULLET$ 소량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak 이 의식은 미입문자를 위한 공연이 아닙니다. 우리는 비밀리에 모여, 소박한 도구와 낮은 목소리로, 진정한 힘은 신도들의 고요한 교감에 있음을 보여줄 것입니다.#!"
+ rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 소폭 증가\n$EFFECT_LIST_BULLET$ 소량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMinorPietyCustomLoc')]\n\n#weak 이 의식은 미입문자를 위한 공연이 아닙니다. 우리는 비밀리에 모여, 소박한 도구와 낮은 목소리로, 진정한 힘은 신도들의 고요한 교감에 있음을 보여줄 것입니다.#!"
  rite_ceremony_normal:0 "품위 있는 의식"
- rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 보통 증가\n$EFFECT_LIST_BULLET$ 보통 수준의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak 옛 힘은 합당한 예우를 받아야 하며, 우리의 전통은 경외로 기려져야 합니다. 우리는 적절한 재료를 준비하고 성지를 마련할 것입니다. 존중 속에 치러진 의식이야말로 진정한 힘의 의식입니다.#!"
+ rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 보통 증가\n$EFFECT_LIST_BULLET$ 보통 수준의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')][GetPlayer.Custom('WillGetModeratePietyCustomLoc')]\n\n#weak 옛 힘은 합당한 예우를 받아야 하며, 우리의 전통은 경외로 기려져야 합니다. 우리는 적절한 재료를 준비하고 성지를 마련할 것입니다. 존중 속에 치러진 의식이야말로 진정한 힘의 의식입니다.#!"
  rite_ceremony_good:0 "화려한 의식"
- rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 대폭 증가\n$EFFECT_LIST_BULLET$ 대량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak 비용을 아끼지 않습니다. 가장 희귀한 유물이 우리의 초점이 되고, 가장 강력한 제물이 우리의 공물이 됩니다. 이 대의식이 우리의 야망을 증명하게 하소서 — 별들조차도 증언할 만큼.#!"
+ rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ 손님과의 [opinion|E] 대폭 증가\n$EFFECT_LIST_BULLET$ 대량의 [stress_loss_i|E][stress|E] 감소[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMajorPietyCustomLoc')]\n\n#weak 비용을 아끼지 않습니다. 가장 희귀한 유물이 우리의 초점이 되고, 가장 강력한 제물이 우리의 공물이 됩니다. 이 대의식이 우리의 야망을 증명하게 하소서 — 별들조차도 증언할 만큼.#!"
 
  GENERIC_DONT_STACK:0 "#Weak  (중첩되지 않음)#!"
+
+# DOCTRINES
+ doctrine_witchcraft_worshipped_name:0 "숭배됨"
+ doctrine_witchcraft_worshipped_desc:0 "진정한 힘은 고독이 아닌 집회의 공동 의지에서 나옵니다. 우리는 함께 모일 때 힘이 배가되며, 가장 성스러운 의식이 우리를 영적 가족으로 묶는다고 믿습니다."
+# From submod tenet
+ doctrine_parameter_piety_from_witch_coven_active:1 "[GetActivityType('activity_witch_ritual').GetName] 주최 시 [piety_i][piety|E] 획득"
+ doctrine_parameter_shorten_witch_coven_cooldown_active:1 "[GetActivityType('activity_witch_ritual').GetName] [activities|E] 간 간격이 #P 1#!년 #P 감소#!"
+ rite_ceremony_conditional_minor_piety_loc:0 "\n$EFFECT_LIST_BULLET$ 소량의 [piety_i][piety|E] 획득"
+ rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ 증가한 [piety_i][piety|E] 획득"
+ rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ 크게 증가한 [piety_i][piety|E] 획득"
 
 
 

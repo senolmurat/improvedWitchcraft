@@ -27,6 +27,11 @@
  witchimproved.1004.a.bad:0 "Ihr wurdet vom Folianten verflucht"
  forbidden_knowledge_risk_tooltip:0 "Etwas Schlimmes geschieht…"
 
+# Additional event lines
+ witch.3014.g:0 "Mit unkonventionellen Methoden zusammen mit [mystic.GetFirstNameNoTooltip] experimentieren."
+ witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip] bringt mir etwas Neues bei"
+ witch.3014.g.inspiration:0 "Das Gespräch ist inspirierend"
+
  ### BOONS
  witch_blessing_diplomacy_boon:0 "Gab der Diplomatie"
  witch_blessing_diplomacy_boon_desc:0 "Das Ritual hat euch mit gesteigerter Diplomatie und Verhandlungskunst gesegnet und macht euch zu einem Meister des Einflusses."
@@ -104,19 +109,29 @@
  culture_parameter_coven_elective_enabled:0 "Kann das [GetLaw('coven_elective_succession_law').GetName] [succession_law|E] erlassen"
  culture_parameter_negate_diplomacy_penalty_for_witch_trait:0 "Entfernt die [diplomacy|E]-Fähigkeitsstrafe vom [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E]"
 
- ### ACTIVITY OPTIONS
+### ACTIVITY OPTIONS
  rite_ceremony_conditional_minor_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Geringer Gewinn an [prestige_i][prestige|E]"
  rite_ceremony_conditional_moderate_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Erhöhter Gewinn an [prestige_i][prestige|E]"
  rite_ceremony_conditional_major_prestige_loc:0 "\n$EFFECT_LIST_BULLET$ Stark erhöhter Gewinn an [prestige_i][prestige|E]"
  rite_option_ceremony:0 "Zeremonien"
  rite_ceremony_bad:0 "Bescheidene Zeremonien"
- rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ Geringer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Geringer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak Das Ritual ist keine Vorstellung für Uneingeweihte. Wir treffen uns im Geheimen, mit schlichten Werkzeugen und leisen Stimmen, denn wahre Macht liegt in der stillen Gemeinschaft der Gläubigen.#!"
+ rite_ceremony_bad_desc:0 "$EFFECT_LIST_BULLET$ Geringer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Geringer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMinorPietyCustomLoc')]\n\n#weak Das Ritual ist keine Vorstellung für Uneingeweihte. Wir treffen uns im Geheimen, mit schlichten Werkzeugen und leisen Stimmen, denn wahre Macht liegt in der stillen Gemeinschaft der Gläubigen.#!"
  rite_ceremony_normal:0 "Würdige Zeremonien"
- rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ Mäßiger [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Mäßiger [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Die alten Mächte verdienen Ehrfurcht, und unsere Traditionen müssen mit Respekt geehrt werden. Wir beschaffen die richtigen Zutaten und bereiten den heiligen Ort vor – ein respektvoll vollzogenes Ritual ist ein Ritual wahrer Macht.#!"
+ rite_ceremony_normal_desc:0 "$EFFECT_LIST_BULLET$ Mäßiger [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Mäßiger [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')][GetPlayer.Custom('WillGetModeratePietyCustomLoc')]\n\n#weak Die alten Mächte verdienen Ehrfurcht, und unsere Traditionen müssen mit Respekt geehrt werden. Wir beschaffen die richtigen Zutaten und bereiten den heiligen Ort vor – ein respektvoll vollzogenes Ritual ist ein Ritual wahrer Macht.#!"
  rite_ceremony_good:0 "Prunkvolle Zeremonien"
- rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Großer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Großer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Keine Kosten werden gescheut; die seltensten Artefakte sind unser Fokus, die mächtigsten Gaben unser Tribut. Möge dieser Große Ritus unser Ehrgeiz bezeugen – eine Zeremonie so grandios, dass selbst die Sterne Zeugen sind.#!"
+ rite_ceremony_good_desc:0 "$EFFECT_LIST_BULLET$ Großer [opinion|E]-Gewinn bei Gästen\n$EFFECT_LIST_BULLET$ Großer [stress_loss_i|E][stress|E]-Verlust[GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMajorPietyCustomLoc')]\n\n#weak Keine Kosten werden gescheut; die seltensten Artefakte sind unser Fokus, die mächtigsten Gaben unser Tribut. Möge dieser Große Ritus unser Ehrgeiz bezeugen – eine Zeremonie so grandios, dass selbst die Sterne Zeugen sind.#!"
 
  GENERIC_DONT_STACK:0 "#Weak  (stapelt sich nicht)#!"
+
+# DOCTRINES
+ doctrine_witchcraft_worshipped_name:0 "Verehrt"
+ doctrine_witchcraft_worshipped_desc:0 "Wahre Macht findet sich nicht in der Einsamkeit, sondern im geteilten Willen des Kovens. Unsere Stärke vervielfacht sich im Zusammensein, und unsere heiligsten Riten verbinden uns als geistige Familie."
+# From submod tenet
+ doctrine_parameter_piety_from_witch_coven_active:1 "Das Ausrichten einer [GetActivityType('activity_witch_ritual').GetName] gewährt [piety_i][piety|E]"
+ doctrine_parameter_shorten_witch_coven_cooldown_active:1 "Der Abstand zwischen [GetActivityType('activity_witch_ritual').GetName]-[activities|E] wird um #P 1#! Jahr #P verringert#!"
+ rite_ceremony_conditional_minor_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Geringer Gewinn an [piety_i][piety|E]"
+ rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Erhöhter Gewinn an [piety_i][piety|E]"
+ rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Stark erhöhter Gewinn an [piety_i][piety|E]"
 
 
 

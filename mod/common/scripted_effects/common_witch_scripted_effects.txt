@@ -30,10 +30,18 @@ grand_rite_poor_outcome = {
 }
 
 hosted_successful_witch_coven_new_effect = {
+	# Piety gain from Tenets.
+	if = {
+		limit = {
+			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+		}
+		add_piety = grand_rite_piety_reward_value
+	}
+
 	# prestige gain from culture
 	if = {
 		limit = {
-			root.culture = { has_cultural_parameter = witch_trait_more_valued }
+			culture = { has_cultural_parameter = witch_trait_more_valued }
 		}
 		add_prestige = grand_rite_prestige_reward_value
 	}

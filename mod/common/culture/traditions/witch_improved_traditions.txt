@@ -420,17 +420,16 @@ tradition_blessed_protection = {
 			if = {
 				limit = {
 					NOT = {
-						scope:character = {
-							number_maa_soldiers_of_base_type = {
-								type = heavy_infantry
-								value >= 400
-							}	
+						any_culture_county = {
+							any_county_province = {
+								has_building_or_higher = march_01
+							}
 						}
 					}
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = culture_head_heavy_infantry_desc
+					desc = march_building_desc
 				}
 			}
 			if = {

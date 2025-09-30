@@ -114,10 +114,21 @@
  rite_ceremony_conditional_major_prestige_loc: "\n$EFFECT_LIST_BULLET$ Значительно увеличенный прирост [prestige_i][prestige|E]"
  rite_option_ceremony: "Церемонии"
  rite_ceremony_bad: "Скромные Церемонии"
- rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Небольшой прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Небольшая потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')]\n\n#weak Обряд — не представление для непосвящённых. Мы соберёмся втайне, наши инструменты скромны, а голоса тихи, ибо истинная сила лежит не в зрелище, а в тихом общении верных.#!"
+ rite_ceremony_bad_desc: "$EFFECT_LIST_BULLET$ Небольшой рост [opinion|E] у гостей\n$EFFECT_LIST_BULLET$ Небольшое снижение [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMinorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMinorPietyCustomLoc')]\n\n#weak Обряд — не представление для непосвящённых. Мы соберёмся тайно, с простыми инструментами и тихими голосами, ведь истинная сила — в тихом единении верных.#!"
  rite_ceremony_normal: "Достойные Церемонии"
- rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Умеренный прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Умеренная потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')]\n\n#weak Старые силы заслуживают должного, и наши традиции должны быть почтены с благоговением. Мы добываем подходящие реагенты и подготавливаем священное пространство, ибо обряд, совершённый с уважением, есть обряд истинной силы.#!"
+ rite_ceremony_normal_desc: "$EFFECT_LIST_BULLET$ Умеренный рост [opinion|E] у гостей\n$EFFECT_LIST_BULLET$ Умеренное снижение [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetModeratePrestigeCustomLoc')][GetPlayer.Custom('WillGetModeratePietyCustomLoc')]\n\n#weak Древним силам подобает должная честь, а наши традиции должны быть исполнены с благоговением. Мы приготовим надлежащие реагенты и освятим место — обряд, совершённый с уважением, есть обряд истинной силы.#!"
  rite_ceremony_good: "Роскошные Церемонии"  
- rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Большой прирост [opinion|E] с гостями\n$EFFECT_LIST_BULLET$ Значительная потеря [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')]\n\n#weak Никаких расходов не будет пощажено; самые редкие артефакты будут нашим фокусом, самые мощные жертвоприношения — нашей данью. Пусть этот Великий Обряд станет свидетельством нашего честолюбия, церемонией столь великой, что сами звёзды станут свидетелями нашей силы.#!"
+ rite_ceremony_good_desc: "$EFFECT_LIST_BULLET$ Большой рост [opinion|E] у гостей\n$EFFECT_LIST_BULLET$ Большое снижение [stress_loss_i|E][stress|E][GetPlayer.Custom('WillGetMajorPrestigeCustomLoc')][GetPlayer.Custom('WillGetMajorPietyCustomLoc')]\n\n#weak Мы не пожалеем средств: редчайшие артефакты станут нашим фокусом, а сильнейшие дары — нашей данью. Да будет этот Великий Обряд свидетельством нашей амбиции, церемонией столь величественной, что даже звёзды станут свидетелями.#!"
 
  GENERIC_DONT_STACK:0 "#Weak  (не суммируется)#!"
+
+# DOCTRINES
+ doctrine_witchcraft_worshipped_name:0 "Почитаема"
+ doctrine_witchcraft_worshipped_desc:0 "Истинная сила рождается не в одиночестве, а в общей воле ковена. Мы верим, что, собираясь вместе, умножаем нашу мощь, а священные обряды связывают нас как духовную семью."
+
+# From submod tenet
+ doctrine_parameter_piety_from_witch_coven_active:1 "Проведение [GetActivityType('activity_witch_ritual').GetName] даёт [piety_i][piety|E]"
+ doctrine_parameter_shorten_witch_coven_cooldown_active:1 "Промежуток между [GetActivityType('activity_witch_ritual').GetName] [activities|E] #P сокращается#! на #V 1#! год"
+ rite_ceremony_conditional_minor_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Небольшой прирост [piety_i][piety|E]"
+ rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Повышенный прирост [piety_i][piety|E]"
+ rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Сильно повышенный прирост [piety_i][piety|E]"

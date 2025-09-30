@@ -110,7 +110,27 @@
 
  GENERIC_DONT_STACK:0 "#Weak  (Does not stack)#!"
 
+### DOCTRINES
+ doctrine_witchcraft_worshipped_name:0 "Worshipped"
+ doctrine_witchcraft_worshipped_desc:0 "True power is not found in solitude, but in the shared will of the coven. We believe that our strength is magnified when we gather, and our most sacred rites bind us together as a spiritual family."
+ doctrine_parameter_piety_from_witch_coven_active: "Hosting a [GetActivityType('activity_witch_ritual').GetName] earns [piety_i][piety|E]"
+ doctrine_parameter_shorten_witch_coven_cooldown_active: "Delay between [GetActivityType('activity_witch_ritual').GetName] [activities|E] are #P reduced#! by #V 1#! year"
+ doctrine_parameter_witchcraft_rejecting_faiths: "Witchcraft Criminal or Shunned [faiths|E]"
+ witchcraft_rejecting_faiths_opinion_name: "$doctrine_parameter_witchcraft_rejecting_faiths$"
+ doctrine_parameter_opinion_of_witchcraft_worshipped_faiths_opinion_active: "$VALUE|+=0$ [opinion|E] with Witchcraft Worshipped [faiths|E]"
+ doctrine_parameter_opinion_of_witchcraft_rejecting_faiths_opinion_active: "$VALUE|+=0$ [opinion|E] with Witchcraft Criminal or Shunned [faiths|E]"
+ doctrine_parameter_witchcraft_rejecting_faiths_opinion_active: ""
+ doctrine_parameter_witchcraft_worshipped_faiths_opinion_active: ""
+
+ witchcraft_rejecting_faiths_opinion_active_opinion_name: "Witchcraft Rejecting [faiths|E] [opinion|E]"
+ witchcraft_rejecting_faiths_opinion_active_county_opinion_name: "$witchcraft_rejecting_faiths_opinion_active_opinion_name$"
+ witchcraft_worshipped_faiths_opinion_active_opinion_name: "Witchcraft Worshipped [faiths|E] [opinion|E]"
+ witchcraft_worshipped_faiths_opinion_active_county_opinion_name: "$witchcraft_worshipped_faiths_opinion_active_opinion_name$"
+
 ### ACTIVITY OPTIONS
+ rite_ceremony_conditional_minor_piety_loc: "\n$EFFECT_LIST_BULLET$ Minor [piety_i][piety|E] gain"
+ rite_ceremony_conditional_moderate_piety_loc: "\n$EFFECT_LIST_BULLET$ Increased [piety_i][piety|E] gain"
+ rite_ceremony_conditional_major_piety_loc: "\n$EFFECT_LIST_BULLET$ Greatly increased [piety_i][piety|E] gain"
  rite_ceremony_conditional_minor_prestige_loc: "\n$EFFECT_LIST_BULLET$ Minor [prestige_i][prestige|E] gain"
  rite_ceremony_conditional_moderate_prestige_loc: "\n$EFFECT_LIST_BULLET$ Increased [prestige_i][prestige|E] gain"
  rite_ceremony_conditional_major_prestige_loc: "\n$EFFECT_LIST_BULLET$ Greatly increased [prestige_i][prestige|E] gain"

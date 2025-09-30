@@ -78,7 +78,8 @@
  culture_parameter_more_frequent_witch_rituals:0 "Le délai entre les [GetActivityType('activity_witch_ritual').GetName] [activities|E] est #P réduit#! de #V 1#! an"
  culture_parameter_easier_to_convert_witch:0 "Les [characters|E] de cette [culture|E] sont plus faciles à $convert_to_witchcraft_interaction$"
  culture_parameter_witch_trait_more_valued:3 "Le [GetTrait('witch').GetName( GetNullCharacter )] [trait|E] est considéré comme [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Organiser un [GetActivityType('activity_witch_ritual').GetName] rapporte du [prestige_i][prestige|E]"
- COMPATRIOT_PARAMETER_DESC:0 "Depuis les [traditions|E] vs. même [culture|E] : $VALUE|+0=$"
+ easier_to_convert_witch_name:0 "#V [GetCultureTradition('tradition_occult_practices').GetName]#! [tradition|E]"
+ easier_to_convert_witch_desc:0 "[GetCultureTradition('tradition_occult_practices').GetName] [tradition|E]: $VALUE|0=-+$"
 
  tradition_folk_healers_name:0 "Guérisseurs Populaires"
  tradition_folk_healers_desc:0 "Certains croient que la véritable guérison vient de l'union de la terre et de l'esprit. La connaissance des herbes répare la chair, mais seule la sagesse des anciennes voies peut apaiser une âme troublée ou conjurer les maux invisibles. Les guérisseurs les plus respectés sont donc ceux qui marchent sur les deux sentiers, mêlant médecine pratique et magie profonde de la nature."
@@ -96,7 +97,7 @@
  tradition_coven_kinship_name:0 "Parenté de Coven"
  tradition_coven_kinship_desc:0 "Les sorcières sont liées par les liens familiaux. Pour le coven, le clan, la lignée est tout."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ sur les membres de [close_family|E] #P réussit presque toujours#!"
- convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_name: "#V [GetCultureTradition('tradition_coven_kinship').GetName]#! [tradition|E]"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
  culture_parameter_more_grand_rite_guest_join_chance:0 "Augmente l'acceptation d'[activity_guests|E] pour rejoindre l'[GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
@@ -132,6 +133,14 @@
  rite_ceremony_conditional_minor_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Petit gain de [piety_i][piety|E]"
  rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Gain accru de [piety_i][piety|E]"
  rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Gain grandement accru de [piety_i][piety|E]"
-
-
-
+# DOCTRINE PARAMETERS AND OPINIONS (WITCHCRAFT FAITHS)
+ doctrine_parameter_witchcraft_rejecting_faiths:0 "Sorcellerie Criminelle ou Réprouvée [faiths|E]"
+ witchcraft_rejecting_faiths_opinion_name:0 "$doctrine_parameter_witchcraft_rejecting_faiths$"
+ doctrine_parameter_opinion_of_witchcraft_worshipped_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] avec les [faiths|E] où la Sorcellerie est Vénérée"
+ doctrine_parameter_opinion_of_witchcraft_rejecting_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] avec les [faiths|E] où la Sorcellerie est Criminelle ou  Réprouvée"
+ doctrine_parameter_witchcraft_rejecting_faiths_opinion_active:0 ""
+ doctrine_parameter_witchcraft_worshipped_faiths_opinion_active:0 ""
+ witchcraft_rejecting_faiths_opinion_active_opinion_name:0 "[faiths|E] Rejetant la Sorcellerie [opinion|E]"
+ witchcraft_rejecting_faiths_opinion_active_county_opinion_name:0 "$witchcraft_rejecting_faiths_opinion_active_opinion_name$"
+ witchcraft_worshipped_faiths_opinion_active_opinion_name:0 "[faiths|E] où la Sorcellerie est Vénérée [opinion|E]"
+ witchcraft_worshipped_faiths_opinion_active_county_opinion_name:0 "$witchcraft_worshipped_faiths_opinion_active_opinion_name$"

@@ -78,7 +78,8 @@
  culture_parameter_more_frequent_witch_rituals:0 "Przerwa między [GetActivityType('activity_witch_ritual').GetName] [activities|E] jest #P zmniejszona#! o #V 1#! rok"
  culture_parameter_easier_to_convert_witch:0 "[characters|E] tej [culture|E] łatwiej przekonać poprzez $convert_to_witchcraft_interaction$"
  culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E] jest postrzegana jako [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Organizacja [GetActivityType('activity_witch_ritual').GetName] przynosi [prestige_i][prestige|E]"
- COMPATRIOT_PARAMETER_DESC:0 "Z [traditions|E] vs. tej samej [culture|E]: $VALUE|+0=$"
+ easier_to_convert_witch_name:0 "#V [GetCultureTradition('tradition_occult_practices').GetName]#! [tradition|E]"
+ easier_to_convert_witch_desc:0 "[GetCultureTradition('tradition_occult_practices').GetName] [tradition|E]: $VALUE|0=-+$"
 
  tradition_folk_healers_name:0 "Ludowi Uzdrowiciele"
  tradition_folk_healers_desc:0 "Są tacy, którzy wierzą, że prawdziwe uzdrowienie pochodzi z jedności ziemi i ducha. Wiedza o ziołach leczy ciało, ale tylko mądrość dawnych ścieżek koi niespokojną duszę i odpiera niewidzialne zarazy. Najbardziej szanowani uzdrowiciele kroczą obiema drogami, łącząc praktyczną medycynę z głęboką magią natury."
@@ -96,7 +97,7 @@
  tradition_coven_kinship_name:0 "Pokrewieństwo Zakonu"
  tradition_coven_kinship_desc:0 "Czarownice są związane więzami rodzinnymi—dla zakonu, klan, linia krwi to wszystko."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ na członków [close_family|E] prawie zawsze #P się powiedzie#!"
- convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_name: "#V [GetCultureTradition('tradition_coven_kinship').GetName]#! [tradition|E]"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
  culture_parameter_more_grand_rite_guest_join_chance:0 "Zwiększa akceptację [activity_guests|E] do dołączenia do [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
@@ -134,5 +135,14 @@
  rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Większy zysk [piety_i][piety|E]"
  rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Znacznie większy zysk [piety_i][piety|E]"
 
-
-
+# DOCTRINE PARAMETERS AND OPINIONS (WITCHCRAFT FAITHS)
+ doctrine_parameter_witchcraft_rejecting_faiths:0 "Czarostwo Kryminalne lub Potępione [faiths|E]"
+ witchcraft_rejecting_faiths_opinion_name:0 "$doctrine_parameter_witchcraft_rejecting_faiths$"
+ doctrine_parameter_opinion_of_witchcraft_worshipped_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] z [faiths|E], gdzie czarostwo jest czczone"
+ doctrine_parameter_opinion_of_witchcraft_rejecting_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] z [faiths|E], gdzie czarostwo jest kryminalne lub potępione"
+ doctrine_parameter_witchcraft_rejecting_faiths_opinion_active:0 ""
+ doctrine_parameter_witchcraft_worshipped_faiths_opinion_active:0 ""
+ witchcraft_rejecting_faiths_opinion_active_opinion_name:0 "[opinion|E] [faiths|E] odrzucających czarostwo"
+ witchcraft_rejecting_faiths_opinion_active_county_opinion_name:0 "$witchcraft_rejecting_faiths_opinion_active_opinion_name$"
+ witchcraft_worshipped_faiths_opinion_active_opinion_name:0 "[opinion|E] [faiths|E], gdzie czarostwo jest czczone"
+ witchcraft_worshipped_faiths_opinion_active_county_opinion_name:0 "$witchcraft_worshipped_faiths_opinion_active_opinion_name$"

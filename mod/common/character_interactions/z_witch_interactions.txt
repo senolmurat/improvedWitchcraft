@@ -156,10 +156,28 @@ convert_to_witchcraft_interaction = {
 			house = scope:recipient.house
 			add = 10
 		}
-		### WITCH IMPROVED
+		
+		########################
+		# Cultural Tradition - Occult Practices
+		########################
 		modifier = {
-			scope:actor.culture = { has_cultural_parameter = easier_to_convert_witch }
-			add = 20
+			scope:recipient = {
+				exists = culture
+				culture = { has_cultural_parameter = easier_to_convert_witch }
+			}
+			add = 15
+		}
+
+		########################
+		# Cultural Tradition - Coven Kinship
+		########################
+		modifier = {
+			scope:actor = {
+				exists = culture
+				culture = { has_cultural_parameter = convert_to_witch_close_family_super_bonus }
+				is_close_family_of = scope:recipient
+			}
+			add = 25
 		}
 
 		# Do I want to spread the word

@@ -78,7 +78,8 @@
  culture_parameter_more_frequent_witch_rituals:0 "Die Zeit zwischen [GetActivityType('activity_witch_ritual').GetName]-[activities|E] ist um #P 1#! Jahr #P verringert#!"
  culture_parameter_easier_to_convert_witch:0 "[characters|E] dieser [culture|E] sind leichter für $convert_to_witchcraft_interaction$ zu bekehren"
  culture_parameter_witch_trait_more_valued:3 "Das [GetTrait('witch').GetName( GetNullCharacter )]-[trait|E] gilt als [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Das Ausrichten einer [GetActivityType('activity_witch_ritual').GetName] bringt [prestige_i][prestige|E]"
- COMPATRIOT_PARAMETER_DESC:0 "Von [traditions|E] vs. gleiche [culture|E]: $VALUE|+0=$"
+ easier_to_convert_witch_name:0 "#V [GetCultureTradition('tradition_occult_practices').GetName]#! [tradition|E]"
+ easier_to_convert_witch_desc:0 "[GetCultureTradition('tradition_occult_practices').GetName] [tradition|E]: $VALUE|0=-+$"
 
  tradition_folk_healers_name:0 "Volksheiler"
  tradition_folk_healers_desc:0 "Manche glauben, dass wahre Heilung aus der Vereinigung von Erde und Geist entsteht. Kräuterwissen heilt den Körper, doch nur die Weisheit der alten Wege beruhigt die Seele oder wehrt unsichtbare Übel ab. Die angesehensten Heiler beschreiten daher beide Pfade und vereinen praktische Medizin mit tiefer Naturmagie."
@@ -96,7 +97,7 @@
  tradition_coven_kinship_name:0 "Coven-Verwandtschaft"
  tradition_coven_kinship_desc:0 "Hexen sind durch Familienbande verbunden. Für den Coven ist die Sippe, die Blutlinie alles."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ bei [close_family|E]-Mitgliedern fast immer #P gelingt#!"
- convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_name: "#V [GetCultureTradition('tradition_coven_kinship').GetName]#! [tradition|E]"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
  culture_parameter_more_grand_rite_guest_join_chance:0 "Erhöht die Annahme von [activity_guests|E] für die Teilnahme an der [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
@@ -134,4 +135,14 @@
  rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ Stark erhöhter Gewinn an [piety_i][piety|E]"
 
 
-
+# DOCTRINE PARAMETERS AND OPINIONS (WITCHCRAFT FAITHS)
+ doctrine_parameter_witchcraft_rejecting_faiths:0 "Hexerei Kriminell oder Verpönt [faiths|E]"
+ witchcraft_rejecting_faiths_opinion_name:0 "$doctrine_parameter_witchcraft_rejecting_faiths$"
+ doctrine_parameter_opinion_of_witchcraft_worshipped_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] mit Hexerei-Verehrenden [faiths|E]"
+ doctrine_parameter_opinion_of_witchcraft_rejecting_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] mit Hexerei Kriminell oder Verpönten [faiths|E]"
+ doctrine_parameter_witchcraft_rejecting_faiths_opinion_active:0 ""
+ doctrine_parameter_witchcraft_worshipped_faiths_opinion_active:0 ""
+ witchcraft_rejecting_faiths_opinion_active_opinion_name:0 "Hexerei Ablehnende [faiths|E] [opinion|E]"
+ witchcraft_rejecting_faiths_opinion_active_county_opinion_name:0 "$witchcraft_rejecting_faiths_opinion_active_opinion_name$"
+ witchcraft_worshipped_faiths_opinion_active_opinion_name:0 "Hexerei-Verehrende [faiths|E] [opinion|E]"
+ witchcraft_worshipped_faiths_opinion_active_county_opinion_name:0 "$witchcraft_worshipped_faiths_opinion_active_opinion_name$"

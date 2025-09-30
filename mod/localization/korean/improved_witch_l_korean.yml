@@ -78,7 +78,8 @@
  culture_parameter_more_frequent_witch_rituals:0 "[GetActivityType('activity_witch_ritual').GetName] [activities|E] 간 간격이 #P 1#!년 #P 감소#!"
  culture_parameter_easier_to_convert_witch:0 "이 [culture|E]의 [characters|E]는 $convert_to_witchcraft_interaction$에 더 쉽게 개종됨"
  culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E]이(가) [prestige_i][prestigious|E]으로 여겨짐\n$EFFECT_LIST_BULLET$[GetActivityType('activity_witch_ritual').GetName] 주최 시 [prestige_i][prestige|E] 획득"
- COMPATRIOT_PARAMETER_DESC:0 "[traditions|E] 대 동일 [culture|E]으로부터: $VALUE|+0=$"
+ easier_to_convert_witch_name:0 "#V [GetCultureTradition('tradition_occult_practices').GetName]#! [tradition|E]"
+ easier_to_convert_witch_desc:0 "[GetCultureTradition('tradition_occult_practices').GetName] [tradition|E]: $VALUE|0=-+$"
 
  tradition_folk_healers_name:0 "민간 치료사"
  tradition_folk_healers_desc:0 "진정한 치유는 땅과 영의 결합에서 온다고 믿는 이들이 있습니다. 약초 지식은 육신을 고치고, 오직 옛 길의 지혜만이 혼란한 영혼을 달래거나 보이지 않는 재앙을 막을 수 있습니다. 가장 존경받는 치유사들은 실용 의술과 자연의 심오한 마법을 아우르는 이들입니다."
@@ -96,7 +97,7 @@
  tradition_coven_kinship_name:0 "마녀 집회 혈연"
  tradition_coven_kinship_desc:0 "마녀들은 가족의 유대로 묶여 있습니다. 집회에게는 씨족, 혈통이 모든 것입니다."
  culture_parameter_convert_to_witch_close_family_super_bonus: "[close_family|E] 구성원에 대한 $convert_to_witchcraft_interaction$이 거의 항상 #P 성공#!합니다"
- convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_name: "#V [GetCultureTradition('tradition_coven_kinship').GetName]#! [tradition|E]"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
  culture_parameter_more_grand_rite_guest_join_chance:0 "[GetActivityType('activity_witch_ritual').GetName] [activity|E] 참여에 대한 [activity_guests|E] 수락률 증가"
  more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
@@ -133,5 +134,14 @@
  rite_ceremony_conditional_moderate_piety_loc:0 "\n$EFFECT_LIST_BULLET$ 증가한 [piety_i][piety|E] 획득"
  rite_ceremony_conditional_major_piety_loc:0 "\n$EFFECT_LIST_BULLET$ 크게 증가한 [piety_i][piety|E] 획득"
 
-
-
+# DOCTRINE PARAMETERS AND OPINIONS (WITCHCRAFT FAITHS)
+ doctrine_parameter_witchcraft_rejecting_faiths:0 "마술이 범죄 또는 배척되는 [faiths|E]"
+ witchcraft_rejecting_faiths_opinion_name:0 "$doctrine_parameter_witchcraft_rejecting_faiths$"
+ doctrine_parameter_opinion_of_witchcraft_worshipped_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] 마술이 숭배되는 [faiths|E]과(와)"
+ doctrine_parameter_opinion_of_witchcraft_rejecting_faiths_opinion_active:0 "$VALUE|+=0$ [opinion|E] 마술이 범죄 또는 배척되는 [faiths|E]과(와)"
+ doctrine_parameter_witchcraft_rejecting_faiths_opinion_active:0 ""
+ doctrine_parameter_witchcraft_worshipped_faiths_opinion_active:0 ""
+ witchcraft_rejecting_faiths_opinion_active_opinion_name:0 "마술 배척 [faiths|E] [opinion|E]"
+ witchcraft_rejecting_faiths_opinion_active_county_opinion_name:0 "$witchcraft_rejecting_faiths_opinion_active_opinion_name$"
+ witchcraft_worshipped_faiths_opinion_active_opinion_name:0 "마술 숭배 [faiths|E] [opinion|E]"
+ witchcraft_worshipped_faiths_opinion_active_county_opinion_name:0 "$witchcraft_worshipped_faiths_opinion_active_opinion_name$"

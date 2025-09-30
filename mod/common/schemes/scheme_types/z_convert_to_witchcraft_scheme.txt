@@ -71,21 +71,29 @@
 		add = base_odds_prediction_target_is_char_value
 		add = odds_skill_contribution_learning_value
 		add = {
-			scope:owner = {
-				exists = culture
-				culture = { has_cultural_parameter = easier_to_convert_witch }
-			}
-			add = 20
-			desc = COMPATRIOT_PARAMETER_DESC
+			if = {
+				limit = {
+					scope:owner = {
+						exists = culture
+						culture = { has_cultural_parameter = easier_to_convert_witch }
+					}
+				}
+				add = 20
+				desc = easier_to_convert_witch_name
+			}	
 		}
 		add = {
-			scope:owner = {
-				exists = culture
-				culture = { has_cultural_parameter = convert_to_witch_close_family_super_bonus }
-				is_close_family_of = scope:target
+			if = {
+				limit = {
+					scope:owner = {
+						exists = culture
+						culture = { has_cultural_parameter = convert_to_witch_close_family_super_bonus }
+						is_close_family_of = scope:target
+					}
+				}
+				add = 1000
+				desc = convert_to_witch_close_family_super_bonus_name
 			}
-			add = 1000
-			desc = convert_to_witch_close_family_super_bonus_desc
 		}
 		add = odds_convert_to_witchcraft_misc_value
 		min = 0
@@ -100,12 +108,12 @@
 		# Cultural Tradition - Occult Practices
 		########################
 		modifier = {
-			scope:owner = {
+			scope:target = {
 				exists = culture
 				culture = { has_cultural_parameter = easier_to_convert_witch }
 			}
 			add = 20
-			desc = COMPATRIOT_PARAMETER_DESC
+			desc = easier_to_convert_witch_desc
 		}
 
 		### WITCH IMPROVED

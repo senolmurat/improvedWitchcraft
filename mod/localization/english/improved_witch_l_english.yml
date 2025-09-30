@@ -80,7 +80,8 @@
  culture_parameter_more_frequent_witch_rituals:0 "Delay between [GetActivityType('activity_witch_ritual').GetName] [activities|E] are #P reduced#! by #V 1#! year"
  culture_parameter_easier_to_convert_witch:0 "[characters|E] of this [culture|E] are easier to $convert_to_witchcraft_interaction$"
  culture_parameter_witch_trait_more_valued:3 "[GetTrait('witch').GetName( GetNullCharacter )] [trait|E] is seen as [prestige_i][prestigious|E]\n$EFFECT_LIST_BULLET$Hosting a [GetActivityType('activity_witch_ritual').GetName] earns [prestige_i][prestige|E]"
- COMPATRIOT_PARAMETER_DESC:0 "From [traditions|E] vs. same [culture|E]: $VALUE|+0=$"
+ easier_to_convert_witch_name:0 "#V [GetCultureTradition('tradition_occult_practices').GetName]#! [tradition|E]"
+ easier_to_convert_witch_desc:0 "[GetCultureTradition('tradition_occult_practices').GetName] [tradition|E]: $VALUE|0=-+$"
 
  tradition_folk_healers_name:0 "Folk Healers"
  tradition_folk_healers_desc:0 "There are those who believe that true healing comes from the union of earth and spirit. Knowledge of herbs mends the flesh, but only the wisdom of the old ways can soothe a troubled soul or ward off unseen blights. Their most respected healers are therefore those who walk both paths, blending practical medicine with the deeper magic of the natural world."
@@ -95,7 +96,7 @@
  tradition_coven_kinship_name:0 "Coven Kinship"
  tradition_coven_kinship_desc:0 "Witches are bound by family ties. For the coven, the clan, the bloodline is everything."
  culture_parameter_convert_to_witch_close_family_super_bonus: "$convert_to_witchcraft_interaction$ on [close_family|E] members almost always #P succeeds#!"
- convert_to_witch_close_family_super_bonus_name: "#V $tradition_coven_kinship_name$#!"
+ convert_to_witch_close_family_super_bonus_name: "#V [GetCultureTradition('tradition_coven_kinship').GetName]#! [tradition|E]"
  convert_to_witch_close_family_super_bonus_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"
  culture_parameter_more_grand_rite_guest_join_chance:0 "Increases [activity_guests|E] join acceptance for [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  more_grand_rite_guest_join_chance_desc: "[GetCultureTradition('tradition_coven_kinship').GetName] [tradition|E]: $VALUE|0=-+$"

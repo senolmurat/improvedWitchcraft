@@ -1,0 +1,131 @@
+﻿
+doctrine_witchcraft = {
+	group = "crimes"
+	doctrine_witchcraft_crime = {
+		piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = doctrine_witchcraft_crime }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_accepted }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_virtuous }
+				multiply = faith_changed_doctrine_cost_mult_three_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_worshipped }
+				multiply = faith_changed_doctrine_cost_mult_four_step
+			}
+		}
+		parameters = {
+			witchcraft_illegal = yes
+			witchcraft_rejecting_faiths_opinion_active = yes
+			opinion_of_witchcraft_worshipped_faiths_opinion_active = -10
+		}
+	}
+	doctrine_witchcraft_shunned = {
+		piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = doctrine_witchcraft_shunned }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_virtuous }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_worshipped }
+				multiply = faith_changed_doctrine_cost_mult_three_step
+			}
+		}
+		parameters = {
+			witchcraft_shunned = yes
+			witchcraft_rejecting_faiths_opinion_active = yes
+			opinion_of_witchcraft_worshipped_faiths_opinion_active = -10
+			#opinion_of_witchcraft_rejecting_faiths_opinion_active = 10
+		}
+	}
+	doctrine_witchcraft_accepted = {
+		piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = doctrine_witchcraft_accepted }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_crime }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_worshipped }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+		}
+		parameters = {
+			witchcraft_accepted = yes
+		}
+	}
+	doctrine_witchcraft_virtuous = {
+		piety_cost = {
+			value = faith_tenet_cost_massive
+			if = {
+				limit = { has_doctrine = doctrine_witchcraft_virtuous }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_shunned }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_crime }
+				multiply = faith_changed_doctrine_cost_mult_three_step
+			}
+		}
+		traits = {
+			virtues = { witch }
+		}
+		parameters = {
+			witchcraft_accepted = yes
+		}
+	}
+	doctrine_witchcraft_worshipped = {
+		piety_cost = {
+			value = {
+				add = faith_tenet_cost_massive
+				add = faith_tenet_cost_low
+			}
+			if = {
+				limit = { has_doctrine = doctrine_witchcraft_worshipped }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_accepted }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_shunned }
+				multiply = faith_changed_doctrine_cost_mult_three_step
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_witchcraft_crime }
+				multiply = faith_changed_doctrine_cost_mult_four_step
+			}
+		}
+		traits = {
+			virtues = { witch }
+		}
+		parameters = {
+			witchcraft_accepted = yes
+			piety_from_witch_coven_active = yes
+			shorten_witch_coven_cooldown_active = yes
+			witchcraft_worshipped_faiths_opinion_active = yes
+			opinion_of_witchcraft_worshipped_faiths_opinion_active = 5
+			opinion_of_witchcraft_rejecting_faiths_opinion_active = -10
+		}
+	}
+}

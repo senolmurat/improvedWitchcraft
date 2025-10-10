@@ -6,6 +6,12 @@ standard_witch_ritual_cooldown_time = {
 	value = 5
 	if = {
 		limit = {
+			root.faith = { has_doctrine_parameter = shorten_witch_coven_cooldown_active }
+		}
+		subtract = 1
+	}
+	if = {
+		limit = {
 			root.culture = { has_cultural_parameter = more_frequent_witch_rituals }
 		}
 		subtract = 1
@@ -57,6 +63,24 @@ grand_rite_host_stress_loss_value = {
 
 grand_rite_prestige_reward_value = {
 	value = minor_prestige_value
+	scope:activity = {
+		if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_normal }
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_activity_option = { category = rite_option_ceremony option = rite_ceremony_good }
+			}
+			multiply = 2
+		}
+	}
+}
+
+grand_rite_piety_reward_value = {
+	value = minor_piety_value
 	scope:activity = {
 		if = {
 			limit = {

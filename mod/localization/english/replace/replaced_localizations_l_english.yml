@@ -1,2 +1,3 @@
 ﻿l_english:
  culture_parameter_close_family_better_court_positions: "[court_position|E] [aptitude|E] for [close_family|E] members: #P +20#![GetPlayer.Custom('CloseFamilyBetterCourtPositionsCustomLoc')]"
+ 

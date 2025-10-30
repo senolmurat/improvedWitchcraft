@@ -17,7 +17,7 @@ has_any_rival_or_murder_target_trigger = {
 	OR = {
 		num_of_relation_rival > 0
 		any_scheme = {
-			scheme_type = murder
+			type = murder
 		}
 	}
 }

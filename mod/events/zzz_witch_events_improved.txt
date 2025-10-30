@@ -94,8 +94,8 @@ witchimproved.1001 = {
 					scope:activity = {
 						every_attending_character = {
 							random_secret = {
+								type = secret_witch
 								limit = {
-									secret_type = secret_witch
 									NOT = { is_known_by = scope:learning_secret }
 								}
 								reveal_to = scope:learning_secret
@@ -517,8 +517,8 @@ witchimproved.1002 = {
 					scope:activity = {
 						every_attending_character = {
 							random_secret = {
+								type = secret_witch
 								limit = {
-									secret_type = secret_witch
 									NOT = { is_known_by = scope:learning_secret }
 								}
 								reveal_to = scope:learning_secret
@@ -563,7 +563,7 @@ witchimproved.1002 = {
 				NOT = { exists = scope:target }
 			}
 			random_scheme = {
-				limit = { scheme_type = murder }
+				type = murder
 				save_scope_as = scheme
 				scope:scheme.scheme_target_character = { save_scope_as = target }
 			}
@@ -813,8 +813,8 @@ witchimproved.1004 = {
 					scope:activity = {
 						every_attending_character = {
 							random_secret = {
-								limit = {
-									secret_type = secret_witch
+								type = secret_witch
+								limit = {	
 									NOT = { is_known_by = scope:learning_secret }
 								}
 								reveal_to = scope:learning_secret

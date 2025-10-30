@@ -1,4 +1,4 @@
-version="1.3.0"
+version="1.3.1"
 tags={
 	"Balance"
 	"Gameplay"
@@ -9,5 +9,5 @@ tags={
 }
 name="Improved Witchcraft"
 picture="thumbnail.png"
-supported_version="1.17.*"
+supported_version="1.18.*"
 remote_file_id="3566312539"

@@ -3,7 +3,7 @@
 grand_rite_good_outcome = {
 	scope:activity = {
 		every_attending_character = {
-			limit = { NOT = { this = root } }
+			limit = { this != root }
 			custom = every_grand_rite_participant
 			add_opinion = {
 				target = root
@@ -17,7 +17,7 @@ grand_rite_good_outcome = {
 grand_rite_poor_outcome = {
 	scope:activity = {
 		every_attending_character = {
-			limit = { NOT = { this = root } }
+			limit = { this != root }
 			custom = every_grand_rite_participant
 			add_opinion = {
 				target = root

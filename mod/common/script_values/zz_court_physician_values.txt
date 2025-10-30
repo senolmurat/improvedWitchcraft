@@ -8,8 +8,7 @@
 	}
 	if = {
 		limit = {
-			exists = culture
-			culture = {
+			culture ?= {
 				has_cultural_parameter = slightly_cheaper_court_physician
 			}
 		}
@@ -27,8 +26,7 @@ low_skill_court_physician_cost = {
 	}
 	if = {
 		limit = {
-			exists = culture
-			culture = {
+			culture ?= {
 				has_cultural_parameter = slightly_cheaper_court_physician
 			}
 		}

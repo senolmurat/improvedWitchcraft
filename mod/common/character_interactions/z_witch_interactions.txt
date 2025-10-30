@@ -17,7 +17,7 @@ convert_to_witchcraft_interaction = {
 				target_character = scope:recipient
 			}
 		}
-		NOT = { scope:actor = scope:recipient }
+		scope:actor != scope:recipient
 	}
 
 	is_valid_showing_failures_only = {
@@ -36,11 +36,11 @@ convert_to_witchcraft_interaction = {
 				trigger_if = {
 					limit = {
 						any_secret = {
-							secret_type = secret_witch
+							type = secret_witch
 						}
 					}
 					any_secret = {
-						secret_type = secret_witch
+						type = secret_witch
 						NOT = {  any_secret_knower = { this = scope:actor } }
 					}
 				}
@@ -87,11 +87,17 @@ convert_to_witchcraft_interaction = {
 		ai_recipients = courtiers
 		ai_recipients = liege
 		ai_recipients = vassals
-		chance = 0.2
+		max = 10
 	}
 	
-	ai_frequency = 72
-
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 72
+		kingdom = 72
+		empire = 72
+		hegemony = 72
+	}
 
 	ai_will_do = {
 		base = -45

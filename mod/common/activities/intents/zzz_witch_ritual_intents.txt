@@ -142,7 +142,7 @@ sacrifice_intent = {
 		if = {
 			limit = {
 				any_scheme = {
-					scheme_type = murder
+					type = murder
 					scheme_target_character = scope:target
 				}
 			}

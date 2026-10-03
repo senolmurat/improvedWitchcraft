@@ -9,13 +9,13 @@
 # --- Tasks ---
 
 # Task: Focus on Potions
-alchemist_task_focus_potions:0 "Сосредоточиться на зельях"
-alchemist_task_focus_potions_desc:0 "Алхимик сосредотачивается на приготовлении целебных и защитных зелий, чтобы обеспечить здоровье монарха и двора."
+ alchemist_task_focus_potions:0 "Сосредоточиться на зельях"
+ alchemist_task_focus_potions_desc:0 "Алхимик сосредотачивается на приготовлении целебных и защитных зелий, чтобы обеспечить здоровье монарха и двора."
 
 # Task 2: Focus on Poison Studies
-alchemist_task_focus_poisons:0 "Сосредоточиться на изучении ядов"
-alchemist_task_focus_poisons_desc:0 "Алхимик погружается в загадочный мир ядов и противоядий, получая информацию, которую можно использовать в враждебных планах."
+ alchemist_task_focus_poisons:0 "Сосредоточиться на изучении ядов"
+ alchemist_task_focus_poisons_desc:0 "Алхимик погружается в загадочный мир ядов и противоядий, получая информацию, которую можно использовать в враждебных планах."
 
 # Task 3: Life Essence Experiments
-alchemist_task_life_essence:0 "Эксперименты с жизненной эссенцией"
-alchemist_task_life_essence_desc:0 "Алхимик расширяет знания, исследуя фундаментальные строительные блоки бытия и тайны жизни."
+ alchemist_task_life_essence:0 "Эксперименты с жизненной эссенцией"
+ alchemist_task_life_essence_desc:0 "Алхимик расширяет знания, исследуя фундаментальные строительные блоки бытия и тайны жизни."

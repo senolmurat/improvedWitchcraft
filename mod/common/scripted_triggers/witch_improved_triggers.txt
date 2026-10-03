@@ -1,5 +1,9 @@
 ﻿is_COURT_HERBALIST_loaded = {
-	exists = global_var:COURT_HERBALIST_is_loaded
+	if = {
+		limit = {
+			exists = global_var:COURT_HERBALIST_is_loaded
+		}
+	}
 }
 
 has_any_lifestyle_trigger = {
@@ -28,16 +32,18 @@ witch_3014_can_have_sex_trigger = {
 		has_sexuality = asexual
 		has_trait = celibate
 	}
-	might_cheat_on_every_partner_trigger = yes
+	trigger_if = {
+		limit = { NOT = { is_consort_of = root } }
+		might_cheat_on_every_partner_trigger = yes
+	}
 }
 
 witch_3014_sex_partner_trigger = {
 	witch_3014_can_have_sex_trigger = yes
-	NOT = { this = root }
+	this != root
 	is_ai = yes
 	save_temporary_scope_as = seduction_target
 	matching_gender_and_sexuality_trigger = { CHARACTER_1 = scope:seduction_target CHARACTER_2 = root }
-	might_cheat_on_every_partner_trigger = yes
 }
 
 witch_3014_loved_sex_partner_trigger = {

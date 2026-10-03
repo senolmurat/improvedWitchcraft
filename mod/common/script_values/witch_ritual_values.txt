@@ -6,7 +6,7 @@ standard_witch_ritual_cooldown_time = {
 	value = 5
 	if = {
 		limit = {
-			root.faith = { has_doctrine_parameter = shorten_witch_coven_cooldown_active }
+			root.rite = { rite_has_parameter = shorten_witch_coven_cooldown_active }
 		}
 		subtract = 1
 	}

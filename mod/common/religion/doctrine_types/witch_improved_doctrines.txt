@@ -1,140 +1,187 @@
 ﻿# Overrides of the vanilla witchcraft doctrines (20_doctrines.txt) plus the new "worshipped" doctrine.
+# 1.20 format: each doctrine names its group (doctrine_group_type) and index; piety_cost root scope is a Rite.
+# Opinion effects between faiths use special_parameters.parameter_opinion_override: the key is a doctrine
+# parameter that the OTHER faith has, the value is the opinion this faith's characters get of them.
 
 doctrine_witchcraft_crime = {
+	doctrine_group_type = doctrine_witchcraft
+	index = 0
+	divergence = 0
+
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
-			limit = { has_doctrine = doctrine_witchcraft_crime }
+			limit = { rite_has_doctrine = doctrine_witchcraft_crime }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_accepted }
+			limit = { rite_has_doctrine = doctrine_witchcraft_accepted }
 			multiply = faith_changed_doctrine_cost_mult_two_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_virtuous }
+			limit = { rite_has_doctrine = doctrine_witchcraft_virtuous }
 			multiply = faith_changed_doctrine_cost_mult_three_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_worshipped }
+			limit = { rite_has_doctrine = doctrine_witchcraft_worshipped }
 			multiply = faith_changed_doctrine_cost_mult_four_step
 		}
 	}
 
 	parameters = {
-		witchcraft_illegal = yes
-		witchcraft_rejecting_faiths_opinion_active = yes
-		opinion_of_witchcraft_worshipped_faiths_opinion_active = -10
+		witchcraft_illegal
+		#witchcraft_rejecting_faiths
+	}
+
+	special_parameters = {
+		parameter_opinion_override = {
+			witchcraft_worshipped_faiths = 10
+		}
+	}
+
+	traits = {
+		sins = {
+			witch = { weight = 80 scale = 2 }
+		}
 	}
 }
 
 doctrine_witchcraft_shunned = {
+	doctrine_group_type = doctrine_witchcraft
+	index = 1
+	divergence = 5
+
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
-			limit = { has_doctrine = doctrine_witchcraft_shunned }
+			limit = { rite_has_doctrine = doctrine_witchcraft_shunned }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_virtuous }
+			limit = { rite_has_doctrine = doctrine_witchcraft_virtuous }
 			multiply = faith_changed_doctrine_cost_mult_two_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_worshipped }
+			limit = { rite_has_doctrine = doctrine_witchcraft_worshipped }
 			multiply = faith_changed_doctrine_cost_mult_three_step
 		}
 	}
 
 	parameters = {
-		witchcraft_shunned = yes
-		witchcraft_rejecting_faiths_opinion_active = yes
-		opinion_of_witchcraft_worshipped_faiths_opinion_active = -10
-		#opinion_of_witchcraft_rejecting_faiths_opinion_active = 10
+		witchcraft_shunned
+		#witchcraft_rejecting_faiths
+	}
+
+	special_parameters = {
+		parameter_opinion_override = {
+			witchcraft_worshipped_faiths = 10
+		}
 	}
 }
 
 doctrine_witchcraft_accepted = {
+	doctrine_group_type = doctrine_witchcraft
+	index = 2
+	divergence = 15
+
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
-			limit = { has_doctrine = doctrine_witchcraft_accepted }
+			limit = { rite_has_doctrine = doctrine_witchcraft_accepted }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_crime }
+			limit = { rite_has_doctrine = doctrine_witchcraft_crime }
 			multiply = faith_changed_doctrine_cost_mult_two_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_worshipped }
+			limit = { rite_has_doctrine = doctrine_witchcraft_worshipped }
 			multiply = faith_changed_doctrine_cost_mult_two_step
 		}
 	}
 
 	parameters = {
-		witchcraft_accepted = yes
+		witchcraft_accepted
 	}
 }
 
 doctrine_witchcraft_virtuous = {
+	doctrine_group_type = doctrine_witchcraft
+	index = 3
+	divergence = 20
+
 	piety_cost = {
 		value = faith_tenet_cost_massive
 		if = {
-			limit = { has_doctrine = doctrine_witchcraft_virtuous }
+			limit = { rite_has_doctrine = doctrine_witchcraft_virtuous }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_shunned }
+			limit = { rite_has_doctrine = doctrine_witchcraft_shunned }
 			multiply = faith_changed_doctrine_cost_mult_two_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_crime }
+			limit = { rite_has_doctrine = doctrine_witchcraft_crime }
 			multiply = faith_changed_doctrine_cost_mult_three_step
 		}
 	}
 
 	traits = {
-		virtues = { witch }
+		virtues = {
+			witch = { weight = 100 scale = 2 }
+		}
 	}
 
 	parameters = {
-		witchcraft_accepted = yes
+		witchcraft_accepted
 	}
 }
 
 doctrine_witchcraft_worshipped = {
+	doctrine_group_type = doctrine_witchcraft
+	index = 4
+	divergence = 25
+
 	piety_cost = {
 		value = {
 			add = faith_tenet_cost_massive
 			add = faith_tenet_cost_low
 		}
 		if = {
-			limit = { has_doctrine = doctrine_witchcraft_worshipped }
+			limit = { rite_has_doctrine = doctrine_witchcraft_worshipped }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_accepted }
+			limit = { rite_has_doctrine = doctrine_witchcraft_accepted }
 			multiply = faith_changed_doctrine_cost_mult_two_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_shunned }
+			limit = { rite_has_doctrine = doctrine_witchcraft_shunned }
 			multiply = faith_changed_doctrine_cost_mult_three_step
 		}
 		else_if = {
-			limit = { has_doctrine = doctrine_witchcraft_crime }
+			limit = { rite_has_doctrine = doctrine_witchcraft_crime }
 			multiply = faith_changed_doctrine_cost_mult_four_step
 		}
 	}
 
 	traits = {
-		virtues = { witch }
+		virtues = {
+			witch = { weight = 100 scale = 2 }
+		}
 	}
 
 	parameters = {
-		witchcraft_accepted = yes
-		piety_from_witch_coven_active = yes
-		shorten_witch_coven_cooldown_active = yes
-		witchcraft_worshipped_faiths_opinion_active = yes
-		opinion_of_witchcraft_worshipped_faiths_opinion_active = 5
-		opinion_of_witchcraft_rejecting_faiths_opinion_active = -10
+		witchcraft_accepted
+		piety_from_witch_coven_active
+		shorten_witch_coven_cooldown_active
+		witchcraft_worshipped_faiths
+	}
+
+	special_parameters = {
+		parameter_opinion_override = {
+			witchcraft_worshipped_faiths = 5
+			#witchcraft_rejecting_faiths = 10
+		}
 	}
 }

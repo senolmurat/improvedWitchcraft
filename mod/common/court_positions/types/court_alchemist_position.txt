@@ -33,7 +33,7 @@ court_alchemist_court_position = {
 			desc = court_position_skill_learning
 		}
 		if = {
-			limit = { has_trait = scholar }
+			limit = { has_trait = lifestyle_scholar }
 			add = { value = 15 desc = court_position_scholar_trait }
 		}
 		if = {
@@ -61,8 +61,8 @@ court_alchemist_court_position = {
 			}
 		}
 		if = {
-            limit = { has_trait = cynical }
-            add = { value = 5 desc = court_position_cynical_trait }
+			limit = { has_trait = cynical }
+			add = { value = 5 desc = court_position_cynical_trait }
 		}
 		if = {
 			limit = { has_trait = patient }
@@ -189,6 +189,12 @@ court_alchemist_court_position = {
 		is_landed_or_landless_administrative = yes
 		highest_held_title_tier >= 3
 		has_trait = witch
+	}
+
+	is_shown_character = {
+		scope:employee = {
+			court_position_employee_shown_trigger = yes
+		}
 	}
 
 	valid_character = {
@@ -408,17 +414,33 @@ court_alchemist_court_position = {
 	}
 
 	on_court_position_received = {
-		court_physician_title_accepted_effect = yes
+		court_alchemist_title_accepted_effect = yes
 	}
 	on_court_position_revoked = {
-		court_physician_title_revoked_effect = yes
+		court_alchemist_title_revoked_effect = yes
 	}
 	on_court_position_invalidated = {
-		court_physician_title_invalidated_effect = yes
+		court_alchemist_title_invalidated_effect = yes
 	}
 	on_court_position_vacated = {
 		court_position_vacated_event_effect = {
-			COURT_POSITION_TYPE = court_physician_court_position
+			COURT_POSITION_TYPE = court_alchemist_court_position
+		}
+	}
+
+	# Simple AI hiring score (modeled on court_physician_court_position): a little more attractive during epidemics.
+	ai_position_score = {
+		value = 60
+
+		if = {
+			limit = {
+				scope:liege = {
+					any_held_county = {
+						has_province_with_epidemic = { intensity = major }
+					}
+				}
+			}
+			add = 40
 		}
 	}
 

@@ -42,10 +42,10 @@ coven_elective = {
 		modifier = {
 			desc = tooltip_coven_elective_level_of_devotion
 			this.faith = root.faith
-			root.faith = {
+			root.rite = {
 				NOR = {
-					has_doctrine_parameter = witchcraft_illegal
-					has_doctrine_parameter = witchcraft_shunned
+					rite_has_parameter = witchcraft_illegal
+					rite_has_parameter = witchcraft_shunned
 				}
 			}
 			add = {
@@ -64,20 +64,24 @@ coven_elective = {
 	}
 	
 	electors = {
-		add = holder
-		add = {
-			type = title_dejure_vassals
-			limit = {
-				target_is_liege_or_above = scope:holder #All de jure vassals, no matter the tier, sub-vassals included.
-				is_ruler = yes
-				is_landed_or_landless_administrative = yes
-				exists = capital_county
-				highest_held_title_tier > 1 #Barons excluded.
-				domain_size >= 1
-				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
-					tier = root.highest_held_title_tier
-					exists = de_jure_liege
-					target_is_de_jure_liege_or_above = scope:title
+		character_sets = {
+			coven_electors_holder = {
+				type = holder
+			}
+			coven_electors_dejure_vassals = {
+				type = title_dejure_vassals
+				limit = {
+					target_is_liege_or_above = scope:holder #All de jure vassals, no matter the tier, sub-vassals included.
+					is_ruler = yes
+					is_landed_or_landless_administrative = yes
+					exists = capital_county
+					highest_held_title_tier > 1 #Barons excluded.
+					domain_size >= 1
+					any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+						tier = root.highest_held_title_tier
+						exists = de_jure_liege
+						target_is_de_jure_liege_or_above = scope:title
+					}
 				}
 			}
 		}
@@ -113,34 +117,36 @@ coven_elective = {
 	
 	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
 	candidates = {
-		add = {
-			type = title_dejure_vassals
-			limit = {
-				is_vassal_of = scope:holder #Only Powerful, direct, de jure vassals are potential candidates.
-				feudal_elective_potential_landed_candidate_trigger = yes
-				is_adult = yes
-				piety_level >= 4
-				faith = {
-					NOR = {
-						has_doctrine_parameter = witchcraft_illegal
-						has_doctrine_parameter = witchcraft_shunned
+		character_sets = {
+			coven_candidates_dejure_vassals = {
+				type = title_dejure_vassals
+				limit = {
+					is_vassal_of = scope:holder #Only Powerful, direct, de jure vassals are potential candidates.
+					feudal_elective_potential_landed_candidate_trigger = yes
+					is_adult = yes
+					piety_level >= 4
+					rite = {
+						NOR = {
+							rite_has_parameter = witchcraft_illegal
+							rite_has_parameter = witchcraft_shunned
+						}
 					}
+					has_trait = witch
 				}
-				has_trait = witch
 			}
-		}
-		add = {
-			type = title_claimants
-			limit = {
-				feudal_elective_potential_landless_claimant_candidate_trigger = yes
-				has_trait = witch
+			coven_candidates_claimants = {
+				type = title_claimants
+				limit = {
+					feudal_elective_potential_landless_claimant_candidate_trigger = yes
+					has_trait = witch
+				}
 			}
-		}
-		add = {
-			type = holder_close_or_extended_family
-			limit = {
-				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
-				has_trait = witch
+			coven_candidates_family = {
+				type = holder_close_or_extended_family
+				limit = {
+					feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+					has_trait = witch
+				}
 			}
 		}
 	}

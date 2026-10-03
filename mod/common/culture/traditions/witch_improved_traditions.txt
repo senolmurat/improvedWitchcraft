@@ -9,12 +9,10 @@
 	}
 
 	can_pick = {
-		scope:character = {
-			faith = {
-				NOR = {
-					has_doctrine_parameter = witchcraft_illegal
-					has_doctrine_parameter = witchcraft_shunned
-				}
+		scope:character.rite = {
+			NOR = {
+				rite_has_parameter = witchcraft_illegal
+				rite_has_parameter = witchcraft_shunned
 			}
 		}
 	}
@@ -123,12 +121,10 @@ tradition_folk_healers = {
 	}
 
 	can_pick = {
-		scope:character = {
-			faith = {
-				NOR = {
-					has_doctrine_parameter = witchcraft_illegal
-					has_doctrine_parameter = witchcraft_shunned
-				}
+		scope:character.rite = {
+			NOR = {
+				rite_has_parameter = witchcraft_illegal
+				rite_has_parameter = witchcraft_shunned
 			}
 		}
 	}
@@ -243,12 +239,10 @@ tradition_coven_kinship = {
 	}
 	
 	can_pick = {
-		scope:character = {
-			faith = {
-				NOR = {
-					has_doctrine_parameter = witchcraft_illegal
-					has_doctrine_parameter = witchcraft_shunned
-				}
+		scope:character.rite = {
+			NOR = {
+				rite_has_parameter = witchcraft_illegal
+				rite_has_parameter = witchcraft_shunned
 			}
 		}
 		custom_tooltip = {
@@ -373,12 +367,10 @@ tradition_blessed_protection = {
 	}
 
 	can_pick = {
-		scope:character = {
-			faith = {
-				NOR = {
-					has_doctrine_parameter = witchcraft_illegal
-					has_doctrine_parameter = witchcraft_shunned
-				}
+		scope:character.rite = {
+			NOR = {
+				rite_has_parameter = witchcraft_illegal
+				rite_has_parameter = witchcraft_shunned
 			}
 		}
 	}
@@ -500,12 +492,10 @@ tradition_coven_meet = {
 	}
 
 	can_pick = {
-		scope:character = {
-			faith = {
-				NOR = {
-					has_doctrine_parameter = witchcraft_illegal
-					has_doctrine_parameter = witchcraft_shunned
-				}
+		scope:character.rite = {
+			NOR = {
+				rite_has_parameter = witchcraft_illegal
+				rite_has_parameter = witchcraft_shunned
 			}
 		}
 	}

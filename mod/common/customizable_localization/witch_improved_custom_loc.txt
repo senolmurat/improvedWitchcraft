@@ -51,7 +51,7 @@ WillGetMinorPietyCustomLoc = {
 
 	text = {
 		trigger = { 
-			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+			rite = { rite_has_parameter = piety_from_witch_coven_active }
 		 }
 		localization_key = rite_ceremony_conditional_minor_piety_loc
 	}
@@ -67,7 +67,7 @@ WillGetModeratePietyCustomLoc = {
 
 	text = {
 		trigger = { 
-			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+			rite = { rite_has_parameter = piety_from_witch_coven_active }
 		 }
 		localization_key = rite_ceremony_conditional_moderate_piety_loc
 	}
@@ -83,7 +83,7 @@ WillGetMajorPietyCustomLoc = {
 
 	text = {
 		trigger = { 
-			faith = { has_doctrine_parameter = piety_from_witch_coven_active }
+			rite = { rite_has_parameter = piety_from_witch_coven_active }
 		 }
 		localization_key = rite_ceremony_conditional_major_piety_loc
 	}

@@ -91,4 +91,5 @@ witch = {
 		opinion_modifier = witchcraft_intolerant
 		ignore_opinion_value_if_same_trait = yes
 	}
+	flag = gnostic_learning_piety_trait
 }

@@ -551,13 +551,50 @@
 		}
 	}
 
+	# Fixed fee plus the average cost of the ceremony and brew options, scaled the same way the options are
 	ui_predicted_cost = {
 		gold = {
-			# Base Cost
-			value = standart_witch_ritual_base_cost
+			value = 0
+			add = {
+				value = 0
+				# Ceremony: humble 0, dignified 10, extravagant 35 (base values, average of the three)
+				add = {
+					value = 45
+					divide = 3
+				}
+				# Brew: none 0, mild tea 5, strong brew 20 (base values, average of the three)
+				add = {
+					value = 25
+					divide = 3
+				}
+				# Every option costs its base value times (tier scale + era scale - 1)
+				multiply = {
+					value = activity_cost_scale_by_tier
+					add = activity_cost_scale_by_era
+					subtract = 1
+				}
+				if = {
+					limit = {
+						dynasty ?= {
+							has_dynasty_perk = law_legacy_1
+						}
+					}
+					multiply = {
+						value = 1
+						subtract = law_legacy_cost_reduction_mult
+					}
+				}
+				if = {
+					limit = {
+						has_perk = journey_planner_perk
+					}
+					multiply = voyager_journey_planner_value
+				}
+			}
+			add = standart_witch_ritual_base_cost
 			# Make it a multiple of 5 (rounded up)
-			divide = 5 
-			ceiling = yes 
+			divide = 5
+			ceiling = yes
 			multiply = 5
 		}
 	}

@@ -33,12 +33,6 @@ doctrine_witchcraft_crime = {
 		#witchcraft_rejecting_faiths
 	}
 
-	special_parameters = {
-		parameter_opinion_override = {
-			witchcraft_worshipped_faiths = 10
-		}
-	}
-
 	traits = {
 		sins = {
 			witch = { weight = 80 scale = 2 }
@@ -70,12 +64,6 @@ doctrine_witchcraft_shunned = {
 	parameters = {
 		witchcraft_shunned
 		#witchcraft_rejecting_faiths
-	}
-
-	special_parameters = {
-		parameter_opinion_override = {
-			witchcraft_worshipped_faiths = 10
-		}
 	}
 }
 
@@ -175,12 +163,12 @@ doctrine_witchcraft_worshipped = {
 		witchcraft_accepted
 		piety_from_witch_coven_active
 		shorten_witch_coven_cooldown_active
-		witchcraft_worshipped_faiths
+		#witchcraft_worshipped_faiths
 	}
 
 	special_parameters = {
 		parameter_opinion_override = {
-			witchcraft_worshipped_faiths = 5
+			witchcraft_worshipped_faiths = 10
 			#witchcraft_rejecting_faiths = 10
 		}
 	}

@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "사악한 힘을 끌어와 적과 경쟁자를 불운과 약화로 저주합니다.\n$EFFECT_LIST_BULLET$[piety_i][piety|E]가 필요할 수 있음"
 
  forbidden_knowledge_intent:0 "금지된 지식 추구"
- forbidden_knowledge_intent_desc:0 "금서에 파고들어 금단의 지식과 지혜를 얻습니다. 위험하며, 약한 자에게는 맞지 않습니다.\n$EFFECT_LIST_BULLET$[lifestyle|E]에서 특전 점수나 [lifestyle_experience|E]를 얻을 수 있습니다.\n$EFFECT_LIST_BULLET$부정적인 [trait|E]을 얻을 수 있습니다.\n$EFFECT_LIST_BULLET$#bold 반드시#! [stress_gain_i|E] [stress|E]를 얻습니다.\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )] 또는 [GetTrait('paranoid').GetName( GetNullCharacter )] 특성의 인물은 추가 [stress|E]를 얻습니다."
+ forbidden_knowledge_intent_desc:0 "금서에 파고들어 금단의 지식과 지혜를 얻습니다. 위험하며, 약한 자에게는 맞지 않습니다.\n$EFFECT_LIST_BULLET$[lifestyle|E]에서 특전 점수나 [lifestyle_experience|E]를 얻을 수 있습니다.\n$EFFECT_LIST_BULLET$부정적인 [trait|E]을 얻을 수 있습니다.\n$EFFECT_LIST_BULLET$#bold 반드시#! [stress_gain_i|E] [stress|E]를 얻습니다.\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )] 또는 [GetTrait('paranoid').GetName( GetNullCharacter )] 특성의 인물은 추가 [stress|E]를 얻습니다.\n$EFFECT_LIST_BULLET$높은 [learning_skill|E], 마녀로서의 경험, 잘 치러진 의식, 그리고 학식 있는 손님이 성공 확률을 높입니다."
 
  ### EVENTS
  witchimproved.1001.t:0 "축복 추구"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "당신 앞의 서적은 단순한 글의 모음이 아닙니다 — 속삭이는 성물입니다. 눈을 돌리면 글자가 변하며, 시야의 가장자리에서 인간이 알아서는 안 될 진실이 스치듯 보입니다.\n\n모든 본능이 책을 덮고 다시 어둠과 먼지로 돌려보내라 말합니다. 하지만 끌림은 거부하기 어렵습니다. 페이지를 넘길 때마다 힘이 펼쳐지고 — 길을 지배할 명료함이 약속됩니다.\n\n하지만 위험이 있습니다. 너무 깊이 파고들면 타락을 초대하고, 낯선 무언가가 당신의 영혼에 스며듭니다. 대가로는 정신, 건강, 혹은 더 나쁜 것을 치를 수 있습니다. 절제하여 파편만 얻을 수도 있습니다 — 더 안전하지만 보상은 적습니다. 아니면… 심연에 몸을 맡기고 그 비밀을 볼 수도 있습니다."
  witchimproved.1004.a:0 "대가가 무엇이든 모든 비밀을 붙잡겠다."
  witchimproved.1004.b:0 "감당할 수 있는 만큼만 취하겠다."
- witchimproved.1004.a.bad:0 "서적의 저주를 받았습니다"
+ witchimproved.1004.a.bad:0 "금서가 대가를 거두다"
  forbidden_knowledge_risk_tooltip:0 "나쁜 일이 일어납니다…"
+ witchimproved.1004.c:0 "[knowledge_guide.GetFirstNameNoTooltip]와(과) 함께 읽는다."
+ witchimproved.1004.good.desc:0 "의식은 순조롭게 끝났고, 금서를 들고 물러나는 당신에게 원의 인정이 아직도 온기로 남아 있습니다. 손은 떨리지 않습니다.\n\n"
+ witchimproved.1004.poor.desc:0 "의식은 삐걱거렸고, 금서를 들고 물러나는 당신의 귓가에 원의 수군거림이 아직도 맴돕니다.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\n독한 탕약이 아직도 혈관 속에서 타오릅니다. 글자가 책장 위에서 일렁이고, 그것이 정신을 날카롭게 하는지 풀어헤치는지 알 수 없습니다."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName]은(는) 이런 글을 읽어 본 적이 있어, 천천히 조심스럽게 함께 책장을 넘겨 보자고 제안합니다."
+ witch_knowledge_sleepless_modifier:0 "잠 못 이루는 밤"
+ witch_knowledge_sleepless_modifier_desc:0 "읽은 내용이 당신을 놓아주지 않습니다. 밤마다 뒤척이며 그것을 곱씹고, 몸이 그 대가를 치릅니다."
+ witch_knowledge_muddled_modifier:0 "혼란스러운 정신"
+ witch_knowledge_muddled_modifier_desc:0 "반쯤 이해한 생각들이 머릿속을 가득 메워, 사고가 느리고 흐릿해졌습니다."
 
 # Additional event lines
  witch.3014.g:0 "[mystic.GetFirstNameNoTooltip]와 함께 비전통적 방법을 실험한다."

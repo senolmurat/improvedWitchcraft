@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "Kanalizuj złowrogie energie, by obłożyć wrogów i rywali pechem i słabością.\n$EFFECT_LIST_BULLET$Może kosztować [piety_i][piety|E]"
 
  forbidden_knowledge_intent:0 "Szukaj Zakazanej Wiedzy"
- forbidden_knowledge_intent_desc:0 "Zanurz się w zakazanych księgach, by posiąść zakazane sekrety i mądrość. To ryzykowne i nie dla słabych.\n$EFFECT_LIST_BULLET$Możesz zyskać punkt atutu lub [lifestyle_experience|E] w swoim [lifestyle|E].\n$EFFECT_LIST_BULLET$Możesz zyskać negatywne [trait|E].\n$EFFECT_LIST_BULLET$#bold Na pewno#! zyskasz [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Postacie z cechami [GetTrait('craven').GetName( GetNullCharacter )] lub [GetTrait('paranoid').GetName( GetNullCharacter )] zyskają dodatkowy [stress|E]."
+ forbidden_knowledge_intent_desc:0 "Zanurz się w zakazanych księgach, by posiąść zakazane sekrety i mądrość. To ryzykowne i nie dla słabych.\n$EFFECT_LIST_BULLET$Możesz zyskać punkt atutu lub [lifestyle_experience|E] w swoim [lifestyle|E].\n$EFFECT_LIST_BULLET$Możesz zyskać negatywne [trait|E].\n$EFFECT_LIST_BULLET$#bold Na pewno#! zyskasz [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Postacie z cechami [GetTrait('craven').GetName( GetNullCharacter )] lub [GetTrait('paranoid').GetName( GetNullCharacter )] zyskają dodatkowy [stress|E].\n$EFFECT_LIST_BULLET$Wysoka umiejętność ([learning_skill|E]), doświadczenie w czarach, dobrze odprawiony rytuał i uczony gość zwiększają twoje szanse."
 
  ### EVENTS
  witchimproved.1001.t:0 "Szukaj Błogosławieństwa"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "Księga przed tobą to nie zbiór słów — to relikwia, która szepcze. Pismo zmienia się, gdy nie patrzysz, a kątem oka dostrzegasz prawdy nie dla śmiertelnych.\n\nKażdy instynkt każe ci ją zamknąć i oddać z powrotem w mrok. Lecz przyciąganie jest nieodparte. Z każdą stroną czujesz, jak rozwija się moc — jasność obiecująca panowanie nad własną drogą.\n\nAle jest i niebezpieczeństwo. Zbyt głębokie zgłębianie to zaproszenie zepsucia, coś obcego wpełza do twojej duszy. Ceną może być rozum, zdrowie, a nawet coś gorszego. Możesz się powstrzymać i zebrać tylko okruchy — bezpieczniej, lecz mniej owocnie. Albo… poddasz się otchłani i zobaczysz, jakie sekrety odsłoni."
  witchimproved.1004.a:0 "Pojmę każdy sekret, bez względu na cenę."
  witchimproved.1004.b:0 "Wezmę tylko tyle, ile zdołam znieść."
- witchimproved.1004.a.bad:0 "Zostałeś przeklęty przez księgę"
+ witchimproved.1004.a.bad:0 "Księga zbiera swoje żniwo"
  forbidden_knowledge_risk_tooltip:0 "Wydarzy się coś złego…"
+ witchimproved.1004.c:0 "Czytam ją w towarzystwie: [knowledge_guide.GetFirstNameNoTooltip]."
+ witchimproved.1004.good.desc:0 "Rytuał się udał, a uznanie kręgu wciąż cię rozgrzewa, gdy pewną ręką zabierasz księgę na ubocze.\n\n"
+ witchimproved.1004.poor.desc:0 "Rytuał się zachwiał, a szepty kręgu wciąż dźwięczą ci w uszach, gdy z niepokojem zabierasz księgę na ubocze.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\nMocny napar wciąż pali w twoich żyłach. Litery pływają po stronie i nie wiesz, czy wyostrza on twój umysł, czy go rozluźnia."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName] zna już takie pisma i proponuje przejść przez stronice razem z tobą, powoli i ostrożnie."
+ witch_knowledge_sleepless_modifier:0 "Bezsenne noce"
+ witch_knowledge_sleepless_modifier_desc:0 "To, co wyczytano, nie daje ci spokoju. Leżysz bezsennie, obracając to w myślach, a ciało za to płaci."
+ witch_knowledge_muddled_modifier:0 "Zmącony umysł"
+ witch_knowledge_muddled_modifier_desc:0 "Na wpół zrozumiane idee tłoczą się w twoich myślach, a rozumowanie stało się powolne i mętne."
 
  # Additional event lines
  witch.3014.g:0 "Eksperymentuj z niekonwencjonalnymi metodami razem z [mystic.GetFirstNameNoTooltip]."

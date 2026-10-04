@@ -1511,14 +1511,6 @@ witch.3010 = { #by Mathilda Bjarnehed
 						id = witchimproved.1002
 					}
 				}
-				else_if = {
-					limit = {
-						has_activity_intent = forbidden_knowledge_intent
-					}
-					trigger_event = {
-						id = witchimproved.1004
-					}
-				}
 				else = {
 					trigger_event = {
 						id = witch.3014
@@ -1760,6 +1752,8 @@ witch.3014 = { #by Mathilda Bjarnehed
 			#Teacher (experience )
 			random_attending_character = {
 				limit = {
+					# Improved Witchcraft: a host seeking forbidden knowledge earns the lifestyle reward in witchimproved.1004 instead
+					root = { NOT = { has_activity_intent = forbidden_knowledge_intent } }
 					NOR = {
 						trigger_if = {
 							limit = { exists = scope:new_guest }
@@ -2314,6 +2308,14 @@ witch.3014 = { #by Mathilda Bjarnehed
 			drunkard = minor_stress_impact_loss
 			hashishiyah = minor_stress_impact_loss
 			comfort_eater = minor_stress_impact_loss
+		}
+	}
+
+	# Improved Witchcraft: Seek Forbidden Knowledge continues in witchimproved.1004 once the gathering is done
+	after = {
+		if = {
+			limit = { has_activity_intent = forbidden_knowledge_intent }
+			trigger_event = witchimproved.1004
 		}
 	}
 }	

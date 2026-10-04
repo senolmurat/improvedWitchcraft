@@ -73,3 +73,31 @@ witch_improved_brew_helper_trigger = {
 		is_court_herbalist_trigger = yes
 	}
 }
+
+# How did the host perform the rite in witch.3010? Safe to use when no outcome was saved.
+witch_improved_good_ceremony_trigger = {
+	exists = scope:grand_rite_ceremony_outcome
+	OR = {
+		scope:grand_rite_ceremony_outcome = flag:great_translation
+		scope:grand_rite_ceremony_outcome = flag:great_tricks
+		scope:grand_rite_ceremony_outcome = flag:great_improvisation
+		scope:grand_rite_ceremony_outcome = flag:offering
+	}
+}
+
+witch_improved_poor_ceremony_trigger = {
+	exists = scope:grand_rite_ceremony_outcome
+	OR = {
+		scope:grand_rite_ceremony_outcome = flag:poor_translation
+		scope:grand_rite_ceremony_outcome = flag:poor_tricks
+		scope:grand_rite_ceremony_outcome = flag:poor_improvisation
+	}
+}
+
+# Was the strong brew chosen for the current Grand Rite?
+witch_improved_strong_brew_trigger = {
+	exists = scope:activity
+	scope:activity = {
+		has_activity_option = { category = rite_option_brew option = rite_brew_strong }
+	}
+}

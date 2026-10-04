@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "Channel malevolent energies to curse your enemies and rivals with misfortune and weakness.\n$EFFECT_LIST_BULLET$May cost [piety_i][piety|E]"
 
  forbidden_knowledge_intent:0 "Seek Forbidden Knowledge"
- forbidden_knowledge_intent_desc:0 "Delve into forbidden tomes to gain forbidden knowledge and wisdom.It's risky and not for the weak hearted.\n$EFFECT_LIST_BULLET$You might gain a perk point or [lifestyle_experience|E] in your [lifestyle|E].\n$EFFECT_LIST_BULLET$You might gain negative [trait|E]s.\n$EFFECT_LIST_BULLET$You #bold will#! gain [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )] or [GetTrait('paranoid').GetName( GetNullCharacter )] characters will gain extra [stress_gain_i|E] [stress|E]."
+ forbidden_knowledge_intent_desc:0 "Delve into forbidden tomes to gain forbidden knowledge and wisdom.It's risky and not for the weak hearted.\n$EFFECT_LIST_BULLET$You might gain a perk point or [lifestyle_experience|E] in your [lifestyle|E].\n$EFFECT_LIST_BULLET$You might gain negative [trait|E]s.\n$EFFECT_LIST_BULLET$You #bold will#! gain [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )] or [GetTrait('paranoid').GetName( GetNullCharacter )] characters will gain extra [stress_gain_i|E] [stress|E].\n$EFFECT_LIST_BULLET$Higher [learning_skill|E], experience as a witch, a well-performed rite and a learned guest improve your odds."
 
 ### EVENTS
  witchimproved.1001.t:0 "Seek Blessing"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "The tome before you is no mere collection of words — it is a relic that whispers. The script shifts when you are not looking, and in the corners of your sight you glimpse truths not meant for mortal minds.\n\nEvery instinct tells you to shut it, to consign it back to dust and darkness. Yet the pull is irresistible. With each page turned, you feel power unfurling — a clarity that promises mastery over your chosen path.\n\nBut there is danger. To delve too deep is to invite corruption, to let something alien coil itself into your soul. The price may be sanity, health, or worse.You could restrain yourself, gleaning only fragments of wisdom — safe, but far less rewarding. Or… you could surrender to the abyss, and see what secrets it yields."
  witchimproved.1004.a:0 "I will grasp every secret, no matter the cost."
  witchimproved.1004.b:0 "I will take only what I can endure."
- witchimproved.1004.a.bad:0 "You have been cursed by the tome"
+ witchimproved.1004.a.bad:0 "The tome takes its toll"
  forbidden_knowledge_risk_tooltip:0 "Something bad happens..."
+ witchimproved.1004.c:0 "Read it together with [knowledge_guide.GetFirstNameNoTooltip]."
+ witchimproved.1004.good.desc:0 "The rite went well, and the circle's approval still warms you as you withdraw with the tome, your hands steady.\n\n"
+ witchimproved.1004.poor.desc:0 "The rite faltered, and the murmurs of the circle still ring in your ears as you withdraw with the tome, unsettled.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\nThe strong brew still burns in your veins. The letters swim on the page, and you cannot tell whether it sharpens your mind or loosens it."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName] has read such writings before and offers to go through the pages with you, slowly and with care."
+ witch_knowledge_sleepless_modifier:0 "Sleepless Nights"
+ witch_knowledge_sleepless_modifier_desc:0 "What you read will not leave you alone. You lie awake turning it over, and your body pays for it."
+ witch_knowledge_muddled_modifier:0 "Muddled Mind"
+ witch_knowledge_muddled_modifier_desc:0 "Half-understood ideas crowd your thoughts, and your reasoning has grown slow and confused."
 
  witch.3014.g:0 "Experiment with unconventional methods together with [mystic.GetFirstNameNoTooltip]."
  witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip] teaches me something new"

@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "Böse Energien kanalisieren, um eure Feinde und Rivalen mit Pech und Schwäche zu belegen.\n$EFFECT_LIST_BULLET$Kann [piety_i][piety|E] kosten"
 
  forbidden_knowledge_intent:0 "Verbotenes Wissen suchen"
- forbidden_knowledge_intent_desc:0 "Taucht in verbotene Folianten ein, um verbotenes Wissen und Weisheit zu erlangen. Es ist riskant und nichts für schwache Nerven.\n$EFFECT_LIST_BULLET$Ihr könnt einen Vorteils­punkt oder [lifestyle_experience|E] in eurem [lifestyle|E] erhalten.\n$EFFECT_LIST_BULLET$Ihr könnt negative [trait|E]s erhalten.\n$EFFECT_LIST_BULLET$Ihr #bold werdet#! [stress_gain_i|E] [stress|E] erhalten.\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )]- oder [GetTrait('paranoid').GetName( GetNullCharacter )]-Charaktere erhalten zusätzlich [stress|E]."
+ forbidden_knowledge_intent_desc:0 "Taucht in verbotene Folianten ein, um verbotenes Wissen und Weisheit zu erlangen. Es ist riskant und nichts für schwache Nerven.\n$EFFECT_LIST_BULLET$Ihr könnt einen Vorteils­punkt oder [lifestyle_experience|E] in eurem [lifestyle|E] erhalten.\n$EFFECT_LIST_BULLET$Ihr könnt negative [trait|E]s erhalten.\n$EFFECT_LIST_BULLET$Ihr #bold werdet#! [stress_gain_i|E] [stress|E] erhalten.\n$BULLET_WITH_TAB$[GetTrait('craven').GetName( GetNullCharacter )]- oder [GetTrait('paranoid').GetName( GetNullCharacter )]-Charaktere erhalten zusätzlich [stress|E].\n$EFFECT_LIST_BULLET$Hohe [learning_skill|E], Erfahrung in der Hexerei, ein gelungener Ritus und ein gelehrter Gast verbessern Eure Chancen."
 
  ### EVENTS
  witchimproved.1001.t:0 "Segen suchen"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "Der Foliant vor euch ist kein bloßes Sammelsurium von Worten – er ist ein Relikt, das flüstert. Die Schrift verändert sich, wenn ihr nicht hinseht, und am Rande eures Blicks erhascht ihr Wahrheiten, die nicht für sterbliche Augen bestimmt sind.\n\nJeder Instinkt sagt euch, ihn zu schließen, ihn dem Staub und der Dunkelheit zurückzugeben. Dennoch ist der Sog unwiderstehlich. Mit jeder umgeschlagenen Seite fühlt ihr Macht sich entfalten – eine Klarheit, die Herrschaft über euren Weg verspricht.\n\nDoch es gibt Gefahr. Zu tief zu tauchen heißt, Verderbnis einzuladen, etwas Fremdes in eure Seele zu lassen. Der Preis kann Verstand, Gesundheit oder Schlimmeres sein. Ihr könntet euch zügeln und nur Splitter aufnehmen – sicherer, aber weit weniger lohnend. Oder… ihr ergebt euch dem Abgrund und seht, welche Geheimnisse er birgt."
  witchimproved.1004.a:0 "Ich werde jedes Geheimnis ergreifen, koste es, was es wolle."
  witchimproved.1004.b:0 "Ich nehme nur, was ich ertragen kann."
- witchimproved.1004.a.bad:0 "Ihr wurdet vom Folianten verflucht"
+ witchimproved.1004.a.bad:0 "Der Foliant fordert seinen Tribut"
  forbidden_knowledge_risk_tooltip:0 "Etwas Schlimmes geschieht…"
+ witchimproved.1004.c:0 "Gemeinsam mit [knowledge_guide.GetFirstNameNoTooltip] lesen."
+ witchimproved.1004.good.desc:0 "Der Ritus ist gelungen, und die Anerkennung des Kreises wärmt Euch noch, als Ihr Euch mit ruhigen Händen mit dem Folianten zurückzieht.\n\n"
+ witchimproved.1004.poor.desc:0 "Der Ritus ist ins Stocken geraten, und das Gemurmel des Kreises klingt Euch noch in den Ohren, als Ihr Euch verunsichert mit dem Folianten zurückzieht.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\nDas starke Gebräu brennt noch in Euren Adern. Die Buchstaben verschwimmen auf der Seite, und Ihr könnt nicht sagen, ob es Euren Geist schärft oder löst."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName] hat solche Schriften schon gelesen und bietet an, die Seiten langsam und sorgfältig mit Euch durchzugehen."
+ witch_knowledge_sleepless_modifier:0 "Schlaflose Nächte"
+ witch_knowledge_sleepless_modifier_desc:0 "Was Ihr gelesen habt, lässt Euch nicht los. Ihr liegt wach und grübelt, und Euer Körper zahlt den Preis."
+ witch_knowledge_muddled_modifier:0 "Verwirrter Geist"
+ witch_knowledge_muddled_modifier_desc:0 "Halb verstandene Gedanken drängen sich in Eurem Kopf, und Euer Denken ist langsam und wirr geworden."
 
 # Additional event lines
  witch.3014.g:0 "Mit unkonventionellen Methoden zusammen mit [mystic.GetFirstNameNoTooltip] experimentieren."

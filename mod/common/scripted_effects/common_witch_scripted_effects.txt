@@ -201,3 +201,151 @@ witch_improved_cure_worst_disease_effect = {
 		recover_from_disease_effect = { DISEASE = ill }
 	}
 }
+
+# Adds lifestyle XP to the character's current lifestyle focus. Scope: character. XP = amount.
+# The wanderer lifestyle gets double, as it did in the original event.
+witch_improved_add_current_lifestyle_xp_effect = {
+	if = {
+		limit = { has_lifestyle = diplomacy_lifestyle }
+		add_diplomacy_lifestyle_xp = $XP$
+	}
+	else_if = {
+		limit = { has_lifestyle = martial_lifestyle }
+		add_martial_lifestyle_xp = $XP$
+	}
+	else_if = {
+		limit = { has_lifestyle = stewardship_lifestyle }
+		add_stewardship_lifestyle_xp = $XP$
+	}
+	else_if = {
+		limit = { has_lifestyle = intrigue_lifestyle }
+		add_intrigue_lifestyle_xp = $XP$
+	}
+	else_if = {
+		limit = { has_lifestyle = learning_lifestyle }
+		add_learning_lifestyle_xp = $XP$
+	}
+	else_if = {
+		limit = { has_lifestyle = wanderer_lifestyle }
+		add_wanderer_lifestyle_xp = {
+			value = $XP$
+			multiply = 2
+		}
+	}
+}
+
+# Adds perk points to the character's current lifestyle focus. Scope: character. POINTS = amount (wanderer gets double).
+witch_improved_add_current_lifestyle_perk_effect = {
+	if = {
+		limit = { has_lifestyle = diplomacy_lifestyle }
+		add_diplomacy_lifestyle_perk_points = $POINTS$
+	}
+	else_if = {
+		limit = { has_lifestyle = martial_lifestyle }
+		add_martial_lifestyle_perk_points = $POINTS$
+	}
+	else_if = {
+		limit = { has_lifestyle = stewardship_lifestyle }
+		add_stewardship_lifestyle_perk_points = $POINTS$
+	}
+	else_if = {
+		limit = { has_lifestyle = intrigue_lifestyle }
+		add_intrigue_lifestyle_perk_points = $POINTS$
+	}
+	else_if = {
+		limit = { has_lifestyle = learning_lifestyle }
+		add_learning_lifestyle_perk_points = $POINTS$
+	}
+	else_if = {
+		limit = { has_lifestyle = wanderer_lifestyle }
+		add_wanderer_lifestyle_perk_points = {
+			value = $POINTS$
+			multiply = 2
+		}
+	}
+}
+
+# Seek Forbidden Knowledge, risky option succeeded. Scope: the host.
+witch_forbidden_knowledge_full_reward_effect = {
+	if = {
+		limit = {
+			has_trait = witch
+			has_trait_xp = { trait = witch value >= 100 }
+		}
+		witch_improved_add_current_lifestyle_perk_effect = { POINTS = 2 }
+	}
+	else = {
+		witch_improved_add_current_lifestyle_perk_effect = { POINTS = 1 }
+		witch_improved_add_current_lifestyle_xp_effect = { XP = 500 }
+	}
+}
+
+# Seek Forbidden Knowledge, risky option failed: one grounded bad outcome, shown as a toast. Scope: the host.
+# Permanent traits are rare; the strong brew makes them more likely.
+witch_forbidden_knowledge_failure_effect = {
+	random_list = {
+		35 = {
+			show_chance = no
+			send_interface_toast = {
+				title = witchimproved.1004.a.bad
+				add_character_modifier = {
+					modifier = witch_knowledge_sleepless_modifier
+					years = 1
+				}
+			}
+		}
+		25 = {
+			show_chance = no
+			send_interface_toast = {
+				title = witchimproved.1004.a.bad
+				add_stress = major_stress_gain
+			}
+		}
+		20 = {
+			show_chance = no
+			send_interface_toast = {
+				title = witchimproved.1004.a.bad
+				add_character_modifier = {
+					modifier = witch_knowledge_muddled_modifier
+					years = 2
+				}
+			}
+		}
+		15 = {
+			trigger = { can_contract_disease_trigger = { DISEASE = ill } }
+			show_chance = no
+			send_interface_toast = {
+				title = witchimproved.1004.a.bad
+				contract_disease_effect = { DISEASE = ill TREATMENT_EVENT = yes }
+			}
+		}
+		5 = {
+			trigger = {
+				NOR = {
+					has_trait = paranoid
+					has_trait = trusting
+				}
+			}
+			modifier = {
+				witch_improved_strong_brew_trigger = yes
+				add = 5
+			}
+			show_chance = no
+			send_interface_toast = {
+				title = witchimproved.1004.a.bad
+				add_trait = paranoid
+			}
+		}
+		10 = {
+			trigger = {
+				witch_improved_strong_brew_trigger = yes
+				NOT = { has_trait = lunatic }
+			}
+			show_chance = no
+			send_interface_toast = {
+				title = witchimproved.1004.a.bad
+				add_trait = lunatic_1
+			}
+		}
+	}
+}

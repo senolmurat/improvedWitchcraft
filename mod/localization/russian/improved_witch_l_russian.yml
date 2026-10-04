@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "Направьте злобные энергии, чтобы проклясть ваших врагов и соперников несчастьем и слабостью.\n$EFFECT_LIST_BULLET$Может стоить [piety_i][piety|E]"
 
  forbidden_knowledge_intent:0 "Искать Запретные Знания"
- forbidden_knowledge_intent_desc:0 "Погрузитесь в запретные фолианты, чтобы получить запретные знания и мудрость. Это рискованно и не для слабых духом.\n$EFFECT_LIST_BULLET$Вы можете получить очко перка или [lifestyle_experience|E] в вашем [lifestyle|E].\n$EFFECT_LIST_BULLET$Вы можете получить отрицательные [trait|E].\n$EFFECT_LIST_BULLET$Вы #bold обязательно#! получите [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Персонажи с [GetTrait('craven').GetName( GetNullCharacter )] или [GetTrait('paranoid').GetName( GetNullCharacter )] получат дополнительный [stress_gain_i|E] [stress|E]."
+ forbidden_knowledge_intent_desc:0 "Погрузитесь в запретные фолианты, чтобы получить запретные знания и мудрость. Это рискованно и не для слабых духом.\n$EFFECT_LIST_BULLET$Вы можете получить очко перка или [lifestyle_experience|E] в вашем [lifestyle|E].\n$EFFECT_LIST_BULLET$Вы можете получить отрицательные [trait|E].\n$EFFECT_LIST_BULLET$Вы #bold обязательно#! получите [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Персонажи с [GetTrait('craven').GetName( GetNullCharacter )] или [GetTrait('paranoid').GetName( GetNullCharacter )] получат дополнительный [stress_gain_i|E] [stress|E].\n$EFFECT_LIST_BULLET$Высокий навык ([learning_skill|E]), опыт в ведовстве, хорошо проведённый обряд и учёный гость повышают ваши шансы."
 
 ### EVENTS
  witchimproved.1001.t:0 "Искать Благословение"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "Фолиант перед вами — не просто собрание слов, это реликвия, которая шепчет. Письмена сдвигаются, когда вы не смотрите, и в углах вашего зрения вы улавливаете истины, не предназначенные для смертных умов.\n\nКаждый инстинкт говорит вам закрыть его, предать обратно пыли и тьме. И всё же притяжение неодолимо. С каждым перевёрнутым листом вы чувствуете, как разворачивается сила — ясность, обещающая мастерство над избранным путём.\n\nНо есть опасность. Погрузиться слишком глубоко — значит пригласить разложение, позволить чему-то чуждому обвиться вокруг вашей души. Цена может быть рассудок, здоровье или хуже. Вы могли бы сдержаться, собирая лишь фрагменты мудрости — безопасно, но гораздо менее награждающе. Или... вы могли бы предаться бездне и посмотреть, какие секреты она даёт."
  witchimproved.1004.a:0 "Я схвачу каждый секрет, какой бы ценой это ни было."
  witchimproved.1004.b:0 "Я возьму только то, что смогу вынести."
- witchimproved.1004.a.bad:0 "Вы прокляты фолиантом"
+ witchimproved.1004.a.bad:0 "Фолиант берёт своё"
  forbidden_knowledge_risk_tooltip:0 "Что-то плохое происходит..."
+ witchimproved.1004.c:0 "Читать вместе: [knowledge_guide.GetFirstNameNoTooltip]."
+ witchimproved.1004.good.desc:0 "Обряд прошёл хорошо, и одобрение круга всё ещё греет вас, когда вы твёрдой рукой уносите фолиант в сторону.\n\n"
+ witchimproved.1004.poor.desc:0 "Обряд сбился, и шёпот круга всё ещё звучит в ушах, когда вы, не находя покоя, уносите фолиант в сторону.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\nКрепкий отвар всё ещё жжёт в венах. Буквы плывут по странице, и вы не можете понять, обостряет он ваш разум или расшатывает."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName] уже знает подобные писания и предлагает пройти по страницам вместе с вами, медленно и осторожно."
+ witch_knowledge_sleepless_modifier:0 "Бессонные ночи"
+ witch_knowledge_sleepless_modifier_desc:0 "Прочитанное не оставляет вас в покое. Вы лежите без сна, снова и снова обдумывая его, и тело расплачивается."
+ witch_knowledge_muddled_modifier:0 "Спутанный разум"
+ witch_knowledge_muddled_modifier_desc:0 "Наполовину понятые идеи теснятся в мыслях, и рассуждения стали медленными и путаными."
 
  witch.3014.g:0 "Экспериментировать с нетрадиционными методами вместе с [mystic.GetFirstNameNoTooltip]."
  witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip] учит меня чему-то новому"

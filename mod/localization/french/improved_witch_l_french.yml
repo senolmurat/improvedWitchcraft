@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "Canalisez des énergies malveillantes pour maudire vos ennemis et rivaux de malchance et de faiblesse.\n$EFFECT_LIST_BULLET$Peut coûter [piety_i][piety|E]"
 
  forbidden_knowledge_intent:0 "Chercher un Savoir Interdit"
- forbidden_knowledge_intent_desc:0 "Plongez dans des grimoires interdits pour acquérir un savoir défendu et de la sagesse. C'est risqué et pas pour les âmes faibles.\n$EFFECT_LIST_BULLET$Vous pourriez gagner un point d'atout ou de l'[lifestyle_experience|E] dans votre [lifestyle|E].\n$EFFECT_LIST_BULLET$Vous pourriez gagner des [trait|E]s négatifs.\n$EFFECT_LIST_BULLET$Vous #bold gagnerez#! du [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Les personnages [GetTrait('craven').GetName( GetNullCharacter )] ou [GetTrait('paranoid').GetName( GetNullCharacter )] gagneront du [stress|E] supplémentaire."
+ forbidden_knowledge_intent_desc:0 "Plongez dans des grimoires interdits pour acquérir un savoir défendu et de la sagesse. C'est risqué et pas pour les âmes faibles.\n$EFFECT_LIST_BULLET$Vous pourriez gagner un point d'atout ou de l'[lifestyle_experience|E] dans votre [lifestyle|E].\n$EFFECT_LIST_BULLET$Vous pourriez gagner des [trait|E]s négatifs.\n$EFFECT_LIST_BULLET$Vous #bold gagnerez#! du [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Les personnages [GetTrait('craven').GetName( GetNullCharacter )] ou [GetTrait('paranoid').GetName( GetNullCharacter )] gagneront du [stress|E] supplémentaire.\n$EFFECT_LIST_BULLET$Une [learning_skill|E] élevée, l'expérience de la sorcellerie, un rite bien mené et un invité érudit améliorent vos chances."
 
  ### EVENTS
  witchimproved.1001.t:0 "Chercher une Bénédiction"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "Le grimoire devant vous n'est pas un simple recueil de mots — c’est une relique qui murmure. L'écriture change quand vous ne regardez pas, et au coin de votre regard vous entrevoyez des vérités que l'esprit mortel ne devrait pas connaître.\n\nChaque instinct vous ordonne de le fermer, de le rendre à la poussière et aux ténèbres. Pourtant, l'attrait est irrésistible. À chaque page tournée, vous sentez le pouvoir se déployer — une clarté qui promet la maîtrise de votre voie.\n\nMais il y a un danger. Plonger trop profond, c'est inviter la corruption, laisser quelque chose d'étranger s'enrouler dans votre âme. Le prix peut être la santé mentale, la santé, ou pire. Vous pourriez vous retenir, ne glaner que des fragments — plus sûr, mais bien moins gratifiant. Ou… vous pourriez vous abandonner à l'abîme, et voir quels secrets il révèle."
  witchimproved.1004.a:0 "Je saisirai chaque secret, quel qu'en soit le prix."
  witchimproved.1004.b:0 "Je ne prendrai que ce que je peux supporter."
- witchimproved.1004.a.bad:0 "Vous avez été maudit par le grimoire"
+ witchimproved.1004.a.bad:0 "Le grimoire prélève son tribut"
  forbidden_knowledge_risk_tooltip:0 "Quelque chose de mauvais arrive…"
+ witchimproved.1004.c:0 "Le lire avec [knowledge_guide.GetFirstNameNoTooltip]."
+ witchimproved.1004.good.desc:0 "Le rite s'est bien déroulé, et l'approbation du cercle vous réchauffe encore tandis que vous vous retirez avec le grimoire, les mains fermes.\n\n"
+ witchimproved.1004.poor.desc:0 "Le rite a vacillé, et les murmures du cercle résonnent encore à vos oreilles tandis que vous vous retirez avec le grimoire, l'esprit troublé.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\nLe breuvage puissant brûle encore dans vos veines. Les lettres dansent sur la page, et vous ne sauriez dire s'il aiguise votre esprit ou le délie."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName] a déjà lu de tels écrits et propose de parcourir les pages avec vous, lentement et avec soin."
+ witch_knowledge_sleepless_modifier:0 "Nuits sans sommeil"
+ witch_knowledge_sleepless_modifier_desc:0 "Ce que vous avez lu ne vous laisse pas en paix. Vous restez éveillé à le ressasser, et votre corps en paie le prix."
+ witch_knowledge_muddled_modifier:0 "Esprit embrouillé"
+ witch_knowledge_muddled_modifier_desc:0 "Des idées à moitié comprises encombrent vos pensées, et votre raisonnement est devenu lent et confus."
 
 # Additional event lines
  witch.3014.g:0 "Expérimenter des méthodes non conventionnelles avec [mystic.GetFirstNameNoTooltip]."

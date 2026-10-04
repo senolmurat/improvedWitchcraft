@@ -96,3 +96,52 @@ grand_rite_piety_reward_value = {
 		}
 	}
 }
+
+# Seek Forbidden Knowledge: target value of the learning duel in witchimproved.1004.
+# Scope: the host. Reads scope:grand_rite_ceremony_outcome and scope:activity when they exist.
+witch_forbidden_knowledge_difficulty_value = {
+	value = very_high_skill_rating
+	# Experienced witches read the old texts more easily
+	if = {
+		limit = {
+			has_trait = witch
+			has_trait_xp = { trait = witch value >= 100 }
+		}
+		subtract = 4
+	}
+	else_if = {
+		limit = {
+			has_trait = witch
+			has_trait_xp = { trait = witch value >= 50 }
+		}
+		subtract = 2
+	}
+	# A rite that went well steadies the mind, a botched one unsettles it
+	if = {
+		limit = { witch_improved_good_ceremony_trigger = yes }
+		subtract = 2
+	}
+	else_if = {
+		limit = { witch_improved_poor_ceremony_trigger = yes }
+		add = 2
+	}
+	# The strong brew opens the mind (and makes a failure worse, see witch_forbidden_knowledge_failure_effect)
+	if = {
+		limit = { witch_improved_strong_brew_trigger = yes }
+		subtract = 2
+	}
+	min = 8
+}
+
+# Reading with a knowledgeable guest is easier
+witch_forbidden_knowledge_guided_difficulty_value = {
+	value = witch_forbidden_knowledge_difficulty_value
+	subtract = 3
+	min = 8
+}
+
+# Below this learning the risky option is close to hopeless; the AI avoids it
+witch_forbidden_knowledge_ai_reckless_value = {
+	value = witch_forbidden_knowledge_difficulty_value
+	subtract = 5
+}

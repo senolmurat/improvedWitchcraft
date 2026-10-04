@@ -1,0 +1,18 @@
+﻿### Forbidden Knowledge Modifiers - Improved Witchcraft Mod
+# Bad outcomes of the risky option in witchimproved.1004
+
+# Cannot stop turning the text over at night
+witch_knowledge_sleepless_modifier = {
+	icon = health_negative
+	health = -0.25
+	prowess = -2
+	stress_gain_mult = 0.2
+}
+
+# Half-understood ideas crowd the mind
+witch_knowledge_muddled_modifier = {
+	icon = learning_negative
+	learning = -3
+	diplomacy = -1
+	monthly_lifestyle_xp_gain_mult = -0.1
+}

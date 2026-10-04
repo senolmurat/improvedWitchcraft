@@ -6,7 +6,7 @@
  curse_enemy_intent_desc:0 "Canaliza energías malévolas para maldecir a tus enemigos y rivales con desgracia y debilidad.\n$EFFECT_LIST_BULLET$Puede costar [piety_i][piety|E]"
 
  forbidden_knowledge_intent:0 "Buscar Conocimiento Prohibido"
- forbidden_knowledge_intent_desc:0 "Profundiza en tomos prohibidos para obtener conocimiento y sabiduría prohibidos. Es arriesgado y no para los débiles de corazón.\n$EFFECT_LIST_BULLET$Puedes ganar un punto de habilidad o [lifestyle_experience|E] en tu [lifestyle|E].\n$EFFECT_LIST_BULLET$Puedes ganar [trait|E]s negativos.\n$EFFECT_LIST_BULLET$#bold Ganarás#! [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Los personajes con [GetTrait('craven').GetName( GetNullCharacter )] o [GetTrait('paranoid').GetName( GetNullCharacter )] ganarán [stress_gain_i|E] [stress|E] extra."
+ forbidden_knowledge_intent_desc:0 "Profundiza en tomos prohibidos para obtener conocimiento y sabiduría prohibidos. Es arriesgado y no para los débiles de corazón.\n$EFFECT_LIST_BULLET$Puedes ganar un punto de habilidad o [lifestyle_experience|E] en tu [lifestyle|E].\n$EFFECT_LIST_BULLET$Puedes ganar [trait|E]s negativos.\n$EFFECT_LIST_BULLET$#bold Ganarás#! [stress_gain_i|E] [stress|E].\n$BULLET_WITH_TAB$Los personajes con [GetTrait('craven').GetName( GetNullCharacter )] o [GetTrait('paranoid').GetName( GetNullCharacter )] ganarán [stress_gain_i|E] [stress|E] extra.\n$EFFECT_LIST_BULLET$Un [learning_skill|E] alto, la experiencia en la brujería, un rito bien ejecutado y un invitado erudito mejoran tus probabilidades."
 
 ### EVENTS
  witchimproved.1001.t:0 "Buscar Bendición"
@@ -24,8 +24,17 @@
  witchimproved.1004.desc:0 "El tomo ante ti no es una mera colección de palabras — es una reliquia que susurra. La escritura se mueve cuando no miras, y en las esquinas de tu vista vislumbras verdades no destinadas a mentes mortales.\n\nCada instinto te dice que lo cierres, que lo consignes de vuelta al polvo y la oscuridad. Sin embargo, la atracción es irresistible. Con cada página que pasas, sientes el poder desplegándose — una claridad que promete maestría sobre tu camino elegido.\n\nPero hay peligro. Profundizar demasiado es invitar a la corrupción, permitir que algo ajeno se enrosque en tu alma. El precio puede ser la cordura, la salud, o algo peor. Podrías contenerse, recogiendo solo fragmentos de sabiduría — seguro, pero mucho menos gratificante. O... podrías entregarte al abismo, y ver qué secretos produce."
  witchimproved.1004.a:0 "Aprehenderé cada secreto, sin importar el costo."
  witchimproved.1004.b:0 "Tomaré solo lo que pueda soportar."
- witchimproved.1004.a.bad:0 "Has sido maldecido por el tomo"
+ witchimproved.1004.a.bad:0 "El tomo se cobra su precio"
  forbidden_knowledge_risk_tooltip:0 "Algo malo sucede..."
+ witchimproved.1004.c:0 "Leerlo junto a [knowledge_guide.GetFirstNameNoTooltip]."
+ witchimproved.1004.good.desc:0 "El rito salió bien, y la aprobación del círculo aún te reconforta mientras te retiras con el tomo, con las manos firmes.\n\n"
+ witchimproved.1004.poor.desc:0 "El rito flaqueó, y los murmullos del círculo aún resuenan en tus oídos mientras te retiras con el tomo, con inquietud.\n\n"
+ witchimproved.1004.brew.desc:0 "\n\nEl brebaje fuerte aún arde en tus venas. Las letras bailan en la página, y no sabrías decir si afila tu mente o la desata."
+ witchimproved.1004.guide.desc:0 "\n\n[knowledge_guide.GetTitledFirstName] ya ha leído escritos así y se ofrece a recorrer las páginas contigo, despacio y con cuidado."
+ witch_knowledge_sleepless_modifier:0 "Noches en vela"
+ witch_knowledge_sleepless_modifier_desc:0 "Lo que leíste no te deja en paz. Pasas las noches en vela dándole vueltas, y tu cuerpo lo paga."
+ witch_knowledge_muddled_modifier:0 "Mente confusa"
+ witch_knowledge_muddled_modifier_desc:0 "Ideas a medio entender se agolpan en tus pensamientos, y tu razonamiento se ha vuelto lento y confuso."
 
  witch.3014.g:0 "Experimentar con métodos no convencionales junto con [mystic.GetFirstNameNoTooltip]."
  witch.3014.g.knowledge:0 "[mystic.GetFirstNameNoTooltip] me enseña algo nuevo"

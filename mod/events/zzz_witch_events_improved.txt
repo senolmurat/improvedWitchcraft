@@ -788,65 +788,71 @@ witchimproved.1003 = {
 	}
 }
 
-# Forbidden knowledge event - lifestyle perk for current focus - risky
+# Forbidden knowledge event - lifestyle reward for the current focus, the host chooses how much to risk
+# Fired for the host from the 'after' of witch.3014, which has already revealed secrets and applied the ceremony outcome.
+# Optional saved scope from witch.3010: scope:grand_rite_ceremony_outcome. Saves scope:knowledge_guide when a suitable guest attends.
 witchimproved.1004 = {
 	type = activity_event
 	title = witchimproved.1004.t
-	desc = witchimproved.1004.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { witch_improved_good_ceremony_trigger = yes }
+				desc = witchimproved.1004.good.desc
+			}
+			triggered_desc = {
+				trigger = { witch_improved_poor_ceremony_trigger = yes }
+				desc = witchimproved.1004.poor.desc
+			}
+		}
+		desc = witchimproved.1004.desc
+		triggered_desc = {
+			trigger = { witch_improved_strong_brew_trigger = yes }
+			desc = witchimproved.1004.brew.desc
+		}
+		triggered_desc = {
+			trigger = { exists = scope:knowledge_guide }
+			desc = witchimproved.1004.guide.desc
+		}
+	}
 	theme = witchcraft
 	override_background = {
 		reference = bp1_bonfire
 	}
-	right_portrait = {
+	left_portrait = {
 		character = root
-		animation = chancellor
+		animation = reading
+	}
+	right_portrait = {
+		trigger = { exists = scope:knowledge_guide }
+		character = scope:knowledge_guide
+		animation = personality_rational
 	}
 
 	immediate = {
 		add_stress = minor_stress_gain
-	
-		#Tell everyone secret about everyone else
-		hidden_effect = {
-			scope:activity = {
-				every_attending_character = {
-					save_temporary_scope_as = learning_secret
-					scope:activity = {
-						every_attending_character = {
-							random_secret = {
-								type = secret_witch
-								limit = {	
-									NOT = { is_known_by = scope:learning_secret }
-								}
-								reveal_to = scope:learning_secret
-							}
-						}
-					}
-				}
-			}
-		}
 
-		#Give outcome to host
-		if = {
-			limit = { this = scope:host }
-
-			if = {
+		# A guest who can read the old texts with you
+		scope:activity = {
+			random_attending_character = {
 				limit = {
+					NOT = { this = root }
 					OR = {
-						scope:grand_rite_ceremony_outcome = flag:great_translation
-						scope:grand_rite_ceremony_outcome = flag:great_tricks
-						scope:grand_rite_ceremony_outcome = flag:great_improvisation
-						scope:grand_rite_ceremony_outcome = flag:offering
+						has_trait = lifestyle_mystic
+						has_trait = lifestyle_herbalist
+						learning >= high_skill_rating
 					}
 				}
-				grand_rite_good_outcome = yes
-			}
-			else = {
-				grand_rite_poor_outcome = yes
+				weight = {
+					base = 1
+					modifier = { add = learning }
+				}
+				save_scope_as = knowledge_guide
 			}
 		}
 	}
 
-	# get perk point for current lifestyle focus but risky
+	# Read everything: the biggest reward, the worst failure
 	option = {
 		name = witchimproved.1004.a
 		add_internal_flag = dangerous
@@ -860,7 +866,7 @@ witchimproved.1004 = {
 
 		duel = {
 			skill = learning
-			value = monumentally_high_skill_rating
+			value = witch_forbidden_knowledge_difficulty_value
 			75 = {
 				desc = witch.3010.a.great
 				compare_modifier = {
@@ -868,101 +874,40 @@ witchimproved.1004 = {
 					multiplier = 5
 				}
 				min = 10
-				max = 90
-				
-				# good effect
-				if = {
-					limit = { has_lifestyle = diplomacy_lifestyle }
-					add_diplomacy_lifestyle_perk_points = 1
-				}
-				else_if = {
-					limit = { has_lifestyle = martial_lifestyle }
-					add_martial_lifestyle_perk_points = 1
-				}
-				else_if = {
-					limit = { has_lifestyle = stewardship_lifestyle }
-					add_stewardship_lifestyle_perk_points = 1
-				}
-				else_if = {
-					limit = { has_lifestyle = intrigue_lifestyle }
-					add_intrigue_lifestyle_perk_points = 1
-				}
-				else_if = {
-					limit = { has_lifestyle = learning_lifestyle }
-					add_learning_lifestyle_perk_points = 1
-				}
-				else_if = {
-					limit = { has_lifestyle = wanderer_lifestyle }
-					add_wanderer_lifestyle_perk_points = 2
-				}
+
+				witch_forbidden_knowledge_full_reward_effect = yes
 			}
-			25 = {	
+			25 = {
 				desc = witch.3010.a.poor
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = -5
 				}
 				min = 10
-				max = 90
-				
-				save_scope_value_as = {
-					name = grand_rite_ceremony_outcome
-					value = flag:poor_translation
-				}
+
+				# Something still sticks
+				witch_improved_add_current_lifestyle_xp_effect = { XP = 250 }
 				show_as_tooltip = { custom_tooltip = forbidden_knowledge_risk_tooltip }
 				hidden_effect = {
-					# bad effect
-					random_list = {
-						40 = { 
-							show_chance = no
-							send_interface_toast = {
-								title = witchimproved.1004.a.bad
-								add_character_modifier = {
-									modifier = witch_curse_weakness
-									years = 1
-								}
-							} 
-						}
-						30 = { 
-							show_chance = no
-							send_interface_toast = {
-								title = witchimproved.1004.a.bad
-								add_trait = ill
-							} 
-						}
-						10 = { 
-							show_chance = no
-							send_interface_toast = {
-								title = witchimproved.1004.a.bad
-								add_trait = paranoid 
-							}
-						}
-						10 = { 
-							show_chance = no
-							send_interface_toast = {
-								title = witchimproved.1004.a.bad
-								add_trait = lunatic_1 
-							}
-						}
-						10 = { 
-							show_chance = no
-							send_interface_toast = {
-								title = witchimproved.1004.a.bad
-								add_trait = possessed_1 
-							}
-						}
-						
-					}
+					witch_forbidden_knowledge_failure_effect = yes
 				}
-				
 			}
 		}
 
 		ai_chance = {
-			base = 40
+			base = 20
 			ai_value_modifier = {
 				ai_greed = 0.5
 				ai_boldness = 0.5
+			}
+			# Only rulers who can actually read the thing should gamble
+			modifier = {
+				add = 40
+				learning >= witch_forbidden_knowledge_difficulty_value
+			}
+			modifier = {
+				add = -100
+				learning < witch_forbidden_knowledge_ai_reckless_value
 			}
 			modifier = { add = -100 has_trait = craven }
 			modifier = { add = -100 has_trait = paranoid }
@@ -970,53 +915,68 @@ witchimproved.1004 = {
 		}
 	}
 
-	# get exp for current lifestyle focus
+	# Read it with a knowledgeable guest: easier, a smaller reward, a mild failure
 	option = {
-		name = witchimproved.1004.b
+		trigger = { exists = scope:knowledge_guide }
+		name = witchimproved.1004.c
+		highlight_portrait = scope:knowledge_guide
 
-		if = {
-			limit = { has_lifestyle = diplomacy_lifestyle }
-			add_diplomacy_lifestyle_xp = 500
+		stress_impact = {
+			craven = minor_stress_impact_gain
+			paranoid = minor_stress_impact_gain
+			shy = minor_stress_impact_gain
 		}
-		else_if = {
-			limit = { has_lifestyle = martial_lifestyle }
-			add_martial_lifestyle_xp = 500
-		}
-		else_if = {
-			limit = { has_lifestyle = stewardship_lifestyle }
-			add_stewardship_lifestyle_xp = 500
-		}
-		else_if = {
-			limit = { has_lifestyle = intrigue_lifestyle }
-			add_intrigue_lifestyle_xp = 500
-		}
-		else_if = {
-			limit = { has_lifestyle = learning_lifestyle }
-			add_learning_lifestyle_xp = 500
-		}
-		else_if = {
-			limit = { has_lifestyle = wanderer_lifestyle }
-			add_wanderer_lifestyle_xp = 1000
+
+		duel = {
+			skill = learning
+			value = witch_forbidden_knowledge_guided_difficulty_value
+			75 = {
+				desc = witch.3010.a.great
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				min = 10
+
+				witch_improved_add_current_lifestyle_perk_effect = { POINTS = 1 }
+			}
+			25 = {
+				desc = witch.3010.a.poor
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 10
+
+				witch_improved_add_current_lifestyle_xp_effect = { XP = 250 }
+				add_stress = medium_stress_gain
+			}
 		}
 
 		ai_chance = {
-			base = 60
+			base = 50
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+			modifier = {
+				add = 30
+				learning >= witch_forbidden_knowledge_guided_difficulty_value
+			}
+		}
+	}
+
+	# Take only a little: half a perk point worth of experience, no roll
+	option = {
+		name = witchimproved.1004.b
+
+		witch_improved_add_current_lifestyle_xp_effect = { XP = 500 }
+
+		ai_chance = {
+			base = 40
 			ai_value_modifier = {
 				ai_rationality = 1
 			}
 		}
-	}
-}
-
-scripted_effect witchimproved.1004_give_lifestyle_xp_effect = {
-	root = {
-		add_$LIFESTYLE$_lifestyle_xp = 300
-	}
-}
-
-scripted_effect witchimproved.1004_give_lifestyle_perk_effect = {
-	root = {
-		add_$LIFESTYLE$_lifestyle_perk_points = 1
 	}
 }
 
@@ -1055,7 +1015,7 @@ witchimproved.1010 = {
 		name = witchimproved.1010.a
 		add_character_modifier = {
 			modifier = witch_brew_tea_modifier
-			years = 5
+			years = 2
 		}
 	}
 }

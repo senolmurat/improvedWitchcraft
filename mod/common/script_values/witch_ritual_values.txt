@@ -213,3 +213,50 @@ witch_hex_discovery_chance_value = {
 	min = 5
 	max = 60
 }
+
+# The value of the character's highest skill (prowess excluded). Scope: character
+witch_improved_highest_skill_value = {
+	value = 0
+	if = {
+		limit = { highest_skill = diplomacy }
+		add = diplomacy
+	}
+	else_if = {
+		limit = { highest_skill = martial }
+		add = martial
+	}
+	else_if = {
+		limit = { highest_skill = stewardship }
+		add = stewardship
+	}
+	else_if = {
+		limit = { highest_skill = intrigue }
+		add = intrigue
+	}
+	else_if = {
+		limit = { highest_skill = learning }
+		add = learning
+	}
+}
+
+# Seek Blessing: target value of the learning duel in witchimproved.1001. Scope: the character seeking the blessing.
+witch_blessing_difficulty_value = {
+	value = 10
+	if = {
+		limit = { witch_improved_is_master_witch_trigger = yes }
+		subtract = 4
+	}
+	else_if = {
+		limit = { witch_improved_is_adept_witch_trigger = yes }
+		subtract = 2
+	}
+	if = {
+		limit = { witch_improved_good_ceremony_trigger = yes }
+		subtract = 2
+	}
+	else_if = {
+		limit = { witch_improved_poor_ceremony_trigger = yes }
+		add = 2
+	}
+	min = 4
+}

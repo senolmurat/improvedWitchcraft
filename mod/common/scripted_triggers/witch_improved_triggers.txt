@@ -112,3 +112,24 @@ witch_improved_is_master_witch_trigger = {
 	has_trait = witch
 	has_trait_xp = { trait = witch value >= 100 }
 }
+
+# Seek Blessing: how good is this teacher at what they teach? Scope: the teacher
+witch_blessing_skilled_teacher_trigger = {
+	OR = {
+		diplomacy >= high_skill_rating
+		martial >= high_skill_rating
+		stewardship >= high_skill_rating
+		intrigue >= high_skill_rating
+		learning >= high_skill_rating
+	}
+}
+
+witch_blessing_master_teacher_trigger = {
+	OR = {
+		diplomacy >= extremely_high_skill_rating
+		martial >= extremely_high_skill_rating
+		stewardship >= extremely_high_skill_rating
+		intrigue >= extremely_high_skill_rating
+		learning >= extremely_high_skill_rating
+	}
+}

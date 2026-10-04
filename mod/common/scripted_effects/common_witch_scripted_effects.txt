@@ -680,3 +680,284 @@ witch_hex_discovered_effect = {
 		}
 	}
 }
+
+###################
+# SEEK BLESSING INTENT
+###################
+# Flow: witch.3014 (after) -> witchimproved.1001. The boons last half as long for guests as for the host.
+
+# Grants a blessing boon as a toast. Scope: the character seeking the blessing.
+# MODIFIER = boon, HOST_MONTHS / GUEST_MONTHS = duration, TITLE = toast title, ICON = character shown on the toast.
+# A boon is never stacked: the host's is renewed, a guest who already has it keeps the one they have.
+witch_blessing_add_boon_effect = {
+	if = {
+		limit = {
+			has_character_modifier = $MODIFIER$
+			NOT = { this = scope:host }
+		}
+		custom_tooltip = witchimproved.1001.already.tt
+	}
+	else = {
+		send_interface_toast = {
+			title = $TITLE$
+			left_icon = $ICON$
+			hidden_effect = {
+				if = {
+					limit = { has_character_modifier = $MODIFIER$ }
+					remove_character_modifier = $MODIFIER$
+				}
+			}
+			if = {
+				limit = { this = scope:host }
+				add_character_modifier = {
+					modifier = $MODIFIER$
+					months = $HOST_MONTHS$
+				}
+			}
+			else = {
+				add_character_modifier = {
+					modifier = $MODIFIER$
+					months = $GUEST_MONTHS$
+				}
+			}
+		}
+	}
+}
+
+# The boon of a teacher slot. SKILL = scope:blessing_skill_N, TEACHER = scope:blessing_teacher_N, the rest as above.
+witch_blessing_teacher_boon_effect = {
+	if = {
+		limit = { $SKILL$ = flag:diplomacy }
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_diplomacy_boon HOST_MONTHS = $HOST_MONTHS$ GUEST_MONTHS = $GUEST_MONTHS$ TITLE = $TITLE$ ICON = $TEACHER$ }
+	}
+	else_if = {
+		limit = { $SKILL$ = flag:martial }
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_martial_boon HOST_MONTHS = $HOST_MONTHS$ GUEST_MONTHS = $GUEST_MONTHS$ TITLE = $TITLE$ ICON = $TEACHER$ }
+	}
+	else_if = {
+		limit = { $SKILL$ = flag:stewardship }
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_stewardship_boon HOST_MONTHS = $HOST_MONTHS$ GUEST_MONTHS = $GUEST_MONTHS$ TITLE = $TITLE$ ICON = $TEACHER$ }
+	}
+	else_if = {
+		limit = { $SKILL$ = flag:intrigue }
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_intrigue_boon HOST_MONTHS = $HOST_MONTHS$ GUEST_MONTHS = $GUEST_MONTHS$ TITLE = $TITLE$ ICON = $TEACHER$ }
+	}
+	else_if = {
+		limit = { $SKILL$ = flag:learning }
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_learning_boon HOST_MONTHS = $HOST_MONTHS$ GUEST_MONTHS = $GUEST_MONTHS$ TITLE = $TITLE$ ICON = $TEACHER$ }
+	}
+}
+
+# Remembers which skill a teacher slot teaches. Scope: the teacher. SLOT = 1, 2 or 3
+witch_blessing_save_slot_skill_effect = {
+	if = {
+		limit = {
+			exists = scope:blessing_best_diplomacy
+			this = scope:blessing_best_diplomacy
+		}
+		save_scope_value_as = { name = blessing_skill_$SLOT$ value = flag:diplomacy }
+	}
+	else_if = {
+		limit = {
+			exists = scope:blessing_best_martial
+			this = scope:blessing_best_martial
+		}
+		save_scope_value_as = { name = blessing_skill_$SLOT$ value = flag:martial }
+	}
+	else_if = {
+		limit = {
+			exists = scope:blessing_best_stewardship
+			this = scope:blessing_best_stewardship
+		}
+		save_scope_value_as = { name = blessing_skill_$SLOT$ value = flag:stewardship }
+	}
+	else_if = {
+		limit = {
+			exists = scope:blessing_best_intrigue
+			this = scope:blessing_best_intrigue
+		}
+		save_scope_value_as = { name = blessing_skill_$SLOT$ value = flag:intrigue }
+	}
+	else_if = {
+		limit = {
+			exists = scope:blessing_best_learning
+			this = scope:blessing_best_learning
+		}
+		save_scope_value_as = { name = blessing_skill_$SLOT$ value = flag:learning }
+	}
+}
+
+# Run in the immediate of witchimproved.1001. Scope: the character seeking the blessing.
+# Finds the soulmate, the healer and the best guest in each skill, and offers the three most skilled as teachers.
+# Saves (all optional): scope:sex_partner, scope:health_expert, scope:blessing_teacher_1..3 with scope:blessing_skill_1..3,
+# scope:blessing_right_portrait.
+witch_blessing_prepare_effect = {
+	save_scope_as = blessing_seeker
+	scope:activity = {
+		# Your soulmate, if they are here and willing
+		if = {
+			limit = {
+				scope:blessing_seeker = { witch_3014_can_have_sex_trigger = yes }
+				any_attending_character = { has_relation_soulmate = scope:blessing_seeker }
+			}
+			random_attending_character = {
+				limit = {
+					witch_3014_loved_sex_partner_trigger = yes
+					has_relation_soulmate = scope:blessing_seeker
+				}
+				save_scope_as = sex_partner
+			}
+		}
+
+		# The most learned healer in the circle
+		ordered_attending_character = {
+			limit = {
+				NOT = { this = scope:blessing_seeker }
+				NOT = { has_relation_soulmate = scope:blessing_seeker }
+				OR = {
+					has_trait = lifestyle_herbalist
+					has_trait = lifestyle_mystic
+					has_trait = lifestyle_physician
+				}
+			}
+			order_by = learning
+			position = 0
+			check_range_bounds = no
+			save_scope_as = health_expert
+		}
+
+		# The best guest in each skill
+		ordered_attending_character = {
+			limit = {
+				NOT = { this = scope:blessing_seeker }
+				NOT = { has_relation_soulmate = scope:blessing_seeker }
+				trigger_if = {
+					limit = { exists = scope:health_expert }
+					NOT = { this = scope:health_expert }
+				}
+				highest_skill = diplomacy
+				NOT = { is_in_list = blessing_teachers }
+			}
+			order_by = diplomacy
+			position = 0
+			check_range_bounds = no
+			save_scope_as = blessing_best_diplomacy
+			add_to_temporary_list = blessing_teachers
+		}
+		ordered_attending_character = {
+			limit = {
+				NOT = { this = scope:blessing_seeker }
+				NOT = { has_relation_soulmate = scope:blessing_seeker }
+				trigger_if = {
+					limit = { exists = scope:health_expert }
+					NOT = { this = scope:health_expert }
+				}
+				highest_skill = martial
+				NOT = { is_in_list = blessing_teachers }
+			}
+			order_by = martial
+			position = 0
+			check_range_bounds = no
+			save_scope_as = blessing_best_martial
+			add_to_temporary_list = blessing_teachers
+		}
+		ordered_attending_character = {
+			limit = {
+				NOT = { this = scope:blessing_seeker }
+				NOT = { has_relation_soulmate = scope:blessing_seeker }
+				trigger_if = {
+					limit = { exists = scope:health_expert }
+					NOT = { this = scope:health_expert }
+				}
+				highest_skill = stewardship
+				NOT = { is_in_list = blessing_teachers }
+			}
+			order_by = stewardship
+			position = 0
+			check_range_bounds = no
+			save_scope_as = blessing_best_stewardship
+			add_to_temporary_list = blessing_teachers
+		}
+		ordered_attending_character = {
+			limit = {
+				NOT = { this = scope:blessing_seeker }
+				NOT = { has_relation_soulmate = scope:blessing_seeker }
+				trigger_if = {
+					limit = { exists = scope:health_expert }
+					NOT = { this = scope:health_expert }
+				}
+				highest_skill = intrigue
+				NOT = { is_in_list = blessing_teachers }
+			}
+			order_by = intrigue
+			position = 0
+			check_range_bounds = no
+			save_scope_as = blessing_best_intrigue
+			add_to_temporary_list = blessing_teachers
+		}
+		ordered_attending_character = {
+			limit = {
+				NOT = { this = scope:blessing_seeker }
+				NOT = { has_relation_soulmate = scope:blessing_seeker }
+				trigger_if = {
+					limit = { exists = scope:health_expert }
+					NOT = { this = scope:health_expert }
+				}
+				highest_skill = learning
+				NOT = { is_in_list = blessing_teachers }
+			}
+			order_by = learning
+			position = 0
+			check_range_bounds = no
+			save_scope_as = blessing_best_learning
+			add_to_temporary_list = blessing_teachers
+		}
+	}
+
+	# The three most skilled of them become the teachers on offer (a slot is only filled when the list has that many people: a position past the end is capped to the last entry, which would repeat a person)
+	if = {
+		limit = { list_size = { name = blessing_teachers value >= 1 } }
+		ordered_in_list = {
+			list = blessing_teachers
+			order_by = witch_improved_highest_skill_value
+			position = 0
+			check_range_bounds = no
+			save_scope_as = blessing_teacher_1
+			witch_blessing_save_slot_skill_effect = { SLOT = 1 }
+		}
+	}
+	if = {
+		limit = { list_size = { name = blessing_teachers value >= 2 } }
+		ordered_in_list = {
+			list = blessing_teachers
+			order_by = witch_improved_highest_skill_value
+			position = 1
+			check_range_bounds = no
+			save_scope_as = blessing_teacher_2
+			witch_blessing_save_slot_skill_effect = { SLOT = 2 }
+		}
+	}
+	if = {
+		limit = { list_size = { name = blessing_teachers value >= 3 } }
+		ordered_in_list = {
+			list = blessing_teachers
+			order_by = witch_improved_highest_skill_value
+			position = 2
+			check_range_bounds = no
+			save_scope_as = blessing_teacher_3
+			witch_blessing_save_slot_skill_effect = { SLOT = 3 }
+		}
+	}
+
+	if = {
+		limit = { exists = scope:health_expert }
+		scope:health_expert = { save_scope_as = blessing_right_portrait }
+	}
+	else_if = {
+		limit = {
+			exists = scope:sex_partner
+			has_relation_soulmate = scope:sex_partner
+		}
+		scope:sex_partner = { save_scope_as = blessing_right_portrait }
+	}
+}

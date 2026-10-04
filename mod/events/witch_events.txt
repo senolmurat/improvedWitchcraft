@@ -1495,18 +1495,9 @@ witch.3010 = { #by Mathilda Bjarnehed
 	after = {
 		scope:activity = {
 			every_attending_character = {
-				if = {
-					limit = {
-						has_activity_intent = blessing_intent
-					}
-					trigger_event = {
-						id = witchimproved.1001
-					}
-				}
-				else = {
-					trigger_event = {
-						id = witch.3014
-					}
+				# Improved Witchcraft: everyone takes part in the gathering first; the new intents continue from the 'after' of witch.3014
+				trigger_event = {
+					id = witch.3014
 				}
 			}
 		}
@@ -1744,11 +1735,12 @@ witch.3014 = { #by Mathilda Bjarnehed
 			#Teacher (experience )
 			random_attending_character = {
 				limit = {
-					# Improved Witchcraft: these intents replace the teacher's free perk point (see witchimproved.1004 and witchimproved.1005)
+					# Improved Witchcraft: these intents replace the teacher's free perk point (see witchimproved.1001, .1004 and .1005)
 					root = {
 						NOR = {
 							has_activity_intent = forbidden_knowledge_intent
 							has_activity_intent = curse_enemy_intent
+							has_activity_intent = blessing_intent
 						}
 					}
 					NOR = {
@@ -2320,6 +2312,10 @@ witch.3014 = { #by Mathilda Bjarnehed
 				has_any_rival_or_murder_target_trigger = yes
 			}
 			trigger_event = witchimproved.1005
+		}
+		else_if = {
+			limit = { has_activity_intent = blessing_intent }
+			trigger_event = witchimproved.1001
 		}
 	}
 }	

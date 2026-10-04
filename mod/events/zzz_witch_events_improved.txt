@@ -1,490 +1,537 @@
 ﻿namespace = witchimproved
 
-# Blessing intent event - attendees can get different boons
+###################
+# SEEK BLESSING INTENT
+###################
+# witch.3014 (after) -> witchimproved.1001
+# Any attendee with blessing_intent goes through this, host or guest. Guests' boons last half as long as the host's.
+
+# Seek Blessing - learn from the most skilled people in the circle
+# Saved scopes (all optional, see witch_blessing_prepare_effect): blessing_teacher_1..3, blessing_skill_1..3,
+# health_expert, sex_partner, blessing_right_portrait
 witchimproved.1001 = {
 	type = activity_event
 	title = witchimproved.1001.t
-	desc ={
-		#host
-		first_valid = {
-			triggered_desc = {
-				trigger = { root = scope:host }
-				desc = {
-					first_valid = {
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:great_translation }
-							desc = witch.3014.host.great_translation.desc
-						}
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:poor_translation }
-							desc = witch.3014.host.poor_translation.desc
-						}
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:great_tricks }
-							desc = witch.3014.host.great_tricks.desc
-						}
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:poor_tricks }
-							desc = witch.3014.host.poor_tricks.desc
-						}
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:great_improvisation }
-							desc = witch.3014.host.great_improvisation.desc
-						}
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:poor_improvisation }
-							desc = witch.3014.host.poor_improvisation.desc
-						}
-						triggered_desc = {
-							trigger = { scope:grand_rite_ceremony_outcome = flag:offering }
-							desc = witch.3014.host.offering.desc
-						}
-						desc = witch.3014.host.fallback.desc
-					}
-					desc = witch.3014.host.end.desc
-				}
-			}
-			#everyone else
-			desc = {
-				desc = witch.3014.guest.start.desc
-				first_valid = {
-					triggered_desc = {
-						trigger = {
-							OR = {
-								scope:grand_rite_ceremony_outcome = flag:great_translation
-								scope:grand_rite_ceremony_outcome = flag:great_tricks
-								scope:grand_rite_ceremony_outcome = flag:great_improvisation
-								scope:grand_rite_ceremony_outcome = flag:offering
-								NOT = { exists = scope:grand_rite_ceremony_outcome }
-							}
-						}
-						desc = witch.3014.guest.good.desc
-					}
-					triggered_desc = {
-						trigger = {
-							OR = {
-								scope:grand_rite_ceremony_outcome = flag:poor_translation
-								scope:grand_rite_ceremony_outcome = flag:poor_tricks
-								scope:grand_rite_ceremony_outcome = flag:poor_improvisation
-							}
-						}
-						desc = witch.3014.guest.bad.desc
-					}
-					desc = witch.3014.guest.fallback.desc
-				}
-				desc = witch.3014.guest.end.desc
-			}
-		}
-	}
+	desc = witchimproved.1001.desc
 	theme = witchcraft
 	override_background = {
 		reference = bp1_bonfire
 	}
-	left_portrait = scope:left_portrait
-	right_portrait = scope:right_portrait
-	lower_center_portrait = scope:lower_center_portrait
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		trigger = { exists = scope:blessing_right_portrait }
+		character = scope:blessing_right_portrait
+	}
+	lower_left_portrait = {
+		trigger = { exists = scope:blessing_teacher_1 }
+		character = scope:blessing_teacher_1
+	}
+	lower_center_portrait = {
+		trigger = { exists = scope:blessing_teacher_2 }
+		character = scope:blessing_teacher_2
+	}
+	lower_right_portrait = {
+		trigger = { exists = scope:blessing_teacher_3 }
+		character = scope:blessing_teacher_3
+	}
 
 	immediate = {
-
-		#Tell everyone secret about everyone else
-		hidden_effect = {
-			scope:activity = {
-				every_attending_character = {
-					save_temporary_scope_as = learning_secret
-					scope:activity = {
-						every_attending_character = {
-							random_secret = {
-								type = secret_witch
-								limit = {
-									NOT = { is_known_by = scope:learning_secret }
-								}
-								reveal_to = scope:learning_secret
-							}
-						}
-					}
-				}
-			}
-		}
-
-		#Give outcome to host
-		if = {
-			limit = { this = scope:host }
-
-			if = {
-				limit = {
-					OR = {
-						scope:grand_rite_ceremony_outcome = flag:great_translation
-						scope:grand_rite_ceremony_outcome = flag:great_tricks
-						scope:grand_rite_ceremony_outcome = flag:great_improvisation
-						scope:grand_rite_ceremony_outcome = flag:offering
-					}
-				}
-				grand_rite_good_outcome = yes
-			}
-			else = {
-				grand_rite_poor_outcome = yes
-			}
-		}
-
-		scope:activity = {
-			#Talk to new guest
-			if = {
-				limit = { root = scope:host }
-				scope:activity = {
-					random_attending_character = {
-						limit = { has_character_flag = grand_rite_new_guest }
-						save_scope_as = new_guest
-					}
-				}
-			}
-
-			# sex partner - soulmate
-			if = {
-				limit = {
-					root = {
-						witch_3014_can_have_sex_trigger = yes
-					}
-				}
-				#If you have a soulmate here talk with them for fertility bonus (not available if they can't sleep with you for some reason)
-				if = {
-					limit = { any_attending_character = { has_relation_soulmate = root } }
-					random_attending_character = {
-						limit = {
-							witch_3014_loved_sex_partner_trigger = yes
-							has_relation_soulmate = root
-						}
-						save_scope_as = sex_partner
-					}
-				}
-			}
-
-			#Herbalism - wise man/woman - physician
-			random_attending_character = {
-				limit = {
-					OR = {
-						has_trait = lifestyle_herbalist
-						has_trait = lifestyle_mystic
-						has_trait = lifestyle_physician
-					}
-					NOR = {
-						trigger_if = {
-							limit = { exists = scope:new_guest }
-							this = scope:new_guest
-						}
-						trigger_if = {
-							limit = { exists = scope:sex_partner }
-							this = scope:sex_partner
-						}
-						this = root
-					}
-				}
-				save_scope_as = health_expert
-			}
-
-			#Teacher (boon )
-			random_attending_character = {
-				limit = {
-					NOR = {
-						trigger_if = {
-							limit = { exists = scope:new_guest }
-							this = scope:new_guest
-						}
-						trigger_if = {
-							limit = { exists = scope:health_expert }
-							this = scope:health_expert
-						}
-						trigger_if = {
-							limit = { exists = scope:sex_partner }
-							this = scope:sex_partner
-						}
-						this = root
-					}
-					trigger_if = {
-						limit = { highest_skill = diplomacy }
-					}
-					trigger_else_if = {
-						limit = { highest_skill = martial }
-					}
-					trigger_else_if = {
-						limit = { highest_skill = stewardship }
-					}
-					trigger_else_if = {
-						limit = { highest_skill = intrigue }
-					}
-					trigger_else_if = {
-						limit = { highest_skill = learning }
-					}
-					trigger_else = {
-						always = no
-					}
-				}
-				weight = {
-					base = 0
-					modifier = {
-						add = {
-							if = {
-								limit = { highest_skill = diplomacy }
-								add = diplomacy
-							}
-							else_if = {
-								limit = { highest_skill = martial }
-								add = martial
-							}
-							else_if = {
-								limit = { highest_skill = stewardship }
-								add = stewardship
-							}
-							else_if = {
-								limit = { highest_skill = intrigue }
-								add = intrigue
-							}
-							else_if = {
-								limit = { highest_skill = learning }
-								add = learning
-							}
-						}
-					}
-				}
-				save_scope_as = teacher
-			}
-		}
-
-		#Set portraits
-		if = {
-			limit = {
-				exists = scope:teacher
-				exists = scope:sex_partner
-				exists = scope:health_expert
-			}
-			random_list = {
-				1 = {
-					scope:teacher = { save_scope_as = left_portrait }
-					scope:sex_partner = { save_scope_as = right_portrait }
-					scope:health_expert = { save_scope_as = lower_center_portrait }
-				}
-				1 = {
-					scope:teacher = { save_scope_as = left_portrait }
-					scope:sex_partner = { save_scope_as = right_portrait }
-					scope:health_expert = { save_scope_as = lower_center_portrait }
-				}
-				1 = {
-					scope:teacher = { save_scope_as = lower_center_portrait }
-					scope:sex_partner = { save_scope_as = left_portrait }
-					scope:health_expert = { save_scope_as = right_portrait }
-				}
-				1 = {
-					scope:teacher = { save_scope_as = lower_center_portrait }
-					scope:sex_partner = { save_scope_as = right_portrait }
-					scope:health_expert = { save_scope_as = left_portrait }
-				}
-				1 = {
-					scope:teacher = { save_scope_as = left_portrait }
-					scope:sex_partner = { save_scope_as = lower_center_portrait }
-					scope:health_expert = { save_scope_as = right_portrait }
-				}
-				1 = {
-					scope:teacher = { save_scope_as = right_portrait }
-					scope:sex_partner = { save_scope_as = lower_center_portrait }
-					scope:health_expert = { save_scope_as = left_portrait }
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				exists = scope:teacher
-				exists = scope:sex_partner
-			}
-			scope:sex_partner = { save_scope_as = left_portrait }
-			scope:teacher = { save_scope_as = right_portrait }
-		}
-		else_if = {
-			limit = {
-				exists = scope:teacher
-				exists = scope:health_expert
-			}
-			scope:health_expert = { save_scope_as = left_portrait }
-			scope:teacher = { save_scope_as = right_portrait }
-		}
-		else_if = {
-			limit = {
-				exists = scope:sex_partner
-				exists = scope:health_expert
-			}
-			scope:health_expert = { save_scope_as = left_portrait }
-			scope:sex_partner = { save_scope_as = right_portrait }
-		}
-		else_if = {
-			limit = {
-				exists = scope:health_expert
-			}
-			save_scope_as = left_portrait
-			scope:health_expert = { save_scope_as = right_portrait }
-		}
-		else_if = {
-			limit = {
-				exists = scope:teacher
-			}
-			save_scope_as = left_portrait
-			scope:teacher = { save_scope_as = right_portrait }
-		}
-		else_if = {
-			limit = {
-				exists = scope:sex_partner
-			}
-			save_scope_as = left_portrait
-			scope:sex_partner = { save_scope_as = right_portrait }
-		}
-		else = {
-			save_scope_as = left_portrait
-		}
+		witch_blessing_prepare_effect = yes
 	}
 
-	# Seek health boon
+	# Teacher 1
 	option = {
-		name = witchimproved.1001.a
-		trigger = { exists = scope:health_expert }
-		highlight_portrait = scope:health_expert
-
-		send_interface_toast = {
-			title = witch.3014.g.inspiration
-			left_icon = scope:health_expert
-			add_character_modifier = {
-				modifier = witch_blessing_health_boon
-				years = 1
-			}	
+		trigger = {
+			exists = scope:blessing_teacher_1
+			trigger_if = {
+				limit = { exists = scope:health_expert }
+				NOT = { scope:blessing_teacher_1 = scope:health_expert }
+			}
+			trigger_if = {
+				limit = { exists = scope:sex_partner }
+				NOT = { scope:blessing_teacher_1 = scope:sex_partner }
+			}
 		}
-
-		stress_impact = {
-			lazy = minor_stress_impact_gain
-		}
-	}
-
-	#Teacher gives you beneficial modifier
-	option = {
-		trigger = { exists = scope:teacher }
 		name = {
 			text = {
-				desc = witch.3014.b.start
+				desc = witchimproved.1001.teacher_1
 				first_valid = {
 					triggered_desc = {
-						trigger = { scope:teacher = { highest_skill = diplomacy } }
+						trigger = { scope:blessing_skill_1 = flag:diplomacy }
 						desc = witch.3014.b.diplomacy
 					}
 					triggered_desc = {
-						trigger = { scope:teacher = { highest_skill = martial } }
+						trigger = { scope:blessing_skill_1 = flag:martial }
 						desc = witch.3014.b.martial
 					}
 					triggered_desc = {
-						trigger = { scope:teacher = { highest_skill = stewardship } }
+						trigger = { scope:blessing_skill_1 = flag:stewardship }
 						desc = witch.3014.b.stewardship
 					}
 					triggered_desc = {
-						trigger = { scope:teacher = { highest_skill = intrigue } }
+						trigger = { scope:blessing_skill_1 = flag:intrigue }
 						desc = witch.3014.b.intrigue
 					}
 					triggered_desc = {
-						trigger = { scope:teacher = { highest_skill = learning } }
+						trigger = { scope:blessing_skill_1 = flag:learning }
 						desc = witch.3014.b.learning
 					}
 				}
 			}
 		}
-		highlight_portrait = scope:teacher
+		highlight_portrait = scope:blessing_teacher_1
 
-		if = {
-			limit = { scope:teacher = { highest_skill = diplomacy } }
-			send_interface_toast = {
-				title = witch.3014.g.inspiration
-				left_icon = scope:teacher
-				add_character_modifier = {
-					modifier = witch_blessing_diplomacy_boon
-					years = 2
+		# How much of it sticks decides how long the boon lasts
+		duel = {
+			skill = learning
+			value = witch_blessing_difficulty_value
+			25 = {
+				desc = witchimproved.1001.great.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
 				}
-			}
-		}
-		else_if = {
-			limit = { scope:teacher = { highest_skill = martial } }
-			send_interface_toast = {
-				title = witch.3014.g.inspiration
-				left_icon = scope:teacher
-				add_character_modifier = {
-					modifier = witch_blessing_martial_boon
-					years = 2
-				}	
-			}
-		}
-		else_if = {
-			limit = { scope:teacher = { highest_skill = stewardship } }
-			send_interface_toast = {
-				title = witch.3014.g.inspiration
-				left_icon = scope:teacher
-				add_character_modifier = {
-					modifier = witch_blessing_stewardship_boon
-					years = 2
+				# A better teacher makes the lesson last
+				modifier = {
+					add = 15
+					scope:blessing_teacher_1 = { witch_blessing_skilled_teacher_trigger = yes }
 				}
-			}
-		}
-		else_if = {
-			limit = { scope:teacher = { highest_skill = intrigue } }
-			send_interface_toast = {
-				title = witch.3014.g.inspiration
-				left_icon = scope:teacher
-				add_character_modifier = {
-					modifier = witch_blessing_intrigue_boon
-					years = 2
+				modifier = {
+					add = 15
+					scope:blessing_teacher_1 = { witch_blessing_master_teacher_trigger = yes }
 				}
+				min = 5
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_1 TEACHER = scope:blessing_teacher_1 HOST_MONTHS = 24 GUEST_MONTHS = 12 TITLE = witchimproved.1001.great.t }
 			}
-		}
-		else_if = {
-			limit = { scope:teacher = { highest_skill = learning } }
-			send_interface_toast = {
-				title = witch.3014.g.inspiration
-				left_icon = scope:teacher
-				add_character_modifier = {
-					modifier = witch_blessing_learning_boon
-					years = 2
+			50 = {
+				desc = witchimproved.1001.normal.t
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_1 TEACHER = scope:blessing_teacher_1 HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.normal.t }
+			}
+			25 = {
+				desc = witchimproved.1001.poor.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
 				}
+				min = 5
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_1 TEACHER = scope:blessing_teacher_1 HOST_MONTHS = 6 GUEST_MONTHS = 3 TITLE = witchimproved.1001.poor.t }
 			}
 		}
+
 		stress_impact = {
 			lazy = minor_stress_impact_gain
 		}
+
+		ai_chance = {
+			base = 20
+			# Learn what you are working on, and how to fight when at war
+			modifier = {
+				add = 20
+				OR = {
+					AND = {
+						scope:blessing_skill_1 = flag:diplomacy
+						has_lifestyle = diplomacy_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_1 = flag:martial
+						has_lifestyle = martial_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_1 = flag:stewardship
+						has_lifestyle = stewardship_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_1 = flag:intrigue
+						has_lifestyle = intrigue_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_1 = flag:learning
+						has_lifestyle = learning_lifestyle
+					}
+				}
+			}
+			modifier = {
+				add = 30
+				scope:blessing_skill_1 = flag:martial
+				is_at_war = yes
+			}
+		}
 	}
 
-	# Seek fertility boon
+	# Teacher 2
 	option = {
-		#name = witchimproved.1001.b
-		name = witch.3014.e
-		
+		trigger = {
+			exists = scope:blessing_teacher_2
+			NOT = { scope:blessing_teacher_2 = scope:blessing_teacher_1 }
+			trigger_if = {
+				limit = { exists = scope:health_expert }
+				NOT = { scope:blessing_teacher_2 = scope:health_expert }
+			}
+			trigger_if = {
+				limit = { exists = scope:sex_partner }
+				NOT = { scope:blessing_teacher_2 = scope:sex_partner }
+			}
+		}
+		name = {
+			text = {
+				desc = witchimproved.1001.teacher_2
+				first_valid = {
+					triggered_desc = {
+						trigger = { scope:blessing_skill_2 = flag:diplomacy }
+						desc = witch.3014.b.diplomacy
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_2 = flag:martial }
+						desc = witch.3014.b.martial
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_2 = flag:stewardship }
+						desc = witch.3014.b.stewardship
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_2 = flag:intrigue }
+						desc = witch.3014.b.intrigue
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_2 = flag:learning }
+						desc = witch.3014.b.learning
+					}
+				}
+			}
+		}
+		highlight_portrait = scope:blessing_teacher_2
+
+		# How much of it sticks decides how long the boon lasts
+		duel = {
+			skill = learning
+			value = witch_blessing_difficulty_value
+			25 = {
+				desc = witchimproved.1001.great.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				# A better teacher makes the lesson last
+				modifier = {
+					add = 15
+					scope:blessing_teacher_2 = { witch_blessing_skilled_teacher_trigger = yes }
+				}
+				modifier = {
+					add = 15
+					scope:blessing_teacher_2 = { witch_blessing_master_teacher_trigger = yes }
+				}
+				min = 5
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_2 TEACHER = scope:blessing_teacher_2 HOST_MONTHS = 24 GUEST_MONTHS = 12 TITLE = witchimproved.1001.great.t }
+			}
+			50 = {
+				desc = witchimproved.1001.normal.t
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_2 TEACHER = scope:blessing_teacher_2 HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.normal.t }
+			}
+			25 = {
+				desc = witchimproved.1001.poor.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 5
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_2 TEACHER = scope:blessing_teacher_2 HOST_MONTHS = 6 GUEST_MONTHS = 3 TITLE = witchimproved.1001.poor.t }
+			}
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 20
+			# Learn what you are working on, and how to fight when at war
+			modifier = {
+				add = 20
+				OR = {
+					AND = {
+						scope:blessing_skill_2 = flag:diplomacy
+						has_lifestyle = diplomacy_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_2 = flag:martial
+						has_lifestyle = martial_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_2 = flag:stewardship
+						has_lifestyle = stewardship_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_2 = flag:intrigue
+						has_lifestyle = intrigue_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_2 = flag:learning
+						has_lifestyle = learning_lifestyle
+					}
+				}
+			}
+			modifier = {
+				add = 30
+				scope:blessing_skill_2 = flag:martial
+				is_at_war = yes
+			}
+		}
+	}
+
+	# Teacher 3
+	option = {
+		trigger = {
+			exists = scope:blessing_teacher_3
+			NOT = { scope:blessing_teacher_3 = scope:blessing_teacher_1 }
+			NOT = { scope:blessing_teacher_3 = scope:blessing_teacher_2 }
+			trigger_if = {
+				limit = { exists = scope:health_expert }
+				NOT = { scope:blessing_teacher_3 = scope:health_expert }
+			}
+			trigger_if = {
+				limit = { exists = scope:sex_partner }
+				NOT = { scope:blessing_teacher_3 = scope:sex_partner }
+			}
+		}
+		name = {
+			text = {
+				desc = witchimproved.1001.teacher_3
+				first_valid = {
+					triggered_desc = {
+						trigger = { scope:blessing_skill_3 = flag:diplomacy }
+						desc = witch.3014.b.diplomacy
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_3 = flag:martial }
+						desc = witch.3014.b.martial
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_3 = flag:stewardship }
+						desc = witch.3014.b.stewardship
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_3 = flag:intrigue }
+						desc = witch.3014.b.intrigue
+					}
+					triggered_desc = {
+						trigger = { scope:blessing_skill_3 = flag:learning }
+						desc = witch.3014.b.learning
+					}
+				}
+			}
+		}
+		highlight_portrait = scope:blessing_teacher_3
+
+		# How much of it sticks decides how long the boon lasts
+		duel = {
+			skill = learning
+			value = witch_blessing_difficulty_value
+			25 = {
+				desc = witchimproved.1001.great.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				# A better teacher makes the lesson last
+				modifier = {
+					add = 15
+					scope:blessing_teacher_3 = { witch_blessing_skilled_teacher_trigger = yes }
+				}
+				modifier = {
+					add = 15
+					scope:blessing_teacher_3 = { witch_blessing_master_teacher_trigger = yes }
+				}
+				min = 5
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_3 TEACHER = scope:blessing_teacher_3 HOST_MONTHS = 24 GUEST_MONTHS = 12 TITLE = witchimproved.1001.great.t }
+			}
+			50 = {
+				desc = witchimproved.1001.normal.t
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_3 TEACHER = scope:blessing_teacher_3 HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.normal.t }
+			}
+			25 = {
+				desc = witchimproved.1001.poor.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 5
+
+				witch_blessing_teacher_boon_effect = { SKILL = scope:blessing_skill_3 TEACHER = scope:blessing_teacher_3 HOST_MONTHS = 6 GUEST_MONTHS = 3 TITLE = witchimproved.1001.poor.t }
+			}
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 20
+			# Learn what you are working on, and how to fight when at war
+			modifier = {
+				add = 20
+				OR = {
+					AND = {
+						scope:blessing_skill_3 = flag:diplomacy
+						has_lifestyle = diplomacy_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_3 = flag:martial
+						has_lifestyle = martial_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_3 = flag:stewardship
+						has_lifestyle = stewardship_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_3 = flag:intrigue
+						has_lifestyle = intrigue_lifestyle
+					}
+					AND = {
+						scope:blessing_skill_3 = flag:learning
+						has_lifestyle = learning_lifestyle
+					}
+				}
+			}
+			modifier = {
+				add = 30
+				scope:blessing_skill_3 = flag:martial
+				is_at_war = yes
+			}
+		}
+	}
+
+	# The healer's regimen
+	option = {
+		trigger = { exists = scope:health_expert }
+		name = witchimproved.1001.a
+		highlight_portrait = scope:health_expert
+
+		# How much of it sticks decides how long the boon lasts
+		duel = {
+			skill = learning
+			value = witch_blessing_difficulty_value
+			25 = {
+				desc = witchimproved.1001.great.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				# A better healer gives better advice
+				modifier = {
+					add = 15
+					scope:health_expert = { learning >= high_skill_rating }
+				}
+				modifier = {
+					add = 15
+					scope:health_expert = { learning >= extremely_high_skill_rating }
+				}
+				min = 5
+
+				witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_health_boon HOST_MONTHS = 24 GUEST_MONTHS = 12 TITLE = witchimproved.1001.great.t ICON = scope:health_expert }
+			}
+			50 = {
+				desc = witchimproved.1001.normal.t
+
+				witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_health_boon HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.normal.t ICON = scope:health_expert }
+			}
+			25 = {
+				desc = witchimproved.1001.poor.t
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 5
+
+				witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_health_boon HOST_MONTHS = 6 GUEST_MONTHS = 3 TITLE = witchimproved.1001.poor.t ICON = scope:health_expert }
+			}
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 50
+				has_any_illness = yes
+			}
+			modifier = {
+				add = 20
+				age >= 50
+			}
+		}
+	}
+
+	# A night with your soulmate
+	option = {
 		trigger = {
 			exists = scope:sex_partner
 			has_relation_soulmate = scope:sex_partner
 		}
+		name = witch.3014.e
 		highlight_portrait = scope:sex_partner
-		
-		add_character_modifier = {
-			modifier = witch_blessing_fertility_boon
-			years = 2
+
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_fertility_boon HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.boon.t ICON = scope:sex_partner }
+
+		ai_chance = {
+			base = 10
+			# Still no child
+			modifier = {
+				add = 50
+				NOT = {
+					any_child = { is_alive = yes }
+				}
+			}
 		}
 	}
 
-	#Relax and indulge
+	# Relax and indulge: a little of everything, and a real rest
 	option = {
+		trigger = {
+			calc_true_if = {
+				amount <= 4
+				exists = scope:blessing_teacher_1
+				exists = scope:blessing_teacher_2
+				exists = scope:blessing_teacher_3
+				exists = scope:health_expert
+				AND = {
+					exists = scope:sex_partner
+					has_relation_soulmate = scope:sex_partner
+				}
+			}
+		}
 		name = witch.3014.f
 
-		add_character_modifier = {
-			modifier = witch_blessing_allrounder_boon
-			years = 2
-		}
+		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_allrounder_boon HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.boon.t ICON = root }
 
 		stress_impact = {
+			base = major_stress_loss
 			gregarious = minor_stress_impact_loss
 			drunkard = minor_stress_impact_loss
 			hashishiyah = minor_stress_impact_loss
 			comfort_eater = minor_stress_impact_loss
 		}
-	}
 
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 40
+				stress_level >= 2
+			}
+		}
+	}
 }
 
 ###################
@@ -974,7 +1021,8 @@ witchimproved.1003 = {
 					witch_hex_backfire_effect = yes
 				}
 			}
-			else = {
+			else_if = {
+				limit = { scope:hex_result = flag:fizzle }
 				send_interface_toast = {
 					title = witchimproved.1003.fizzle.t
 					left_icon = scope:target

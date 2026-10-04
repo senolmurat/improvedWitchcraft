@@ -101,3 +101,14 @@ witch_improved_strong_brew_trigger = {
 		has_activity_option = { category = rite_option_brew option = rite_brew_strong }
 	}
 }
+
+# Witch trait track levels (see zz_witch_traits.txt). Scope: character
+witch_improved_is_adept_witch_trigger = {
+	has_trait = witch
+	has_trait_xp = { trait = witch value >= 50 }
+}
+
+witch_improved_is_master_witch_trigger = {
+	has_trait = witch
+	has_trait_xp = { trait = witch value >= 100 }
+}

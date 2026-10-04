@@ -487,7 +487,138 @@ witchimproved.1001 = {
 
 }
 
-# Curse enemy intent event - attendees can curse their targets
+###################
+# HEX ENEMY INTENT
+###################
+# witch.3014 (after) -> witchimproved.1005 (victim) -> witchimproved.1002 (hex) -> witchimproved.1003 (lands weeks later)
+# Any attendee with curse_enemy_intent goes through this, host or guest.
+
+# Hex Enemy, step 1 - choose the victim among your murder scheme targets and rivals (three at a time)
+# Saves scope:hexer and scope:target, then fires witchimproved.1002.
+witchimproved.1005 = {
+	type = activity_event
+	title = witchimproved.1005.t
+	desc = witchimproved.1005.desc
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+	lower_left_portrait = {
+		trigger = { exists = scope:hex_candidate_1 }
+		character = scope:hex_candidate_1
+	}
+	lower_center_portrait = {
+		trigger = { exists = scope:hex_candidate_2 }
+		character = scope:hex_candidate_2
+	}
+	lower_right_portrait = {
+		trigger = { exists = scope:hex_candidate_3 }
+		character = scope:hex_candidate_3
+	}
+
+	immediate = {
+		witch_hex_find_candidates_effect = yes
+	}
+
+	option = {
+		trigger = { exists = scope:hex_candidate_1 }
+		name = witchimproved.1005.a
+		highlight_portrait = scope:hex_candidate_1
+
+		witch_hex_choose_victim_effect = { VICTIM = scope:hex_candidate_1 }
+
+		ai_chance = {
+			base = 10
+			# Prefer the one you already want dead
+			modifier = {
+				add = 30
+				is_scheming_against = { target = scope:hex_candidate_1 type = murder }
+			}
+		}
+	}
+
+	option = {
+		trigger = { exists = scope:hex_candidate_2 }
+		name = witchimproved.1005.b
+		highlight_portrait = scope:hex_candidate_2
+
+		witch_hex_choose_victim_effect = { VICTIM = scope:hex_candidate_2 }
+
+		ai_chance = {
+			base = 10
+			# Prefer the one you already want dead
+			modifier = {
+				add = 30
+				is_scheming_against = { target = scope:hex_candidate_2 type = murder }
+			}
+		}
+	}
+
+	option = {
+		trigger = { exists = scope:hex_candidate_3 }
+		name = witchimproved.1005.c
+		highlight_portrait = scope:hex_candidate_3
+
+		witch_hex_choose_victim_effect = { VICTIM = scope:hex_candidate_3 }
+
+		ai_chance = {
+			base = 10
+			# Prefer the one you already want dead
+			modifier = {
+				add = 30
+				is_scheming_against = { target = scope:hex_candidate_3 type = murder }
+			}
+		}
+	}
+
+	# Someone else: show the next three, or start over from the first ones
+	option = {
+		trigger = {
+			OR = {
+				exists = scope:hex_candidate_4
+				scope:hex_has_passed_over = flag:yes
+			}
+		}
+		name = witchimproved.1005.d
+
+		hidden_effect = {
+			if = {
+				limit = { exists = scope:hex_candidate_4 }
+				scope:hex_candidate_1 = { add_character_flag = { flag = witch_hex_passed_over days = 1 } }
+				scope:hex_candidate_2 = { add_character_flag = { flag = witch_hex_passed_over days = 1 } }
+				scope:hex_candidate_3 = { add_character_flag = { flag = witch_hex_passed_over days = 1 } }
+			}
+			else = {
+				witch_hex_clear_passed_over_effect = yes
+			}
+			trigger_event = witchimproved.1005
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	# No one
+	option = {
+		name = witchimproved.1005.e
+
+		hidden_effect = {
+			witch_hex_clear_passed_over_effect = yes
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# Hex Enemy, step 2 - choose the hex. Each one is a skill roll: it can take hold, come to nothing or turn on the hexer.
+# Requires scope:target (from witchimproved.1005). Saves scope:hex_type and scope:hex_result for witchimproved.1003.
 witchimproved.1002 = {
 	type = activity_event
 	title = witchimproved.1002.t
@@ -501,114 +632,61 @@ witchimproved.1002 = {
 		reference = bp1_bonfire
 	}
 	left_portrait = {
-		character = scope:left_portrait
+		character = root
 		animation = anger
 	}
-	#right_portrait = scope:right_portrait
-	lower_center_portrait = scope:lower_center_portrait
+	lower_center_portrait = scope:target
 
 	immediate = {
-
-		#Tell everyone secret about everyone else
-		hidden_effect = {
-			scope:activity = {
-				every_attending_character = {
-					save_temporary_scope_as = learning_secret
-					scope:activity = {
-						every_attending_character = {
-							random_secret = {
-								type = secret_witch
-								limit = {
-									NOT = { is_known_by = scope:learning_secret }
-								}
-								reveal_to = scope:learning_secret
-							}
-						}
-					}
-				}
-			}
-		}
-
-		#Give outcome to host
-		if = {
-			limit = { this = scope:host }
-
-			if = {
-				limit = {
-					OR = {
-						scope:grand_rite_ceremony_outcome = flag:great_translation
-						scope:grand_rite_ceremony_outcome = flag:great_tricks
-						scope:grand_rite_ceremony_outcome = flag:great_improvisation
-						scope:grand_rite_ceremony_outcome = flag:offering
-					}
-				}
-				grand_rite_good_outcome = yes
-			}
-			else = {
-				grand_rite_poor_outcome = yes
-			}
-		}
-
-		# get curse target
-		if = {
-			limit = { root = scope:host }
-			random_relation = {
-				type = rival
-				save_scope_as = target
-			}
-		}
-		if = {
-			limit = { 
-				root = scope:host
-				NOT = { exists = scope:target }
-			}
-			random_scheme = {
-				type = murder
-				save_scope_as = scheme
-				scope:scheme.scheme_target_character = { save_scope_as = target }
-			}
-		}
-
-		#Set portraits
-		scope:target = { save_scope_as = lower_center_portrait }
-		save_scope_as = left_portrait
+		witch_hex_prepare_effect = yes
 	}
 
-	# Curse with stress
+	# Despair: a rumor of a curse. Free.
 	option = {
 		name = witchimproved.1002.a
-		trigger = {
-			exists = scope:target
-		}
-		
-		show_as_tooltip = {
-			scope:target = {
-				random_list = {
-					95 = {
-						show_chance = no
-						add_stress = massive_stress_gain
-					}
-					5 = {
-						show_chance = no
-						trigger = {
-							NOR = {
-								has_trait = paranoid
-								has_trait = trusting 
-							} 
-						}
-						add_trait = paranoid
-					}
-				}
-			}
-		}
 		stress_impact = {
 			compassionate = medium_stress_impact_gain
 			forgiving = medium_stress_impact_gain
 			honest = minor_stress_impact_gain
 		}
+
+		save_scope_value_as = { name = hex_type value = flag:despair }
+		duel = {
+			skill = intrigue
+			value = witch_hex_difficulty_value
+			75 = {
+				desc = witchimproved.1002.duel.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				min = 10
+
+				save_scope_value_as = { name = hex_result value = flag:success }
+				custom_tooltip = witchimproved.1002.success.tt
+				show_as_tooltip = {
+					scope:target = { witch_hex_despair_effect = yes }
+				}
+				witch_hex_murder_tooltip_effect = yes
+			}
+			25 = {
+				desc = witchimproved.1002.duel.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 10
+
+				custom_tooltip = witchimproved.1002.failure.tt
+				hidden_effect = {
+					witch_hex_roll_failure_effect = yes
+				}
+			}
+		}
+		custom_tooltip = witchimproved.1002.discovery.tt
+
+		# Lands weeks later, see witchimproved.1003
 		hidden_effect = {
-			add_character_flag = witch_curse_stress_choice
-			scope:target = { save_scope_as = curse_target }
 			trigger_event = { id = witchimproved.1003 days = { 21 28 } }
 		}
 
@@ -618,47 +696,68 @@ witchimproved.1002 = {
 				ai_rationality = 1
 				ai_vengefulness = 0.5
 			}
+			modifier = {
+				add = 20
+				intrigue >= witch_hex_difficulty_value
+			}
 		}
 	}
 
-	# Curse with weakness or illness
+	# Sickness: a tainted gift. Costs piety; a herbalist, physician or alchemist in the circle helps.
 	option = {
 		name = witchimproved.1002.b
 		trigger = {
-			exists = scope:target
 			piety >= minor_piety_value
 		}
-
 		show_as_unavailable = {
 			piety < minor_piety_value
 		}
-		
+
 		add_piety = minor_piety_loss
 		stress_impact = {
 			compassionate = medium_stress_impact_gain
 			forgiving = medium_stress_impact_gain
 			honest = minor_stress_impact_gain
 		}
-		show_as_tooltip = {
-			scope:target = {
-				random_list = {
-					70 = {
-						show_chance = no
-						add_character_modifier = {
-							modifier = witch_curse_weakness
-							years = 1
-						}
-					}
-					30 = {
-						show_chance = no
-						add_trait = ill
-					}
+
+		save_scope_value_as = { name = hex_type value = flag:sickness }
+		duel = {
+			skill = learning
+			value = witch_hex_sickness_difficulty_value
+			75 = {
+				desc = witchimproved.1002.duel.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				min = 10
+
+				save_scope_value_as = { name = hex_result value = flag:success }
+				custom_tooltip = witchimproved.1002.success.tt
+				show_as_tooltip = {
+					scope:target = { witch_hex_sickness_effect = yes }
+				}
+				custom_tooltip = witchimproved.1002.b.ill.tt
+				witch_hex_murder_tooltip_effect = yes
+			}
+			25 = {
+				desc = witchimproved.1002.duel.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 10
+
+				custom_tooltip = witchimproved.1002.failure.tt
+				hidden_effect = {
+					witch_hex_roll_failure_effect = yes
 				}
 			}
 		}
+		custom_tooltip = witchimproved.1002.discovery.tt
+
+		# Lands weeks later, see witchimproved.1003
 		hidden_effect = {
-			add_character_flag = witch_curse_weakness_choice
-			scope:target = { save_scope_as = curse_target }
 			trigger_event = { id = witchimproved.1003 days = { 21 28 } }
 		}
 
@@ -668,37 +767,37 @@ witchimproved.1002 = {
 				ai_rationality = 0.5
 				ai_vengefulness = 1
 			}
+			modifier = {
+				add = 20
+				learning >= witch_hex_sickness_difficulty_value
+			}
+			# Do not spend the last of your piety on it
+			modifier = {
+				add = -30
+				piety < medium_piety_value
+			}
 		}
 	}
 
-	# curse with plague
+	# Pestilence: infected goods carried into the capital. Master witches only, and it can spread.
 	option = {
 		name = witchimproved.1002.c
 		trigger = {
-			exists = scope:target
 			exists = scope:target.capital_province
 			scope:target = {
 				is_ruler = yes
 				is_landed = yes
 			}
-			has_trait_xp = {
-				trait = witch
-				value >= 100
-			}
+			witch_improved_is_master_witch_trigger = yes
 			piety >= massive_piety_value
 		}
-
 		show_as_unavailable = {
 			OR = {
 				piety < massive_piety_value
-				has_trait_xp = {
-					trait = witch
-					value < 100
-				}
+				NOT = { witch_improved_is_master_witch_trigger = yes }
 			}
 		}
-		
-		
+
 		add_piety = massive_piety_loss
 		stress_impact = {
 			compassionate = medium_stress_impact_gain
@@ -706,17 +805,42 @@ witchimproved.1002 = {
 			honest = minor_stress_impact_gain
 		}
 
-		show_as_tooltip = {
-			scope:target.capital_province = {
-				create_random_epidemic_outbreak_effect = {
-					INTENSITY = minor
+		save_scope_value_as = { name = hex_type value = flag:pestilence }
+		duel = {
+			skill = intrigue
+			value = witch_hex_pestilence_difficulty_value
+			75 = {
+				desc = witchimproved.1002.duel.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+				}
+				min = 10
+
+				save_scope_value_as = { name = hex_result value = flag:success }
+				custom_tooltip = witchimproved.1002.success.tt
+				custom_tooltip = witchimproved.1002.c.tt
+				custom_tooltip = witchimproved.1002.c.spread.tt
+				witch_hex_murder_tooltip_effect = yes
+			}
+			25 = {
+				desc = witchimproved.1002.duel.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+				}
+				min = 10
+
+				custom_tooltip = witchimproved.1002.failure.tt
+				hidden_effect = {
+					witch_hex_roll_failure_effect = yes
 				}
 			}
 		}
-		
+		custom_tooltip = witchimproved.1002.discovery.tt
+
+		# Lands weeks later, see witchimproved.1003
 		hidden_effect = {
-			add_character_flag = witch_curse_plague_choice
-			scope:target = { save_scope_as = curse_target }
 			trigger_event = { id = witchimproved.1003 days = { 30 60 } }
 		}
 
@@ -725,65 +849,143 @@ witchimproved.1002 = {
 			ai_value_modifier = {
 				ai_vengefulness = 1.5
 			}
+			modifier = {
+				add = -50
+				piety < monumental_piety_value
+			}
+			modifier = {
+				add = -100
+				has_trait = compassionate
+			}
 		}
 	}
 }
 
-# Delayed curse effect event - executes the actual curse after several days
+# Hex Enemy, step 3 - the hex lands (hidden, weeks after witchimproved.1002)
+# Root = the hexer. Reads scope:target, scope:hex_type, scope:hex_result, scope:hex_helper (optional).
 witchimproved.1003 = {
 	hidden = yes
-	
+
 	immediate = {
-		# Execute stress curse
+		# The victim died, or lost the capital the pestilence was meant for
 		if = {
-			limit = { has_character_flag = witch_curse_stress_choice }
-			scope:target = {
-				random_list = {
-					95 = {
-						add_stress = major_stress_gain
-					}
-					5 = {
-						trigger = { 
-							NOR = { 
-								has_trait = paranoid
-								has_trait = trusting 
-							} 
-						}
-						add_trait = paranoid
+			limit = {
+				OR = {
+					scope:target = { is_alive = no }
+					AND = {
+						scope:hex_type = flag:pestilence
+						scope:target = { NOT = { exists = capital_province } }
 					}
 				}
 			}
-			remove_character_flag = witch_curse_stress_choice
+			send_interface_toast = {
+				title = witchimproved.1003.fizzle.t
+				left_icon = scope:target
+			}
 		}
-		# Execute weakness/illness curse
-		else_if = {
-			limit = { has_character_flag = witch_curse_weakness_choice }
-			scope:target = {
-				random_list = {
-					70 = {
-						show_chance = no
-						add_character_modifier = {
-							modifier = witch_curse_weakness
-							days = 180
+		else = {
+			if = {
+				limit = { scope:hex_result = flag:success }
+				if = {
+					limit = { scope:hex_type = flag:despair }
+					send_interface_toast = {
+						title = witchimproved.1003.success.t
+						left_icon = scope:target
+						show_as_tooltip = {
+							scope:target = { witch_hex_despair_effect = yes }
 						}
 					}
-					30 = {
-						show_chance = no
-						add_trait = ill
+					scope:target = {
+						send_interface_toast = {
+							title = witchimproved.1003.target.despair.t
+							witch_hex_despair_effect = yes
+						}
+						# Now and then the fear takes root for good
+						hidden_effect = {
+							random = {
+								chance = 5
+								if = {
+									limit = {
+										NOR = {
+											has_trait = paranoid
+											has_trait = trusting
+										}
+									}
+									add_trait = paranoid
+								}
+							}
+						}
 					}
 				}
-			}
-			remove_character_flag = witch_curse_weakness_choice
-		}
-		# Execute plague curse
-		else_if = {
-			limit = { has_character_flag = witch_curse_plague_choice }
-			scope:target.capital_province = {
-				create_random_epidemic_outbreak_effect = {
-					INTENSITY = minor
+				else_if = {
+					limit = { scope:hex_type = flag:sickness }
+					send_interface_toast = {
+						title = witchimproved.1003.success.t
+						left_icon = scope:target
+						show_as_tooltip = {
+							scope:target = { witch_hex_sickness_effect = yes }
+						}
+					}
+					scope:target = {
+						send_interface_toast = {
+							title = witchimproved.1003.target.sickness.t
+							witch_hex_sickness_effect = yes
+						}
+						# The gift may also make them properly ill, more often when a skilled hand prepared it
+						hidden_effect = {
+							if = {
+								limit = { exists = scope:hex_helper }
+								random = {
+									chance = 45
+									if = {
+										limit = { can_contract_disease_trigger = { DISEASE = ill } }
+										contract_disease_effect = { DISEASE = ill TREATMENT_EVENT = yes }
+									}
+								}
+							}
+							else = {
+								random = {
+									chance = 30
+									if = {
+										limit = { can_contract_disease_trigger = { DISEASE = ill } }
+										contract_disease_effect = { DISEASE = ill TREATMENT_EVENT = yes }
+									}
+								}
+							}
+						}
+					}
+				}
+				else = {
+					send_interface_toast = {
+						title = witchimproved.1003.success.t
+						left_icon = scope:target
+						scope:target.capital_province = { witch_hex_epidemic_outbreak_effect = yes }
+					}
+				}
+				hidden_effect = {
+					witch_hex_murder_scheme_bonus_effect = yes
 				}
 			}
-			remove_character_flag = witch_curse_plague_choice
+			else_if = {
+				limit = { scope:hex_result = flag:backfire }
+				send_interface_toast = {
+					title = witchimproved.1003.backfire.t
+					left_icon = scope:target
+					witch_hex_backfire_effect = yes
+				}
+			}
+			else = {
+				send_interface_toast = {
+					title = witchimproved.1003.fizzle.t
+					left_icon = scope:target
+				}
+			}
+
+			# Does the victim learn who was behind it?
+			random = {
+				chance = witch_hex_discovery_chance_value
+				witch_hex_discovered_effect = yes
+			}
 		}
 	}
 }

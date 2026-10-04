@@ -349,3 +349,334 @@ witch_forbidden_knowledge_failure_effect = {
 		}
 	}
 }
+
+###################
+# HEX ENEMY INTENT
+###################
+# Flow: witch.3014 (after) -> witchimproved.1005 (victim) -> witchimproved.1002 (hex) -> witchimproved.1003 (lands weeks later)
+# Saved scopes carried through that chain: hexer, target, hex_helper (optional), hex_type, hex_result
+
+# Builds the victim list for witchimproved.1005: murder scheme targets first, then rivals.
+# Scope: the hexer. Saves scope:hexer, scope:hex_candidate_1..4 and scope:hex_has_passed_over (flag:yes/no).
+# Victims the player passed over with "someone else" carry the timed flag witch_hex_passed_over.
+witch_hex_find_candidates_effect = {
+	save_scope_as = hexer
+	# The event can fire again, so start clean
+	if = {
+		limit = { exists = scope:hex_candidate_1 }
+		clear_saved_scope = hex_candidate_1
+	}
+	if = {
+		limit = { exists = scope:hex_candidate_2 }
+		clear_saved_scope = hex_candidate_2
+	}
+	if = {
+		limit = { exists = scope:hex_candidate_3 }
+		clear_saved_scope = hex_candidate_3
+	}
+	if = {
+		limit = { exists = scope:hex_candidate_4 }
+		clear_saved_scope = hex_candidate_4
+	}
+	if = {
+		limit = {
+			OR = {
+				any_relation = {
+					type = rival
+					has_character_flag = witch_hex_passed_over
+				}
+				any_scheme = {
+					type = murder
+					scheme_target_character = { has_character_flag = witch_hex_passed_over }
+				}
+			}
+		}
+		save_scope_value_as = { name = hex_has_passed_over value = flag:yes }
+	}
+	else = {
+		save_scope_value_as = { name = hex_has_passed_over value = flag:no }
+	}
+
+	every_scheme = {
+		type = murder
+		scheme_target_character = {
+			if = {
+				limit = {
+					is_alive = yes
+					NOT = { has_character_flag = witch_hex_passed_over }
+					NOT = { is_in_list = hex_candidates }
+				}
+				add_to_temporary_list = hex_candidates
+			}
+		}
+	}
+	every_relation = {
+		type = rival
+		limit = {
+			NOT = { has_character_flag = witch_hex_passed_over }
+			NOT = { is_in_list = hex_candidates }
+		}
+		add_to_temporary_list = hex_candidates
+	}
+	every_in_list = {
+		list = hex_candidates
+		if = {
+			limit = { NOT = { exists = scope:hex_candidate_1 } }
+			save_scope_as = hex_candidate_1
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:hex_candidate_2 } }
+			save_scope_as = hex_candidate_2
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:hex_candidate_3 } }
+			save_scope_as = hex_candidate_3
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:hex_candidate_4 } }
+			save_scope_as = hex_candidate_4
+		}
+	}
+}
+
+# Scope: the hexer
+witch_hex_clear_passed_over_effect = {
+	every_relation = {
+		type = rival
+		limit = { has_character_flag = witch_hex_passed_over }
+		remove_character_flag = witch_hex_passed_over
+	}
+	every_scheme = {
+		type = murder
+		scheme_target_character = {
+			if = {
+				limit = { has_character_flag = witch_hex_passed_over }
+				remove_character_flag = witch_hex_passed_over
+			}
+		}
+	}
+}
+
+# Scope: the hexer. VICTIM = the chosen candidate scope
+witch_hex_choose_victim_effect = {
+	$VICTIM$ = { save_scope_as = target }
+	hidden_effect = {
+		witch_hex_clear_passed_over_effect = yes
+	}
+	trigger_event = witchimproved.1002
+}
+
+# Run in the immediate of witchimproved.1002. Scope: the hexer.
+# Saves scope:hex_helper when a herbalist, physician or alchemist is in the circle.
+witch_hex_prepare_effect = {
+	save_scope_as = hexer
+	if = {
+		limit = { exists = scope:hex_helper }
+		clear_saved_scope = hex_helper
+	}
+	scope:activity = {
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:hexer }
+				witch_improved_brew_helper_trigger = yes
+			}
+			save_scope_as = hex_helper
+		}
+	}
+}
+
+# The duel of witchimproved.1002 failed: the hex either comes to nothing or turns on the hexer
+witch_hex_roll_failure_effect = {
+	random_list = {
+		65 = {
+			save_scope_value_as = { name = hex_result value = flag:fizzle }
+		}
+		35 = {
+			save_scope_value_as = { name = hex_result value = flag:backfire }
+		}
+	}
+}
+
+# Scope: the hexer
+witch_hex_murder_tooltip_effect = {
+	if = {
+		limit = { is_scheming_against = { target = scope:target type = murder } }
+		custom_tooltip = witchimproved.1002.murder.tt
+	}
+}
+
+# A hex that took hold helps a murder scheme against the same victim. Scope: the hexer
+witch_hex_murder_scheme_bonus_effect = {
+	random_scheme = {
+		type = murder
+		limit = {
+			scheme_target_character = scope:target
+			NOT = { has_scheme_modifier = witch_hexed_target_scheme_modifier }
+		}
+		add_scheme_modifier = { type = witch_hexed_target_scheme_modifier }
+	}
+}
+
+# Despair: the victim hears that a coven has cursed them, and fear does the rest.
+# Scope: the victim. Reads scope:hexer. Deterministic, so it can also be shown as a tooltip.
+witch_hex_despair_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_trait = brave
+				has_trait = cynical
+			}
+		}
+		add_stress = medium_stress_gain
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = craven
+				has_trait = paranoid
+				has_trait = zealous
+			}
+		}
+		add_stress = massive_stress_gain
+	}
+	else = {
+		add_stress = major_stress_gain
+	}
+	if = {
+		limit = { scope:hexer = { witch_improved_is_master_witch_trigger = yes } }
+		add_character_modifier = {
+			modifier = witch_hex_dread_modifier
+			years = 4
+		}
+	}
+	else_if = {
+		limit = { scope:hexer = { witch_improved_is_adept_witch_trigger = yes } }
+		add_character_modifier = {
+			modifier = witch_hex_dread_modifier
+			years = 3
+		}
+	}
+	else = {
+		add_character_modifier = {
+			modifier = witch_hex_dread_modifier
+			years = 2
+		}
+	}
+}
+
+# Sickness: a tainted gift from a coven member. Scope: the victim. Reads scope:hexer.
+witch_hex_sickness_effect = {
+	if = {
+		limit = { scope:hexer = { witch_improved_is_master_witch_trigger = yes } }
+		add_character_modifier = {
+			modifier = witch_curse_weakness
+			months = 24
+		}
+	}
+	else_if = {
+		limit = { scope:hexer = { witch_improved_is_adept_witch_trigger = yes } }
+		add_character_modifier = {
+			modifier = witch_curse_weakness
+			months = 18
+		}
+	}
+	else = {
+		add_character_modifier = {
+			modifier = witch_curse_weakness
+			months = 12
+		}
+	}
+}
+
+# Pestilence: infected goods carried into a capital. Only the milder diseases. Scope: province
+witch_hex_epidemic_outbreak_effect = {
+	random_list = {
+		40 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = measles
+				intensity = minor
+			}
+		}
+		30 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = dysentery
+				intensity = minor
+			}
+		}
+		20 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = consumption
+				intensity = minor
+			}
+		}
+		10 = {
+			show_chance = no
+			create_epidemic_outbreak = {
+				type = typhus
+				intensity = minor
+			}
+		}
+	}
+}
+
+# The hex turned on the hexer: a weaker version of what was meant for the victim. Scope: the hexer
+witch_hex_backfire_effect = {
+	if = {
+		limit = { scope:hex_type = flag:despair }
+		add_stress = medium_stress_gain
+		add_character_modifier = {
+			modifier = witch_hex_dread_modifier
+			years = 1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:hex_type = flag:pestilence
+			exists = capital_province
+		}
+		capital_province = { witch_hex_epidemic_outbreak_effect = yes }
+	}
+	else = {
+		add_character_modifier = {
+			modifier = witch_curse_weakness
+			months = 6
+		}
+	}
+}
+
+# The victim learns who was behind it. Scope: the hexer
+witch_hex_discovered_effect = {
+	send_interface_toast = {
+		title = witchimproved.1003.discovered.t
+		left_icon = scope:target
+		scope:target = {
+			add_opinion = {
+				target = scope:hexer
+				modifier = witch_hexed_me_opinion
+			}
+		}
+		# ...and what the hexer is
+		random_secret = {
+			type = secret_witch
+			limit = {
+				NOT = { is_known_by = scope:target }
+			}
+			reveal_to = scope:target
+		}
+	}
+	scope:target = {
+		send_interface_toast = {
+			title = witchimproved.1003.target.discovered.t
+			left_icon = scope:hexer
+			show_as_tooltip = {
+				add_opinion = {
+					target = scope:hexer
+					modifier = witch_hexed_me_opinion
+				}
+			}
+		}
+	}
+}

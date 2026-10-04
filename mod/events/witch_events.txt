@@ -1503,14 +1503,6 @@ witch.3010 = { #by Mathilda Bjarnehed
 						id = witchimproved.1001
 					}
 				}
-				else_if = {
-					limit = {
-						has_activity_intent = curse_enemy_intent
-					}
-					trigger_event = {
-						id = witchimproved.1002
-					}
-				}
 				else = {
 					trigger_event = {
 						id = witch.3014
@@ -1752,8 +1744,13 @@ witch.3014 = { #by Mathilda Bjarnehed
 			#Teacher (experience )
 			random_attending_character = {
 				limit = {
-					# Improved Witchcraft: a host seeking forbidden knowledge earns the lifestyle reward in witchimproved.1004 instead
-					root = { NOT = { has_activity_intent = forbidden_knowledge_intent } }
+					# Improved Witchcraft: these intents replace the teacher's free perk point (see witchimproved.1004 and witchimproved.1005)
+					root = {
+						NOR = {
+							has_activity_intent = forbidden_knowledge_intent
+							has_activity_intent = curse_enemy_intent
+						}
+					}
 					NOR = {
 						trigger_if = {
 							limit = { exists = scope:new_guest }
@@ -2311,11 +2308,18 @@ witch.3014 = { #by Mathilda Bjarnehed
 		}
 	}
 
-	# Improved Witchcraft: Seek Forbidden Knowledge continues in witchimproved.1004 once the gathering is done
+	# Improved Witchcraft: these intents continue in their own events once the gathering is done
 	after = {
 		if = {
 			limit = { has_activity_intent = forbidden_knowledge_intent }
 			trigger_event = witchimproved.1004
+		}
+		else_if = {
+			limit = {
+				has_activity_intent = curse_enemy_intent
+				has_any_rival_or_murder_target_trigger = yes
+			}
+			trigger_event = witchimproved.1005
 		}
 	}
 }	

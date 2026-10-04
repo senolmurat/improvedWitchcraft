@@ -5,3 +5,9 @@ witch_brew_failed_opinion = {
 	opinion = -20
 	years = 5
 }
+
+# The victim's opinion of the hexer after learning who was behind a hex
+witch_hexed_me_opinion = {
+	opinion = -40
+	years = 20
+}

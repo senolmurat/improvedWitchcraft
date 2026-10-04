@@ -145,3 +145,71 @@ witch_forbidden_knowledge_ai_reckless_value = {
 	value = witch_forbidden_knowledge_difficulty_value
 	subtract = 5
 }
+
+# Hex Enemy: target value of the duel in witchimproved.1002. Scope: the hexer.
+witch_hex_difficulty_value = {
+	value = decent_skill_rating
+	if = {
+		limit = { witch_improved_is_master_witch_trigger = yes }
+		subtract = 4
+	}
+	else_if = {
+		limit = { witch_improved_is_adept_witch_trigger = yes }
+		subtract = 2
+	}
+	if = {
+		limit = { witch_improved_good_ceremony_trigger = yes }
+		subtract = 2
+	}
+	else_if = {
+		limit = { witch_improved_poor_ceremony_trigger = yes }
+		add = 2
+	}
+	min = 6
+}
+
+# The sickness hex is easier with a herbalist, physician or alchemist in the circle (scope:hex_helper)
+witch_hex_sickness_difficulty_value = {
+	value = witch_hex_difficulty_value
+	if = {
+		limit = { exists = scope:hex_helper }
+		subtract = 2
+	}
+	min = 6
+}
+
+witch_hex_pestilence_difficulty_value = {
+	value = witch_hex_difficulty_value
+	add = 4
+}
+
+# Chance (0-100) that the victim learns who was behind the hex. Scope: the hexer, in witchimproved.1003.
+# Reads scope:target, scope:hex_type, scope:hex_result and scope:hex_helper.
+witch_hex_discovery_chance_value = {
+	value = 25
+	subtract = intrigue
+	# A sharp victim asks the right questions
+	if = {
+		limit = { scope:target = { intrigue >= high_skill_rating } }
+		add = 10
+	}
+	# A botched hex leaves traces
+	if = {
+		limit = { NOT = { scope:hex_result = flag:success } }
+		add = 15
+	}
+	if = {
+		limit = { scope:hex_type = flag:pestilence }
+		add = 5
+	}
+	# A skilled hand hides the poison
+	if = {
+		limit = {
+			scope:hex_type = flag:sickness
+			exists = scope:hex_helper
+		}
+		subtract = 5
+	}
+	min = 5
+	max = 60
+}

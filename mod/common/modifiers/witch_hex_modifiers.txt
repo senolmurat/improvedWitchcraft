@@ -1,0 +1,14 @@
+﻿### Hex Enemy Modifiers - Improved Witchcraft Mod
+
+# Despair hex: everyone knows a coven has cursed this character
+witch_hex_dread_modifier = {
+	icon = stress_negative
+	stress_gain_mult = 0.25
+	diplomacy = -1
+}
+
+# Scheme modifier: a murder scheme against a victim whose hex took hold
+witch_hexed_target_scheme_modifier = {
+	icon = intrigue_positive
+	scheme_success_chance = 10
+}

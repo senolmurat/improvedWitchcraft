@@ -868,6 +868,12 @@ witch.2005 = { #by Mathilda Bjarnehed
 		}
 	}
 
+	immediate = {
+		random_secret = {
+			type = secret_witch
+			save_scope_as = witch_secret_scope
+		}
+	}
 
 	option = {
 		name = witch.2005.a

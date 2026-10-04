@@ -33,7 +33,7 @@ court_alchemist_court_position = {
 			desc = court_position_skill_learning
 		}
 		if = {
-			limit = { has_trait = lifestyle_scholar }
+			limit = { has_trait = erudite }
 			add = { value = 15 desc = court_position_scholar_trait }
 		}
 		if = {

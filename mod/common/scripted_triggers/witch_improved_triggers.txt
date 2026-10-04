@@ -1,12 +1,4 @@
-﻿is_COURT_HERBALIST_loaded = {
-	if = {
-		limit = {
-			exists = global_var:COURT_HERBALIST_is_loaded
-		}
-	}
-}
-
-has_any_lifestyle_trigger = {
+﻿has_any_lifestyle_trigger = {
 	OR = {
 		has_lifestyle = diplomacy_lifestyle
 		has_lifestyle = martial_lifestyle
@@ -65,5 +57,19 @@ court_alchemist_validity_trigger = {
 			limit = { NOT = { has_court_position = court_alchemist_court_position } }
 			court_position_does_not_already_have_a_job_trigger = yes # This positions is considered a job, and cannot be held at the same time as another similar position
 		}
+	}
+}
+
+# Can tend to the host during the brew of a Grand Rite: an herbalist, a court physician, a court alchemist
+# or a court herbalist. Scope: character
+# is_court_herbalist_trigger is a stub here (00000_witch_improved_compat_stubs.txt); the Court Herbalist mod overrides it.
+# Never name court_herbalist_court_position in this mod: the key is validated at load and errors when that mod is absent.
+witch_improved_brew_helper_trigger = {
+	is_alive = yes
+	OR = {
+		has_trait = lifestyle_herbalist
+		has_court_position = court_physician_court_position
+		has_court_position = court_alchemist_court_position
+		is_court_herbalist_trigger = yes
 	}
 }

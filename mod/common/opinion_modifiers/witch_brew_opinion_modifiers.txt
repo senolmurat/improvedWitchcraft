@@ -1,0 +1,7 @@
+﻿### Witch Brew Opinion Modifiers - Improved Witchcraft Mod
+
+# The helper's opinion of the host after a brew went wrong on their watch
+witch_brew_failed_opinion = {
+	opinion = -20
+	years = 5
+}

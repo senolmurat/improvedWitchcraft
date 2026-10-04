@@ -1019,3 +1019,189 @@ scripted_effect witchimproved.1004_give_lifestyle_perk_effect = {
 		add_$LIFESTYLE$_lifestyle_perk_points = 1
 	}
 }
+
+#############################
+# BREW OPTION EVENTS        #
+#############################
+# witchimproved.1010-1019 - Grand Rite brew option (fired by witch_improved_brew_outcome_effect, host only)
+#   1010 tea | 1011 strong: cured | 1012 strong: healthy, medium boost | 1013 strong: not cured, small boost | 1014 strong: worsened
+# Optional saved scope: scope:brew_helper = attending herbalist / court physician, shown as the right portrait
+
+witchimproved.1010 = {
+	type = activity_event
+	title = witchimproved.1010.t
+	desc = {
+		desc = witchimproved.1010.desc
+		triggered_desc = {
+			trigger = { exists = scope:brew_helper }
+			desc = witchimproved.1010.helper.desc
+		}
+	}
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = {
+		character = root
+		animation = drink
+	}
+	right_portrait = {
+		trigger = { exists = scope:brew_helper }
+		character = scope:brew_helper
+		animation = personality_rational
+	}
+
+	option = {
+		name = witchimproved.1010.a
+		add_character_modifier = {
+			modifier = witch_brew_tea_modifier
+			years = 5
+		}
+	}
+}
+
+witchimproved.1011 = {
+	type = activity_event
+	title = witchimproved.1011.t
+	desc = {
+		desc = witchimproved.1011.desc
+		triggered_desc = {
+			trigger = { exists = scope:brew_helper }
+			desc = witchimproved.1011.helper.desc
+		}
+	}
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+	right_portrait = {
+		trigger = { exists = scope:brew_helper }
+		character = scope:brew_helper
+		animation = personality_rational
+	}
+
+	option = {
+		name = witchimproved.1011.a
+		custom_tooltip = witchimproved.1011.tt
+		hidden_effect = {
+			witch_improved_cure_worst_disease_effect = yes
+		}
+	}
+}
+
+witchimproved.1012 = {
+	type = activity_event
+	title = witchimproved.1012.t
+	desc = {
+		desc = witchimproved.1012.desc
+		triggered_desc = {
+			trigger = { exists = scope:brew_helper }
+			desc = witchimproved.1012.helper.desc
+		}
+	}
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+	right_portrait = {
+		trigger = { exists = scope:brew_helper }
+		character = scope:brew_helper
+		animation = personality_rational
+	}
+
+	option = {
+		name = witchimproved.1012.a
+		add_character_modifier = {
+			modifier = witch_brew_vigor_modifier
+			months = 6
+		}
+	}
+}
+
+witchimproved.1013 = {
+	type = activity_event
+	title = witchimproved.1013.t
+	desc = {
+		desc = witchimproved.1013.desc
+		triggered_desc = {
+			trigger = { exists = scope:brew_helper }
+			desc = witchimproved.1013.helper.desc
+		}
+	}
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+	right_portrait = {
+		trigger = { exists = scope:brew_helper }
+		character = scope:brew_helper
+		animation = personality_rational
+	}
+
+	option = {
+		name = witchimproved.1013.a
+		add_character_modifier = {
+			modifier = witch_brew_recovery_modifier
+			months = 6
+		}
+	}
+}
+
+witchimproved.1014 = {
+	type = activity_event
+	title = witchimproved.1014.t
+	desc = {
+		triggered_desc = {
+			trigger = { has_treatable_disease_trigger = yes }
+			desc = witchimproved.1014.sick.desc
+		}
+		triggered_desc = {
+			trigger = { NOT = { has_treatable_disease_trigger = yes } }
+			desc = witchimproved.1014.healthy.desc
+		}
+		triggered_desc = {
+			trigger = { exists = scope:brew_helper }
+			desc = witchimproved.1014.helper.desc
+		}
+	}
+	theme = witchcraft
+	override_background = {
+		reference = bp1_bonfire
+	}
+	left_portrait = {
+		character = root
+		animation = paranoia
+	}
+	right_portrait = {
+		trigger = { exists = scope:brew_helper }
+		character = scope:brew_helper
+		animation = personality_rational
+	}
+
+	option = {
+		name = witchimproved.1014.a
+		add_character_modifier = {
+			modifier = witch_brew_sickness_modifier
+			months = 6
+		}
+		add_stress = minor_stress_gain
+		scope:brew_helper ?= {
+			add_opinion = {
+				target = root
+				modifier = witch_brew_failed_opinion
+			}
+		}
+	}
+}

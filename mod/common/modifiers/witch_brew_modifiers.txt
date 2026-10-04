@@ -1,0 +1,26 @@
+﻿### Witch Brew Modifiers - Improved Witchcraft Mod
+
+# Mild herbal tea - lasting resistance to disease
+witch_brew_tea_modifier = {
+	icon = health_positive
+	epidemic_resistance = 5
+	negate_health_penalty_add = 0.1
+}
+
+# Strong brew, healthy host - medium health boost (applied for 6 months)
+witch_brew_vigor_modifier = {
+	icon = health_positive
+	health = 0.5
+}
+
+# Strong brew did not cure - small health boost as a fallback (applied for 6 months)
+witch_brew_recovery_modifier = {
+	icon = health_positive
+	health = 0.25
+}
+
+# Strong brew went wrong - symptoms worsen (applied for 6 months)
+witch_brew_sickness_modifier = {
+	icon = health_negative
+	health = -0.5
+}

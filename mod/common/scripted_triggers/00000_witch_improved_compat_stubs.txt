@@ -1,0 +1,10 @@
+﻿### Compatibility stubs - Improved Witchcraft Mod
+# Defaults for triggers that belong to OTHER mods. Files load in alphabetical order across all mods and the last
+# definition of a key wins, so the owning mod overrides these from a 'zzzzz_' file when it is loaded.
+# Only put other mods' triggers here, never this mod's own (see zzzzz_witch_improved_loaded.txt).
+
+# Court Herbalist (Workshop 3571752592)
+is_COURT_HERBALIST_loaded = { always = no }
+
+# Scope: character. Does the character hold the Court Herbalist court position?
+is_court_herbalist_trigger = { always = no }

@@ -247,6 +247,150 @@
 				}
 			}
 		}
+
+		# Which brew is passed around the circle? Results are handled in witch_improved_brew_outcome_effect
+		rite_option_brew = {
+			rite_brew_none = {
+				default = yes
+
+				ai_will_do = {
+					value = 10
+				}
+			}
+			rite_brew_tea = {
+				is_shown = { has_dlc_feature = advanced_activities }
+
+				cost = {
+					gold = {
+						add = {
+							value = 0
+							desc = rite_brew_tea
+							add = {
+								value = 5
+								desc = rite_brew_tea
+							}
+							add = {
+								value = 5
+								multiply = activity_cost_scale_by_tier
+								subtract = 5
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 5
+								multiply = activity_cost_scale_by_era
+								subtract = 5
+								desc = activity_cost_scale_by_era_desc
+							}
+							if = {
+								limit = {
+									dynasty ?= {
+										has_dynasty_perk = law_legacy_1
+									}
+								}
+								subtract = {
+									value = 5
+									add = {
+										value = 5
+										multiply = activity_cost_scale_by_tier
+										subtract = 5
+									}
+									add = {
+										value = 5
+										multiply = activity_cost_scale_by_era
+										subtract = 5
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+							if = {
+								limit = {
+									has_perk = journey_planner_perk
+								}
+								multiply = {
+									value = voyager_journey_planner_value
+									desc = journey_planner_perk_name
+								}
+							}
+						}
+					}
+				}
+
+				ai_will_do = {
+					value = 10
+					add = activity_option_likes_middling_expense_value
+				}
+			}
+			rite_brew_strong = {
+				is_shown = { has_dlc_feature = advanced_activities }
+
+				cost = {
+					gold = {
+						add = {
+							value = 0
+							desc = rite_brew_strong
+							add = {
+								value = 20
+								desc = rite_brew_strong
+							}
+							add = {
+								value = 20
+								multiply = activity_cost_scale_by_tier
+								subtract = 20
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 20
+								multiply = activity_cost_scale_by_era
+								subtract = 20
+								desc = activity_cost_scale_by_era_desc
+							}
+							if = {
+								limit = {
+									dynasty ?= {
+										has_dynasty_perk = law_legacy_1
+									}
+								}
+								subtract = {
+									value = 20
+									add = {
+										value = 20
+										multiply = activity_cost_scale_by_tier
+										subtract = 20
+									}
+									add = {
+										value = 20
+										multiply = activity_cost_scale_by_era
+										subtract = 20
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+							if = {
+								limit = {
+									has_perk = journey_planner_perk
+								}
+								multiply = {
+									value = voyager_journey_planner_value
+									desc = journey_planner_perk_name
+								}
+							}
+						}
+					}
+				}
+
+				ai_will_do = {
+					value = 0
+					add = activity_option_likes_heavy_expense_value
+					# A sick host is far more tempted by a possible cure
+					if = {
+						limit = { has_treatable_disease_trigger = yes }
+						add = 50
+					}
+				}
+			}
+		}
 	}
 
 	###################
@@ -286,6 +430,7 @@
 				if = {
 					limit = { this = scope:host }
 					trigger_event = witch.3098
+					witch_improved_brew_outcome_effect = yes
 				}
 				else = { trigger_event =  witch.3099 }
 			}

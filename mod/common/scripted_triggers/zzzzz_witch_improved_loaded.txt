@@ -1,0 +1,4 @@
+﻿### Mod detection flag - Improved Witchcraft Mod
+# 'zzzzz_' so this loads after every other mod's 'always = no' stub of the same trigger.
+# Other mods ship that stub in a '00000_' file and can then test: is_IMPROVED_WITCHCRAFT_loaded = yes
+is_IMPROVED_WITCHCRAFT_loaded = { always = yes }

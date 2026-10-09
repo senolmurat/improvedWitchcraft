@@ -46,7 +46,7 @@
 				limit = {
 					trigger_if = {
 						limit = {
-							scope:character = {
+							scope:character ?= {
 								is_ai = no
 							}
 						}
@@ -155,12 +155,12 @@ tradition_folk_healers = {
 				limit = {
 					trigger_if = {
 						limit = {
-							scope:character = {
+							scope:character ?= {
 								is_ai = no
 							}
 						}
 						NOT = {
-							scope:character = {
+							scope:character ?= {
 								OR = {
 									any_councillor = {
 										OR = {
@@ -270,7 +270,7 @@ tradition_coven_kinship = {
 		}
 		custom_tooltip = {
 			text = not_numerous_close_family_desc
-			scope:character = {
+			scope:character ?= {
 				any_close_family_member = {
 					count >= 10
 					is_alive = yes
@@ -313,15 +313,15 @@ tradition_coven_kinship = {
 				limit = {
 					trigger_if = {
 						limit = {
-							scope:character = {
+							scope:character ?= {
 								is_ai = no
 							}
 						}
 						NOT = {
-							scope:character = {
+							scope:character ?= {
 								any_close_family_member = {
 									percent > 0.5
-									save_temporary_opinion_value_as = { name = target_opinion target = scope:character }		
+									save_temporary_opinion_value_as = { name = target_opinion target = scope:character }
 									scope:target_opinion >= 80
 								}
 							}
@@ -366,7 +366,7 @@ tradition_coven_kinship = {
 		}
 		if = {
 			limit = {
-				scope:character = {
+				scope:character ?= {
 					any_close_family_member = {
 						count < 15
 					}
@@ -432,12 +432,22 @@ tradition_blessed_protection = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						any_culture_county = {
-							any_county_province = {
-								has_building_or_higher = march_01
+					trigger_if = {
+						limit = {
+							scope:character ?= {
+								is_ai = no
 							}
 						}
+						NOT = {
+							any_culture_county = {
+								any_county_province = {
+									has_building_or_higher = march_01
+								}
+							}
+						}
+					}
+					trigger_else = {
+						always = no
 					}
 				}
 				add = {
@@ -493,7 +503,7 @@ tradition_blessed_protection = {
 		if = {
 			limit = {
 				# dont bother for small armies
-				scope:character = {
+				scope:character ?= {
 					current_military_strength < 2000
 				}
 			}
@@ -552,10 +562,20 @@ tradition_coven_meet = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						scope:character = {
-							piety_level >= 4
+					trigger_if = {
+						limit = {
+							scope:character ?= {
+								is_ai = no
+							}
 						}
+						NOT = {
+							scope:character ?= {
+								piety_level >= 4
+							}
+						}
+					}
+					trigger_else = {
+						always = no
 					}
 				}
 				add = {

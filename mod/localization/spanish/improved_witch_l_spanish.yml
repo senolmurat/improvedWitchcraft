@@ -127,7 +127,7 @@
 
  tradition_folk_healers_name:0 "Sanadores Populares"
  tradition_folk_healers_desc:0 "Hay quienes creen que la verdadera curación viene de la unión de la tierra y el espíritu. El conocimiento de las hierbas sana la carne, pero solo la sabiduría de los caminos antiguos puede calmar un alma turbada o alejar plagas invisibles. Por lo tanto, sus sanadores más respetados son aquellos que caminan por ambos senderos, mezclando medicina práctica con la magia más profunda del mundo natural."
- no_witch_healer_in_realm: "Debes tener al menos un [vassal|E], [courtier|E] o [councillor|E] con [GetTrait('witch').GetName( GetNullCharacter )] y [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]"
+ no_witch_healer_in_realm: "Debes tener al menos un [vassal|E], [courtier|E] o [councillor|E] con [GetTrait('witch').GetName( GetNullCharacter )] o [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]"
  culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]" 
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "El [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] es más fácil de obtener de [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  culture_parameter_can_gain_mystic_trait_from_rite:0 "Puede obtener [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] por asistir a [GetActivityType('activity_witch_ritual').GetName] [activity|E]"

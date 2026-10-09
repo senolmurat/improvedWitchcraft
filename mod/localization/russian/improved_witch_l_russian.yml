@@ -127,7 +127,7 @@
 
  tradition_folk_healers_name:0 "Народные Целители"
  tradition_folk_healers_desc:0 "Есть те, кто верит, что истинное исцеление приходит от союза земли и духа. Знание трав лечит плоть, но только мудрость старых путей может успокоить встревоженную душу или отогнать невидимые напасти. Поэтому их самые уважаемые целители — те, кто идёт по обоим путям, смешивая практическую медицину с более глубокой магией природного мира."
- no_witch_healer_in_realm: "У вас должен быть хотя бы один [vassal|E], [courtier|E] или [councillor|E] с [GetTrait('witch').GetName( GetNullCharacter )] и [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]"
+ no_witch_healer_in_realm: "У вас должен быть хотя бы один [vassal|E], [courtier|E] или [councillor|E] с [GetTrait('witch').GetName( GetNullCharacter )] или [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E]"
  culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]" 
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] легче получить от [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
  culture_parameter_can_gain_mystic_trait_from_rite:0 "Может получить [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] за посещение [GetActivityType('activity_witch_ritual').GetName] [activity|E]"

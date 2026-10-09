@@ -128,7 +128,7 @@
 
  tradition_folk_healers_name:0 "Ludowi Uzdrowiciele"
  tradition_folk_healers_desc:0 "Są tacy, którzy wierzą, że prawdziwe uzdrowienie pochodzi z jedności ziemi i ducha. Wiedza o ziołach leczy ciało, ale tylko mądrość dawnych ścieżek koi niespokojną duszę i odpiera niewidzialne zarazy. Najbardziej szanowani uzdrowiciele kroczą obiema drogami, łącząc praktyczną medycynę z głęboką magią natury."
- no_witch_healer_in_realm:0 "Musisz mieć przynajmniej jednego [vassal|E], [courtier|E] lub [councillor|E] z [GetTrait('witch').GetName( GetNullCharacter )] i [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]"
+ no_witch_healer_in_realm:0 "Musisz mieć przynajmniej jednego [vassal|E], [courtier|E] lub [councillor|E] z [GetTrait('witch').GetName( GetNullCharacter )] lub [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E]"
  culture_parameter_can_appoint_court_alchemist:0 "[GetPlayer.Custom('FolkHealersAlchemistCustomLoc')][GetPlayer.Custom('FolkHealersHerbalistCustomLoc')]"
  culture_parameter_easier_herbalist_trait_gain_from_rite:0 "[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [trait|E] łatwiej uzyskać podczas [GetActivityType('activity_witch_ritual').GetName] [activity|E]"  
  culture_parameter_can_gain_mystic_trait_from_rite:0 "Można uzyskać [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] [trait|E] podczas [GetActivityType('activity_witch_ritual').GetName] [activity|E]"

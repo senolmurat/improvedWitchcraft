@@ -121,16 +121,12 @@ tradition_folk_healers = {
 	}
 
 	can_pick = {
-		scope:character.rite = {
-			NOR = {
-				rite_has_parameter = witchcraft_illegal
-				rite_has_parameter = witchcraft_shunned
-			}
-		}
+		always = yes
 	}
 	
 	parameters = {
 		can_appoint_court_alchemist = yes
+		mystic_trait_more_common = yes
 		can_gain_mystic_trait_from_rite = yes
 		easier_herbalist_trait_gain_from_rite = yes
 		slightly_cheaper_court_physician = yes
@@ -157,24 +153,40 @@ tradition_folk_healers = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						scope:character = {
-							OR = {
-								any_councillor = {
-									has_trait = witch
-									has_trait = lifestyle_herbalist
-								}
-								any_courtier = {
-									has_trait = witch
-									has_trait = lifestyle_herbalist
-								}
-								any_vassal = {
-									has_trait = witch
-									has_trait = lifestyle_herbalist
-								}
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
 							}
-							
 						}
+						NOT = {
+							scope:character = {
+								OR = {
+									any_councillor = {
+										OR = {
+											has_trait = witch
+											has_trait = lifestyle_herbalist
+										}
+									}
+									any_courtier = {
+										OR = {
+											has_trait = witch
+											has_trait = lifestyle_herbalist
+										}
+									}
+									any_vassal = {
+										OR = {
+											has_trait = witch
+											has_trait = lifestyle_herbalist
+										}
+									}
+								}
+								
+							}
+						}
+					}
+					trigger_else = {
+						always = no
 					}
 				}
 				add = {
@@ -201,18 +213,29 @@ tradition_folk_healers = {
 	}
 	
 	ai_will_do = {
-		value = 50
+		value = 100
 		if = {
 			limit = {
 				NOT = {
 					scope:character ?= {
-						has_trait = witch
+						OR = {
+							has_trait = witch
+							has_trait = lifestyle_herbalist
+						}
 					}
 				}
 			}
-			multiply = 0.25
+			multiply = 0.75
 		}
-		else = {
+		if = {
+			limit = {
+				scope:character ?= {
+					OR = {
+						has_trait = witch
+						has_trait = lifestyle_herbalist
+					}
+				}
+			}
 			multiply = 2
 		}
 		if = {
@@ -329,16 +352,14 @@ tradition_coven_kinship = {
 	}
 	
 	ai_will_do = {
-		value = 50
+		value = 100
 		if = {
 			limit = {
-				NOT = {
-					scope:character ?= {
-						has_trait = witch
-					}
+				scope:character ?= {
+					is_witch_trigger = no
 				}
 			}
-			multiply = 0.5
+			multiply = 0
 		}
 		else = {
 			multiply = 2
@@ -440,20 +461,10 @@ tradition_blessed_protection = {
 	
 	ai_will_do = {
 		value = 50
-		
-		if = {
-			limit = {
-				# dont bother for small armies
-				scope:character = {
-					current_military_strength < 2000
-				}
-			}
-			multiply = 0
-		}
 		if = {
 			limit = {
 				NOT = {
-					scope:character = {
+					scope:character ?= {
 						has_trait = witch
 					}
 				}
@@ -463,6 +474,7 @@ tradition_blessed_protection = {
 		else = {
 			add = 50
 		}
+
 		# bonus for fighting cultures
 		if = {
 			limit = {
@@ -476,6 +488,16 @@ tradition_blessed_protection = {
 				}
 			}
 			multiply = 2
+		}
+
+		if = {
+			limit = {
+				# dont bother for small armies
+				scope:character = {
+					current_military_strength < 2000
+				}
+			}
+			multiply = 0
 		}
 	}
 }
@@ -571,7 +593,7 @@ tradition_coven_meet = {
 		if = {
 			limit = {
 				NOT = {
-					scope:character = {
+					scope:character ?= {
 						has_trait = witch
 					}
 				}

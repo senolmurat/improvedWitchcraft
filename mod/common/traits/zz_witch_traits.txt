@@ -92,4 +92,5 @@ witch = {
 		ignore_opinion_value_if_same_trait = yes
 	}
 	flag = gnostic_learning_piety_trait
+	flag = trait_can_be_replaced
 }

@@ -56,7 +56,7 @@ witch_blessing_stewardship_boon = {
 	stewardship = 5
 	monthly_income_mult = 0.10
 	vassal_tax_mult = 0.2
-	development_growth_factor = 0.15
+	prosperity_growth_factor = 0.15
 	build_gold_cost = -0.15
 	build_speed = -0.15
 }

@@ -1,6 +1,6 @@
 ﻿coven_elective_succession_law = {
 	law_group_type = title_succession_laws
-	index = 12 # vanilla uses 0-11
+	index = 13 # vanilla uses 0-12
 
 	can_have = {
 		OR = {

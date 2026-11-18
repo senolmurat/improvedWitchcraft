@@ -28,6 +28,13 @@ doctrine_witchcraft_crime = {
 		}
 	}
 
+	can_pick = {
+		custom_description = {
+			text = incompatible_tenet_natural_primitivism_trigger
+			NOT = { tenet:tenet_natural_primitivism = { is_in_list = selected_doctrines } }
+		}
+	}
+
 	parameters = {
 		witchcraft_illegal
 		#witchcraft_rejecting_faiths

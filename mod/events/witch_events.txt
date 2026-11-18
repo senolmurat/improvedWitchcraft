@@ -179,6 +179,10 @@ witch.1002 = { #by Mathilda Bjarnehed
 				trigger_event = witch.1003
 			}
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 		
 		ai_chance = {
 			base = 100
@@ -245,6 +249,10 @@ witch.1003 = { #by Mathilda Bjarnehed
 		name = witch.1003.a
 		
 		child_witch_conversion_success_effect = yes
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 
 	#No...
@@ -553,6 +561,10 @@ witch.2003 = { #by Mathilda Bjarnehed
 		scope:scheme = {
 			end_scheme = yes
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 	
 	#Let them know who I am
@@ -594,6 +606,10 @@ witch.2003 = { #by Mathilda Bjarnehed
 			end_scheme = yes
 		}
 
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
+
 		ai_chance = {
 			base = 100
 
@@ -615,6 +631,10 @@ witch.2003 = { #by Mathilda Bjarnehed
 
 		scope:scheme = {
 			end_scheme = yes
+		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
 		}
 
 		ai_chance = {
@@ -1381,6 +1401,10 @@ witch.3010 = { #by Mathilda Bjarnehed
 				show_as_tooltip = { grand_rite_poor_outcome = yes }
 			}
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
+		}
 	}
 
 	#Use some tricks
@@ -1417,7 +1441,8 @@ witch.3010 = { #by Mathilda Bjarnehed
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 			honest = minor_stress_impact_gain
 		}
 	}
@@ -1456,7 +1481,8 @@ witch.3010 = { #by Mathilda Bjarnehed
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 			shy = minor_stress_impact_gain
 		}
 	}
@@ -1478,7 +1504,8 @@ witch.3010 = { #by Mathilda Bjarnehed
 
 		show_as_tooltip = { grand_rite_good_outcome = yes }
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 			greedy = minor_stress_impact_gain
 		}
 	}
@@ -2013,6 +2040,7 @@ witch.3014 = { #by Mathilda Bjarnehed
 		}
 
 		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 			lazy = minor_stress_impact_gain
 		}
 
@@ -2263,9 +2291,9 @@ witch.3014 = { #by Mathilda Bjarnehed
 				send_interface_toast = {
 					title = witch.3014.d.enemy
 					left_icon = scope:new_guest
-					set_relation_rival = {
-						target = scope:new_guest
-						reason = rival_at_ceremony
+					set_relation_rival_effect = {
+						TARGET = scope:new_guest
+						REASON = rival_at_ceremony
 					}
 				}
 			}
@@ -2552,7 +2580,7 @@ scripted_effect witch_4001_prank_success_effect = {
 		modifier = trickster_modifier
 		years = 10
 	}
-	stress_impact = {
+	stress_and_fulfillment_impact = {
 		base = medium_stress_impact_loss
 		compassionate = minor_stress_impact_gain
 		honest = minor_stress_impact_gain
@@ -2880,7 +2908,7 @@ witch.4001 = { #by Mathilda Bjarnehed
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			compassionate = minor_stress_impact_gain
 			honest = minor_stress_impact_gain
 			forgiving = minor_stress_impact_gain
@@ -2900,7 +2928,7 @@ witch.4001 = { #by Mathilda Bjarnehed
 		}
 		add_piety = minor_piety_gain
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			honest = minor_stress_impact_gain
 			cynical = minor_stress_impact_gain
 		}
@@ -3167,6 +3195,10 @@ witch.4003 = { #by Mathilda Bjarnehed
 				reveal_to = root
 			}
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 
 
@@ -3200,6 +3232,10 @@ witch.4003 = { #by Mathilda Bjarnehed
 			opinion = 20
 			target = scope:annoying_clergy
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 }
 
@@ -3223,7 +3259,7 @@ witch.4004 = { #by Mathilda Bjarnehed
 	option = {
 		name = witch.4004.a
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			base = major_stress_impact_gain
 			diligent = medium_stress_impact_loss
 			lazy = minor_stress_impact_gain
@@ -3526,6 +3562,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 			modifier = alluring_confidence
 			years = 10
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 
 	#Ask for diplomacy
@@ -3536,6 +3576,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 		add_character_modifier = {
 			modifier = confident_diplomat
 			years = 10
+		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
 		}
 	}
 
@@ -3548,6 +3592,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 			modifier = confident_strategist
 			years = 10
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 
 	#Ask for stewardship
@@ -3558,6 +3606,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 		add_character_modifier = {
 			modifier = confident_organizer
 			years = 10
+		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
 		}
 	}
 
@@ -3570,6 +3622,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 			modifier = confident_schemer
 			years = 10
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 
 	#Ask for learning
@@ -3580,6 +3636,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 		add_character_modifier = {
 			modifier = confident_scholar
 			years = 10
+		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
 		}
 	}
 
@@ -3592,6 +3652,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 			modifier = confident_duelist
 			years = 10
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 	
 	#Ask for relaxation
@@ -3600,6 +3664,10 @@ witch.4010 = { #by Mathilda Bjarnehed
 		name = witch.4010.h
 		
 		add_stress = monumental_stress_loss
+
+		stress_and_fulfillment_impact = {
+			witch = medium_stress_impact_loss
+		}
 	}
 }
 
@@ -3775,7 +3843,8 @@ witch.4020 = { #by Mathilda Bjarnehed
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 			greedy = minor_stress_impact_gain
 			ambitious = minor_stress_impact_gain
 		}
@@ -3805,7 +3874,8 @@ witch.4020 = { #by Mathilda Bjarnehed
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 			greedy = minor_stress_impact_gain
 			ambitious = minor_stress_impact_gain
 		}
@@ -3831,8 +3901,9 @@ witch.4020 = { #by Mathilda Bjarnehed
 			years = 10
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			base = minor_stress_impact_loss # It's not be be prayed for
+			witch = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 			shy = minor_stress_impact_gain
 			craven = minor_stress_impact_gain
@@ -4223,6 +4294,10 @@ witch.4030 = { #by Mathilda Bjarnehed
 		show_as_tooltip = {
 			scope:newly_created_artifact = { set_owner = root }
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
+		}
 	}
 
 	# Sell it to other witches and share profit
@@ -4283,6 +4358,10 @@ witch.4030 = { #by Mathilda Bjarnehed
 				show_as_tooltip = { scope:convince_target_1 = { witch_4030_convince_failure_effect = yes } }
 			}
 		}
+
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
+		}
 	}
 	
 	#  use it to convince someone (option 2)
@@ -4328,6 +4407,10 @@ witch.4030 = { #by Mathilda Bjarnehed
 				}
 				show_as_tooltip = { scope:convince_target_2 = { witch_4030_convince_failure_effect = yes } }
 			}
+		}
+
+		stress_and_fulfillment_impact = {
+			witch = minor_stress_impact_loss
 		}
 	}
 }

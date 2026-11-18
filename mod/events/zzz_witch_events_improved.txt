@@ -124,7 +124,7 @@ witchimproved.1001 = {
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			lazy = minor_stress_impact_gain
 		}
 
@@ -247,7 +247,7 @@ witchimproved.1001 = {
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			lazy = minor_stress_impact_gain
 		}
 
@@ -371,7 +371,7 @@ witchimproved.1001 = {
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			lazy = minor_stress_impact_gain
 		}
 
@@ -457,7 +457,7 @@ witchimproved.1001 = {
 			}
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			lazy = minor_stress_impact_gain
 		}
 
@@ -516,7 +516,7 @@ witchimproved.1001 = {
 
 		witch_blessing_add_boon_effect = { MODIFIER = witch_blessing_allrounder_boon HOST_MONTHS = 12 GUEST_MONTHS = 6 TITLE = witchimproved.1001.boon.t ICON = root }
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			base = major_stress_loss
 			gregarious = minor_stress_impact_loss
 			drunkard = minor_stress_impact_loss
@@ -691,7 +691,7 @@ witchimproved.1002 = {
 	# Despair: a rumor of a curse. Free.
 	option = {
 		name = witchimproved.1002.a
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			compassionate = medium_stress_impact_gain
 			forgiving = medium_stress_impact_gain
 			honest = minor_stress_impact_gain
@@ -761,7 +761,7 @@ witchimproved.1002 = {
 		}
 
 		add_piety = minor_piety_loss
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			compassionate = medium_stress_impact_gain
 			forgiving = medium_stress_impact_gain
 			honest = minor_stress_impact_gain
@@ -846,7 +846,7 @@ witchimproved.1002 = {
 		}
 
 		add_piety = massive_piety_loss
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			compassionate = medium_stress_impact_gain
 			forgiving = medium_stress_impact_gain
 			honest = minor_stress_impact_gain
@@ -1107,7 +1107,7 @@ witchimproved.1004 = {
 		name = witchimproved.1004.a
 		add_internal_flag = dangerous
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			base = minor_stress_impact_gain
 			craven = major_stress_impact_gain
 			paranoid = major_stress_impact_gain
@@ -1171,7 +1171,7 @@ witchimproved.1004 = {
 		name = witchimproved.1004.c
 		highlight_portrait = scope:knowledge_guide
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			craven = minor_stress_impact_gain
 			paranoid = minor_stress_impact_gain
 			shy = minor_stress_impact_gain

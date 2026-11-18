@@ -8,11 +8,35 @@ alchemist_task_focus_potions = {
 	cost = {
 		round = no
 		gold = {
-			add = {
-				value = monthly_court_position_task_cost
-				multiply = 2
-				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
-				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = no
+					}
+				}
+				add = {
+					value = monthly_court_position_task_cost
+					multiply = 2
+					desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
+			}
+		}
+		treasury = {
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = yes
+					}
+				}
+				add = {
+					value = monthly_court_position_task_cost
+					multiply = 2
+					desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
 			}
 		}
 	}
@@ -57,10 +81,33 @@ alchemist_task_focus_poisons = {
 	cost = {
 		round = no
 		gold = {
-			add = {
-				value = monthly_court_position_task_cost
-				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
-				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = no
+					}
+				}
+				add = {
+					value = monthly_court_position_task_cost
+					desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
+			}
+		}
+		treasury = {
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = yes
+					}
+				}
+				add = {
+					value = monthly_court_position_task_cost
+					desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
 			}
 		}
 	}
@@ -100,11 +147,35 @@ alchemist_task_life_essence = {
 	cost = {
 		round = no
 		gold = {
-			add = {
-				value = monthly_court_position_task_cost
-				multiply = 3
-				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
-				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = no
+					}
+				}
+				add = {
+					value = monthly_court_position_task_cost
+					multiply = 3
+					desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
+			}
+		}
+		treasury = {
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = yes
+					}
+				}
+				add = {
+					value = monthly_court_position_task_cost
+					multiply = 3
+					desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
 			}
 		}
 		prestige = {
